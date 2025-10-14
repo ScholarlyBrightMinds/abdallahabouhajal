@@ -1,5 +1,5 @@
 // scopus.v2.js — renders Template-2 cards from /data/scopus/scopus.json + metrics
-const DATA_PATH = "/data/scopus/scopus.json"; // JSON created by tools/scopus_fetcher.py
+const DATA_PATH = "data/scopus/scopus.json"; // JSON created by tools/scopus_fetcher.py
 
 /* ---------- helpers ---------- */
 const fmtDate = (iso="")=>{
