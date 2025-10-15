@@ -6,11 +6,12 @@ on:
   workflow_dispatch:      # allow manual run from the Actions tab
 
 permissions:
-  contents: write         # needed to push the updated JSON
+  contents: write
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 20   # <— safety cutoff
 
     steps:
       - name: Checkout
@@ -26,13 +27,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
+      # FAST monthly run (no --details)
       - name: Generate scopus.json
         env:
           SCOPUS_API_KEYS: ${{ secrets.SCOPUS_API_KEYS }}
         run: |
           python tools/scopus_fetcher.py \
             --authors-file data/authors.csv \
-            --details \
             --out data/scopus \
             --combined data/scopus/scopus.json
 
