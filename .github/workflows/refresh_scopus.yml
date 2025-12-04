@@ -1,49 +1,37 @@
+# .github/workflows/scopus-monthly.yml — commit metrics.json too (and optionally include all types)
 name: Monthly Scopus refresh
-
 on:
   schedule:
-    # Runs on the 1st each month at 20:15 UTC (~00:15 Asia/Dubai next calendar day).
     - cron: "15 20 1 * *"
   workflow_dispatch: {}
-
 permissions:
   contents: write
-
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install deps
-        run: |
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: |
           python -m pip install --upgrade pip
           pip install requests
-
-      - name: Ensure folders
-        run: |
-          mkdir -p data/scopus
-
-      - name: Generate scopus.json
+      - run: mkdir -p data/scopus
+      - name: Generate scopus data
         env:
-          SCOPUS_API_KEYS: ${{ secrets.SCOPUS_API_KEYS }}  # e.g., key1,key2
+          SCOPUS_API_KEYS: ${{ secrets.SCOPUS_API_KEYS }}
         run: |
           python tools/scopus_fetcher.py \
             --authors-file data/authors.csv \
             --out data/scopus \
             --combined data/scopus/scopus.json \
-            --details
-
-      - name: Commit updated data
-        uses: stefanzweifel/git-auto-commit-action@v5
+            --metrics data/scopus/metrics.json \
+            --details \
+            --types "*"
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(data): monthly Scopus refresh"
+          commit_message: "chore(data): monthly Scopus refresh (json + metrics)"
           file_pattern: |
             data/scopus/*.csv
             data/scopus/scopus.json
+            data/scopus/metrics.json
