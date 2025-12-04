@@ -1,37 +1,41 @@
-# tools/scopus_fetcher.py
 from __future__ import annotations
 import argparse, csv, json, os, time, logging, requests, re
 from datetime import datetime, timezone
 
-SEARCH="https://api.elsevier.com/content/search/scopus"
-ABSTRACT="https://api.elsevier.com/content/abstract/eid/{}"
-AUTHOR="https://api.elsevier.com/content/author/author_id/{}"
-FIELDS="dc:title,eid,prism:doi,citedby-count,prism:coverDate,subtype,subtypeDescription,prism:publicationName,prism:volume,prism:issueIdentifier,prism:pageRange,dc:creator"
-PAGE=25; TIMEOUT=20
+SEARCH  = "https://api.elsevier.com/content/search/scopus"
+ABSTRACT= "https://api.elsevier.com/content/abstract/eid/{}"
+AUTHOR  = "https://api.elsevier.com/content/author/author_id/{}"
+FIELDS  = "dc:title,eid,prism:doi,citedby-count,prism:coverDate,subtype,subtypeDescription,prism:publicationName,prism:volume,prism:issueIdentifier,prism:pageRange,dc:creator"
+PAGE, TIMEOUT = 25, 20
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-log=logging.getLogger("scopus")
+log = logging.getLogger("scopus")
 
 def _parse_api_keys(envval: str) -> list[str]:
+    # why: tolerate stray quotes/brackets/spacing and keep only 32-hex tokens
     if not envval: return []
     cleaned = envval.strip().strip("[](){}")
     parts = re.split(r"[,\s]+", cleaned)
-    keys = []
+    out=[]
     for p in parts:
         k = p.strip().strip("'").strip('"')
-        if re.fullmatch(r"[0-9a-fA-F]{32}", k):
-            keys.append(k.lower())
-    return keys
+        if re.fullmatch(r"[0-9a-fA-F]{32}", k): out.append(k.lower())
+    return out
 
-API_KEYS=[k for k in _parse_api_keys(os.getenv("SCOPUS_API_KEYS",""))]
+API_KEYS = _parse_api_keys(os.getenv("SCOPUS_API_KEYS",""))
 if not API_KEYS:
-    raise SystemExit("Set SCOPUS_API_KEYS=key1,key2 (comma-separated, no quotes).")
+    raise SystemExit("Set SCOPUS_API_KEYS to one or more 32-hex keys separated by commas (no quotes).")
 
-def ensure(p): os.makedirs(p, exist_ok=True)
-def scopus_link(eid): return f"https://www.scopus.com/record/display.uri?eid={eid}&origin=recordpage"
-def iso_now(): return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+def ensure(path: str) -> None:
+    os.makedirs(path, exist_ok=True)
 
-def parts(date):
+def scopus_link(eid: str) -> str:
+    return f"https://www.scopus.com/record/display.uri?eid={eid}&origin=recordpage"
+
+def iso_now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+def parts(date: str | None):
     y=m=d=None
     if date:
         sp=date.split("-")
@@ -40,14 +44,15 @@ def parts(date):
         d=(sp[2].zfill(2) if len(sp)>2 and sp[2] else None)
     return y,m,d
 
-def req(url, headers, params):
+def req(url: str, headers: dict, params: dict | None):
     r=requests.get(url, headers=headers, params=params, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()
 
-def _key(i:int)->str: return API_KEYS[i % len(API_KEYS)]
+def _key(i:int)->str:
+    return API_KEYS[i % len(API_KEYS)]
 
-def iter_search(query):
+def iter_search(query: str):
     i=start=0; total=None
     while True:
         headers={"Accept":"application/json","X-ELS-APIKey":_key(i)}
@@ -66,7 +71,7 @@ def iter_search(query):
         if total is not None and (start>=total or not entries): break
         time.sleep(0.25)
 
-def fetch_authors(eid):
+def fetch_authors(eid: str) -> list[str]:
     headers={"Accept":"application/json","X-ELS-APIKey":_key(0)}
     for _ in range(4):
         try:
@@ -83,6 +88,7 @@ def fetch_authors(eid):
     return []
 
 def fetch_author_profile(author_id:str)->dict:
+    # why: match Scopus UI totals (citations/docs/h-index)
     headers={"Accept":"application/json","X-ELS-APIKey":_key(0)}
     j=req(AUTHOR.format(author_id), headers, {"view":"ENHANCED"})
     core=(j.get("author-retrieval-response") or [{}])[0]
@@ -90,7 +96,7 @@ def fetch_author_profile(author_id:str)->dict:
     author_name = " ".join(filter(None,[name.get("given-name"), name.get("surname")])) or None
     h = int(core.get("h-index",0) or 0)
     total_cites = int(core.get("coredata",{}).get("citation-count",0) or 0)
-    total_docs = int(core.get("coredata",{}).get("document-count",0) or 0)
+    total_docs  = int(core.get("coredata",{}).get("document-count",0) or 0)
     return {
         "author_id": author_id,
         "author_name": author_name,
@@ -101,7 +107,7 @@ def fetch_author_profile(author_id:str)->dict:
         "last_updated": iso_now(),
     }
 
-def normalize(it, authors):
+def normalize(it: dict, authors: list[str]) -> dict:
     y,m,d=parts(it.get("prism:coverDate") or "")
     doi=it.get("prism:doi")
     return {
@@ -126,15 +132,14 @@ def normalize(it, authors):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--authors-file", default="data/authors.csv")
-    ap.add_argument("--out", default="data/scopus")
-    ap.add_argument("--combined", default="data/scopus/scopus.json")
-    ap.add_argument("--metrics", default="data/scopus/metrics.json")
+    ap.add_argument("--out",         default="data/scopus")
+    ap.add_argument("--combined",    default="data/scopus/scopus.json")
+    ap.add_argument("--metrics",     default="data/scopus/metrics.json")
     ap.add_argument("--details", action="store_true")
-    ap.add_argument("--types", default="Article,Review,Editorial,Conference Paper")  # set "*" to include all types
+    ap.add_argument("--types",  default="Article,Review,Editorial,Conference Paper")  # set "*" to include all
     args=ap.parse_args()
 
     ensure(args.out)
-
     keep_all = args.types.strip() == "*"
     include=[t.strip().lower() for t in args.types.split(",") if t.strip()]
 
@@ -167,7 +172,7 @@ def main():
             r.get("title") or ""
         ), reverse=True)
 
-        # per-author CSV
+        # CSV per author
         csvp=os.path.join(args.out, f"{nm.replace(' ','_')}_articles.csv")
         with open(csvp,"w",newline="",encoding="utf-8") as f:
             w=csv.DictWriter(f, fieldnames=["title","scopus_url","doi_url","cited_by","cover_date","venue","volume","issue","pages"])
@@ -193,4 +198,5 @@ def main():
             json.dump(first_metrics,f,ensure_ascii=False,indent=2)
         log.info("Metrics JSON: %s", args.metrics)
 
-if __name__=="__main__": main()
+if __name__=="__main__":
+    main()
