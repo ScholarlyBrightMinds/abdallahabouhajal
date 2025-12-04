@@ -1,13 +1,28 @@
-# tools/scopus_fetcher.py
+# tools/scopus_fetcher.py  — add official Scopus metrics output
 from __future__ import annotations
-import argparse, csv, json, os, time, logging, requests
+import argparse, csv, json, os, time, logging, requests, re
+from datetime import datetime, timezone
 
-API_KEYS=[k.strip() for k in os.getenv("SCOPUS_API_KEYS","").split(",") if k.strip()]
+API_KEYS_ENV = os.getenv("SCOPUS_API_KEYS", "")
+
+def _parse_api_keys(envval: str) -> list[str]:
+    if not envval: return []
+    cleaned = envval.strip().strip("[](){}")
+    parts = re.split(r"[,\s]+", cleaned)
+    keys = []
+    for p in parts:
+        k = p.strip().strip("'").strip('"')
+        if re.fullmatch(r"[0-9a-fA-F]{32}", k):
+            keys.append(k.lower())
+    return keys
+
+API_KEYS = _parse_api_keys(API_KEYS_ENV)
 if not API_KEYS:
-    raise SystemExit("Set SCOPUS_API_KEYS=key1,key2,... (comma-separated) before running.")
+    raise SystemExit("Set SCOPUS_API_KEYS with one or more 32-hex keys (comma-separated).")
 
 SEARCH="https://api.elsevier.com/content/search/scopus"
 ABSTRACT="https://api.elsevier.com/content/abstract/eid/{}"
+AUTHOR="https://api.elsevier.com/content/author/author_id/{}"
 FIELDS="dc:title,eid,prism:doi,citedby-count,prism:coverDate,subtype,subtypeDescription,prism:publicationName,prism:volume,prism:issueIdentifier,prism:pageRange,dc:creator"
 PAGE=25; TIMEOUT=20
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -15,6 +30,7 @@ log=logging.getLogger("scopus")
 
 def ensure(p): os.makedirs(p, exist_ok=True)
 def scopus_link(eid): return f"https://www.scopus.com/record/display.uri?eid={eid}&origin=recordpage"
+def iso_now(): return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def parts(date):
     y=m=d=None
@@ -30,10 +46,12 @@ def req(url, headers, params):
     r.raise_for_status()
     return r.json()
 
+def _key(i:int)->str: return API_KEYS[i % len(API_KEYS)]
+
 def iter_search(keys, query):
     i=start=0; total=None
     while True:
-        headers={"Accept":"application/json","X-ELS-APIKey":keys[i%len(keys)]}
+        headers={"Accept":"application/json","X-ELS-APIKey":_key(i)}
         params={"query":query,"field":FIELDS,"count":PAGE,"start":start}
         try:
             data=req(SEARCH, headers, params)
@@ -50,7 +68,7 @@ def iter_search(keys, query):
         time.sleep(0.25)
 
 def fetch_authors(keys, eid):
-    headers={"Accept":"application/json","X-ELS-APIKey":keys[0]}
+    headers={"Accept":"application/json","X-ELS-APIKey":_key(0)}
     for _ in range(4):
         try:
             j=req(ABSTRACT.format(eid), headers, {"view":"FULL"})
@@ -64,6 +82,26 @@ def fetch_authors(keys, eid):
         except Exception:
             time.sleep(0.5)
     return []
+
+def fetch_author_profile(author_id:str)->dict:
+    """Official Scopus totals (matches UI): h-index, total citations, documents."""
+    headers={"Accept":"application/json","X-ELS-APIKey":_key(0)}
+    j=req(AUTHOR.format(author_id), headers, {"view":"ENHANCED"})
+    core=(j.get("author-retrieval-response") or [{}])[0]
+    name = core.get("coredata",{}).get("preferred-name",{})
+    author_name = " ".join(filter(None,[name.get("given-name"), name.get("surname")])) or None
+    h = int(core.get("h-index",0) or 0)
+    total_cites = int(core.get("coredata",{}).get("citation-count",0) or 0)
+    total_docs = int(core.get("coredata",{}).get("document-count",0) or 0)
+    return {
+        "author_id": author_id,
+        "author_name": author_name,
+        "h_index": h,
+        "total_citations": total_cites,  # this is the 39 you see on Scopus
+        "total_documents": total_docs,
+        "source": "scopus",
+        "last_updated": iso_now(),
+    }
 
 def normalize(it, authors):
     y,m,d=parts(it.get("prism:coverDate") or "")
@@ -79,7 +117,7 @@ def normalize(it, authors):
         "year": y, "month": m, "day": d,
         "venue": it.get("prism:publicationName"),
         "type": it.get("subtypeDescription"),
-        "subtype": it.get("subtype"),  # 'ar' = article, 'cp' = conference paper, etc.
+        "subtype": it.get("subtype"),
         "volume": it.get("prism:volume"),
         "issue": it.get("prism:issueIdentifier"),
         "pages": it.get("prism:pageRange"),
@@ -92,11 +130,16 @@ def main():
     ap.add_argument("--authors-file", default="data/authors.csv")
     ap.add_argument("--out", default="data/scopus")
     ap.add_argument("--combined", default="data/scopus/scopus.json")
+    ap.add_argument("--metrics", default="data/scopus/metrics.json")
     ap.add_argument("--details", action="store_true")
-    ap.add_argument("--types", default="Article,Review,Editorial,Conference Paper")
+    ap.add_argument("--types", default="Article,Review,Editorial,Conference Paper")  # change to "*" to include all
     args=ap.parse_args()
 
     ensure(args.out)
+
+    # types filter (supports "*" for all)
+    keep_all = args.types.strip() == "*"
+    include=[t.strip().lower() for t in args.types.split(",") if t.strip()]
 
     authors=[]
     with open(args.authors_file, newline="", encoding="utf-8") as f:
@@ -105,15 +148,16 @@ def main():
             if aid and nm: authors.append((aid,nm))
     if not authors: raise SystemExit("authors.csv has no rows.")
 
-    include=[t.strip().lower() for t in args.types.split(",") if t.strip()]
     combined=[]
+    metrics_out = []
+
     for i,(aid,nm) in enumerate(authors,1):
         log.info("Author %d/%d %s (%s)", i, len(authors), nm, aid)
         q=f"AU-ID({aid})"
         rows=[]
         for it in iter_search(API_KEYS, q):
             desc=(it.get("subtypeDescription") or it.get("subtype") or "").lower()
-            keep = any(t in desc for t in include) or it.get("subtype","").lower()=="cp"
+            keep = keep_all or any(t in desc for t in include) or it.get("subtype","").lower()=="cp"
             if not keep: continue
             a = fetch_authors(API_KEYS, it.get("eid","")) if (args.details and it.get("eid")) else []
             row=normalize(it, a)
@@ -122,8 +166,8 @@ def main():
 
         rows.sort(key=lambda r: (
             int(r["year"]) if (r["year"] and str(r["year"]).isdigit()) else -1,
-            r.get("month") or "",
-            r.get("title") or ""
+            (r.get("month") or ""),
+            (r.get("title") or "")
         ), reverse=True)
 
         # per-author CSV
@@ -136,8 +180,22 @@ def main():
 
         combined.extend(rows); time.sleep(0.1)
 
+        # fetch official metrics for this author
+        try:
+            prof = fetch_author_profile(aid)
+            if prof: metrics_out.append(prof)
+        except Exception as e:
+            log.warning("Metrics fetch failed for %s: %s", aid, e)
+
+    # write combined list
     with open(args.combined,"w",encoding="utf-8") as f:
         json.dump(combined,f,ensure_ascii=False,indent=2)
     log.info("Combined JSON: %s (total %d)", args.combined, len(combined))
+
+    # write metrics (single-author: just first)
+    if metrics_out:
+        with open(args.metrics,"w",encoding="utf-8") as f:
+            json.dump(metrics_out[0], f, ensure_ascii=False, indent=2)
+        log.info("Metrics JSON: %s", args.metrics)
 
 if __name__=="__main__": main()
