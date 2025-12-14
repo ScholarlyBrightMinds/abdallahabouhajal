@@ -480,7 +480,7 @@ footer p {
         width: 24px;  /* Further adjusted for better fit */
         height: 24px; /* Further adjusted for better fit */
         
-
+    }
     :root{
       /* Adjust this value to change hero image size on desktop */
       --hero-max: 480px;
