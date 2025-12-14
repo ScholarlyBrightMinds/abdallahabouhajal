@@ -480,6 +480,11 @@ footer p {
         width: 24px;  /* Further adjusted for better fit */
         height: 24px; /* Further adjusted for better fit */
     }
+    /* Blog 4 hero image on top */
+    .hero-image { margin: 0 0 1rem; }
+    .hero-image img { display: block; width: 100%; height: auto; border-radius: 12px; }
+    .blog-post-header h1 { margin-bottom: .25rem; }
+    .blog-date { display: inline-block; opacity: .7; }
 
    
 }
