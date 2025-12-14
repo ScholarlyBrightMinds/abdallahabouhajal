@@ -480,29 +480,26 @@ footer p {
         width: 24px;  /* Further adjusted for better fit */
         height: 24px; /* Further adjusted for better fit */
         
-    /* /blog-post.css — replace/add this block */
+
     :root{
-      /* tweak this number to make the hero image smaller/larger */
-      --hero-max: 560px;  /* try 520px or 480px if you want even smaller */
+      /* Adjust this value to change hero image size on desktop */
+      --hero-max: 480px;
     }
     
-    /* spacing from title/date */
-    .hero-image{ margin: 1rem 0 0; }
-    
-    /* figure is the size gate; centers itself */
+    .hero-image{ margin: 1rem 0 0; }         /* space after title/date */
     .hero-image--narrow{
       max-width: var(--hero-max);
-      margin: 1rem auto 0;     /* center */
+      margin: 1rem auto 0;                   /* center the figure */
     }
-    
-    /* image fills the (now narrow) figure */
     .hero-image--narrow img{
       display: block;
       width: 100%;
       height: auto;
       border-radius: 12px;
     }
-
-
-   
-}
+    
+    /* small polish */
+    .blog-date{ display:inline-block; opacity:.7; }
+    
+       
+    }
