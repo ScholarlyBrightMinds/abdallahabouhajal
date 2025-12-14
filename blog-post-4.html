@@ -1,12 +1,12 @@
 <!-- =======================================================================
 File: /blog-4.html
-Purpose: Blog 4 with hero image AFTER title/date + consistent title/date
+Purpose: Blog 4 with smaller hero image AFTER title/date, no dashes, steps 1/2/3
 ======================================================================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>A Playbook for Drug Discovery on GitHub - Abdallah's Blog</title>
+  <title>A Playbook for Drug Discovery on GitHub · Abdallah's Blog</title>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
   <link href="blog-post.css" rel="stylesheet" type="text/css"/>
@@ -49,72 +49,71 @@ Purpose: Blog 4 with hero image AFTER title/date + consistent title/date
   </nav>
 
   <div class="content-wrapper">
-  <div class="project-hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>A Playbook for Drug Discovery on GitHub</h1>
-          <time class="blog-date">Dec 14, 2025</time>
+    <div class="project-hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>A Playbook for Drug Discovery on GitHub</h1>
+            <time class="blog-date">Dec 14, 2025</time>
+          </div>
         </div>
+
+        <!-- Smaller image: constrained and centered -->
+        <figure class="hero-image hero-image--narrow">
+          <img
+            src="images/blog-4.png"
+            alt="Cover image showing GitHub workflows used for reproducible drug discovery"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </figure>
       </div>
-  
-      <!-- Smaller image: figure is constrained + centered -->
-      <figure class="hero-image hero-image--narrow">
-        <img
-          src="images/blog-4.png"
-          alt="Cover image: GitHub workflows powering reproducible drug discovery"
-          loading="eager"
-          fetchpriority="high"
-        >
-      </figure>
     </div>
-  </div>
 
     <main>
-
+      <article class="blog-post">
         <section class="blog-content">
-          <p>Okay, real talk … if you’re working in AI for drug discovery and you haven’t spent time on GitHub... you’re kind of missing the whole point.</p>
+          <p>Okay, real talk. If you work in AI for drug discovery and you have not spent time on GitHub, you are missing the point.</p>
 
-          <p>During the recent hackathon at Insilico Medicine (and through a lot of the work I’ve been doing lately), one thing kept showing up over and over: code is now just as important as your paper.</p>
+          <p>During the recent hackathon at Insilico Medicine and through a lot of my recent work, one thing kept showing up again and again. Code is now just as important as your paper.</p>
 
           <p>A predictive model in a publication is great.<br>
-          A working GitHub repo that runs, explains, and evolves? That’s better.<br>
-          That’s how real science moves forward. Or at least this is what I think. Transparency, sharing, and building on what came before.</p>
+          A working GitHub repo that runs, explains, and evolves is better.<br>
+          That is how real science moves forward. Transparency, sharing, and building on what came before.</p>
 
-          <p>In fact, we have written a full editorial (currently in review!) showing how GitHub is exploding in drug discovery, with around a <strong>60% jump</strong> in publications referencing it just from 2023 to 2024. That’s wild.</p>
+          <p>We have written an editorial that is in review showing how GitHub usage is exploding in drug discovery, with about a <strong>60% jump</strong> in publications that reference it from 2023 to 2024. That is wild.</p>
 
-          <h2>So, Why Does GitHub Matter for New Researchers?</h2>
-          <p>Let me put it simply:</p>
+          <h2>Why GitHub matters for new researchers</h2>
+          <p>In simple terms:</p>
           <ul>
             <li>You will run into it</li>
-            <li>It’ll look confusing at first</li>
-            <li>And yep .. you’ll need it anyway</li>
+            <li>It looks confusing at first</li>
+            <li>And yes, you will need it anyway</li>
           </ul>
 
-          <p>The first time I opened a GitHub repo, it felt like walking into a foreign city with no map. But then I started figuring out the basics:</p>
+          <p>The first time I opened a GitHub repo, it felt like walking into a foreign city with no map. Then the basics clicked:</p>
           <ul>
-            <li><strong>README.md</strong> is your guidebook. If it’s clear, you're good. If it’s vague, brace yourself.</li>
-            <li><strong>Issues</strong> and <strong>pull requests</strong>? This is where the real action happens.</li>
+            <li><strong>README.md</strong> is your guidebook. If it is clear, you are good. If it is vague, brace yourself.</li>
+            <li><strong>Issues</strong> and <strong>pull requests</strong> are like lab meeting notes. This is where the real action happens.</li>
           </ul>
 
-          <h2>A Simple GitHub Workflow (that actually works)</h2>
-          <p>We talk about this in the editorial, but here’s a quick preview:</p>
-          <ol>
-            <li>1] Discover tools using clear keywords like “ligand binding prediction” or “generative molecule design.”</li>
-            <li>2] Assess the repo — is it maintained? Clear documentation? Docker or Conda files?</li>
-            <li>3] Engage by running examples. Test it. Break it. See what happens when you tweak it.</li>
-          </ol>
+          <h2>A simple GitHub workflow that works</h2>
+          <ul>
+            <li><strong>1)</strong> Discover tools with clear keywords like ligand binding prediction or generative molecule design.</li>
+            <li><strong>2)</strong> Assess the repo. Is it maintained? Is the documentation clear? Does it include Docker or Conda files?</li>
+            <li><strong>3)</strong> Engage by running examples. Test it. Break it. See what happens when you tweak it.</li>
+          </ul>
 
-          <p>The idea isn’t just to use code. It’s to understand it, reuse it, and maybe improve it. That’s how we move forward.</p>
+          <p>The goal is not just to use code. It is to understand it, reuse it, and improve it. That is how we move forward.</p>
 
-          <h2>The Bigger Picture</h2>
-          <p>Imagine this:<br>
-          Every AI model in every paper, backed by a clean, documented, reproducible GitHub repo.<br>
-          That’s the future we should aim for.</p>
+          <h2>The bigger picture</h2>
+          <p>Imagine this.<br>
+          Every AI model in every paper backed by a clean, documented, reproducible GitHub repo.<br>
+          That is the future we should aim for.</p>
 
-          <p>So if you’re new to research or just getting started in this space, go ahead, open that repo. Clone that project. Break it, fix it, learn from it. It’s all part of the process.</p>
+          <p>If you are new to research or just getting started, open that repo. Clone that project. Break it, fix it, learn from it. It is all part of the process.</p>
 
-          <p><strong>Happy coding and til next time!</strong></p>
+          <p><strong>Happy coding and til next time</strong></p>
         </section>
       </article>
     </main>
