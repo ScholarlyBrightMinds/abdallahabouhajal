@@ -73,31 +73,27 @@ def fetch_authors(eid):
             time.sleep(0.5)
     return []
 
-def _author_profile_call(author_id: str, view: str) -> Dict | None:
+def _author_profile(author_id: str, view: str) -> Dict | None:
     headers={"Accept":"application/json","X-ELS-APIKey":_key(0)}
     try:
         j=req(AUTHOR.format(author_id), headers, {"view": view})
         core=(j.get("author-retrieval-response") or [{}])[0]
         name=core.get("coredata",{}).get("preferred-name",{})
         author_name=" ".join(filter(None,[name.get("given-name"), name.get("surname")])) or None
-        h = int(core.get("h-index",0) or 0)
-        total_cites = int(core.get("coredata",{}).get("citation-count",0) or 0)
-        total_docs  = int(core.get("coredata",{}).get("document-count",0) or 0)
         return {
             "author_id": author_id,
             "author_name": author_name,
-            "h_index": h,
-            "total_citations": total_cites,
-            "total_documents": total_docs,
+            "h_index": int(core.get("h-index",0) or 0),
+            "total_citations": int(core.get("coredata",{}).get("citation-count",0) or 0),
+            "total_documents": int(core.get("coredata",{}).get("document-count",0) or 0),
             "source": f"scopus:{view.lower()}",
             "last_updated": iso_now(),
         }
     except Exception as e:
-        log.warning("author profile (%s) failed: %s", view, e)
-        return None
+        log.warning("author profile (%s) failed: %s", view, e); return None
 
 def fetch_author_profile(author_id:str)->Dict | None:
-    return _author_profile_call(author_id, "ENHANCED") or _author_profile_call(author_id, "STANDARD")
+    return _author_profile(author_id,"ENHANCED") or _author_profile(author_id,"STANDARD")
 
 def parts(date):
     y=m=d=None
@@ -123,7 +119,7 @@ def normalize(it, authors, generated_at):
         "pages": it.get("prism:pageRange"),
         "first_author": it.get("dc:creator"),
         "authors": authors,
-        "generated_at": generated_at,   # why: force JSON content to change → Git commits → Pages redeploy
+        "generated_at": generated_at,  # why: ensures scopus.json content changes → commit happens
     }
 
 def _fallback_metrics(author_id: str, author_name: str, rows: List[Dict]) -> Dict:
