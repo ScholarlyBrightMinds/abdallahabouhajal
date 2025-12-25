@@ -97,7 +97,6 @@ def _author_profile_call(author_id: str, view: str) -> Dict | None:
         return None
 
 def fetch_author_profile(author_id:str)->Dict | None:
-    # try ENHANCED first; fall back to STANDARD (no insttoken required)
     return _author_profile_call(author_id, "ENHANCED") or _author_profile_call(author_id, "STANDARD")
 
 def parts(date):
@@ -108,7 +107,7 @@ def parts(date):
         d=(sp[2].zfill(2) if len(sp)>2 and sp[2] else None)
     return y,m,d
 
-def normalize(it, authors):
+def normalize(it, authors, generated_at):
     y,m,d=parts(it.get("prism:coverDate") or ""); doi=it.get("prism:doi")
     return {
         "title": it.get("dc:title") or "",
@@ -123,18 +122,17 @@ def normalize(it, authors):
         "volume": it.get("prism:volume"), "issue": it.get("prism:issueIdentifier"),
         "pages": it.get("prism:pageRange"),
         "first_author": it.get("dc:creator"),
-        "authors": authors
+        "authors": authors,
+        "generated_at": generated_at,   # why: force JSON content to change → Git commits → Pages redeploy
     }
 
 def _fallback_metrics(author_id: str, author_name: str, rows: List[Dict]) -> Dict:
-    # why: guarantee metrics.json exists even if Author API fails
     cites = sum(int(r.get("cited_by") or 0) for r in rows)
-    years = [int(r["year"]) for r in rows if r.get("year") and str(r["year"]).isdigit()]
     return {
         "author_id": author_id,
         "author_name": author_name,
-        "h_index": 0,                     # unknown without per-item cites distribution; front-end shows anyway
-        "total_citations": cites,         # may differ from Scopus 'by documents', but better than missing file
+        "h_index": 0,
+        "total_citations": cites,
         "total_documents": len(rows),
         "source": "fallback",
         "last_updated": iso_now(),
@@ -153,6 +151,7 @@ def main():
     ensure(args.out)
     keep_all = args.types.strip() == "*"
     include=[t.strip().lower() for t in args.types.split(",") if t.strip()]
+    STAMP = iso_now()
 
     combined: List[Dict] = []
     metrics_to_write: Dict | None = None
@@ -170,7 +169,7 @@ def main():
             keep = keep_all or any(t in desc for t in include) or it.get("subtype","").lower()=="cp"
             if not keep: continue
             a = fetch_authors(it.get("eid","")) if (args.details and it.get("eid")) else []
-            row=normalize(it, a)
+            row=normalize(it, a, STAMP)
             row["author_id"]=aid; row["author_name"]=nm
             rows.append(row)
 
@@ -179,7 +178,6 @@ def main():
             r.get("month") or "", r.get("title") or ""
         ), reverse=True)
 
-        # per-author CSV (export)
         csvp=os.path.join(args.out, f"{nm.replace(' ','_')}_articles.csv")
         with open(csvp,"w",newline="",encoding="utf-8") as fcsv:
             w=csv.DictWriter(fcsv, fieldnames=["title","scopus_url","doi_url","cited_by","cover_date","venue","volume","issue","pages"])
@@ -189,26 +187,16 @@ def main():
 
         combined.extend(rows); time.sleep(0.1)
 
-        # Author metrics (try API, then fallback)
         prof = fetch_author_profile(aid)
-        if prof:
-            metrics_to_write = prof
-        else:
-            log.warning("Falling back to computed metrics for %s", aid)
-            metrics_to_write = _fallback_metrics(aid, nm, rows)
+        metrics_to_write = prof or _fallback_metrics(aid, nm, rows)
 
     with open(args.combined,"w",encoding="utf-8") as fjson:
         json.dump(combined,fjson,ensure_ascii=False,indent=2)
     log.info("Combined JSON: %s (total %d)", args.combined, len(combined))
 
-    # ALWAYS write metrics.json
-    if metrics_to_write:
-        with open(args.metrics,"w",encoding="utf-8") as fm:
-            json.dump(metrics_to_write,fm,ensure_ascii=False,indent=2)
-        log.info("Metrics JSON: %s (%s)", args.metrics, metrics_to_write.get("source","n/a"))
-
-    if not combined and not metrics_to_write:
-        raise SystemExit("No publications and no metrics retrieved.")
+    with open(args.metrics,"w",encoding="utf-8") as fm:
+        json.dump(metrics_to_write,fm,ensure_ascii=False,indent=2)
+    log.info("Metrics JSON: %s (%s)", args.metrics, metrics_to_write.get("source","n/a"))
 
 if __name__=="__main__":
     main()
