@@ -2,22 +2,32 @@
 name: Monthly Scopus refresh
 on:
   schedule:
-    - cron: "15 20 1 * *"
+    - cron: "15 20 1 * *"        # 1st of each month @ 20:15 UTC
   workflow_dispatch: {}
+
 permissions:
   contents: write
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.11" }
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install requests
-      - run: mkdir -p data/scopus
+
+      - name: Ensure data folder
+        run: mkdir -p data/scopus
+
       - name: Generate Scopus data
         env:
           SCOPUS_API_KEYS: ${{ secrets.SCOPUS_API_KEYS }}
@@ -29,6 +39,28 @@ jobs:
             --metrics data/scopus/metrics.json \
             --details \
             --types "*"
+
+      - name: Verify outputs
+        run: |
+          echo "=== Directory listing ==="
+          ls -la data/scopus
+          echo "=== Head metrics.json ==="
+          head -n 20 data/scopus/metrics.json || true
+          echo "=== scopus.json size ==="
+          wc -c data/scopus/scopus.json
+          echo "=== Git status before commit ==="
+          git status --porcelain
+          echo "=== Diff (first 200 lines) ==="
+          git --no-pager diff -- data/scopus | head -n 200 || true
+
+      - name: Upload JSON artifacts (debug)
+        uses: actions/upload-artifact@v4
+        with:
+          name: scopus-json
+          path: |
+            data/scopus/scopus.json
+            data/scopus/metrics.json
+
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
