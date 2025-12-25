@@ -1,8 +1,10 @@
 # .github/workflows/scopus-monthly.yml
+# Purpose: regenerate data/scopus/scopus.json + data/scopus/metrics.json monthly and on demand.
 name: Monthly Scopus refresh
+
 on:
   schedule:
-    - cron: "15 20 1 * *"        # 1st of each month @ 20:15 UTC
+    - cron: "15 20 1 * *"   # 1st of each month @ 20:15 UTC
   workflow_dispatch: {}
 
 permissions:
@@ -40,17 +42,18 @@ jobs:
             --details \
             --types "*"
 
-      - name: Verify outputs
+      - name: Verify outputs and show diff
         run: |
-          echo "=== Directory listing ==="
+          set -e
+          echo "== ls data/scopus =="
           ls -la data/scopus
-          echo "=== Head metrics.json ==="
-          head -n 20 data/scopus/metrics.json || true
-          echo "=== scopus.json size ==="
+          echo "== head metrics.json =="
+          head -n 25 data/scopus/metrics.json
+          echo "== scopus.json size =="
           wc -c data/scopus/scopus.json
-          echo "=== Git status before commit ==="
+          echo "== git status before commit =="
           git status --porcelain
-          echo "=== Diff (first 200 lines) ==="
+          echo "== diff preview =="
           git --no-pager diff -- data/scopus | head -n 200 || true
 
       - name: Upload JSON artifacts (debug)
