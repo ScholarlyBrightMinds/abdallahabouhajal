@@ -3,6 +3,6 @@
   "total_citations": 0,
   "h_index": 0,
   "author_id": "58094444100",
-  "last_updated": "2025-12-25T10:20:43.461121+00:00Z",
+  "last_updated": "2025-12-25T12:41:56.584802+00:00Z",
   "error": "401 Client Error: Unauthorized for url: https://api.elsevier.com/content/author/author_id/58094444100?view=METRICS"
 }
