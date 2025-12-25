@@ -7,7 +7,7 @@ const METRICS_PATH = "data/scopus/metrics.json";
 /* ---------- utils ---------- */
 const fmtDate = (iso = "") => {
   if (!iso) return "";
-  const [y, m = "01"] = iso.split("-");
+  const [y, m = "01"] = String(iso).split("-");
   const dt = new Date(Number(y), Number(m) - 1, 1);
   return Number.isNaN(dt.getTime())
     ? (y || "")
@@ -28,10 +28,11 @@ const hIndex = (arr = []) => {
   return h;
 };
 const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = String(val); };
+const getText = id => (document.getElementById(id)?.textContent || "").trim();
 
 /* ---------- metrics ---------- */
 function renderOfficialMetrics(m){
-  if (!m) return false;
+  if (!m || typeof m !== "object") return false;
   setText("m-total", m.total_documents ?? "—");
   setText("m-cites", m.total_citations ?? "—");
   setText("m-h",     m.h_index ?? "—");
@@ -51,7 +52,7 @@ function card(it, kind){
   const title = it.title || "Untitled";
   const venue = it.venue || (kind === "conference" ? "Conference" : "Journal");
   const date  = fmtDate(it.cover_date || `${it.year||""}-${it.month||""}-01`);
-  const mine  = /abou.*hajal/i; // why: highlight your name
+  const mine  = /abou.*hajal/i; // highlight your name
   const authorsText = Array.isArray(it.authors) && it.authors.length
     ? it.authors.map(a => mine.test(a) ? `<strong>${a}</strong>` : a).join(", ")
     : (it.first_author ? `${it.first_author} et al.` : "");
@@ -82,38 +83,38 @@ function card(it, kind){
   const AUTHOR = (app.dataset.authorId || "").trim();
   const $list  = document.getElementById("list-articles");
 
-  // Fetch data with cache-busting
-  const [pubRes, metRes] = await Promise.allSettled([
-    fetch(`${DATA_PATH}?v=${Date.now()}`,    { cache: "no-store" }),
-    fetch(`${METRICS_PATH}?v=${Date.now()}`, { cache: "no-store" })
-  ]);
-
-  // Publications
   let pubs = [];
-  if (pubRes.status === "fulfilled" && pubRes.value.ok){
-    try { pubs = await pubRes.value.json(); } catch {}
-    if (AUTHOR) pubs = pubs.filter(x => String(x.author_id || "").trim() === AUTHOR);
-    pubs.sort((a,b)=>{
-      const ay=+a.year||0, by=+b.year||0; if (ay!==by) return by-ay;
-      const am=+a.month||0, bm=+b.month||0; if (am!==bm) return bm-am;
-      return (a.title||"").localeCompare(b.title||"");
-    });
-  } else if ($list){
-    $list.innerHTML = `<p style="color:#b00">Could not load <code>${DATA_PATH}</code>.</p>`;
-  }
-
-  // Metrics: prefer official metrics.json; fallback to computed
   let official = null;
-  if (metRes.status === "fulfilled" && metRes.value.ok){
-    try { official = await metRes.value.json(); } catch {}
-  }
-  if (!renderOfficialMetrics(official)) renderComputedMetrics(pubs);
 
-  // Render: only journal-like items on this page
+  // Fetch with cache-busting
+  const t = Date.now();
+  try {
+    const r = await fetch(`${DATA_PATH}?v=${t}`, { cache: "no-store" });
+    if (r.ok) pubs = await r.json();
+  } catch (e) { console.error("scopus.json fetch error:", e); }
+
+  if (AUTHOR) pubs = pubs.filter(x => String(x.author_id || "").trim() === AUTHOR);
+  pubs.sort((a,b)=>{
+    const ay=+a.year||0, by=+b.year||0; if (ay!==by) return by-ay;
+    const am=+a.month||0, bm=+b.month||0; if (am!==bm) return bm-am;
+    return (a.title||"").localeCompare(b.title||"");
+  });
+
+  // Metrics: prefer metrics.json; always fallback to computed
+  try {
+    const m = await fetch(`${METRICS_PATH}?v=${t}`, { cache: "no-store" });
+    if (m.ok) official = await m.json();
+  } catch (e) { console.warn("metrics.json fetch error:", e); }
+
+  if (!renderOfficialMetrics(official)) renderComputedMetrics(pubs);
+  // Safety net: if still dashes (e.g., DOM IDs changed), force computed again
+  if (["m-total","m-cites","m-h"].some(id => getText(id) === "—")) renderComputedMetrics(pubs);
+
+  // Render list (journal-like)
   let n = 0;
   for (const it of pubs){
     const kind = classify(it);
     if (kind === "article"){ $list.appendChild(card(it, "article")); n++; }
   }
-  if (!n && $list) $list.innerHTML = `<p style="color:#666">No journal articles found.</p>`;
+  if (!n) $list.innerHTML = `<p style="color:#666">No journal articles found.</p>`;
 })();
