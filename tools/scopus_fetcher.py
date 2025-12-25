@@ -1,15 +1,17 @@
 # tools/scopus_fetcher.py
+# Always writes scopus.json (records stamped with generated_at) and metrics.json (ENHANCED→STANDARD→fallback).
+
 from __future__ import annotations
 import argparse, csv, json, os, re, time, logging
 from datetime import datetime, timezone
 from typing import Dict, List, Tuple
 import requests
 
-SEARCH  = "https://api.elsevier.com/content/search/scopus"
-ABSTRACT= "https://api.elsevier.com/content/abstract/eid/{}"
-AUTHOR  = "https://api.elsevier.com/content/author/author_id/{}"
-FIELDS  = ("dc:title,eid,prism:doi,citedby-count,prism:coverDate,subtype,subtypeDescription,"
-           "prism:publicationName,prism:volume,prism:issueIdentifier,prism:pageRange,dc:creator")
+SEARCH   = "https://api.elsevier.com/content/search/scopus"
+ABSTRACT = "https://api.elsevier.com/content/abstract/eid/{}"
+AUTHOR   = "https://api.elsevier.com/content/author/author_id/{}"
+FIELDS   = ("dc:title,eid,prism:doi,citedby-count,prism:coverDate,subtype,subtypeDescription,"
+            "prism:publicationName,prism:volume,prism:issueIdentifier,prism:pageRange,dc:creator")
 PAGE, TIMEOUT = 25, 20
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -25,8 +27,9 @@ def _parse_api_keys(envval: str) -> List[str]:
         if re.fullmatch(r"[0-9a-fA-F]{32}", k): out.append(k.lower())
     return out
 
-API_KEYS=_parse_api_keys(os.getenv("SCOPUS_API_KEYS",""))
-if not API_KEYS: raise SystemExit("Set SCOPUS_API_KEYS=key1,key2 (comma-separated, no quotes).")
+API_KEYS = _parse_api_keys(os.getenv("SCOPUS_API_KEYS",""))
+if not API_KEYS:
+    raise SystemExit("Set SCOPUS_API_KEYS=key1,key2 (comma-separated, no quotes).")
 
 def ensure(p): os.makedirs(p, exist_ok=True)
 def scopus_link(eid): return f"https://www.scopus.com/record/display.uri?eid={eid}&origin=recordpage"
@@ -119,7 +122,7 @@ def normalize(it, authors, generated_at):
         "pages": it.get("prism:pageRange"),
         "first_author": it.get("dc:creator"),
         "authors": authors,
-        "generated_at": generated_at,  # why: ensures scopus.json content changes → commit happens
+        "generated_at": generated_at,  # why: force JSON content to change → commit → Pages redeploy
     }
 
 def _fallback_metrics(author_id: str, author_name: str, rows: List[Dict]) -> Dict:
