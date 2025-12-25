@@ -1,21 +1,29 @@
 # .github/workflows/scopus-monthly.yml
 # Purpose: regenerate data/scopus/scopus.json + data/scopus/metrics.json monthly and on demand.
+
 name: Monthly Scopus refresh
 
 on:
   schedule:
-    - cron: "15 20 1 * *"   # 1st of each month @ 20:15 UTC
+    - cron: "15 20 1 * *"         # 1st of each month @ 20:15 UTC
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
+concurrency:
+  group: scopus-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,6 +42,7 @@ jobs:
         env:
           SCOPUS_API_KEYS: ${{ secrets.SCOPUS_API_KEYS }}
         run: |
+          set -e
           python tools/scopus_fetcher.py \
             --authors-file data/authors.csv \
             --out data/scopus \
@@ -53,7 +62,7 @@ jobs:
           wc -c data/scopus/scopus.json
           echo "== git status before commit =="
           git status --porcelain
-          echo "== diff preview =="
+          echo "== diff preview (first 200 lines) =="
           git --no-pager diff -- data/scopus | head -n 200 || true
 
       - name: Upload JSON artifacts (debug)
@@ -63,6 +72,8 @@ jobs:
           path: |
             data/scopus/scopus.json
             data/scopus/metrics.json
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v5
