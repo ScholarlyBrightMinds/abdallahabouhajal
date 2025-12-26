@@ -4,30 +4,37 @@
 const DATA_PATH = "data/serpapi/serpapi.json";
 const METRICS_PATH = "data/serpapi/metrics.json";
 
-/* ---------- UTILITY FUNCTIONS (Keep these from your old file) ---------- */
-// Format date
-const fmtDate = (iso = "") => {
-  if (!iso) return "";
-  const [y, m = "01"] = String(iso).split("-");
-  const dt = new Date(Number(y), Number(m) - 1, 1);
-  return Number.isNaN(dt.getTime())
-    ? (y || "")
-    : dt.toLocaleDateString(undefined, { month: "short", year: "numeric" });
+/* ---------- UTILITY FUNCTIONS ---------- */
+// Format date: Handles year-only format (e.g., "2024") from SerpApi
+const fmtDate = (yearStr = "") => {
+  if (!yearStr) return "";
+  const year = parseInt(yearStr);
+  if (isNaN(year)) return "";
+  // Create a date object for formatting (uses first day of the year)
+  const dt = new Date(year, 0, 1);
+  return dt.toLocaleDateString(undefined, { month: "short", year: "numeric" });
 };
 
 // Determine the best link for a publication
-const bestLink = it => it.doi_url || it.link || "#";
+const bestLink = it => it.link || "#"; // SerpApi uses 'link', not 'doi_url'
 
-// Classify publication type (for styling)
+// Classify publication type (for styling) - Optimized for Google Scholar venue names
 const classify = it => {
-  const st = (it.subtype || "").toLowerCase();
-  const desc = (it.venue || "").toLowerCase();
-  const isConf = st === "cp" || desc.includes("conference") || desc.includes("proc.");
-  const isArt = st === "ar" || desc.includes("journal") || desc.includes("review") || desc.includes("article");
-  return isConf ? "conference" : (isArt ? "article" : "other");
+  const venue = (it.venue || "").toLowerCase();
+  // More robust checks for journal articles
+  const isJournal = venue.includes("journal") ||
+                    venue.includes(" j.") || // Common abbreviation like "J. Med. Econ."
+                    venue.match(/^[a-z]+\.[\s]/) || // Matches "Nature", "Science" etc. as single words often used for journals.
+                    venue.includes("pharmaceutical") ||
+                    venue.includes("chemical") ||
+                    venue.includes("economics");
+  const isConference = venue.includes("conference") ||
+                       venue.includes("proc.") ||
+                       venue.includes("proceedings");
+  return isConference ? "conference" : (isJournal ? "article" : "other");
 };
 
-// Calculate h-index from an array of citation counts
+// Calculate h-index from an array of citation counts (fallback)
 const hIndex = (arr = []) => {
   const s = [...arr].map(n => Number(n) || 0).sort((a, b) => b - a);
   let h = 0;
@@ -67,10 +74,11 @@ function renderComputedMetrics(list) {
 function card(it, kind) {
   const title = it.title || "Untitled";
   const venue = it.venue || (kind === "conference" ? "Conference" : "Journal");
-  const date = fmtDate(it.year ? `${it.year}-01-01` : ""); // Use year if full date not present
-  const mine = /abou.*hajal/i; // Highlight your name
+  const date = fmtDate(it.year); // Use the corrected year formatting
+  // More flexible name highlighting for different author string formats
+  const mineRegex = /abou.*hajal|hajal.*abou|abdallah/i;
   const authorsText = it.authors ?
-    it.authors.split(", ").map(a => mine.test(a) ? `<strong>${a}</strong>` : a).join(", ")
+    it.authors.split(", ").map(a => mineRegex.test(a) ? `<strong>${a}</strong>` : a).join(", ")
     : "";
   const href = bestLink(it);
 
@@ -106,7 +114,12 @@ function card(it, kind) {
   const t = Date.now();
   try {
     const r = await fetch(`${DATA_PATH}?v=${t}`, { cache: "no-store" });
-    if (r.ok) pubs = await r.json();
+    if (r.ok) {
+      pubs = await r.json();
+      console.log(`Fetched ${pubs.length} publications from JSON.`);
+    } else {
+      console.error(`Failed to fetch ${DATA_PATH}: HTTP ${r.status}`);
+    }
   } catch (e) {
     console.error("serpapi.json fetch error:", e);
   }
@@ -146,5 +159,9 @@ function card(it, kind) {
   }
   if (!n) {
     $list.innerHTML = `<p style="color:#666">No journal articles found.</p>`;
+  } else {
+    // Remove the loading message if it exists
+    const loadingMsg = $list.querySelector('p[style*="italic"]');
+    if (loadingMsg) loadingMsg.remove();
   }
 })();
