@@ -1,3 +1,9 @@
+# OLD: SERPAPI_KEY = "your_key_here"
+# NEW:
+import os
+SERPAPI_KEY = os.getenv("SERPAPI_KEY", "")  # Gets the key from GitHub Secrets
+SCHOLAR_AUTHOR_ID = os.getenv("SCHOLAR_AUTHOR_ID", "1I8SvsQAAAAJ")
+
 def fetch_all_articles():
     """Fetches ALL articles by paginating through the API results."""
     all_articles = []
@@ -144,5 +150,6 @@ def main():
     
     # Save data files (this part remains the same)...
     # ... [Keep the existing code for saving pubs_path and metrics_path] ...
+
 
 
