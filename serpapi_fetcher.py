@@ -31,6 +31,7 @@ def fetch_author_profile():
         "author_id": SCHOLAR_AUTHOR_ID,
         "api_key": SERPAPI_KEY,
         "hl": "en"
+        "no_cache": "true"  
     }
     try:
         response = requests.get(API_URL, params=params, timeout=45)
@@ -233,3 +234,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
