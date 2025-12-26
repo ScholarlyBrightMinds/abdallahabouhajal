@@ -1,90 +1,91 @@
-#!/usr/bin/env python3
-"""
-serpapi_fetcher.py - Fetches your Google Scholar AUTHOR profile via SerpApi.
-Uses the correct 'google_scholar_author' endpoint.
-"""
-
-import requests
-import json
-import os
-from datetime import datetime, timezone
-
-# ========== CONFIGURATION ==========
-SERPAPI_KEY = "1c00b5be91e4b1f5948198b20e90d52251df53b81af96dfac1bd6c172d020af4"  # <- YOUR KEY
-SCHOLAR_AUTHOR_ID = "1I8SvsQAAAAJ"  # Your Google Scholar Author ID
-OUTPUT_DIR = "data/serpapi"
-# ===================================
-
-API_URL = "https://serpapi.com/search.json"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-def fetch_author_data():
-    """Fetches author profile and publications using the correct author API."""
-    print(f"Fetching author data for ID: {SCHOLAR_AUTHOR_ID}")
-    params = {
-        "engine": "google_scholar_author",  # CORRECT ENDPOINT
-        "author_id": SCHOLAR_AUTHOR_ID,      # CORRECT PARAMETER
-        "api_key": SERPAPI_KEY,
-        "hl": "en"
-    }
-    try:
-        response = requests.get(API_URL, params=params, timeout=30)
-        response.raise_for_status()
-        data = response.json()
+def fetch_all_articles():
+    """Fetches ALL articles by paginating through the API results."""
+    all_articles = []
+    start = 0
+    num = 20  # Results per page (max is 100, but 20 is the API's default and most reliable)
+    
+    print("Fetching articles with pagination...")
+    
+    while True:
+        params = {
+            "engine": "google_scholar_author",
+            "author_id": SCHOLAR_AUTHOR_ID,
+            "api_key": SERPAPI_KEY,
+            "hl": "en",
+            "start": start,  # Pagination parameter
+            "num": num       # Results per page
+        }
+        try:
+            response = requests.get(API_URL, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            # Check for API errors
+            if data.get("error"):
+                print(f"API error on page start={start}: {data.get('error')}")
+                break
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed for page start={start}: {e}")
+            break
         
-        # Check for API errors in the response
-        if data.get("error"):
-            print(f"SerpApi returned an error: {data.get('error')}")
-            return None
-        print("API call successful.")
-        return data
+        # Extract articles from this page
+        page_articles = data.get("articles", [])
+        if not page_articles:
+            break  # No more articles
         
-    except requests.exceptions.RequestException as e:
-        print(f"SerpApi request failed: {e}")
-        return None
+        all_articles.extend(page_articles)
+        print(f"  Retrieved page with {len(page_articles)} articles (total: {len(all_articles)})...")
+        
+        # Check if we've gotten all articles. If page has less than 'num' items, it's the last page.
+        if len(page_articles) < num:
+            break
+        
+        # Prepare for next page
+        start += num
+        time.sleep(0.5)  # Brief pause to be nice to the API
+    
+    print(f"Finished pagination. Total articles fetched: {len(all_articles)}")
+    return all_articles
 
-def normalize_author_data(raw_data):
-    """Converts the CORRECT SerpApi author response to our website's format."""
+def normalize_author_data(raw_data, all_articles_list):
+    """Converts the SerpApi author response and the full articles list to our website's format."""
     if not raw_data:
         return [], {}
     
-    # 1. Extract and normalize PUBLICATIONS from the "articles" key
-    articles_list = raw_data.get("articles", [])
     publications = []
     
-    for article in articles_list:
-        # The 'cited_by' value is nested inside a dictionary
+    # 1. Normalize ALL publications from the paginated list
+    for article in all_articles_list:
         cited_by_value = article.get("cited_by", {}).get("value")
         
         pub = {
             "title": article.get("title", ""),
             "authors": article.get("authors", ""),
-            "venue": article.get("publication", ""),
+            "venue": article.get("publication", ""),  # This is the journal name
             "year": article.get("year", ""),
             "cited_by": int(cited_by_value) if cited_by_value else 0,
-            # Use the direct link from the API for "Read"
             "link": article.get("link", "#"),
             "author_id": SCHOLAR_AUTHOR_ID
         }
         publications.append(pub)
     
-    # 2. Extract and normalize METRICS from the "cited_by" -> "table" key
-    # The structure is: "cited_by": { "table": [ {"citations": {"all": X}}, {"indice_h": {"all": Y}} ] }
+    # 2. Correctly extract METRICS from the "cited_by" -> "table" key [citation:4]
     cited_by_table = raw_data.get("cited_by", {}).get("table", [])
     
     total_citations = 0
     h_index = 0
-    # Loop through the table to find the citation and h-index objects
+    
+    # Loop through the table to find the specific objects
     for item in cited_by_table:
+        # The structure is: [ {"citations": {"all": X}}, {"indice_h": {"all": Y}} ]
         if "citations" in item:
             total_citations = item.get("citations", {}).get("all", 0)
-        if "indice_h" in item:
+        if "indice_h" in item:  # This is the key for h-index [citation:4]
             h_index = item.get("indice_h", {}).get("all", 0)
     
     metrics = {
-        "total_documents": len(articles_list),
+        "total_documents": len(all_articles_list),  # Use the full count
         "total_citations": total_citations,
-        "h_index": h_index,
+        "h_index": h_index,  # This should now be correct
         "author_id": SCHOLAR_AUTHOR_ID,
         "last_updated": datetime.now(timezone.utc).isoformat() + "Z"
     }
@@ -92,38 +93,24 @@ def normalize_author_data(raw_data):
     return publications, metrics
 
 def main():
-    print("=== Starting CORRECT SerpApi Author Data Fetch ===")
+    print("=== Starting Enhanced SerpApi Author Data Fetch (with Pagination) ===")
     
-    # Step 1: Fetch raw data from the correct API
+    # Step 1: Fetch the main author profile (for metrics table)
     raw_data = fetch_author_data()
     
     if not raw_data:
-        print("❌ Failed to fetch data. Check your API key and internet connection.")
+        print("❌ Failed to fetch author profile data.")
         return
     
-    # Step 2: Convert the data to our format
-    publications, metrics = normalize_author_data(raw_data)
+    # Step 2: Fetch ALL articles using pagination
+    all_articles = fetch_all_articles()
     
-    if publications:
-        # Step 3: Save publications
-        pubs_path = os.path.join(OUTPUT_DIR, "serpapi.json")
-        with open(pubs_path, 'w', encoding='utf-8') as f:
-            json.dump(publications, f, indent=2, ensure_ascii=False)
-        print(f"✓ Saved {len(publications)} publications to {pubs_path}")
-        
-        # Step 4: Save metrics
-        metrics_path = os.path.join(OUTPUT_DIR, "metrics.json")
-        with open(metrics_path, 'w', encoding='utf-8') as f:
-            json.dump(metrics, f, indent=2)
-        print(f"✓ Saved metrics to {metrics_path}")
-        print(f"   - Total Citations: {metrics['total_citations']}")
-        print(f"   - h-index: {metrics['h_index']}")
-        
-        print("=== Data Fetch Complete ===")
-        print("Next: Commit and push the 'data/serpapi/' folder to GitHub.")
-    else:
-        print("❌ No publications were found in the API response.")
-        print("   Debug: The raw data keys are:", list(raw_data.keys()) if raw_data else "No data")
-
-if __name__ == "__main__":
-    main()
+    if not all_articles:
+        print("❌ Failed to fetch any articles.")
+        return
+    
+    # Step 3: Convert the data to our format
+    publications, metrics = normalize_author_data(raw_data, all_articles)
+    
+    # Save data files (this part remains the same)...
+    # ... [Keep the existing code for saving pubs_path and metrics_path] ...
