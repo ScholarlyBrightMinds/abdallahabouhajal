@@ -64,6 +64,10 @@
     Loading publications...
     </p>
     </section>  
+    <script src="scripts.js"></script>
+    <!-- Scopus renderer (expects /data/scopus/scopus.json) -->
+    <!-- publications.html (only this line changes once to bust any old cached JS) -->
+    <script type="module" src="serpapi.v1.js"></script>
   </main>
   <footer>
     <p>&copy; 2025 Abdallah Abou Hajal, a fork of
@@ -73,10 +77,6 @@
     </p>
   </footer>
 
-  <script src="scripts.js"></script>
-  <!-- Scopus renderer (expects /data/scopus/scopus.json) -->
-  <!-- publications.html (only this line changes once to bust any old cached JS) -->
-  <script type="module" src="serpapi.v1.js"></script>
 
 </body>
 </html>
