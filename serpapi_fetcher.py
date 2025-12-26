@@ -47,9 +47,28 @@ def fetch_all_articles():
     return all_articles
 
 def normalize_author_data(raw_data, all_articles_list):
-    """Converts the SerpApi author response and the full articles list to our website's format."""
+    """Converts the SerpApi author response to our website's format. WITH DEBUGGING."""
     if not raw_data:
+        print("❌ DEBUG: No raw_data received.")
         return [], {}
+    
+    # 1. DEBUG: Let's see the top-level keys of the raw data
+    print(f"✅ DEBUG: Top keys in raw_data: {list(raw_data.keys())}")
+    
+    # 2. DEBUG: Specifically check for the 'cited_by' section
+    if 'cited_by' in raw_data:
+        print(f"✅ DEBUG: 'cited_by' key found.")
+        cited_by_data = raw_data.get('cited_by', {})
+        print(f"✅ DEBUG: Keys inside 'cited_by': {list(cited_by_data.keys())}")
+        
+        if 'table' in cited_by_data:
+            table_data = cited_by_data.get('table', [])
+            print(f"✅ DEBUG: 'table' is a list with {len(table_data)} item(s).")
+            # Print the entire table structure to understand it
+            for i, item in enumerate(table_data):
+                print(f"   Item {i}: {item}")
+    else:
+        print("❌ DEBUG: 'cited_by' key is MISSING from the API response.")
     
     publications = []
     
@@ -68,7 +87,16 @@ def normalize_author_data(raw_data, all_articles_list):
         }
         publications.append(pub)
     
-    # 2. Correctly extract METRICS from the "cited_by" -> "table" key [citation:4]
+    # 2. CORRECTLY extract METRICS from the "cited_by" -> "table" key 
+    # The structure is critical. Based on the documentation, we expect something like:
+    # "cited_by": {
+    #   "table": [
+    #     {"citations": {"all": 21934, "recent": 12302}},
+    #     {"indice_h": {"all": 45, "recent": 36}},      # <-- This is the h-index[citation:1]
+    #     {"indice_i10": {"all": 59, "recent": 51}}
+    #   ]
+    # }
+    
     cited_by_table = raw_data.get("cited_by", {}).get("table", [])
     
     total_citations = 0
@@ -76,20 +104,22 @@ def normalize_author_data(raw_data, all_articles_list):
     
     # Loop through the table to find the specific objects
     for item in cited_by_table:
-        # The structure is: [ {"citations": {"all": X}}, {"indice_h": {"all": Y}} ]
         if "citations" in item:
             total_citations = item.get("citations", {}).get("all", 0)
-        if "indice_h" in item:  # This is the key for h-index [citation:4]
+            print(f"✅ DEBUG: Found total_citations = {total_citations}")
+        if "indice_h" in item:  # This is the correct key for h-index[citation:1]
             h_index = item.get("indice_h", {}).get("all", 0)
+            print(f"✅ DEBUG: Found h_index = {h_index}")
     
     metrics = {
-        "total_documents": len(all_articles_list),  # Use the full count
+        "total_documents": len(all_articles_list),  # Use the full count from pagination
         "total_citations": total_citations,
-        "h_index": h_index,  # This should now be correct
+        "h_index": h_index,  # This should now be correct if the data path is right
         "author_id": SCHOLAR_AUTHOR_ID,
         "last_updated": datetime.now(timezone.utc).isoformat() + "Z"
     }
     
+    print(f"✅ DEBUG: Final metrics to be saved: {metrics}")
     return publications, metrics
 
 def main():
@@ -114,3 +144,4 @@ def main():
     
     # Save data files (this part remains the same)...
     # ... [Keep the existing code for saving pubs_path and metrics_path] ...
+
