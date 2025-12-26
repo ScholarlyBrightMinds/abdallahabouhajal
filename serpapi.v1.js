@@ -148,17 +148,18 @@ function card(it, kind) {
     renderComputedMetrics(pubs);
   }
 
-  // Render the list of journal articles
+  // --- CHANGES START HERE ---
+  // RENDER ALL PUBLICATIONS
   let n = 0;
   for (const it of pubs) {
-    const kind = classify(it);
-    if (kind === "article") {
-      $list.appendChild(card(it, "article"));
-      n++;
-    }
+    // Pass 'article' as the kind for consistent styling, or use 'other'
+    $list.appendChild(card(it, "article")); // Or use "other" if you prefer
+    n++;
   }
+  // --- CHANGES END HERE ---
+
   if (!n) {
-    $list.innerHTML = `<p style="color:#666">No journal articles found.</p>`;
+    $list.innerHTML = `<p style="color:#666">No publications found.</p>`;
   } else {
     // Remove the loading message if it exists
     const loadingMsg = $list.querySelector('p[style*="italic"]');
