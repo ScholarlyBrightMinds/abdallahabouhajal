@@ -1,0 +1,35 @@
+name: Monthly SerpApi Scholar Update
+
+on:
+  schedule:
+    - cron: '0 5 1 * *'  # Runs at 05:00 UTC on the 1st of every month
+  workflow_dispatch:      # Allows manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 📦 Install dependencies
+        run: pip install requests
+
+      - name: 📊 Run SerpApi Fetcher
+        run: python serpapi_fetcher.py
+
+      - name: 💾 Commit and push new data
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/serpapi/
+          git commit -m "docs: auto-update Scholar data via SerpApi" || echo "No changes to commit"
+          git push
