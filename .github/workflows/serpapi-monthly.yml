@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetches all history for proper git actions later
 
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
@@ -24,12 +26,27 @@ jobs:
         run: pip install requests
 
       - name: 📊 Run SerpApi Fetcher
-        run: python serpapi_fetcher.py
-
-      - name: 💾 Commit and push new data
+        # CRITICAL: You must set the SERPAPI_KEY secret in your repo settings.
+        # Your 'serpapi_fetcher.py' script must read it via os.getenv('SERPAPI_KEY')
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCHOLAR_AUTHOR_ID: '1I8SvsQAAAAJ'  # Your Google Scholar ID
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/serpapi/
-          git commit -m "docs: auto-update Scholar data via SerpApi" || echo "No changes to commit"
-          git push
+          set -euo pipefail  # Strict mode: exit on any error
+          python serpapi_fetcher.py
+
+      - name: 📁 Upload data artifacts (for debugging)
+        if: always()  # Upload artifacts even if a previous step fails
+        uses: actions/upload-artifact@v4
+        with:
+          name: serpapi-data
+          path: data/serpapi/
+          retention-days: 7
+
+      - name: 💾 Commit updated data files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'docs: auto-update Scholar data via SerpApi'
+          file_pattern: |
+            data/serpapi/*.json
+            data/serpapi/*.csv
