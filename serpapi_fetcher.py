@@ -30,7 +30,7 @@ def fetch_author_profile():
         "engine": "google_scholar_author",
         "author_id": SCHOLAR_AUTHOR_ID,
         "api_key": SERPAPI_KEY,
-        "hl": "en"
+        "hl": "en",
         "no_cache": "true"  
     }
     try:
@@ -234,4 +234,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
