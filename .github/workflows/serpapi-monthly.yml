@@ -2,7 +2,7 @@ name: Monthly SerpApi Scholar Update
 
 on:
   schedule:
-    - cron: '0 5 1 * *'  # Runs at 05:00 UTC on the 1st of every month
+    - cron: '0 5 * * 1'   # Every Monday at 05:00 UTC (weekly)
   workflow_dispatch:      # Allows manual trigger from GitHub UI
 
 permissions:
