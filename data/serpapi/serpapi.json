@@ -4,7 +4,7 @@
     "authors": "A Abou Hajal, AZ Al Meslamani",
     "venue": "Journal of Medical Economics 27 (1), 304-308, 2024",
     "year": "2024",
-    "cited_by": 18,
+    "cited_by": 19,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:UeHWp8X0CEIC",
     "author_id": "1I8SvsQAAAAJ"
   },
@@ -27,21 +27,21 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
+    "title": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
+    "authors": "N Al Mazrouei, AA Elnour, A Abou Hajal, A Sadeq, R Hammouri, O Ishbair, ...",
+    "venue": "Pharmacy Practice (Granada) 21 (3), 18, 2023",
+    "year": "2023",
+    "cited_by": 10,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:9yKSN-GCB0IC",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
     "title": "Exploring the pharmacy students’ perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
     "authors": "AA Elnour, A Abou Hajal, R Goaddar, N Elsharkawy, S Mousa, ...",
     "venue": "Saudi Pharmaceutical Journal 31 (7), 1339-1350, 2023",
     "year": "2023",
     "cited_by": 9,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:2osOgNQ5qMEC",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "& Abdalla, SF (2023). A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
-    "authors": "N Al Mazrouei, AA Elnour, A Abou Hajal, A Sadeq, AK Khalid, ...",
-    "venue": "Pharmacy Practice (Granada) 21 (3), 18, 0",
-    "year": "",
-    "cited_by": 9,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Tyk-4Ss8FVUC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -72,6 +72,15 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
+    "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
+    "authors": "AZ Al Meslamani, A Abou Hajal",
+    "venue": "Expert Opinion on Drug Metabolism & Toxicology 21 (9), 1083-1102, 2025",
+    "year": "2025",
+    "cited_by": 3,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
     "title": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter",
     "authors": "A Abou Hajal, RA Bryce, BB Amor, N Atatreh, MA Ghattas",
     "venue": "Journal of Chemical Information and Modeling 64 (13), 4991-5005, 2024",
@@ -81,21 +90,12 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
-    "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
-    "authors": "AZ Al Meslamani, A Abou Hajal",
-    "venue": "Expert Opinion on Drug Metabolism & Toxicology 21 (9), 1083-1102, 2025",
+    "title": "Large language models in drug delivery: A review of the current landscape and future perspectives",
+    "authors": "M Sakkal, A Abou Hajal",
+    "venue": "Journal of Pharmaceutical Sciences, 104147, 2025",
     "year": "2025",
-    "cited_by": 2,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
-    "authors": "N Al Mazrouei, AA Elnour, A Abou Hajal, A Sadeq, R Hammouri, O Ishbair, ...",
-    "venue": "Pharmacy Practice (Granada) 21 (3), 18, 2023",
-    "year": "2023",
-    "cited_by": 1,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:9yKSN-GCB0IC",
+    "cited_by": 0,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:YsMSGLbcyi4C",
     "author_id": "1I8SvsQAAAAJ"
   }
 ]
