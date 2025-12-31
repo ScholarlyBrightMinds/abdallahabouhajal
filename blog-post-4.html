@@ -1,3 +1,7 @@
+<!-- =======================================================================
+File: /blog-4.html
+Purpose: Blog 4 with smaller hero image AFTER title/date + centered mid-figure
+======================================================================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +58,7 @@
           </div>
         </div>
 
-        <!-- Smaller image: constrained and centered -->
+        <!-- Smaller hero image: constrained and centered -->
         <figure class="hero-image hero-image--narrow">
           <img
             src="images/blog-4.png"
@@ -76,11 +80,11 @@
           <p>We have written an editorial that is in review showing how GitHub usage is growing in drug discovery, with about a <strong>60% jump</strong> in publications that reference it from 2023 to 2024. That is significant.</p>
 
           <h2>What is GitHub and why it matters here</h2>
-          <p>GitHub is a platform that hosts code and manages change through a version control system called Git. It helps teams track edits, review work, and collaborate in the open. For drug discovery, that matters because AI projects often include complex software stacks and data that must be easy to find, access, interoperate with, and reuse. These are the FAIR principles. Containers like Docker and Singularity package code with the exact dependencies it needs so that other labs can run the same workflow. Together with GitHub, this makes results reproducible and lets peers inspect, confirm, and build on prior work.</p>
+          <p>GitHub is a platform that hosts code and manages change using Git. It helps teams track edits, review work, and collaborate in the open. For drug discovery, that matters because AI projects include complex software stacks and data that must be easy to find, access, interoperate with, and reuse. These are the FAIR principles. Containers like Docker and Singularity package code with exact dependencies so other labs can run the same workflow. Together with GitHub, this makes results reproducible and lets peers inspect, confirm, and build on prior work.</p>
 
           <ul>
             <li><strong>FAIR</strong> means findable, accessible, interoperable, and reusable so others can use and extend your work.</li>
-            <li><strong>Containers</strong> bundle code and dependencies which is critical when dealing with version sensitive stacks like RDKit, PyTorch, or docking engines.</li>
+            <li><strong>Containers</strong> bundle code and dependencies which is critical with version sensitive stacks like RDKit, PyTorch, or docking engines.</li>
             <li><strong>Version control</strong> tracks changes and supports collaboration. GitHub is widely used in research because it makes sharing and reproducibility straightforward.</li>
           </ul>
 
@@ -99,17 +103,19 @@
           </ul>
 
           <h2>A simple GitHub workflow that works</h2>
-          <!-- Mid-article figure (centered) -->
-          <figure class="mid-figure">
+
+          <!-- Centered mid-article PNG with caption -->
+          <figure class="mid-figure mid-figure--narrow">
             <img
               src="images/workflow.png"
               alt="Three step GitHub workflow for drug discovery projects"
               loading="lazy"
             >
             <figcaption>
-              Figure. A practical three step workflow. 1) Discover with precise keywords. 2) Assess maintenance, documentation, and containerization. 3) Engage by running and modifying examples to learn what truly works.
+              A practical three step workflow for new researchers. 1) Discover with precise keywords. 2) Assess maintenance, documentation, and containerization. 3) Engage by running and modifying examples to learn what truly works.
             </figcaption>
           </figure>
+
           <ul>
             <li><strong>1)</strong> Discover tools with clear keywords like ligand binding prediction or generative molecule design.</li>
             <li><strong>2)</strong> Assess the repo. Is it maintained? Is the documentation clear? Does it include Docker or Conda files?</li>
