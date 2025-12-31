@@ -497,6 +497,40 @@ footer p {
       height: auto;
       border-radius: 12px;
     }
+    /* Smaller hero image after title/date */
+:root{
+  --hero-max: 460px;     /* adjust to taste */
+  --figure-max: 760px;   /* mid-article figure width */
+}
+
+.hero-image{ margin: 1rem 0 0; }
+.hero-image--narrow{
+  max-width: var(--hero-max);
+  margin: 1rem auto 0;
+}
+.hero-image--narrow img{
+  display:block; width:100%; height:auto; border-radius:12px;
+}
+
+/* Mid-article figure (centered with caption) */
+.mid-figure{
+  max-width: var(--figure-max);
+  margin: 1.25rem auto;
+  text-align: center;
+}
+.mid-figure img{
+  display:block; width:100%; height:auto; border-radius:12px;
+}
+.mid-figure figcaption{
+  font-size: .95rem;
+  line-height: 1.4;
+  opacity: .8;
+  margin-top: .5rem;
+}
+
+/* Date polish */
+.blog-date{ display:inline-block; opacity:.7; }
+
     
     /* small polish */
     .blog-date{ display:inline-block; opacity:.7; }
