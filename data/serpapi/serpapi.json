@@ -31,17 +31,8 @@
     "authors": "AA Elnour, A Abou Hajal, R Goaddar, N Elsharkawy, S Mousa, ...",
     "venue": "Saudi Pharmaceutical Journal 31 (7), 1339-1350, 2023",
     "year": "2023",
-    "cited_by": 11,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:2osOgNQ5qMEC",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
-    "authors": "N Al Mazrouei, AA Elnour, A Abou Hajal, A Sadeq, R Hammouri, O Ishbair, ...",
-    "venue": "Pharmacy Practice (Granada) 21 (3), 18, 2023",
-    "year": "2023",
     "cited_by": 10,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:9yKSN-GCB0IC",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:2osOgNQ5qMEC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -49,7 +40,7 @@
     "authors": "AA Elnour, NS Raja, F Abdi, F Mostafiz, RI Elmubarak, AM Khalil, ...",
     "venue": "Pharmacy Practice 20 (3), 2713, 2022",
     "year": "2022",
-    "cited_by": 9,
+    "cited_by": 8,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:u-x6o8ySG0sC",
     "author_id": "1I8SvsQAAAAJ"
   },
@@ -60,6 +51,15 @@
     "year": "2025",
     "cited_by": 7,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:zYLM7Y9cAGgC",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
+    "title": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
+    "authors": "N Al Mazrouei, AA Elnour, A Abou Hajal, A Sadeq, R Hammouri, O Ishbair, ...",
+    "venue": "Pharmacy Practice (Granada) 21 (3), 18, 2023",
+    "year": "2023",
+    "cited_by": 7,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:9yKSN-GCB0IC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -76,7 +76,7 @@
     "authors": "AZ Al Meslamani, A Abou Hajal",
     "venue": "Expert Opinion on Drug Metabolism & Toxicology 21 (9), 1083-1102, 2025",
     "year": "2025",
-    "cited_by": 4,
+    "cited_by": 5,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC",
     "author_id": "1I8SvsQAAAAJ"
   },
@@ -90,12 +90,30 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
+    "title": "Introducing AutoML framework for Drug–Drug Interaction Prediction: Application of AutoGluon",
+    "authors": "A Abou Hajal, M Sakkal",
+    "venue": "Toxicology Mechanisms and Methods, 1-11, 2026",
+    "year": "2026",
+    "cited_by": 0,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:eQOLeE2rZwMC",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
     "title": "Large language models in drug delivery: A review of the current landscape and future perspectives",
     "authors": "M Sakkal, A Abou Hajal",
     "venue": "Journal of Pharmaceutical Sciences, 104147, 2025",
     "year": "2025",
     "cited_by": 0,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:YsMSGLbcyi4C",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
+    "title": "Exploring the pharmacy students' perspectives on off-campus online learning experiences amid COVID-19 crises: a multicentre cross-sectional survey",
+    "authors": "A Elnour, R Goaddar, S Mousa, N Elsharkawy, A Abou Hajal",
+    "venue": "INTERNATIONAL JOURNAL OF CLINICAL PHARMACY 44 (6), 1514-1515, 2022",
+    "year": "2022",
+    "cited_by": 0,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:WF5omc3nYNoC",
     "author_id": "1I8SvsQAAAAJ"
   }
 ]
