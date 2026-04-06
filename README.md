@@ -22,12 +22,11 @@
 
 ---
 
-I completed my Bachelor's in Pharmacy, but somewhere during my MSc, I fell into the world of AI and drug discovery, and honestly never looked back. Now i  and somehow ended up writing Python scripts to automate things nobody asked me to automate. That's just how I am.
+I completed my Bachelor's in Pharmacy, and somewhere during my MSc, I fell into the world of AI and drug discovery, and honestly never looked back. Now i  and somehow ended up writing Python scripts to automate things nobody asked me to automate.
 
 My MSc thesis tackled a sneaky problem in early-stage drug discovery: **colloidal aggregators**, molecules that look like promising hits but are actually just clumping together and causing false positives. We built a machine learning tool to catch them early. And yes, it lives on a public web server. Still proud of that one.
 
-After graduating, I spent two years as a **Managing Editor at Scifiniti Publishing**, which taught me more about how science actually gets published than any textbook ever could. Now I'm a **Data Analyst** there, automating workflows, reporting journal performance metrics, and generally making spreadsheets do things they didn't know they could do.
-
+After graduating, I spent two years as a **Managing Editor at Scifiniti Publishing**, which taught me more about how science actually gets published than any textbook ever could. Now I'm a **Data Analyst**. I automate workflows, report on journal performance, and generally make spreadsheets do things they didn't know they were capable of.
 
 Also, I won a hackathon at **Insilico Medicine, Masdar City** in 2025. Just leaving that here.
 
