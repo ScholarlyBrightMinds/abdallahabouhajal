@@ -28,7 +28,7 @@ My MSc thesis tackled a sneaky problem in early-stage drug discovery: **colloida
 
 After graduating, I spent two years as a **Managing Editor at Scifiniti Publishing**, which taught me more about how science actually gets published than any textbook ever could. Now I'm a **Data Analyst**. I automate workflows, report on journal performance, and generally make spreadsheets do things they didn't know they were capable of.
 
-Also, I won a hackathon at **Insilico Medicine, Masdar City** in 2025. Just leaving that here.
+I hope you enjoy my work, take a look at my papers, and maybe we can collaborate sometime!
 
 ---
 
