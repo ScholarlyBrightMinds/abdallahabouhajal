@@ -1,0 +1,78 @@
+name: Update Scopus Publications
+
+on:
+  schedule:
+    # 05:00 UTC on the 1st of every month
+    - cron: '0 5 1 * *'
+  workflow_dispatch:   # manual trigger from GitHub UI
+  push:
+    paths:
+      - '.github/workflows/scopus-monthly.yml'
+      - 'scopus_fetcher.py'
+
+permissions:
+  contents: write
+
+jobs:
+  update-scopus:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --upgrade requests
+
+      - name: Create output directory
+        run: mkdir -p data/scopus
+
+      - name: Fetch Scopus data
+        env:
+          SCOPUS_API_KEY:   ${{ secrets.SCOPUS_API_KEY }}
+          SCOPUS_AUTHOR_ID: ${{ secrets.SCOPUS_AUTHOR_ID }}
+        run: |
+          echo "SCOPUS_AUTHOR_ID is set: ${{ secrets.SCOPUS_AUTHOR_ID != '' }}"
+          python scopus_fetcher.py
+        # If the script exits non-zero (e.g. 401, missing key) the workflow
+        # fails loudly here — it does NOT commit zeroed-out data files.
+
+      - name: Verify generated files
+        run: |
+          echo "--- Generated files ---"
+          ls -lh data/scopus/
+          echo ""
+          echo "--- metrics.json ---"
+          cat data/scopus/metrics.json
+          echo ""
+          echo "--- summary.json ---"
+          cat data/scopus/summary.json
+          echo ""
+          echo "--- First 3 publications ---"
+          python -c "
+          import json
+          pubs = json.load(open('data/scopus/scopus.json'))
+          for p in pubs[:3]:
+              print(f\"  {p['year']} | {p['title'][:60]} | cited_by={p['cited_by']}\")
+          print(f'  ... ({len(pubs)} total)')
+          "
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name  'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add data/scopus/
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "docs: auto-update Scopus publications [skip ci]"
+            git push
+            echo "Changes pushed successfully."
+          fi

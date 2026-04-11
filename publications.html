@@ -6,6 +6,9 @@
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <link href="publications.css" rel="stylesheet" type="text/css"/>
   <link rel="icon" href="/images/profile.png" type="image/png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/profile.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/profile.png">
+  <link rel="apple-touch-icon" href="images/profile.png">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
   <script>
     WebFont.load({
@@ -56,9 +59,16 @@
 
     <!-- Research Articles -->
     <h2 class="section-title">Research Articles</h2>
-    <section id="list-articles" class="publication-list" aria-live="polite"></section>
+    <section id="list-articles" class="publication-list" aria-live="polite">
+    <p style="color: #666; font-style: italic; padding: 20px; text-align: center;">
+    Loading publications...
+    </p>
+    </section>  
+    <script src="scripts.js"></script>
+    <!-- Scopus renderer (expects /data/scopus/scopus.json) -->
+    <!-- publications.html (only this line changes once to bust any old cached JS) -->
+    <script type="module" src="serpapi.v1.js"></script>
   </main>
-
   <footer>
     <p>&copy; 2025 Abdallah Abou Hajal, a fork of
       <a href="https://github.com/muhammedrashidx/ScholarSite_2.0" target="_blank" style="text-decoration: underline; color: #b8aaaa;">
@@ -67,8 +77,6 @@
     </p>
   </footer>
 
-  <script src="scripts.js"></script>
-  <!-- Scopus renderer (expects /data/scopus/scopus.json) -->
-  <script type="module" src="scopus.v2.js"></script>
+
 </body>
 </html>
