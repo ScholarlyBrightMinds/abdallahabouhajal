@@ -15,7 +15,7 @@
 [![Email](https://img.shields.io/badge/Email-abdallah.abouhajal@gmail.com-D44638?style=flat-square&logo=gmail&logoColor=white)](mailto:abdallah.abouhajal@gmail.com)
 
 ![Publications](https://img.shields.io/badge/Publications-14-informational?style=flat-square)
-![Citations](https://img.shields.io/badge/Citations-97-informational?style=flat-square)
+![Citations](https://img.shields.io/badge/Citations-99-informational?style=flat-square)
 ![h--index](https://img.shields.io/badge/h--index-7-informational?style=flat-square)
 
 </div>
