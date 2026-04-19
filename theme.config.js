@@ -17,7 +17,7 @@ window.SITE_CONFIG = {
         role:      "AI × Drug Discovery",
         tagline:   "Researcher &amp; Data Analyst — building ML pipelines between cheminformatics, AutoML, and large language models.",
         location:  "Abu Dhabi, UAE",
-        status:    "exploring CYP450 metabolism with ML",
+        status:    "researching AI agents &amp; AOP networks · seeking PhD opportunities",
         photo:     "images/profile.png",
         affiliation: {
             name: "Scifiniti Publishing",
@@ -102,9 +102,9 @@ window.SITE_CONFIG = {
     // ── Quick-stat chips shown in hero ───────────────────────────
     // First 5 shown. `variant: 'gold'` uses amber color instead of accent.
     chips: [
-        { label: "13 Publications · 96 Citations" },
+        { label: "13 Publications · 98 Citations" },
         { label: "h-index 7" },
-        { label: "First-Author · JCIM" },
+        { label: "4× Corresponding Author" },
         { label: "🥇 BindHack · Insilico Medicine", variant: "gold" },
         { label: "MSc Pharm. Sci. · GPA 3.94" }
     ],
@@ -112,7 +112,7 @@ window.SITE_CONFIG = {
     // ── Per-page sub-hero lede text ──────────────────────────────
     ledes: {
         about:        "Researcher in AI-driven drug discovery, now working at the intersection of cheminformatics, AutoML, and large language models.",
-        projects:     "Active work across cheminformatics, AutoML, and LLMs for science. Some are published, some in review, some still cooking.",
+        projects:     "Active work on AI agents and computational toxicology at the top — followed by published output. If any of these intersect with your work, I would love to collaborate.",
         publications: "Peer-reviewed output across machine learning, cheminformatics, and drug discovery — updated automatically from Scholar and Scopus.",
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper."
     },
@@ -121,18 +121,21 @@ window.SITE_CONFIG = {
     about: {
         paragraphs: [
             "I hold an <strong>MSc in Pharmaceutical Sciences</strong> from Al Ain University (GPA 3.94), working under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI &amp; computer science). My thesis developed a machine-learning tool for predicting promiscuous aggregate-based inhibitors — published first-author in the <em>Journal of Chemical Information and Modeling</em> and deployed as a public web server.",
-            "Since then I have been a <strong>managing editor and data analyst at Scifiniti Publishing</strong>, which has kept me close to the day-to-day of peer review, journal analytics, and new research across STEM. In parallel I have kept publishing — most recently on AutoML for drug–drug interactions, and on benchmarking large language models for molecular property prediction.",
-            "For my <strong>PhD</strong> I am drawn to <em>computational drug metabolism</em>: combining ML with molecular dynamics and quantum methods to model CYP450-mediated metabolism, where small gains in accuracy have real impact in early-stage drug development."
+            "I currently work as a <strong>Data Analyst at Scifiniti Publishing</strong> (since May 2025), after two years there as <strong>Managing Editor</strong> (Feb 2023 – May 2025). This editorial side-of-the-house gave me a rare, hands-on view of how science actually gets published — peer-review coordination, journal performance analytics, editorial operations across multiple STEM titles.",
+            "In parallel I have kept publishing — with <strong>4 papers as corresponding author</strong>, most recently on an <em>AutoML framework for drug–drug interaction prediction</em>, on <em>large language models in drug delivery</em>, on <em>machine-learning reliability in tumor-progression prediction</em>, and on <em>GitHub's significance for AI-driven drug discovery</em>.",
+            "I am <strong>now seeking a PhD opportunity</strong> to further apply machine learning and data-driven methods to impactful challenges in drug discovery — AI-driven virtual and high-throughput screening, predictive modeling, and model interpretability. If that aligns with your group, I would love to hear from you."
         ],
 
         // Vertical timeline on About page
         timeline: [
-            { date: "MSc · Al Ain University",       title: "Pharmaceutical Sciences",          desc: "GPA 3.94 — supervised by Prof. Ghattas &amp; Prof. Ben Amor." },
-            { date: "Thesis · Deployed",             title: "BAD Molecule Filter",              desc: "Public Streamlit web server for aggregator prediction." },
-            { date: "JCIM · 2024",                   title: "First-author publication",         desc: "Boosting aggregate detection accuracy &amp; chemical space coverage." },
-            { date: "Current · Scifiniti",           title: "Managing Editor &amp; Data Analyst", desc: "Peer review, journal analytics, STEM editorial work.", state: "current" },
-            { date: "Current · Research",            title: "AutoML for DDI &amp; LLM benchmarking", desc: "Corresponding-author AutoGluon framework; four-model LLM study.", state: "current" },
-            { date: "Next · PhD Target",             title: "Computational drug metabolism",    desc: "ML + MD + QM for CYP450-mediated metabolism.", state: "future" }
+            { date: "2016 – 2021",                   title: "BSc in Pharmacy",                  desc: "Al Ain University · GPA 3.83 · Honor Student 2017/2018." },
+            { date: "Sep 2021 – Feb 2023",           title: "MSc &amp; Research / Lab Assistant", desc: "Postgraduate scholarship; undergrad lab sessions; drug-discovery research." },
+            { date: "Apr 2023 · Graduation",         title: "MSc Pharmaceutical Sciences",      desc: "GPA 3.94 · Thesis supervised by Prof. Ghattas &amp; Prof. Ben Amor." },
+            { date: "Feb 2023 – May 2025",           title: "Managing Editor · Scifiniti",      desc: "Editorial operations across multiple STEM journals." },
+            { date: "2024 · JCIM",                   title: "First-author publication",         desc: "Boosting accuracy of colloidal-aggregator detection." },
+            { date: "Since May 2025",                title: "Data Analyst · Scifiniti",         desc: "Journal analytics, workflow automation, strategic reporting.", state: "current" },
+            { date: "2026 · Active research",        title: "AI agents &amp; AOP-driven toxicology", desc: "AI-augmented adverse-outcome pathway networks; agent-based drug discovery.", state: "current" },
+            { date: "Next · PhD Search",             title: "Actively seeking a position",      desc: "ML × cheminformatics × drug discovery — open to strong groups worldwide.", state: "future" }
         ],
 
         // Three research-pillar cards
@@ -144,37 +147,74 @@ window.SITE_CONFIG = {
 
         // Awards section
         awards: [
-            { icon: "🥇", title: "First Place, BindHack Hackathon",     venue: "Insilico Medicine, Masdar City · 2025" },
-            { icon: "🥈", title: "Three Minute Thesis — 2nd Place",     venue: "2nd AAU Health &amp; Biomedical Postgraduate Symposium · 2024" },
-            { icon: "🥇", title: "Best Quality Poster — 1st Place",     venue: "1st Int'l Conf. on Pharmacy &amp; Biomedical Sciences, Al Ain University · 2023" }
+            { icon: "🥇", title: "First Place, BindHack Hackathon",         venue: "Insilico Medicine, Masdar City · 2025 — antibody–antigen binding prediction in a 6-hour AI/drug discovery competition" },
+            { icon: "🥈", title: "Three Minute Thesis — Second Place",      venue: "2nd AAU Health &amp; Biomedical Postgraduate Symposium · 2024" },
+            { icon: "🥇", title: "Best Quality Poster — First Place",       venue: "1st International Conference on Pharmacy &amp; Biomedical Sciences, Al Ain University · 2023" },
+            { icon: "🎓", title: "MSc Pharmaceutical Sciences · GPA 3.94",  venue: "Graduated with Excellent · Al Ain University, 2023" },
+            { icon: "🎖️", title: "Postgraduate Scholarship",                venue: "Awarded for MSc research and lab-assistant duties · 2021–2023" },
+            { icon: "🏅", title: "Honor Student · 2017–2018",               venue: "Bachelor of Pharmacy · Al Ain University" }
         ]
     },
 
     // ── Projects (Ongoing Research) ──────────────────────────────
+    // statusKind: 'active' | 'review' | 'published' | 'draft'
+    // A "Want to collaborate?" button is added to every card automatically.
     projects: [
         {
             n: "01",
-            label: "Open Science · Review",
-            title: "GitHub in AI-Driven Drug Discovery",
-            desc:  "Explores the role of collaborative software platforms in modern science through an analysis of GitHub's application in AI-driven drug discovery. Studies the effects of open-source code sharing on research transparency and reproducibility, with insights into best practices for computational research.",
-            tech:  ["Open Science", "GitHub", "Reproducibility", "AI", "Drug Discovery"],
-            status: "Ongoing"
+            label: "AI Agents · Drug Discovery",
+            title: "AI Agents in Drug Discovery",
+            desc:  "Exploring autonomous AI agents that can plan, reason, and execute drug-discovery workflows end-to-end — from target identification through molecular generation to property prediction. Focus on LLM-backed agent frameworks that integrate specialised chemistry tools and orchestrate multi-step pipelines without constant human scaffolding.",
+            tech:  ["LLM Agents", "Tool Use", "Drug Discovery", "Python", "AutoGen", "LangGraph"],
+            status: "Active — data collection &amp; framework design",
+            statusKind: "active",
+            needs: "Looking for a collaborator with strong ML / LLM-agent experience or domain expertise in target discovery."
         },
         {
             n: "02",
+            label: "Computational Toxicology · AOP",
+            title: "AI-Augmented AOP Networks in Computational Toxicology",
+            desc:  "Building AI-augmented Adverse Outcome Pathway (AOP) networks that link molecular initiating events to adverse health outcomes. The goal: use graph-based learning and LLM-assisted literature synthesis to automate AOP construction and identify critical pathway nodes for regulatory and screening use.",
+            tech:  ["AOP Networks", "Graph ML", "Toxicology", "Literature Mining", "LLMs", "Python"],
+            status: "Active — literature synthesis &amp; network prototyping",
+            statusKind: "active",
+            needs: "Open to toxicologists, graph-ML researchers, or teams interested in regulatory-adjacent computational tox work."
+        },
+        {
+            n: "03",
+            label: "Open Science · Review",
+            title: "GitHub in AI-Driven Drug Discovery",
+            desc:  "Examines the role of collaborative software platforms in modern science through an analysis of GitHub's application in AI-driven drug discovery. Studies how open-source code sharing affects research transparency and reproducibility, with insights into best practices for computational research.",
+            tech:  ["Open Science", "GitHub", "Reproducibility", "AI", "Drug Discovery"],
+            status: "Published · Expert Opinion on Drug Discovery · 2026",
+            statusKind: "published"
+        },
+        {
+            n: "04",
             label: "AutoML · DDI Prediction",
             title: "Automating Drug–Drug Interaction Prediction",
             desc:  "Prediction of drug–drug interactions through Automated Machine Learning (AutoML) frameworks. Studies the effects of different molecular feature representations on predictive performance, with insights into automating and improving pharmacovigilance.",
             tech:  ["AutoGluon", "RDKit", "Morgan FP", "Python", "Pharmacovigilance"],
-            status: "Published · Toxicology Mech. &amp; Methods 2026"
+            status: "Published · Toxicology Mechanisms and Methods · 2026",
+            statusKind: "published"
         },
         {
-            n: "03",
+            n: "05",
             label: "LLMs · Drug Delivery",
             title: "Large Language Models in Drug Delivery",
-            desc:  "Explores the potential of LLMs to overcome formulation challenges through a comprehensive review of the current landscape. Evaluates existing LLM-powered tools like ChemCrow and BioBERT and contributes to discussions on integrating AI into experimental workflows and personalized medicine.",
+            desc:  "Review of LLM applications in pharmaceutical formulation and drug-delivery-system design. Evaluates existing LLM-powered tools like ChemCrow and BioBERT and contributes to discussions on integrating AI into experimental workflows and personalised medicine.",
             tech:  ["LLMs", "ChemCrow", "BioBERT", "Drug Delivery", "Review"],
-            status: "In Review"
+            status: "Published · Journal of Pharmaceutical Sciences · 2025",
+            statusKind: "published"
+        },
+        {
+            n: "06",
+            label: "ML Reliability · Oncology",
+            title: "ML Predictions of Tumor Progression",
+            desc:  "A methodological look at how reliable machine-learning predictions of tumor progression actually are — examining benchmarking rigour, dataset bias, and what \"reliable\" should mean in an oncology-ML setting.",
+            tech:  ["Machine Learning", "Oncology", "Benchmarking", "Model Reliability"],
+            status: "Published · Computers in Biology and Medicine · 2025",
+            statusKind: "published"
         }
     ],
 
