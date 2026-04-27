@@ -31,7 +31,7 @@
     "authors": "AA Elnour, A Abou Hajal, R Goaddar, N Elsharkawy, S Mousa, ...",
     "venue": "Saudi Pharmaceutical Journal 31 (7), 1339-1350, 2023",
     "year": "2023",
-    "cited_by": 10,
+    "cited_by": 11,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:2osOgNQ5qMEC",
     "author_id": "1I8SvsQAAAAJ"
   },
@@ -45,21 +45,21 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
+    "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
+    "authors": "AZ Al Meslamani, A Abou Hajal",
+    "venue": "Expert Opinion on Drug Metabolism & Toxicology 21 (9), 1083-1102, 2025",
+    "year": "2025",
+    "cited_by": 8,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
     "title": "Machine learning predictions of tumor progression: How reliable are we?",
     "authors": "M Sakkal, A Abou Hajal",
     "venue": "Computers in Biology and Medicine 191, 110156, 2025",
     "year": "2025",
     "cited_by": 8,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:zYLM7Y9cAGgC",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
-    "authors": "AZ Al Meslamani, A Abou Hajal",
-    "venue": "Expert Opinion on Drug Metabolism & Toxicology 21 (9), 1083-1102, 2025",
-    "year": "2025",
-    "cited_by": 7,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -90,9 +90,9 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
-    "title": "An introduction to GitHub and its significance for AI-Driven drug discovery",
+    "title": "An introduction to GitHub and its significance for AI-driven drug discovery",
     "authors": "A Abou Hajal, L Bustanji, RA Bryce, MA Ghattas",
-    "venue": "Expert Opinion on Drug Discovery, 2026",
+    "venue": "Expert Opinion on Drug Discovery 21 (4), 387-392, 2026",
     "year": "2026",
     "cited_by": 0,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:ufrVoPGSRksC",
