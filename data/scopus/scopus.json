@@ -17,6 +17,23 @@
     "author_id": "58094444100"
   },
   {
+    "title": "Introducing AutoML framework for drug–drug interaction prediction: application of AutoGluon",
+    "authors": [
+      "Abou Hajal A."
+    ],
+    "first_author": "Abou Hajal A.",
+    "venue": "Toxicology Mechanisms and Methods",
+    "year": "2026",
+    "month": "01",
+    "cover_date": "2026-01-01",
+    "doi": "10.1080/15376516.2026.2628929",
+    "doi_url": "https://doi.org/10.1080/15376516.2026.2628929",
+    "cited_by": 0,
+    "subtype": "ar",
+    "subtypeDescription": "Article",
+    "author_id": "58094444100"
+  },
+  {
     "title": "An introduction to GitHub and its significance for AI-driven drug discovery",
     "authors": [
       "Abou Hajal A."
@@ -45,7 +62,7 @@
     "cover_date": "2025-06-01",
     "doi": "10.1016/j.compbiomed.2025.110156",
     "doi_url": "https://doi.org/10.1016/j.compbiomed.2025.110156",
-    "cited_by": 2,
+    "cited_by": 3,
     "subtype": "re",
     "subtypeDescription": "Review",
     "author_id": "58094444100"
@@ -62,7 +79,7 @@
     "cover_date": "2025-01-01",
     "doi": "10.1080/17425255.2025.2551724",
     "doi_url": "https://doi.org/10.1080/17425255.2025.2551724",
-    "cited_by": 2,
+    "cited_by": 3,
     "subtype": "re",
     "subtypeDescription": "Review",
     "author_id": "58094444100"
@@ -170,23 +187,6 @@
     "author_id": "58094444100"
   },
   {
-    "title": "Chemical Composition of the Volatile Oil from Aerial Parts of Rosmarinus officinalis L. Growing in UAE",
-    "authors": [
-      "Hudaib M.M."
-    ],
-    "first_author": "Hudaib M.M.",
-    "venue": "Journal of Essential Oil Bearing Plants",
-    "year": "2022",
-    "month": "01",
-    "cover_date": "2022-01-01",
-    "doi": "10.1080/0972060X.2022.2072177",
-    "doi_url": "https://doi.org/10.1080/0972060X.2022.2072177",
-    "cited_by": 5,
-    "subtype": "ar",
-    "subtypeDescription": "Article",
-    "author_id": "58094444100"
-  },
-  {
     "title": "Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted time-series interventions on pharmacist’s prescribing",
     "authors": [
       "Elnour A.A."
@@ -198,7 +198,24 @@
     "cover_date": "2022-01-01",
     "doi": "10.18549/PharmPract.2022.3.2713",
     "doi_url": "https://doi.org/10.18549/PharmPract.2022.3.2713",
-    "cited_by": 4,
+    "cited_by": 5,
+    "subtype": "ar",
+    "subtypeDescription": "Article",
+    "author_id": "58094444100"
+  },
+  {
+    "title": "Chemical Composition of the Volatile Oil from Aerial Parts of Rosmarinus officinalis L. Growing in UAE",
+    "authors": [
+      "Hudaib M.M."
+    ],
+    "first_author": "Hudaib M.M.",
+    "venue": "Journal of Essential Oil Bearing Plants",
+    "year": "2022",
+    "month": "01",
+    "cover_date": "2022-01-01",
+    "doi": "10.1080/0972060X.2022.2072177",
+    "doi_url": "https://doi.org/10.1080/0972060X.2022.2072177",
+    "cited_by": 6,
     "subtype": "ar",
     "subtypeDescription": "Article",
     "author_id": "58094444100"
