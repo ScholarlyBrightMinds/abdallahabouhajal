@@ -10,13 +10,11 @@
 
 [![Website](https://img.shields.io/badge/Website-Live-black?style=flat-square&logo=github)](https://scholarlybrightminds.github.io/abdallahabouhajal/)
 [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-1I8SvsQAAAAJ-4285F4?style=flat-square&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en)
-[![Scopus](https://img.shields.io/badge/Scopus-58094444100-E9711C?style=flat-square)](https://www.scopus.com/authid/detail.uri?authorId=58094444100)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--1807--2178-A6CE39?style=flat-square&logo=orcid&logoColor=white)](https://orcid.org/0009-0006-1807-2178)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-abdallah--abou--hajal-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdallah-abou-hajal/)
 [![Email](https://img.shields.io/badge/Email-abdallah.abouhajal@gmail.com-D44638?style=flat-square&logo=gmail&logoColor=white)](mailto:abdallah.abouhajal@gmail.com)
 
-![Publications](https://img.shields.io/badge/Publications-14-informational?style=flat-square)
-![Citations](https://img.shields.io/badge/Citations-99-informational?style=flat-square)
-![h--index](https://img.shields.io/badge/h--index-7-informational?style=flat-square)
+📊 **Live metrics** auto-update weekly on the [publications page](https://scholarlybrightminds.github.io/abdallahabouhajal/publications.html) · current snapshot also visible on [Google Scholar](https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en)
 
 </div>
 

@@ -74,23 +74,26 @@ window.SITE_CONFIG = {
 
     // ── IDs (external profiles) ───────────────────────────────────
     ids: {
-        scholar: "1I8SvsQAAAAJ",
-        scopus:  "58094444100",
-        orcid:   "0009-0006-1807-2178",
-        github:  "ScholarlyBrightMinds",
-        email:   "abdallah.abouhajal@gmail.com",
-        instagram: "abdallah_abouhajal"
+        scholar:   "1I8SvsQAAAAJ",
+        orcid:     "0009-0006-1807-2178",
+        github:    "ScholarlyBrightMinds",
+        githubUser:"AbdallahAbouHajal",
+        linkedin:  "abdallah-abou-hajal",
+        researchgate: "Abdallah_Abou_Hajal",
+        email:     "abdallah.abouhajal@gmail.com",
+        instagram: "abdallah_hajal"
     },
 
     // ── Social links (rendered in hero + footer) ─────────────────
     // Order determines display order. Set to null to hide.
     social: [
-        { key: "scholar",  label: "Google Scholar", url: "https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en" },
-        { key: "scopus",   label: "Scopus",         url: "https://www.scopus.com/authid/detail.uri?authorId=58094444100" },
-        { key: "orcid",    label: "ORCID",          url: "https://orcid.org/0009-0006-1807-2178" },
-        { key: "github",   label: "GitHub",         url: "https://github.com/ScholarlyBrightMinds" },
-        { key: "instagram",label: "Instagram",      url: "https://www.instagram.com/abdallah_abouhajal/" },
-        { key: "email",    label: "Email",          url: "mailto:abdallah.abouhajal@gmail.com" }
+        { key: "scholar",     label: "Google Scholar",  url: "https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en" },
+        { key: "orcid",       label: "ORCID",           url: "https://orcid.org/0009-0006-1807-2178" },
+        { key: "linkedin",    label: "LinkedIn",        url: "https://www.linkedin.com/in/abdallah-abou-hajal/" },
+        { key: "researchgate",label: "ResearchGate",    url: "https://www.researchgate.net/profile/Abdallah_Abou_Hajal" },
+        { key: "github",      label: "GitHub",          url: "https://github.com/ScholarlyBrightMinds" },
+        { key: "instagram",   label: "Instagram",       url: "https://www.instagram.com/abdallah_hajal/" },
+        { key: "email",       label: "Email",           url: "mailto:abdallah.abouhajal@gmail.com" }
     ],
 
     // ── Home page bio (short, for hero) ──────────────────────────
@@ -101,8 +104,12 @@ window.SITE_CONFIG = {
 
     // ── Quick-stat chips shown in hero ───────────────────────────
     // First 5 shown. `variant: 'gold'` uses amber color instead of accent.
+    // Chips with hard-coded metrics are kept as fallback only. The build_html.py
+    // step in the SerpApi workflow replaces the first chip with live numbers
+    // (e.g., "14 Publications · 105 Citations") right before each commit, so
+    // the static HTML that Google indexes always shows current stats.
     chips: [
-        { label: "13 Publications · 98 Citations" },
+        { label: "14 Publications · 103 Citations" },
         { label: "h-index 7" },
         { label: "4× Corresponding Author" },
         { label: "🥇 BindHack · Insilico Medicine", variant: "gold" },
@@ -113,7 +120,7 @@ window.SITE_CONFIG = {
     ledes: {
         about:        "Researcher in AI-driven drug discovery, now working at the intersection of cheminformatics, AutoML, and large language models.",
         projects:     "Active work on AI agents and computational toxicology at the top — followed by published output. If any of these intersect with your work, I would love to collaborate.",
-        publications: "Peer-reviewed output across machine learning, cheminformatics, and drug discovery — updated automatically from Scholar and Scopus.",
+        publications: "Peer-reviewed output across machine learning, cheminformatics, and drug discovery — synced weekly from Google Scholar.",
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper."
     },
 
