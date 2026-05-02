@@ -222,30 +222,53 @@ def patch_publications_html(pubs: list[dict], metrics: dict) -> None:
 # ─────────────────────────────────────────────────────────────────────────
 # Patch: index.html — first chip in theme.config.js gets live metrics
 # ─────────────────────────────────────────────────────────────────────────
-def patch_index_chip(pubs: list[dict], metrics: dict) -> None:
+def patch_index_chips(pubs: list[dict], metrics: dict) -> None:
+    """Patch the metric-bearing chips in theme.config.js. Two chips currently
+    auto-update from each Monday's SerpApi fetch:
+      1. "<N> Publications · <M> Citations"  ← total docs + citation count
+      2. "h-index <N>"                       ← Scholar h-index
+
+    Hardcoded chips ("4× Corresponding Author", awards, education) are left
+    alone — they don't change with citation data."""
     cfg = REPO_ROOT / "theme.config.js"
     if not cfg.exists():
         return
     text = cfg.read_text(encoding="utf-8")
     orig = text
+    changed: list[str] = []
 
     total = metrics.get("total_documents") or len(pubs)
-    cites = metrics.get("total_citations") or sum(int(p.get("cited_by") or 0) for p in pubs)
-    if not total:
-        return
+    cites = (metrics.get("total_citations")
+              or sum(int(p.get("cited_by") or 0) for p in pubs))
+    hidx  = metrics.get("h_index")
 
-    new_label = f"{total} Publications · {cites} Citations"
-    # Match the first chip label specifically (… Publications · … Citations)
-    pattern = re.compile(
-        r'(\{\s*label:\s*")(\d+\s+Publications\s+·\s+\d+\s+Citations)(")',
-    )
-    text = pattern.sub(rf'\g<1>{new_label}\g<3>', text, count=1)
+    # Chip 1: Publications · Citations
+    if total:
+        new_label = f"{total} Publications · {cites} Citations"
+        pat1 = re.compile(
+            r'(\{\s*label:\s*")(\d+\s+Publications\s+·\s+\d+\s+Citations)(")',
+        )
+        new_text = pat1.sub(rf'\g<1>{new_label}\g<3>', text, count=1)
+        if new_text != text:
+            changed.append(f'pubs+cites="{new_label}"')
+            text = new_text
+
+    # Chip 2: h-index
+    if hidx:
+        new_label = f"h-index {hidx}"
+        pat2 = re.compile(
+            r'(\{\s*label:\s*")(h-index\s+\d+)(")',
+        )
+        new_text = pat2.sub(rf'\g<1>{new_label}\g<3>', text, count=1)
+        if new_text != text:
+            changed.append(f'h-index="{new_label}"')
+            text = new_text
 
     if text != orig:
         cfg.write_text(text, encoding="utf-8")
-        print(f"[OK] theme.config.js chip: '{new_label}'")
+        print(f"[OK] theme.config.js chips updated: {', '.join(changed)}")
     else:
-        print(f"[OK] theme.config.js chip: no change")
+        print("[OK] theme.config.js chips: no change (already current)")
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -258,7 +281,7 @@ def main() -> int:
     print(f"[build_html] loaded {len(pubs)} publications, "
           f"metrics keys: {list(metrics.keys())}")
     patch_publications_html(pubs, metrics)
-    patch_index_chip(pubs, metrics)
+    patch_index_chips(pubs, metrics)
     print("[build_html] done")
     return 0
 

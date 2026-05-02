@@ -79,9 +79,9 @@ window.SITE_CONFIG = {
         github:    "ScholarlyBrightMinds",
         githubUser:"AbdallahAbouHajal",
         linkedin:  "abdallah-abou-hajal",
-        researchgate: "Abdallah_Abou_Hajal",
+        researchgate: "Abdallah-Abou-Hajal-2",
         email:     "abdallah.abouhajal@gmail.com",
-        instagram: "abdallah_hajal"
+        instagram: "abdallah_abouhajal"
     },
 
     // ── Social links (rendered in hero + footer) ─────────────────
@@ -90,9 +90,9 @@ window.SITE_CONFIG = {
         { key: "scholar",     label: "Google Scholar",  url: "https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en" },
         { key: "orcid",       label: "ORCID",           url: "https://orcid.org/0009-0006-1807-2178" },
         { key: "linkedin",    label: "LinkedIn",        url: "https://www.linkedin.com/in/abdallah-abou-hajal/" },
-        { key: "researchgate",label: "ResearchGate",    url: "https://www.researchgate.net/profile/Abdallah_Abou_Hajal" },
+        { key: "researchgate",label: "ResearchGate",    url: "https://www.researchgate.net/profile/Abdallah-Abou-Hajal-2" },
         { key: "github",      label: "GitHub",          url: "https://github.com/ScholarlyBrightMinds" },
-        { key: "instagram",   label: "Instagram",       url: "https://www.instagram.com/abdallah_hajal/" },
+        { key: "instagram",   label: "Instagram",       url: "https://www.instagram.com/abdallah_abouhajal/" },
         { key: "email",       label: "Email",           url: "mailto:abdallah.abouhajal@gmail.com" }
     ],
 
