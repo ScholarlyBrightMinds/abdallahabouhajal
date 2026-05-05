@@ -92,6 +92,7 @@ window.SITE_CONFIG = {
         { key: "linkedin",    label: "LinkedIn",        url: "https://www.linkedin.com/in/abdallah-abou-hajal/" },
         { key: "researchgate",label: "ResearchGate",    url: "https://www.researchgate.net/profile/Abdallah-Abou-Hajal-2" },
         { key: "github",      label: "GitHub",          url: "https://github.com/ScholarlyBrightMinds" },
+        { key: "cv",          label: "Download CV",     url: "Abdallah-Abou-Hajal-CV.pdf" },
         { key: "instagram",   label: "Instagram",       url: "https://www.instagram.com/abdallah_abouhajal/" },
         { key: "email",       label: "Email",           url: "mailto:abdallah.abouhajal@gmail.com" }
     ],
