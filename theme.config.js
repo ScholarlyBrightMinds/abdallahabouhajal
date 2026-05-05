@@ -15,14 +15,14 @@ window.SITE_CONFIG = {
         lastName:  "Abou Hajal",
         initials:  "AAH",
         role:      "AI × Drug Discovery",
-        tagline:   "Researcher &amp; Data Analyst — building ML pipelines between cheminformatics, AutoML, and large language models.",
+        tagline:   "AI Automation Lead &amp; researcher — LLM-based agents for academic publishing; ML pipelines and cheminformatics for drug discovery.",
         location:  "Abu Dhabi, UAE",
-        status:    "researching AI agents &amp; AOP networks · seeking PhD opportunities",
+        status:    "benchmarking LLM chemical intelligence · researching AI agents for drug screening · seeking PhD opportunities",
         photo:     "images/profile.png",
         affiliation: {
             name: "Scifiniti Publishing",
             url:  "https://scifiniti.com",
-            role: "Researcher &amp; Data Analyst"
+            role: "Data Analyst &amp; AI Automation Lead"
         }
     },
 
@@ -98,7 +98,7 @@ window.SITE_CONFIG = {
 
     // ── Home page bio (short, for hero) ──────────────────────────
     bio: {
-        short: "AI × Drug Discovery researcher with an MSc in Pharmaceutical Sciences. I build ML pipelines that flag problematic molecules before they waste months of lab time.",
+        short: "AI × Drug Discovery researcher and AI Automation Lead. I build LLM-based agents and Python automation for academic publishing, while researching ML pipelines, cheminformatics, and LLM applications in drug discovery.",
         long: "I completed my Bachelor's in Pharmacy, and somewhere during my MSc I fell into the world of AI and drug discovery and honestly never looked back. Now I spend my time writing Python scripts to automate things nobody asked me to automate. My MSc thesis tackled colloidal aggregators — molecules that look like promising hits but are actually just clumping and causing false positives — and we built a machine-learning tool to catch them early. It lives on a public web server. Still proud of that one."
     },
 
