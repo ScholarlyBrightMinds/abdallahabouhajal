@@ -1,0 +1,96 @@
+{
+  "4787766b3517aaa0": {
+    "doi": "10.1080/13696998.2024.2315864",
+    "confidence": 1.0,
+    "matched_title": "Insights into artificial intelligence utilisation in drug discovery",
+    "matched_year": 2024,
+    "matched_at": "2026-05-18T14:04:48+00:00"
+  },
+  "3f723798ef855c03": {
+    "doi": "10.1016/j.jsps.2023.01.004",
+    "confidence": 1.0,
+    "matched_title": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
+    "matched_year": 2023,
+    "matched_at": "2026-05-18T14:04:50+00:00"
+  },
+  "d84b50f208024ff3": {
+    "doi": "10.1080/17425255.2023.2294939",
+    "confidence": 1.0,
+    "matched_title": "Overcoming barriers to machine learning applications in toxicity prediction",
+    "matched_year": 2023,
+    "matched_at": "2026-05-18T14:04:52+00:00"
+  },
+  "3e49a9dc9f51dec8": {
+    "doi": "10.1016/j.jsps.2023.05.024",
+    "confidence": 1.0,
+    "matched_title": "Exploring the pharmacy students’ perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
+    "matched_year": 2023,
+    "matched_at": "2026-05-18T14:04:55+00:00"
+  },
+  "cf2f05d1ea381d09": {
+    "doi": "10.18549/pharmpract.2022.3.2713",
+    "confidence": 0.997,
+    "matched_title": "Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted timeseries interventions on pharmacist’s prescribing",
+    "matched_year": 2022,
+    "matched_at": "2026-05-18T14:04:57+00:00"
+  },
+  "466f9a670c9991d5": {
+    "doi": "10.1080/17425255.2025.2551724",
+    "confidence": 1.0,
+    "matched_title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
+    "matched_year": 2025,
+    "matched_at": "2026-05-18T14:05:00+00:00"
+  },
+  "ad1a09422a59f726": {
+    "doi": "10.1016/j.compbiomed.2025.110156",
+    "confidence": 1.0,
+    "matched_title": "Machine learning predictions of tumor progression: How reliable are we?",
+    "matched_year": 2025,
+    "matched_at": "2026-05-18T14:05:02+00:00"
+  },
+  "17da25628ad118b9": {
+    "no_match_at": "2026-05-18T14:05:04+00:00"
+  },
+  "530639756ec3b437": {
+    "doi": "10.1080/0972060x.2022.2072177",
+    "confidence": 0.957,
+    "matched_title": "Chemical Composition of the Volatile Oil from Aerial Parts of<i>Rosmarinus officinalis</i>L. Growing in UAE",
+    "matched_year": 2022,
+    "matched_at": "2026-05-18T14:05:06+00:00"
+  },
+  "50cf37471e3d63c6": {
+    "doi": "10.1021/acs.jcim.4c00363",
+    "confidence": 1.0,
+    "matched_title": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter",
+    "matched_year": 2024,
+    "matched_at": "2026-05-18T14:05:09+00:00"
+  },
+  "8dd1d421fa31cddc": {
+    "doi": "10.1080/17460441.2026.2641511",
+    "confidence": 1.0,
+    "matched_title": "An introduction to GitHub and its significance for AI-driven drug discovery",
+    "matched_year": 2026,
+    "matched_at": "2026-05-18T14:05:11+00:00"
+  },
+  "c19cc6f87b107d58": {
+    "doi": "10.1080/15376516.2026.2628929",
+    "confidence": 1.0,
+    "matched_title": "Introducing AutoML framework for drug–drug interaction prediction: application of AutoGluon",
+    "matched_year": 2026,
+    "matched_at": "2026-05-18T14:05:13+00:00"
+  },
+  "7ea58ccab6a9144d": {
+    "doi": "10.1016/j.xphs.2025.104147",
+    "confidence": 1.0,
+    "matched_title": "Large language models in drug delivery: A review of the current landscape and future perspectives",
+    "matched_year": 2026,
+    "matched_at": "2026-05-18T14:05:15+00:00"
+  },
+  "a4aeda9f191a58ff": {
+    "doi": "10.1016/j.jsps.2023.05.024",
+    "confidence": 0.957,
+    "matched_title": "Exploring the pharmacy students’ perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
+    "matched_year": 2023,
+    "matched_at": "2026-05-18T14:05:18+00:00"
+  }
+}

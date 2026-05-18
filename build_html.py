@@ -40,10 +40,59 @@ from pathlib import Path
 REPO_ROOT  = Path(__file__).resolve().parent
 DATA_PUBS  = REPO_ROOT / "data" / "serpapi" / "serpapi.json"
 DATA_METR  = REPO_ROOT / "data" / "serpapi" / "metrics.json"
+DATA_DOIS  = REPO_ROOT / "data" / "serpapi" / "dois.json"
 PUBS_HTML  = REPO_ROOT / "publications.html"
 INDEX_HTML = REPO_ROOT / "index.html"
+THEME_CFG  = REPO_ROOT / "theme.config.js"
 
-SITE_BASE  = "https://scholarlybrightminds.github.io/abdallahabouhajal"
+ORG_BASE   = "https://scholarlybrightminds.github.io"
+
+# Altmetric embed CDN — referenced once in publications.html <head>.
+# Loading the script async makes the badge zero-cost for first paint.
+ALTMETRIC_EMBED_SRC = "https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Per-member identity (self-configuring from theme.config.js + repo name)
+# ─────────────────────────────────────────────────────────────────────────
+def _grab(text: str, field: str) -> str | None:
+    m = re.search(rf'{field}\s*:\s*"([^"]*)"', text)
+    return m.group(1) if m else None
+
+
+def load_identity() -> dict:
+    """Read per-member identity from theme.config.js + repo folder name.
+    Returns a dict the renderers can use without any hardcoded names."""
+    repo_name = REPO_ROOT.name
+    site_base = f"{ORG_BASE}/{repo_name}"
+    full_name = repo_name
+    scholar = orcid = ""
+    if THEME_CFG.exists():
+        text = THEME_CFG.read_text(encoding="utf-8")
+        # First match wins for each — theme.config.js has nested blocks but the
+        # values we want are unique enough across the file.
+        m_full = re.search(r'fullName\s*:\s*"([^"]*)"', text)
+        if m_full:
+            full_name = m_full.group(1)
+        m_scholar = re.search(r'scholar\s*:\s*"([^"]*)"', text)
+        if m_scholar:
+            scholar = m_scholar.group(1)
+        m_orcid = re.search(r'orcid\s*:\s*"([^"]*)"', text)
+        if m_orcid:
+            orcid = m_orcid.group(1)
+    same_as = []
+    if scholar:
+        same_as.append(f"https://scholar.google.com/citations?user={scholar}&hl=en")
+    if orcid:
+        same_as.append(f"https://orcid.org/{orcid}")
+    return {
+        "repo_name": repo_name,
+        "site_base": site_base,
+        "full_name": full_name,
+        "scholar":   scholar,
+        "orcid":     orcid,
+        "same_as":   same_as,
+    }
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -66,6 +115,25 @@ def load_metrics() -> dict:
         return json.load(f)
 
 
+def load_dois() -> dict:
+    """dois.json keyed by pub_key (hash of scholar link) -> {doi, confidence, ...}.
+    See enrich_dois.py for the matching pipeline that produces this file."""
+    if not DATA_DOIS.exists():
+        return {}
+    with DATA_DOIS.open(encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _pub_doi_key(pub: dict) -> str:
+    """Mirror of enrich_dois.pub_key() — keep these two in sync."""
+    import hashlib
+    link = (pub.get("link") or "").strip()
+    if link:
+        return hashlib.sha1(link.encode("utf-8"), usedforsecurity=False).hexdigest()[:16]
+    fallback = (pub.get("title") or "") + "|" + str(pub.get("year") or "")
+    return hashlib.sha1(fallback.encode("utf-8"), usedforsecurity=False).hexdigest()[:16]
+
+
 # ─────────────────────────────────────────────────────────────────────────
 # Render: per-publication <article> blocks (for #list-articles section)
 # ─────────────────────────────────────────────────────────────────────────
@@ -83,21 +151,68 @@ def _journal_name_from_venue(venue: str) -> str:
     return name or venue.strip()
 
 
-def render_article(p: dict) -> str:
+def render_article(p: dict, doi: str | None = None) -> str:
     title    = escape(p.get("title", "").strip() or "Untitled")
     authors  = escape(p.get("authors", "").strip())
     venue    = (p.get("venue") or p.get("publication") or "").strip()
     venue_e  = escape(venue)
-    year     = escape(str(p.get("year") or "").strip())
+    year_raw = str(p.get("year") or "").strip()
+    year     = escape(year_raw)
     cites    = int(p.get("cited_by") or 0)
     link     = p.get("link") or ""
     if link and not link.startswith(("http://", "https://")):
         link = ""
     link_attr = f' href="{escape(link)}" target="_blank" rel="noopener noreferrer"' if link else ""
 
-    cites_block = (
-        f'<span class="pub-cites">{cites} citation{"s" if cites != 1 else ""}</span>'
-        if cites else ""
+    # Stats row: Altmetric donut + citation chip + year chip + DOI link.
+    # Each chip is omitted gracefully when the underlying value is missing.
+    stats_parts: list[str] = []
+
+    if doi:
+        doi_safe = escape(doi)
+        # data-hide-no-mentions="true" tells Altmetric's embed script to remove
+        # the badge entirely when no mentions exist for the DOI — avoids the
+        # placeholder "?" donut that otherwise clutters the stats row.
+        stats_parts.append(
+            f'<div class="pub-altmetric altmetric-embed" '
+            f'data-badge-type="donut" data-doi="{doi_safe}" '
+            f'data-hide-no-mentions="true" '
+            f'title="Altmetric attention score — click for the full mention breakdown"></div>'
+        )
+
+    if cites:
+        stats_parts.append(
+            f'<span class="pub-stat pub-stat-cites" title="Google Scholar citations">'
+            f'<span class="pub-stat-icon" aria-hidden="true">&#9733;</span>'
+            f'<span class="pub-stat-num">{cites}</span>'
+            f'<span class="pub-stat-label">citation{"s" if cites != 1 else ""}</span>'
+            f'</span>'
+        )
+
+    if year:
+        stats_parts.append(
+            f'<span class="pub-stat pub-stat-year" title="Year of publication">'
+            f'<span class="pub-stat-icon" aria-hidden="true">&#128197;</span>'
+            f'<span class="pub-stat-num">{year}</span>'
+            f'</span>'
+        )
+
+    if doi:
+        doi_safe = escape(doi)
+        stats_parts.append(
+            f'<a class="pub-stat pub-stat-doi" '
+            f'href="https://doi.org/{doi_safe}" target="_blank" rel="noopener noreferrer" '
+            f'title="Open at publisher via DOI">'
+            f'<span class="pub-stat-icon" aria-hidden="true">&#128279;</span>'
+            f'<span class="pub-stat-label">DOI</span>'
+            f'</a>'
+        )
+
+    stats_block = (
+        '<div class="pub-meta">\n            '
+        + "\n            ".join(stats_parts)
+        + '\n        </div>'
+        if stats_parts else '<div class="pub-meta"></div>'
     )
     venue_block = f'<p class="pub-venue">{venue_e}</p>' if venue_e else ""
 
@@ -105,20 +220,27 @@ def render_article(p: dict) -> str:
             <h3 class="pub-title"><a{link_attr}>{title}</a></h3>
             <p class="pub-authors">{authors}</p>
             {venue_block}
-            <div class="pub-meta">{cites_block}</div>
+            {stats_block}
         </article>"""
 
 
-def render_articles_block(pubs: list[dict]) -> str:
+def render_articles_block(pubs: list[dict], dois: dict) -> str:
     if not pubs:
         return '        <p class="pub-loading">No publications found.</p>'
-    return "\n".join(render_article(p) for p in pubs)
+    rendered = []
+    for p in pubs:
+        info = dois.get(_pub_doi_key(p)) or {}
+        doi = info.get("doi") or None
+        rendered.append(render_article(p, doi=doi))
+    return "\n".join(rendered)
 
 
 # ─────────────────────────────────────────────────────────────────────────
 # Render: Schema.org JSON-LD block for publications.html
 # ─────────────────────────────────────────────────────────────────────────
-def render_jsonld(pubs: list[dict]) -> str:
+def render_jsonld(pubs: list[dict], dois: dict, ident: dict) -> str:
+    site_base = ident["site_base"]
+    full_name = ident["full_name"]
     items = []
     for i, p in enumerate(pubs, start=1):
         venue_raw = (p.get("venue") or p.get("publication") or "").strip()
@@ -136,6 +258,12 @@ def render_jsonld(pubs: list[dict]) -> str:
             article["isPartOf"] = {"@type": "Periodical", "name": journal}
         if p.get("link"):
             article["url"] = p["link"]
+        # Surface DOI as both identifier and sameAs — Google + Crossref prefer this.
+        info = dois.get(_pub_doi_key(p)) or {}
+        doi = info.get("doi")
+        if doi:
+            article["identifier"] = {"@type": "PropertyValue", "propertyID": "doi", "value": doi}
+            article["sameAs"] = f"https://doi.org/{doi}"
         cites = int(p.get("cited_by") or 0)
         if cites:
             article["interactionStatistic"] = {
@@ -148,24 +276,21 @@ def render_jsonld(pubs: list[dict]) -> str:
     payload = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "url": f"{SITE_BASE}/publications.html",
-        "name": "Publications — Abdallah Abou Hajal",
+        "url": f"{site_base}/publications.html",
+        "name": f"Publications — {full_name}",
         "isPartOf": {
             "@type": "WebSite",
-            "url": f"{SITE_BASE}/"
+            "url": f"{site_base}/"
         },
         "about": {
             "@type": "Person",
-            "@id": f"{SITE_BASE}/#person",
-            "name": "Abdallah Abou Hajal",
-            "sameAs": [
-                "https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en",
-                "https://orcid.org/0009-0006-1807-2178"
-            ]
+            "@id": f"{site_base}/#person",
+            "name": full_name,
+            "sameAs": ident["same_as"],
         },
         "mainEntity": {
             "@type": "ItemList",
-            "name": "Peer-reviewed publications by Abdallah Abou Hajal",
+            "name": f"Peer-reviewed publications by {full_name}",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
             "numberOfItems": len(items),
             "itemListElement": items
@@ -179,15 +304,30 @@ def render_jsonld(pubs: list[dict]) -> str:
 # ─────────────────────────────────────────────────────────────────────────
 # Patch: publications.html
 # ─────────────────────────────────────────────────────────────────────────
-def patch_publications_html(pubs: list[dict], metrics: dict) -> None:
+def _ensure_altmetric_script(html: str) -> str:
+    """Idempotently inject the Altmetric embed.js script into <head> if absent.
+    Placed just before </head> so it doesn't block the document parse."""
+    if ALTMETRIC_EMBED_SRC in html:
+        return html
+    snippet = (
+        f'<script async src="{ALTMETRIC_EMBED_SRC}" '
+        f'data-altmetric-embed="scholarlybrightminds"></script>\n'
+    )
+    return html.replace("</head>", snippet + "</head>", 1)
+
+
+def patch_publications_html(pubs: list[dict], metrics: dict, dois: dict, ident: dict) -> None:
     if not PUBS_HTML.exists():
         print(f"[FAIL] {PUBS_HTML} missing")
         sys.exit(1)
     html = PUBS_HTML.read_text(encoding="utf-8")
     orig = html
 
+    # 0. Make sure the Altmetric embed script is in <head> (one-time, idempotent).
+    html = _ensure_altmetric_script(html)
+
     # 1. Replace article list inner content
-    articles = render_articles_block(pubs)
+    articles = render_articles_block(pubs, dois)
     pattern = re.compile(
         r'(<section id="list-articles"[^>]*>)(.*?)(</section>)',
         re.DOTALL
@@ -204,7 +344,7 @@ def patch_publications_html(pubs: list[dict], metrics: dict) -> None:
     html = re.sub(r'(<span id="m-h">)[^<]*(</span>)',      rf'\g<1>{hidx}\g<2>',  html)
 
     # 3. Replace JSON-LD script block (idempotent — match by id)
-    new_jsonld = render_jsonld(pubs)
+    new_jsonld = render_jsonld(pubs, dois, ident)
     jsonld_pattern = re.compile(
         r'<script type="application/ld\+json" id="publications-jsonld">.*?</script>',
         re.DOTALL
@@ -213,7 +353,8 @@ def patch_publications_html(pubs: list[dict], metrics: dict) -> None:
 
     if html != orig:
         PUBS_HTML.write_text(html, encoding="utf-8")
-        print(f"[OK] publications.html: {len(pubs)} articles, "
+        resolved = sum(1 for p in pubs if dois.get(_pub_doi_key(p), {}).get("doi"))
+        print(f"[OK] publications.html: {len(pubs)} articles, {resolved} with DOI badges, "
               f"{total} pubs, {cites} cites, h={hidx}")
     else:
         print("[OK] publications.html: no changes (already up to date)")
@@ -276,11 +417,15 @@ def patch_index_chips(pubs: list[dict], metrics: dict) -> None:
 # ─────────────────────────────────────────────────────────────────────────
 def main() -> int:
     print(f"[build_html] starting at {datetime.now(timezone.utc).isoformat()}")
+    ident = load_identity()
+    print(f"[build_html] identity: {ident['full_name']} @ {ident['site_base']}")
     pubs = load_publications()
     metrics = load_metrics()
+    dois = load_dois()
+    resolved_dois = sum(1 for v in dois.values() if v.get("doi"))
     print(f"[build_html] loaded {len(pubs)} publications, "
-          f"metrics keys: {list(metrics.keys())}")
-    patch_publications_html(pubs, metrics)
+          f"{resolved_dois} DOIs, metrics keys: {list(metrics.keys())}")
+    patch_publications_html(pubs, metrics, dois, ident)
     patch_index_chips(pubs, metrics)
     print("[build_html] done")
     return 0
