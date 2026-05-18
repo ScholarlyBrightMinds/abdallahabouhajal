@@ -110,7 +110,7 @@ window.SITE_CONFIG = {
     // (e.g., "14 Publications · 105 Citations") right before each commit, so
     // the static HTML that Google indexes always shows current stats.
     chips: [
-        { label: "14 Publications · 105 Citations" },
+        { label: "14 Publications · 110 Citations" },
         { label: "h-index 7" },
         { label: "4× Corresponding Author" },
         { label: "🥇 BindHack · Insilico Medicine", variant: "gold" },
