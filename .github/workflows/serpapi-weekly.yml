@@ -86,6 +86,15 @@ jobs:
           set -euo pipefail
           python build_openalex_html.py
 
+      - name: Bake co-author network into publications.html
+        # Reads data/openalex/openalex.json and renders a radial SVG of
+        # top co-authors (node size and edge weight scale with shared
+        # paper count) plus a tabular fallback list. Patches the
+        # COAUTHOR-NETWORK marker block in publications.html.
+        run: |
+          set -euo pipefail
+          python build_coauthor_html.py
+
       - name: Update sitemap.xml lastmod for publications page
         # Bump the <lastmod> on the publications page so search engines know
         # the publication list changed this week.
