@@ -286,7 +286,7 @@ def render_jsonld(pubs: list[dict], dois: dict, ident: dict) -> str:
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "url": f"{site_base}/publications.html",
-        "name": f"Publications — {full_name}",
+        "name": f"Publications · {full_name}",
         "isPartOf": {
             "@type": "WebSite",
             "url": f"{site_base}/"
