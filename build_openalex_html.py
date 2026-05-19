@@ -89,7 +89,7 @@ def render_panel(payload: dict) -> str:
         '<section class="reveal openalex-panel" aria-label="OpenAlex research topics">'
         '<p class="sec-kicker">Research focus</p>'
         '<h2 class="sec-title">Topics by <em>OpenAlex</em>.</h2>'
-        '<p class="oa-lede">Auto-derived from publication metadata indexed in OpenAlex — '
+        '<p class="oa-lede">Auto-derived from publication metadata indexed in OpenAlex: '
         'the larger the chip, the stronger the topic association.</p>'
         '<div class="oa-chips">' + chips + '</div>'
         + (f'<div class="oa-badges">{badges_html}</div>' if badges_html else '')

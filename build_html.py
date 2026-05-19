@@ -158,11 +158,7 @@ def _journal_name_from_venue(venue: str) -> str:
     return name or venue.strip()
 
 
-def render_article(
-    p: dict,
-    doi: str | None = None,
-    openalex_cites: int | None = None,
-) -> str:
+def render_article(p: dict, doi: str | None = None) -> str:
     title    = escape(p.get("title", "").strip() or "Untitled")
     authors  = escape(p.get("authors", "").strip())
     venue    = (p.get("venue") or p.get("publication") or "").strip()
@@ -175,23 +171,22 @@ def render_article(
         link = ""
     link_attr = f' href="{escape(link)}" target="_blank" rel="noopener noreferrer"' if link else ""
 
-    # Stats row: Dimensions donut + Scholar citation chip + OpenAlex
-    # verified citation chip + year chip + DOI link. Each chip is omitted
-    # gracefully when the underlying value is missing.
+    # Stats row: Dimensions donut, Scholar citation chip, year chip,
+    # DOI link. Each chip is omitted gracefully when the value is missing.
     stats_parts: list[str] = []
 
     if doi:
         doi_safe = escape(doi)
-        # Dimensions Badge (by Digital Science — same parent as Altmetric).
-        #   small_circle → ~32px circular donut
-        #   hover-right  → mention/citation legend appears to the right on hover
-        # No API key, no paywall — renders for every DOI Dimensions has indexed.
+        # Dimensions Badge by Digital Science. Free, no API key, renders
+        # for every DOI Dimensions has indexed.
+        #   small_circle: ~32px circular donut
+        #   hover-right:  mention/citation legend appears to the right on hover
         stats_parts.append(
             f'<span class="pub-dimensions __dimensions_badge_embed__" '
             f'data-doi="{doi_safe}" '
             f'data-style="small_circle" '
             f'data-legend="hover-right" '
-            f'title="Dimensions citation impact — click for details"></span>'
+            f'title="Dimensions citation impact (click for details)"></span>'
         )
 
     if cites:
@@ -200,19 +195,6 @@ def render_article(
             f'<span class="pub-stat-icon" aria-hidden="true">&#9733;</span>'
             f'<span class="pub-stat-num">{cites}</span>'
             f'<span class="pub-stat-label">citation{"s" if cites != 1 else ""}</span>'
-            f'</span>'
-        )
-
-    # OpenAlex verified citations — sourced from Crossref-indexed citations
-    # only, so the count is conservative (typically lower than Scholar's).
-    # Render the chip when we have a non-zero match for this DOI.
-    if openalex_cites:
-        stats_parts.append(
-            f'<span class="pub-stat pub-stat-openalex" '
-            f'title="OpenAlex verified citations (Crossref-indexed)">'
-            f'<span class="pub-stat-icon" aria-hidden="true">&#9679;</span>'
-            f'<span class="pub-stat-num">{openalex_cites}</span>'
-            f'<span class="pub-stat-label">verified</span>'
             f'</span>'
         )
 
@@ -251,44 +233,14 @@ def render_article(
         </article>"""
 
 
-def _load_openalex_cites_by_doi() -> dict[str, int]:
-    """Load data/openalex/openalex.json (if present) and build a
-    {bare_doi → cited_by_count} dict so render_article can emit an
-    OpenAlex verified-citation chip per paper.
-
-    Returns an empty dict if the file is missing or malformed — the build
-    keeps going so a missing OpenAlex feed never breaks the publication page."""
-    fp = REPO_ROOT / "data" / "openalex" / "openalex.json"
-    if not fp.exists():
-        return {}
-    try:
-        payload = json.loads(fp.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
-
-    out: dict[str, int] = {}
-    for w in payload.get("works") or []:
-        doi = (w.get("doi") or "").strip().lower()
-        if doi.startswith("https://doi.org/"):
-            doi = doi[len("https://doi.org/"):]
-        elif doi.startswith("http://doi.org/"):
-            doi = doi[len("http://doi.org/"):]
-        if not doi:
-            continue
-        out[doi] = int(w.get("cited_by_count") or 0)
-    return out
-
-
 def render_articles_block(pubs: list[dict], dois: dict) -> str:
     if not pubs:
         return '        <p class="pub-loading">No publications found.</p>'
-    openalex_cites_by_doi = _load_openalex_cites_by_doi()
     rendered = []
     for p in pubs:
         info = dois.get(_pub_doi_key(p)) or {}
-        doi  = info.get("doi") or None
-        oa   = openalex_cites_by_doi.get(doi.lower()) if doi else None
-        rendered.append(render_article(p, doi=doi, openalex_cites=oa))
+        doi = info.get("doi") or None
+        rendered.append(render_article(p, doi=doi))
     return "\n".join(rendered)
 
 
@@ -334,7 +286,7 @@ def render_jsonld(pubs: list[dict], dois: dict, ident: dict) -> str:
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "url": f"{site_base}/publications.html",
-        "name": f"Publications — {full_name}",
+        "name": f"Publications · {full_name}",
         "isPartOf": {
             "@type": "WebSite",
             "url": f"{site_base}/"

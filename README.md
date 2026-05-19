@@ -32,14 +32,14 @@ I hope you enjoy my work, take a look at my papers, and maybe we can collaborate
 
 ## Research
 
-My work sits at the intersection of **machine learning**, **cheminformatics**, and **drug discovery** — building predictive models that make early-stage drug screening faster, smarter, and less wasteful.
+My work sits at the intersection of **machine learning**, **cheminformatics**, and **drug discovery**, building predictive models that make early-stage drug screening faster, smarter, and less wasteful.
 
 **Selected publications:**
 
-- Abou Hajal A et al. — *Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD Molecule Filter* — **JCIM 2024**
-- Abou Hajal A, Al Meslamani AZ — *Insights into artificial intelligence utilisation in drug discovery* — **Journal of Medical Economics 2024** · 21 citations
-- Abou Hajal A, Sakkal M — *Introducing AutoML framework for drug–drug interaction prediction: Application of AutoGluon* — **Toxicology Mechanisms and Methods 2026**
-- Sakkal M, Abou Hajal A — *Large language models in drug delivery* — **J Pharm Sci 2025**
+- Abou Hajal A et al. *Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD Molecule Filter*, **JCIM 2024**
+- Abou Hajal A, Al Meslamani AZ. *Insights into artificial intelligence utilisation in drug discovery*, **Journal of Medical Economics 2024** · 21 citations
+- Abou Hajal A, Sakkal M. *Introducing AutoML framework for drug–drug interaction prediction: Application of AutoGluon*, **Toxicology Mechanisms and Methods 2026**
+- Sakkal M, Abou Hajal A. *Large language models in drug delivery*, **J Pharm Sci 2025**
 
 → Full list on [Google Scholar](https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en) or the [Publications page](https://scholarlybrightminds.github.io/abdallahabouhajal/publications.html)
 
@@ -54,9 +54,9 @@ My work sits at the intersection of **machine learning**, **cheminformatics**, a
 
 ## Awards
 
-🥇 **First Place, BindHack Hackathon** — Insilico Medicine, Masdar City (2025)  
-🥈 **Three Minute Thesis, 2nd Place** — 2nd AAU Health and Biomedical Postgraduate Symposium (2024)  
-🥇 **Best Quality Poster, 1st Place** — 1st International Conference on Pharmacy and Biomedical Sciences, Al Ain University (2023)
+🥇 **First Place, BindHack Hackathon**, Insilico Medicine, Masdar City (2025)  
+🥈 **Three Minute Thesis, 2nd Place**, 2nd AAU Health and Biomedical Postgraduate Symposium (2024)  
+🥇 **Best Quality Poster, 1st Place**, 1st International Conference on Pharmacy and Biomedical Sciences, Al Ain University (2023)
 
 ---
 

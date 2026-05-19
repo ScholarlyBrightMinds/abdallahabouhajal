@@ -115,7 +115,7 @@ def render_svg(me_name: str, me_profile_url: str, coauthors: list[dict]) -> str:
 
         # The node itself — a circle linking to that author's OpenAlex page.
         name_safe = escape(c["name"])
-        inst_safe = escape(c["institution"] or "—")
+        inst_safe = escape(c["institution"] or "n/a")
         href      = escape(c["id"])
         nodes_svg.append(
             f'<a href="{href}" target="_blank" rel="noopener">'
@@ -190,7 +190,7 @@ def render_panel(payload: dict) -> str:
     rows = "".join(
         f'<li class="coauth-row">'
         f'<a class="coauth-row-name" href="{escape(c["id"])}" target="_blank" rel="noopener">{escape(c["name"])}</a>'
-        f'<span class="coauth-row-inst">{escape(c["institution"] or "—")}</span>'
+        f'<span class="coauth-row-inst">{escape(c["institution"] or "n/a")}</span>'
         f'<span class="coauth-row-count">{c["papers"]}</span>'
         f'</li>'
         for c in coauthors
