@@ -1,4 +1,4 @@
-name: Weekly SerpApi Scholar Update + SEO Build
+name: Weekly Scholar + ORCID + OpenAlex Sync + SEO Build
 
 on:
   schedule:
@@ -33,6 +33,34 @@ jobs:
           set -euo pipefail
           python serpapi_fetcher.py
 
+      - name: Fetch ORCID public record
+        # ORCID Public API via 2-legged OAuth (client_credentials grant,
+        # /read-public scope). Pulls works, peer-reviews, employments,
+        # educations, fundings, distinctions, services into data/orcid/
+        # orcid.json. The Client ID + Secret are GitHub Actions secrets;
+        # never appear in source or logs.
+        env:
+          ORCID_CLIENT_ID:     ${{ secrets.ORCID_CLIENT_ID }}
+          ORCID_CLIENT_SECRET: ${{ secrets.ORCID_CLIENT_SECRET }}
+          ORCID_ID:            '0009-0006-1807-2178'
+        run: |
+          set -euo pipefail
+          python orcid_fetcher.py
+
+      - name: Fetch OpenAlex author + works
+        # OpenAlex Public API — no key needed, polite-pool by mailto.
+        # Pulls verified citations, h/i10-index, OA percentage, top
+        # research concepts, and the full works list into
+        # data/openalex/openalex.json.
+        env:
+          ORCID_ID:               '0009-0006-1807-2178'
+          OPENALEX_AUTHOR_ID:     'A5102914480'
+          OPENALEX_DISPLAY_NAME:  'Abdallah Abou Hajal'
+          OPENALEX_MAILTO:        'abdallah.abouhajal@gmail.com'
+        run: |
+          set -euo pipefail
+          python openalex_fetcher.py
+
       - name: Pre-render publications + metrics into static HTML (SEO)
         # Reads the freshly fetched data/serpapi/{serpapi,metrics}.json and
         # bakes the article list + headline metrics + Schema.org JSON-LD into
@@ -42,6 +70,21 @@ jobs:
         run: |
           set -euo pipefail
           python build_html.py
+
+      - name: Bake ORCID-verified panel into about.html
+        # Reads data/orcid/orcid.json (just fetched) and patches the
+        # idempotent ORCID-PANEL marker block in about.html with the latest
+        # works/peer-review/employment counts and "last synced" date.
+        run: |
+          set -euo pipefail
+          python build_orcid_html.py
+
+      - name: Bake OpenAlex research-topics panel into about.html
+        # Reads data/openalex/openalex.json and patches the OPENALEX-PANEL
+        # marker block with topic chips, OA percentage, and i10-index.
+        run: |
+          set -euo pipefail
+          python build_openalex_html.py
 
       - name: Update sitemap.xml lastmod for publications page
         # Bump the <lastmod> on the publications page so search engines know
@@ -87,10 +130,13 @@ jobs:
       - name: Commit updated data, HTML, and sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'docs: weekly Scholar sync + SEO rebuild'
+          commit_message: 'docs: weekly Scholar + ORCID + OpenAlex sync + SEO rebuild'
           file_pattern: |
             data/serpapi/*.json
             data/serpapi/*.csv
+            data/orcid/*.json
+            data/openalex/*.json
             publications.html
+            about.html
             theme.config.js
             sitemap.xml
