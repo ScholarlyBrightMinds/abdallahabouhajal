@@ -313,3 +313,67 @@
     font-size: 0.78rem;
     margin-top: 1rem;
 }
+
+/* ── OpenAlex research-focus panel ── */
+.openalex-panel {
+    margin-top: 1rem;
+}
+.oa-lede {
+    color: var(--text-soft);
+    font-size: 0.96rem;
+    max-width: 640px;
+    margin-bottom: 1.4rem;
+    line-height: 1.6;
+}
+.oa-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+.oa-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent);
+    border-color: rgba(111,171,152,0.32);
+    border-radius: 999px;
+    color: var(--accent-d);
+    font-family: var(--display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: transform .25s var(--ease), background-color .25s var(--ease);
+}
+.oa-chip:hover { transform: translateY(-1px); background-color: rgba(111,171,152,0.18); }
+
+.oa-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+.oa-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    padding: 0.38rem 0.85rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.83rem;
+    color: var(--text-soft);
+}
+.oa-badge strong {
+    color: var(--text);
+    font-family: var(--display);
+    font-weight: 600;
+}
+.oa-profile-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--accent);
+    font-size: 0.86rem;
+    font-weight: 500;
+}
+.oa-profile-link:hover { color: var(--accent-d); }
