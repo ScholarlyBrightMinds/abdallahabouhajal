@@ -1,0 +1,2850 @@
+{
+  "orcid_id": "0009-0006-1807-2178",
+  "last_fetched": "2026-05-19T10:41:39.777604+00:00",
+  "summary": {
+    "works_count": 12,
+    "peer_reviews_count": 2,
+    "employments_count": 1,
+    "educations_count": 1,
+    "fundings_count": 0,
+    "distinctions_count": 0,
+    "services_count": 0
+  },
+  "sections": {
+    "person": {
+      "last-modified-date": {
+        "value": 1777742888752
+      },
+      "name": {
+        "created-date": {
+          "value": 1717141123301
+        },
+        "last-modified-date": {
+          "value": 1777743083633
+        },
+        "given-names": {
+          "value": "Abdallah"
+        },
+        "family-name": {
+          "value": "Abou Hajal"
+        },
+        "credit-name": {
+          "value": "Abdallah Abou Hajal"
+        },
+        "source": null,
+        "visibility": "public",
+        "path": "0009-0006-1807-2178"
+      },
+      "other-names": {
+        "last-modified-date": null,
+        "other-name": [],
+        "path": "/0009-0006-1807-2178/other-names"
+      },
+      "biography": {
+        "created-date": {
+          "value": 1777743068591
+        },
+        "last-modified-date": {
+          "value": 1777743068591
+        },
+        "content": "Hi there! Welcome to my profile. I'm a researcher with a Master\u2019s in Pharmaceutical Sciences, passionate about using AI and machine learning to drive drug discovery. Currently, I work in academic publishing as a Data Analyst & AI Automation Lead, where I stay connected to cutting-edge research and analytics across the STEM landscape. I hope you enjoy my work. Take a look at my papers, and maybe we can collaborate sometime!",
+        "visibility": "public",
+        "path": "/0009-0006-1807-2178/biography"
+      },
+      "researcher-urls": {
+        "last-modified-date": {
+          "value": 1777742888752
+        },
+        "researcher-url": [
+          {
+            "created-date": {
+              "value": 1777742888752
+            },
+            "last-modified-date": {
+              "value": 1777742888752
+            },
+            "source": {
+              "source-orcid": {
+                "uri": "https://orcid.org/0009-0006-1807-2178",
+                "path": "0009-0006-1807-2178",
+                "host": "orcid.org"
+              },
+              "source-client-id": null,
+              "source-name": {
+                "value": "Abdallah Abou Hajal"
+              },
+              "assertion-origin-orcid": null,
+              "assertion-origin-client-id": null,
+              "assertion-origin-name": null
+            },
+            "url-name": "Personal Website",
+            "url": {
+              "value": "https://scholarlybrightminds.github.io/abdallahabouhajal/"
+            },
+            "visibility": "public",
+            "path": "/0009-0006-1807-2178/researcher-urls/6239274",
+            "put-code": 6239274,
+            "display-index": 1
+          }
+        ],
+        "path": "/0009-0006-1807-2178/researcher-urls"
+      },
+      "emails": {
+        "last-modified-date": null,
+        "email": [],
+        "path": "/0009-0006-1807-2178/email"
+      },
+      "addresses": {
+        "last-modified-date": null,
+        "address": [],
+        "path": "/0009-0006-1807-2178/address"
+      },
+      "keywords": {
+        "last-modified-date": null,
+        "keyword": [],
+        "path": "/0009-0006-1807-2178/keywords"
+      },
+      "external-identifiers": {
+        "last-modified-date": {
+          "value": 1766662296947
+        },
+        "external-identifier": [
+          {
+            "created-date": {
+              "value": 1766662296947
+            },
+            "last-modified-date": {
+              "value": 1766662296947
+            },
+            "source": {
+              "source-orcid": null,
+              "source-client-id": {
+                "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                "path": "0000-0002-5982-8983",
+                "host": "orcid.org"
+              },
+              "source-name": {
+                "value": "Scopus - Elsevier"
+              },
+              "assertion-origin-orcid": {
+                "uri": "https://orcid.org/0009-0006-1807-2178",
+                "path": "0009-0006-1807-2178",
+                "host": "orcid.org"
+              },
+              "assertion-origin-client-id": null,
+              "assertion-origin-name": {
+                "value": "Abdallah Abou Hajal"
+              }
+            },
+            "external-id-type": "Scopus Author ID",
+            "external-id-value": "58094444100",
+            "external-id-url": {
+              "value": "https://www.scopus.com/inward/authorDetails.url?authorID=58094444100&partnerID=MN8TOARS"
+            },
+            "external-id-relationship": "self",
+            "visibility": "public",
+            "path": "/0009-0006-1807-2178/external-identifiers/4220118",
+            "put-code": 4220118,
+            "display-index": 1
+          }
+        ],
+        "path": "/0009-0006-1807-2178/external-identifiers"
+      },
+      "path": "/0009-0006-1807-2178/person"
+    },
+    "works": {
+      "last-modified-date": {
+        "value": 1777743181703
+      },
+      "group": [
+        {
+          "last-modified-date": {
+            "value": 1777743181703
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1016/j.xphs.2025.104147",
+                "external-id-normalized": {
+                  "value": "10.1016/j.xphs.2025.104147",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1016/j.xphs.2025.104147"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 200685520,
+              "created-date": {
+                "value": 1766602346998
+              },
+              "last-modified-date": {
+                "value": 1777743181703
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0001-9884-1913",
+                  "path": "0000-0001-9884-1913",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Crossref"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Large language models in drug delivery: A review of the current landscape and future perspectives"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.xphs.2025.104147",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.xphs.2025.104147",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1016/j.xphs.2025.104147"
+                    },
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://doi.org/10.1016/j.xphs.2025.104147"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2026"
+                },
+                "month": {
+                  "value": "02"
+                },
+                "day": null
+              },
+              "journal-title": {
+                "value": "Journal of Pharmaceutical Sciences"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200685520",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1766662561447
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-105002641128",
+                "external-id-normalized": {
+                  "value": "2-s2.0-105002641128",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1016/j.compbiomed.2025.110156",
+                "external-id-normalized": {
+                  "value": "10.1016/j.compbiomed.2025.110156",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1016/j.compbiomed.2025.110156"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 182408744,
+              "created-date": {
+                "value": 1744838541170
+              },
+              "last-modified-date": {
+                "value": 1744838541170
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0001-9884-1913",
+                  "path": "0000-0001-9884-1913",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Crossref"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Machine learning predictions of tumor progression: How reliable are we?"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.compbiomed.2025.110156",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.compbiomed.2025.110156",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1016/j.compbiomed.2025.110156"
+                    },
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://doi.org/10.1016/j.compbiomed.2025.110156"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2025"
+                },
+                "month": {
+                  "value": "06"
+                },
+                "day": null
+              },
+              "journal-title": {
+                "value": "Computers in Biology and Medicine"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/182408744",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726371,
+              "created-date": {
+                "value": 1766662561447
+              },
+              "last-modified-date": {
+                "value": 1766662561447
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Machine learning predictions of tumor progression: How reliable are we?"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.compbiomed.2025.110156",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.compbiomed.2025.110156",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-105002641128",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-105002641128",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "00104825 18790534",
+                    "external-id-normalized": {
+                      "value": "0010-4825",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-105002641128&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2025"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Computers in Biology and Medicine"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726371",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1777743181703
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1080/17425255.2025.2551724",
+                "external-id-normalized": {
+                  "value": "10.1080/17425255.2025.2551724",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-105014161193",
+                "external-id-normalized": {
+                  "value": "2-s2.0-105014161193",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 200726384,
+              "created-date": {
+                "value": 1766662561792
+              },
+              "last-modified-date": {
+                "value": 1777743181703
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Language models for drug\u2013drug interactions: current applications, pitfalls, and future directions"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/17425255.2025.2551724",
+                    "external-id-normalized": {
+                      "value": "10.1080/17425255.2025.2551724",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-105014161193",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-105014161193",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "17425255 17447607",
+                    "external-id-normalized": {
+                      "value": "1742-5255",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-105014161193&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2025"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Expert Opinion on Drug Metabolism and Toxicology"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726384",
+              "display-index": "1"
+            },
+            {
+              "put-code": 190911773,
+              "created-date": {
+                "value": 1756726976540
+              },
+              "last-modified-date": {
+                "value": 1756726976540
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Language models for drug\u2013drug interactions: current applications, pitfalls, and future directions"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/17425255.2025.2551724",
+                    "external-id-normalized": {
+                      "value": "10.1080/17425255.2025.2551724",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1080/17425255.2025.2551724"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1742-5255",
+                    "external-id-normalized": {
+                      "value": "1742-5255",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1742-5255"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1744-7607",
+                    "external-id-normalized": {
+                      "value": "1744-7607",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1744-7607"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1080/17425255.2025.2551724"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2025"
+                },
+                "month": {
+                  "value": "08"
+                },
+                "day": {
+                  "value": "25"
+                }
+              },
+              "journal-title": {
+                "value": "Expert Opinion on Drug Metabolism &amp; Toxicology"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/190911773",
+              "display-index": "0"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1777743181703
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1021/acs.jcim.4c00363",
+                "external-id-normalized": {
+                  "value": "10.1021/acs.jcim.4c00363",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1021/acs.jcim.4c00363"
+                },
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85196941374",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85196941374",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 166158715,
+              "created-date": {
+                "value": 1724615565455
+              },
+              "last-modified-date": {
+                "value": 1777743181703
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0001-9884-1913",
+                  "path": "0000-0001-9884-1913",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Crossref"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1021/acs.jcim.4c00363",
+                    "external-id-normalized": {
+                      "value": "10.1021/acs.jcim.4c00363",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1021/acs.jcim.4c00363"
+                    },
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://doi.org/10.1021/acs.jcim.4c00363"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2024"
+                },
+                "month": {
+                  "value": "07"
+                },
+                "day": {
+                  "value": "08"
+                }
+              },
+              "journal-title": {
+                "value": "Journal of Chemical Information and Modeling"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/166158715",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726378,
+              "created-date": {
+                "value": 1766662561619
+              },
+              "last-modified-date": {
+                "value": 1766662561619
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1021/acs.jcim.4c00363",
+                    "external-id-normalized": {
+                      "value": "10.1021/acs.jcim.4c00363",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85196941374",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85196941374",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "15499596 1549960X",
+                    "external-id-normalized": {
+                      "value": "1549-9596",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85196941374&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2024"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Journal of Chemical Information and Modeling"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726378",
+              "display-index": "1"
+            },
+            {
+              "put-code": 162453033,
+              "created-date": {
+                "value": 1719480989496
+              },
+              "last-modified-date": {
+                "value": 1719480989496
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1021/acs.jcim.4c00363",
+                    "external-id-normalized": {
+                      "value": "10.1021/acs.jcim.4c00363",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1021/acs.jcim.4c00363"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1549-9596",
+                    "external-id-normalized": {
+                      "value": "1549-9596",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1549-9596"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1549-960X",
+                    "external-id-normalized": {
+                      "value": "1549-960X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1549-960X"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1021/acs.jcim.4c00363"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2024"
+                },
+                "month": {
+                  "value": "06"
+                },
+                "day": {
+                  "value": "26"
+                }
+              },
+              "journal-title": {
+                "value": "Journal of Chemical Information and Modeling"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/162453033",
+              "display-index": "0"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1777743181703
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85185476748",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85185476748",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1080/13696998.2024.2315864",
+                "external-id-normalized": {
+                  "value": "10.1080/13696998.2024.2315864",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1080/13696998.2024.2315864"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160644934,
+              "created-date": {
+                "value": 1717142674101
+              },
+              "last-modified-date": {
+                "value": 1777743181703
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Insights into artificial intelligence utilisation in drug discovery"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/13696998.2024.2315864",
+                    "external-id-normalized": {
+                      "value": "10.1080/13696998.2024.2315864",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1080/13696998.2024.2315864"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1369-6998",
+                    "external-id-normalized": {
+                      "value": "1369-6998",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1369-6998"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1941-837X",
+                    "external-id-normalized": {
+                      "value": "1941-837X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1941-837X"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1080/13696998.2024.2315864"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2024"
+                },
+                "month": {
+                  "value": "02"
+                },
+                "day": {
+                  "value": "22"
+                }
+              },
+              "journal-title": {
+                "value": "Journal of Medical Economics"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160644934",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726372,
+              "created-date": {
+                "value": 1766662561491
+              },
+              "last-modified-date": {
+                "value": 1766662561491
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Insights into artificial intelligence utilisation in drug discovery"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/13696998.2024.2315864",
+                    "external-id-normalized": {
+                      "value": "10.1080/13696998.2024.2315864",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85185476748",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85185476748",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "13696998 1941837X",
+                    "external-id-normalized": {
+                      "value": "1369-6998",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85185476748&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2024"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Journal of Medical Economics"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726372",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1777743181703
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85179668100",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85179668100",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1080/17425255.2023.2294939",
+                "external-id-normalized": {
+                  "value": "10.1080/17425255.2023.2294939",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1080/17425255.2023.2294939"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160644863,
+              "created-date": {
+                "value": 1717142608409
+              },
+              "last-modified-date": {
+                "value": 1777743181703
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Overcoming barriers to machine learning applications in toxicity prediction"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/17425255.2023.2294939",
+                    "external-id-normalized": {
+                      "value": "10.1080/17425255.2023.2294939",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1080/17425255.2023.2294939"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1742-5255",
+                    "external-id-normalized": {
+                      "value": "1742-5255",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1742-5255"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1744-7607",
+                    "external-id-normalized": {
+                      "value": "1744-7607",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1744-7607"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1080/17425255.2023.2294939"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": {
+                  "value": "12"
+                },
+                "day": {
+                  "value": "14"
+                }
+              },
+              "journal-title": {
+                "value": "Expert Opinion on Drug Metabolism &amp; Toxicology"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160644863",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726376,
+              "created-date": {
+                "value": 1766662561576
+              },
+              "last-modified-date": {
+                "value": 1766662561576
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Overcoming barriers to machine learning applications in toxicity prediction"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/17425255.2023.2294939",
+                    "external-id-normalized": {
+                      "value": "10.1080/17425255.2023.2294939",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85179668100",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85179668100",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "17425255 17447607",
+                    "external-id-normalized": {
+                      "value": "1742-5255",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85179668100&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2024"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Expert Opinion on Drug Metabolism and Toxicology"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726376",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1766662561533
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85174041023",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85174041023",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.18549/pharmpract.2023.3.2850",
+                "external-id-normalized": {
+                  "value": "10.18549/pharmpract.2023.3.2850",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.18549/pharmpract.2023.3.2850"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160644954,
+              "created-date": {
+                "value": 1717142694229
+              },
+              "last-modified-date": {
+                "value": 1717142694229
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.18549/pharmpract.2023.3.2850",
+                    "external-id-normalized": {
+                      "value": "10.18549/pharmpract.2023.3.2850",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.18549/pharmpract.2023.3.2850"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1885-642X",
+                    "external-id-normalized": {
+                      "value": "1885-642X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1885-642X"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1886-3655",
+                    "external-id-normalized": {
+                      "value": "1886-3655",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1886-3655"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.18549/pharmpract.2023.3.2850"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": {
+                  "value": "10"
+                },
+                "day": {
+                  "value": "05"
+                }
+              },
+              "journal-title": {
+                "value": "Pharmacy Practice"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160644954",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726374,
+              "created-date": {
+                "value": 1766662561533
+              },
+              "last-modified-date": {
+                "value": 1766662561533
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.18549/PharmPract.2023.3.2850",
+                    "external-id-normalized": {
+                      "value": "10.18549/pharmpract.2023.3.2850",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85174041023",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85174041023",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1885642X 18863655",
+                    "external-id-normalized": {
+                      "value": "1885-642X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85174041023&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Pharmacy Practice"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726374",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1766662561405
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85161259538",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85161259538",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1016/j.jsps.2023.05.024",
+                "external-id-normalized": {
+                  "value": "10.1016/j.jsps.2023.05.024",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1016/j.jsps.2023.05.024"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160644887,
+              "created-date": {
+                "value": 1717142641781
+              },
+              "last-modified-date": {
+                "value": 1717142641781
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Exploring the pharmacy students\u2019 perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.jsps.2023.05.024",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.jsps.2023.05.024",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1016/j.jsps.2023.05.024"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1319-0164",
+                    "external-id-normalized": {
+                      "value": "1319-0164",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1319-0164"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1016/j.jsps.2023.05.024"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": {
+                  "value": "07"
+                },
+                "day": null
+              },
+              "journal-title": {
+                "value": "Saudi Pharmaceutical Journal"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160644887",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726370,
+              "created-date": {
+                "value": 1766662561405
+              },
+              "last-modified-date": {
+                "value": 1766662561405
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Exploring the pharmacy students\u2019 perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.jsps.2023.05.024",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.jsps.2023.05.024",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85161259538",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85161259538",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "13190164",
+                    "external-id-normalized": {
+                      "value": "1319-0164",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85161259538&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Saudi Pharmaceutical Journal"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726370",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1766662561707
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1016/j.jsps.2023.01.004",
+                "external-id-normalized": {
+                  "value": "10.1016/j.jsps.2023.01.004",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1016/j.jsps.2023.01.004"
+                },
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85147566476",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85147566476",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160644786,
+              "created-date": {
+                "value": 1717142546393
+              },
+              "last-modified-date": {
+                "value": 1717142546393
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.jsps.2023.01.004",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.jsps.2023.01.004",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1016/j.jsps.2023.01.004"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1319-0164",
+                    "external-id-normalized": {
+                      "value": "1319-0164",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1319-0164"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1016/j.jsps.2023.01.004"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": {
+                  "value": "03"
+                },
+                "day": null
+              },
+              "journal-title": {
+                "value": "Saudi Pharmaceutical Journal"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160644786",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726382,
+              "created-date": {
+                "value": 1766662561707
+              },
+              "last-modified-date": {
+                "value": 1766662561707
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1016/j.jsps.2023.01.004",
+                    "external-id-normalized": {
+                      "value": "10.1016/j.jsps.2023.01.004",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85147566476",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85147566476",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "13190164",
+                    "external-id-normalized": {
+                      "value": "1319-0164",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85147566476&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2023"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Saudi Pharmaceutical Journal"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726382",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1766662561665
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85138703444",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85138703444",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.18549/pharmpract.2022.3.2713",
+                "external-id-normalized": {
+                  "value": "10.18549/pharmpract.2022.3.2713",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.18549/pharmpract.2022.3.2713"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160753255,
+              "created-date": {
+                "value": 1717326517291
+              },
+              "last-modified-date": {
+                "value": 1717326517291
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted timeseries interventions on pharmacist\u2019s prescribing"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.18549/pharmpract.2022.3.2713",
+                    "external-id-normalized": {
+                      "value": "10.18549/pharmpract.2022.3.2713",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.18549/pharmpract.2022.3.2713"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1885-642X",
+                    "external-id-normalized": {
+                      "value": "1885-642X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1885-642X"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1886-3655",
+                    "external-id-normalized": {
+                      "value": "1886-3655",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/1886-3655"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.18549/pharmpract.2022.3.2713"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2022"
+                },
+                "month": {
+                  "value": "09"
+                },
+                "day": {
+                  "value": "23"
+                }
+              },
+              "journal-title": {
+                "value": "Pharmacy Practice"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160753255",
+              "display-index": "1"
+            },
+            {
+              "put-code": 200726381,
+              "created-date": {
+                "value": 1766662561665
+              },
+              "last-modified-date": {
+                "value": 1766662561665
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted time-series interventions on pharmacist\u2019s prescribing"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.18549/PharmPract.2022.3.2713",
+                    "external-id-normalized": {
+                      "value": "10.18549/pharmpract.2022.3.2713",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85138703444",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85138703444",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "1885642X 18863655",
+                    "external-id-normalized": {
+                      "value": "1885-642X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85138703444&partnerID=MN8TOARS"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2022"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Pharmacy Practice"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726381",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1717142589492
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1080/0972060x.2022.2072177",
+                "external-id-normalized": {
+                  "value": "10.1080/0972060x.2022.2072177",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1080/0972060x.2022.2072177"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 160644838,
+              "created-date": {
+                "value": 1717142589492
+              },
+              "last-modified-date": {
+                "value": 1717142589492
+              },
+              "source": {
+                "source-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "source-client-id": null,
+                "source-name": {
+                  "value": "Abdallah Abou Hajal"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Chemical Composition of the Volatile Oil from Aerial Parts of<i>Rosmarinus officinalis</i>L. Growing in UAE"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.1080/0972060x.2022.2072177",
+                    "external-id-normalized": {
+                      "value": "10.1080/0972060x.2022.2072177",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.1080/0972060x.2022.2072177"
+                    },
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "0972-060X",
+                    "external-id-normalized": {
+                      "value": "0972-060X",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/0972-060X"
+                    },
+                    "external-id-relationship": "part-of"
+                  },
+                  {
+                    "external-id-type": "issn",
+                    "external-id-value": "0976-5026",
+                    "external-id-normalized": {
+                      "value": "0976-5026",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://portal.issn.org/resource/ISSN/0976-5026"
+                    },
+                    "external-id-relationship": "part-of"
+                  }
+                ]
+              },
+              "url": {
+                "value": "http://dx.doi.org/10.1080/0972060x.2022.2072177"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2022"
+                },
+                "month": {
+                  "value": "03"
+                },
+                "day": {
+                  "value": "04"
+                }
+              },
+              "journal-title": {
+                "value": "Journal of Essential Oil Bearing Plants"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/160644838",
+              "display-index": "1"
+            }
+          ]
+        },
+        {
+          "last-modified-date": {
+            "value": 1766662561751
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85167383182",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85167383182",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.21203/rs.3.rs-1893972/v1",
+                "external-id-normalized": {
+                  "value": "10.21203/rs.3.rs-1893972/v1",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "work-summary": [
+            {
+              "put-code": 200726383,
+              "created-date": {
+                "value": 1766662561751
+              },
+              "last-modified-date": {
+                "value": 1766662561751
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0002-5982-8983",
+                  "path": "0000-0002-5982-8983",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid": {
+                  "uri": "https://orcid.org/0009-0006-1807-2178",
+                  "path": "0009-0006-1807-2178",
+                  "host": "orcid.org"
+                },
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": {
+                  "value": "Abdallah Abou Hajal"
+                }
+              },
+              "title": {
+                "title": {
+                  "value": "Are we ready yet for digital transformation? Virtual versus On-Campus Objective Structured Clinical Examination (OSCE) as an assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.21203/rs.3.rs-1893972/v1",
+                    "external-id-normalized": {
+                      "value": "10.21203/rs.3.rs-1893972/v1",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  },
+                  {
+                    "external-id-type": "eid",
+                    "external-id-value": "2-s2.0-85167383182",
+                    "external-id-normalized": {
+                      "value": "2-s2.0-85167383182",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": null,
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85167383182&partnerID=MN8TOARS"
+              },
+              "type": "other",
+              "publication-date": {
+                "year": {
+                  "value": "2022"
+                },
+                "month": null,
+                "day": null
+              },
+              "journal-title": {
+                "value": "Research Square"
+              },
+              "visibility": "public",
+              "path": "/0009-0006-1807-2178/work/200726383",
+              "display-index": "1"
+            }
+          ]
+        }
+      ],
+      "path": "/0009-0006-1807-2178/works"
+    },
+    "employments": {
+      "last-modified-date": {
+        "value": 1717141123671
+      },
+      "affiliation-group": [
+        {
+          "last-modified-date": {
+            "value": 1717141123671
+          },
+          "external-ids": {
+            "external-id": []
+          },
+          "summaries": [
+            {
+              "employment-summary": {
+                "created-date": {
+                  "value": 1717141123671
+                },
+                "last-modified-date": {
+                  "value": 1717141123671
+                },
+                "source": {
+                  "source-orcid": {
+                    "uri": "https://orcid.org/0009-0006-1807-2178",
+                    "path": "0009-0006-1807-2178",
+                    "host": "orcid.org"
+                  },
+                  "source-client-id": null,
+                  "source-name": {
+                    "value": "Abdallah Abou Hajal"
+                  },
+                  "assertion-origin-orcid": null,
+                  "assertion-origin-client-id": null,
+                  "assertion-origin-name": null
+                },
+                "put-code": 23920179,
+                "department-name": "Pharmacy",
+                "role-title": "Researcher ",
+                "start-date": {
+                  "year": {
+                    "value": "2021"
+                  },
+                  "month": {
+                    "value": "02"
+                  },
+                  "day": null
+                },
+                "end-date": null,
+                "organization": {
+                  "name": "Al Ain University of Science and Technology",
+                  "address": {
+                    "city": "Al Ain",
+                    "region": null,
+                    "country": "AE"
+                  },
+                  "disambiguated-organization": {
+                    "disambiguated-organization-identifier": "https://ror.org/023abrt21",
+                    "disambiguation-source": "ROR"
+                  }
+                },
+                "url": null,
+                "external-ids": null,
+                "display-index": "1",
+                "visibility": "public",
+                "path": "/0009-0006-1807-2178/employment/23920179"
+              }
+            }
+          ]
+        }
+      ],
+      "path": "/0009-0006-1807-2178/employments"
+    },
+    "educations": {
+      "last-modified-date": {
+        "value": 1717142794267
+      },
+      "affiliation-group": [
+        {
+          "last-modified-date": {
+            "value": 1717142794267
+          },
+          "external-ids": {
+            "external-id": []
+          },
+          "summaries": [
+            {
+              "education-summary": {
+                "created-date": {
+                  "value": 1717142794267
+                },
+                "last-modified-date": {
+                  "value": 1717142794267
+                },
+                "source": {
+                  "source-orcid": {
+                    "uri": "https://orcid.org/0009-0006-1807-2178",
+                    "path": "0009-0006-1807-2178",
+                    "host": "orcid.org"
+                  },
+                  "source-client-id": null,
+                  "source-name": {
+                    "value": "Abdallah Abou Hajal"
+                  },
+                  "assertion-origin-orcid": null,
+                  "assertion-origin-client-id": null,
+                  "assertion-origin-name": null
+                },
+                "put-code": 23920541,
+                "department-name": "College of Pharmacy",
+                "role-title": "Masters Degree ",
+                "start-date": {
+                  "year": {
+                    "value": "2021"
+                  },
+                  "month": {
+                    "value": "02"
+                  },
+                  "day": null
+                },
+                "end-date": {
+                  "year": {
+                    "value": "2023"
+                  },
+                  "month": null,
+                  "day": null
+                },
+                "organization": {
+                  "name": "Al Ain University of Science and Technology",
+                  "address": {
+                    "city": "Al Ain",
+                    "region": null,
+                    "country": "AE"
+                  },
+                  "disambiguated-organization": {
+                    "disambiguated-organization-identifier": "https://ror.org/023abrt21",
+                    "disambiguation-source": "ROR"
+                  }
+                },
+                "url": null,
+                "external-ids": null,
+                "display-index": "1",
+                "visibility": "public",
+                "path": "/0009-0006-1807-2178/education/23920541"
+              }
+            }
+          ]
+        }
+      ],
+      "path": "/0009-0006-1807-2178/educations"
+    },
+    "qualifications": {
+      "last-modified-date": null,
+      "affiliation-group": [],
+      "path": "/0009-0006-1807-2178/qualifications"
+    },
+    "distinctions": {
+      "last-modified-date": null,
+      "affiliation-group": [],
+      "path": "/0009-0006-1807-2178/distinctions"
+    },
+    "fundings": {
+      "last-modified-date": null,
+      "group": [],
+      "path": "/0009-0006-1807-2178/fundings"
+    },
+    "memberships": {
+      "last-modified-date": null,
+      "affiliation-group": [],
+      "path": "/0009-0006-1807-2178/memberships"
+    },
+    "peer-reviews": {
+      "last-modified-date": {
+        "value": 1779079553974
+      },
+      "group": [
+        {
+          "last-modified-date": {
+            "value": 1779079553974
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "peer-review",
+                "external-id-value": "issn:2665-928X",
+                "external-id-normalized": null,
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": null
+              }
+            ]
+          },
+          "peer-review-group": [
+            {
+              "last-modified-date": {
+                "value": 1770010634192
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "source-work-id",
+                    "external-id-value": "191adcae-1246-4dc6-a6f9-24cebcd000ea",
+                    "external-id-normalized": {
+                      "value": "191adcae-1246-4dc6-a6f9-24cebcd000ea",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": ""
+                    },
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "peer-review-summary": [
+                {
+                  "created-date": {
+                    "value": 1770010634192
+                  },
+                  "last-modified-date": {
+                    "value": 1770010634192
+                  },
+                  "source": {
+                    "source-orcid": null,
+                    "source-client-id": {
+                      "uri": "https://orcid.org/client/0000-0002-7423-0090",
+                      "path": "0000-0002-7423-0090",
+                      "host": "orcid.org"
+                    },
+                    "source-name": {
+                      "value": "Elsevier Editorial "
+                    },
+                    "assertion-origin-orcid": null,
+                    "assertion-origin-client-id": null,
+                    "assertion-origin-name": null
+                  },
+                  "reviewer-role": "reviewer",
+                  "external-ids": {
+                    "external-id": [
+                      {
+                        "external-id-type": "source-work-id",
+                        "external-id-value": "191adcae-1246-4dc6-a6f9-24cebcd000ea",
+                        "external-id-normalized": {
+                          "value": "191adcae-1246-4dc6-a6f9-24cebcd000ea",
+                          "transient": true
+                        },
+                        "external-id-normalized-error": null,
+                        "external-id-url": {
+                          "value": ""
+                        },
+                        "external-id-relationship": "self"
+                      }
+                    ]
+                  },
+                  "review-url": null,
+                  "review-type": "review",
+                  "completion-date": {
+                    "year": {
+                      "value": "2026"
+                    },
+                    "month": null,
+                    "day": null
+                  },
+                  "review-group-id": "issn:2665-928X",
+                  "convening-organization": {
+                    "name": "Elsevier, Inc.",
+                    "address": {
+                      "city": "New York",
+                      "region": "NY",
+                      "country": "US"
+                    },
+                    "disambiguated-organization": {
+                      "disambiguated-organization-identifier": "5953",
+                      "disambiguation-source": "RINGGOLD"
+                    }
+                  },
+                  "visibility": "public",
+                  "put-code": 24518900,
+                  "path": "/0009-0006-1807-2178/peer-review/24518900",
+                  "display-index": "1"
+                }
+              ]
+            },
+            {
+              "last-modified-date": {
+                "value": 1779079553974
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "source-work-id",
+                    "external-id-value": "1b859d7f-8d93-4203-8815-27e48894cb38",
+                    "external-id-normalized": {
+                      "value": "1b859d7f-8d93-4203-8815-27e48894cb38",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": ""
+                    },
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "peer-review-summary": [
+                {
+                  "created-date": {
+                    "value": 1779079553974
+                  },
+                  "last-modified-date": {
+                    "value": 1779079553974
+                  },
+                  "source": {
+                    "source-orcid": null,
+                    "source-client-id": {
+                      "uri": "https://orcid.org/client/0000-0002-7423-0090",
+                      "path": "0000-0002-7423-0090",
+                      "host": "orcid.org"
+                    },
+                    "source-name": {
+                      "value": "Elsevier Editorial "
+                    },
+                    "assertion-origin-orcid": null,
+                    "assertion-origin-client-id": null,
+                    "assertion-origin-name": null
+                  },
+                  "reviewer-role": "reviewer",
+                  "external-ids": {
+                    "external-id": [
+                      {
+                        "external-id-type": "source-work-id",
+                        "external-id-value": "1b859d7f-8d93-4203-8815-27e48894cb38",
+                        "external-id-normalized": {
+                          "value": "1b859d7f-8d93-4203-8815-27e48894cb38",
+                          "transient": true
+                        },
+                        "external-id-normalized-error": null,
+                        "external-id-url": {
+                          "value": ""
+                        },
+                        "external-id-relationship": "self"
+                      }
+                    ]
+                  },
+                  "review-url": null,
+                  "review-type": "review",
+                  "completion-date": {
+                    "year": {
+                      "value": "2026"
+                    },
+                    "month": null,
+                    "day": null
+                  },
+                  "review-group-id": "issn:2665-928X",
+                  "convening-organization": {
+                    "name": "Elsevier, Inc.",
+                    "address": {
+                      "city": "New York",
+                      "region": "NY",
+                      "country": "US"
+                    },
+                    "disambiguated-organization": {
+                      "disambiguated-organization-identifier": "5953",
+                      "disambiguation-source": "RINGGOLD"
+                    }
+                  },
+                  "visibility": "public",
+                  "put-code": 27046266,
+                  "path": "/0009-0006-1807-2178/peer-review/27046266",
+                  "display-index": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "path": "/0009-0006-1807-2178/peer-reviews"
+    },
+    "services": {
+      "last-modified-date": null,
+      "affiliation-group": [],
+      "path": "/0009-0006-1807-2178/services"
+    },
+    "invited-positions": {
+      "last-modified-date": null,
+      "affiliation-group": [],
+      "path": "/0009-0006-1807-2178/invited-positions"
+    }
+  }
+}
