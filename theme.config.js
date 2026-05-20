@@ -125,7 +125,101 @@ window.SITE_CONFIG = {
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper.",
         talks:        "Hackathon wins, conference talks, poster sessions, and the three-minute thesis. Slides and posters are linked where I have them.",
         contact:      "The fastest way to reach me. Below the form there is a short note for PhD supervisors and another for potential collaborators.",
-        research:     "The longer version of the work I do, the questions I want to answer, and where I would like to take this next. Written with PhD supervisors in mind."
+        research:     "The longer version of the work I do, the questions I want to answer, and where I would like to take this next. Written with PhD supervisors in mind.",
+        arc:          "The longer story of how I got from pharmacy to AI for drug discovery, told as a sequence of moments rather than a CV."
+    },
+
+    // ── Scrollytelling research arc (rendered on arc.html) ───────
+    // Each chapter is a sticky-scroll step with a kicker + title + body,
+    // an optional milestone card, and a frame ID that maps to the
+    // sticky illustration that fades in while this chapter is in view.
+    // Frame IDs ship with stock SVGs in arc.html (origin | sieve |
+    // editorial | network | horizon). Adding a new frame requires
+    // adding a matching <div class="arc-frame" data-frame="..."> in
+    // arc.html.
+    arc: {
+        kicker: "Research arc",
+        h1Front: "The long way around to",
+        h1Accent: "AI for drug discovery",
+        intro: "The research statement is the short version. This page is the long way around. Five chapters, in order, told as a sequence of moments rather than a CV. Scroll at your own pace.",
+        chapters: [
+            {
+                key: "origin",
+                frame: "origin",
+                kicker: "Chapter 1 · 2016 to 2021",
+                title: "Pharmacy, with one question I could not let go of.",
+                body: [
+                    "I did my BSc in Pharmacy at Al Ain University and graduated as an honor student in 2018. Most of pharmacy is downstream of where I find the interesting questions. The five years made me very comfortable around drugs as objects, around the language of chemistry and pharmacology, around clinical thinking. But the question that kept following me was a step upstream.",
+                    "Why does most of what shows up in a high-throughput screen turn out to be noise? Why are the molecules that look most promising in an assay the ones that most often fail downstream? That question is what eventually pulled me into computational drug discovery."
+                ],
+                milestone: {
+                    label: "Honor Student",
+                    sub: "BSc Pharmacy, Al Ain University, 2017 to 2018"
+                }
+            },
+            {
+                key: "msc",
+                frame: "sieve",
+                kicker: "Chapter 2 · 2021 to 2024",
+                title: "An MSc, a thesis, and the BAD Molecule Filter.",
+                body: [
+                    "I started a postgraduate scholarship at Al Ain University in 2021, co-supervised by Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI and computer science). The brief was clear. Build something that helps a screening lab spend its time on real hits instead of false positives.",
+                    "We trained an ensemble that flags small molecules that look like genuine bioactives but are actually colloidal aggregators. The result was published first-author in the Journal of Chemical Information and Modeling in 2024, and the model is deployed as a public web server so any group can pre-screen their compounds for free.",
+                    "That paper is also when I learned what I actually like doing. Not just running models. Building the thing that other people use."
+                ],
+                milestone: {
+                    label: "MSc GPA 3.94 · JCIM 2024",
+                    sub: "BAD Molecule Filter for colloidal aggregator detection",
+                    href: "https://doi.org/10.1021/acs.jcim.4c00363"
+                }
+            },
+            {
+                key: "editorial",
+                frame: "editorial",
+                kicker: "Chapter 3 · 2023 to 2025",
+                title: "Two years inside scientific publishing.",
+                body: [
+                    "From early 2023 to mid-2025 I was Managing Editor at Scifiniti Publishing, an STM publisher in Abu Dhabi. The job is exactly what it sounds like. Peer-review coordination, journal-performance analytics, editorial operations across multiple STEM titles. Quietly, the most useful experience of my career so far.",
+                    "Seeing the publishing pipeline from the editor's side reset my sense of what reproducibility, peer review, and the word novel actually mean as operational categories. Sitting in that seat for two years is also what made me sympathetic to open-science arguments that earlier in my training I had only read about.",
+                    "Since mid-2025 I have stayed at Scifiniti as Data Analyst and AI Automation Lead, building LLM-backed tooling that touches the editorial workflow."
+                ],
+                milestone: {
+                    label: "Scifiniti Publishing",
+                    sub: "Managing Editor then Data Analyst and AI Automation Lead"
+                }
+            },
+            {
+                key: "now",
+                frame: "network",
+                kicker: "Chapter 4 · 2025 to 2026",
+                title: "AI agents, AutoML, and a four-paper run.",
+                body: [
+                    "The last 18 months have been the most productive stretch of my research life so far. Four papers as corresponding author, on an AutoML framework for drug to drug interaction prediction, on large language models in drug delivery, on machine-learning reliability in tumour-progression prediction, and on GitHub's significance for AI-driven drug discovery.",
+                    "I am now spending most of my research time on two parallel threads. Autonomous LLM-backed agents that plan, reason, and execute drug-discovery workflows. And AI-augmented Adverse Outcome Pathway networks that link molecular initiating events to adverse health outcomes through graph-based learning.",
+                    "Both threads share the same instinct as the MSc. Build the thing the next researcher will actually use."
+                ],
+                milestone: {
+                    label: "Four times corresponding author across 2025 to 2026",
+                    sub: "AutoML DDI · LLMs in delivery · ML reliability · GitHub and open science"
+                }
+            },
+            {
+                key: "next",
+                frame: "horizon",
+                kicker: "Chapter 5 · The PhD",
+                title: "What I want a PhD to look like.",
+                body: [
+                    "I am applying for PhD positions starting late 2026 or 2027, in groups working on machine learning for drug discovery, LLM-agent frameworks for chemistry, computational toxicology, or AI-augmented AOP networks. Strong methods groups everywhere are on the list.",
+                    "The shape I am looking for. A supervisor with a clear technical direction. A problem where the data is hard enough to be interesting. Collaborators close enough to argue with daily. And the freedom to ship the things we build as public tools rather than just papers.",
+                    "If any of that fits your group, the fastest way to start a conversation is to email me. I reply within 48 hours."
+                ],
+                milestone: {
+                    label: "Open for PhD · 2026 or 2027 start",
+                    sub: "ML × drug discovery · LLM agents · AOP networks",
+                    href: "mailto:abdallah.abouhajal@gmail.com?subject=PhD%20position%20enquiry"
+                }
+            }
+        ]
     },
 
     // ── PhD CTA block (rendered prominently on index hero) ───────

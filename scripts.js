@@ -541,6 +541,53 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
+    //  ARC (scrollytelling research-arc page · arc.html)
+    // ═══════════════════════════════════════════════════════════════
+    function bindArc() {
+        if (!C.arc) return;
+
+        const kEl = document.querySelector('[data-bind="arcKicker"]');
+        if (kEl) kEl.textContent = C.arc.kicker;
+
+        const hEl = document.querySelector('[data-bind="arcH1"]');
+        if (hEl) {
+            hEl.innerHTML = `${C.arc.h1Front} <em>${C.arc.h1Accent}</em>.`;
+        }
+
+        const iEl = document.querySelector('[data-bind="arcIntro"]');
+        if (iEl) iEl.textContent = C.arc.intro || '';
+
+        const trackEl = document.querySelector('[data-bind="arcChapters"]');
+        if (!trackEl || !Array.isArray(C.arc.chapters)) return;
+
+        trackEl.innerHTML = C.arc.chapters.map(ch => {
+            const bodyHtml = (ch.body || []).map(p => `<p class="arc-step-body">${p}</p>`).join('');
+            let milestoneHtml = '';
+            if (ch.milestone) {
+                const tag = ch.milestone.href ? 'a' : 'div';
+                const hrefAttr = ch.milestone.href
+                    ? ` href="${ch.milestone.href}" target="_blank" rel="noopener noreferrer"` : '';
+                milestoneHtml = `
+                    <${tag} class="arc-milestone"${hrefAttr}>
+                        <span class="arc-milestone-dot" aria-hidden="true"></span>
+                        <span class="arc-milestone-text">
+                            <span class="arc-milestone-label">${ch.milestone.label || ''}</span>
+                            ${ch.milestone.sub ? `<span class="arc-milestone-sub">${ch.milestone.sub}</span>` : ''}
+                        </span>
+                    </${tag}>`;
+            }
+            return `
+                <section class="arc-step" data-arc-key="${ch.key || ''}" data-arc-frame="${ch.frame || ch.key || ''}">
+                    <p class="arc-step-kicker">${ch.kicker || ''}</p>
+                    <h2 class="arc-step-title">${ch.title || ''}</h2>
+                    ${bodyHtml}
+                    ${milestoneHtml}
+                </section>
+            `;
+        }).join('');
+    }
+
+    // ═══════════════════════════════════════════════════════════════
     //  PUBLICATION FILTERS (publications.html)
     // ═══════════════════════════════════════════════════════════════
     function wireFilters() {
@@ -662,6 +709,7 @@
         bindTalks();
         bindContact();
         bindResearch();
+        bindArc();
         wireFilters();
         wireTheme();
         wireMobile();
