@@ -78,6 +78,7 @@
 <script src="theme.config.js"></script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="research.css">
+<script src="research-map.js" defer></script>
 </head>
 <body>
 
@@ -98,6 +99,79 @@
         <p class="sub-lede" data-bind="researchLede"></p>
     </section>
 
+    
+    <!-- RESEARCH-MAP:BEGIN -->
+    <section class="research-map reveal" aria-labelledby="research-map-h2">
+        <p class="sec-kicker">Research map</p>
+        <h2 id="research-map-h2" class="sec-title">Where my research <em>sits</em>.</h2>
+        <p class="research-map-lede">Top-level disciplines surround the centre. Topics radiate outward, clustered near the discipline they most overlap with. Sourced from OpenAlex. Concept scores and topic counts are computed across the full publication list and rebuilt every Monday.</p>
+        <div class="research-map-canvas">
+        <svg class="research-map-svg" viewBox="0 0 1000 560" role="img" aria-labelledby="research-map-title research-map-desc">
+<title id="research-map-title">Research concept map</title>
+<desc id="research-map-desc">A radial map of the research concepts and topics linked to Abdallah&#x27;s research. Top-level concepts surround the center; topics extend outward.</desc>
+<g class="rm-edges">
+<line class="rm-edge" data-a="me" data-b="c-medicine" x1="500.0" y1="280.0" x2="500.0" y2="105.0" stroke-width="1.12"/>
+<line class="rm-edge" data-a="me" data-b="c-computer-science" x1="500.0" y1="280.0" x2="666.4" y2="225.9" stroke-width="1.06"/>
+<line class="rm-edge" data-a="me" data-b="c-drug-discovery" x1="500.0" y1="280.0" x2="602.9" y2="421.6" stroke-width="1.05"/>
+<line class="rm-edge" data-a="me" data-b="c-machine-learning" x1="500.0" y1="280.0" x2="397.1" y2="421.6" stroke-width="1.03"/>
+<line class="rm-edge" data-a="me" data-b="c-internal-medicine" x1="500.0" y1="280.0" x2="333.6" y2="225.9" stroke-width="0.87"/>
+<line class="rm-edge" data-a="t-computational-drug-discovery-methods" data-b="c-drug-discovery" x1="755.3" y1="367.9" x2="602.9" y2="421.6" stroke-width="3.20"/>
+<line class="rm-edge" data-a="t-machine-learning-in-materials-science" data-b="c-drug-discovery" x1="641.1" y1="474.2" x2="602.9" y2="421.6" stroke-width="2.00"/>
+<line class="rm-edge" data-a="t-artificial-intelligence-in-healthcare-and-education" data-b="c-computer-science" x1="662.5" y1="64.4" x2="666.4" y2="225.9" stroke-width="1.60"/>
+<line class="rm-edge" data-a="t-topic-modeling" data-b="c-drug-discovery" x1="504.7" y1="550.0" x2="602.9" y2="421.6" stroke-width="1.20"/>
+<line class="rm-edge" data-a="t-covid-19-and-mental-health" data-b="c-computer-science" x1="729.5" y1="350.2" x2="666.4" y2="225.9" stroke-width="1.20"/>
+</g>
+<g class="rm-nodes">
+<g class="rm-node rm-node--center" data-id="me" transform="translate(500.0 280.0)">
+<circle r="64" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="4">Abdallah&#x27;s research</text>
+</g>
+<g class="rm-node rm-node--concept" data-id="c-medicine" transform="translate(500.0 105.0)">
+<circle r="44.5" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="4">Medicine</text>
+</g>
+<g class="rm-node rm-node--concept" data-id="c-computer-science" transform="translate(666.4 225.9)">
+<circle r="43.3" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="4">Computer science</text>
+</g>
+<g class="rm-node rm-node--concept" data-id="c-drug-discovery" transform="translate(602.9 421.6)">
+<circle r="42.9" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="4">Drug discovery</text>
+</g>
+<g class="rm-node rm-node--concept" data-id="c-machine-learning" transform="translate(397.1 421.6)">
+<circle r="42.6" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="4">Machine learning</text>
+</g>
+<g class="rm-node rm-node--concept" data-id="c-internal-medicine" transform="translate(333.6 225.9)">
+<circle r="39.5" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="4">Internal medicine</text>
+</g>
+<g class="rm-node rm-node--topic" data-id="t-computational-drug-discovery-methods" transform="translate(755.3 367.9)">
+<circle r="34.4" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="3">Computational Drug Disco…</text>
+</g>
+<g class="rm-node rm-node--topic" data-id="t-machine-learning-in-materials-science" transform="translate(641.1 474.2)">
+<circle r="30.2" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="3">Machine Learning in Mate…</text>
+</g>
+<g class="rm-node rm-node--topic" data-id="t-artificial-intelligence-in-healthcare-and-education" transform="translate(662.5 64.4)">
+<circle r="28.8" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="3">Artificial Intelligence …</text>
+</g>
+<g class="rm-node rm-node--topic" data-id="t-topic-modeling" transform="translate(504.7 550.0)">
+<circle r="27.4" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="3">Topic Modeling</text>
+</g>
+<g class="rm-node rm-node--topic" data-id="t-covid-19-and-mental-health" transform="translate(729.5 350.2)">
+<circle r="27.4" class="rm-node-disc"/>
+<text class="rm-node-label" text-anchor="middle" dy="3">COVID-19 and Mental Health</text>
+</g>
+</g>
+</svg>
+        </div>
+        <script type="application/json" id="research-map-data">{"center": {"id": "me", "label": "Abdallah's research", "kind": "center"}, "concepts": [{"id": "c-medicine", "label": "Medicine", "kind": "concept", "score": 0.806831955909729}, {"id": "c-computer-science", "label": "Computer science", "kind": "concept", "score": 0.6590640544891357}, {"id": "c-drug-discovery", "label": "Drug discovery", "kind": "concept", "score": 0.6175000071525574}, {"id": "c-machine-learning", "label": "Machine learning", "kind": "concept", "score": 0.569599986076355}, {"id": "c-internal-medicine", "label": "Internal medicine", "kind": "concept", "score": 0.18160781264305115}], "topics": [{"id": "t-computational-drug-discovery-methods", "label": "Computational Drug Discovery Methods", "kind": "topic", "count": 6, "concept_id": "c-drug-discovery"}, {"id": "t-machine-learning-in-materials-science", "label": "Machine Learning in Materials Science", "kind": "topic", "count": 3, "concept_id": "c-drug-discovery"}, {"id": "t-artificial-intelligence-in-healthcare-and-education", "label": "Artificial Intelligence in Healthcare and Education", "kind": "topic", "count": 2, "concept_id": "c-computer-science"}, {"id": "t-topic-modeling", "label": "Topic Modeling", "kind": "topic", "count": 1, "concept_id": "c-drug-discovery"}, {"id": "t-covid-19-and-mental-health", "label": "COVID-19 and Mental Health", "kind": "topic", "count": 1, "concept_id": "c-computer-science"}], "edges": [{"a": "me", "b": "c-medicine", "weight": 0.807}, {"a": "me", "b": "c-computer-science", "weight": 0.659}, {"a": "me", "b": "c-drug-discovery", "weight": 0.618}, {"a": "me", "b": "c-machine-learning", "weight": 0.57}, {"a": "me", "b": "c-internal-medicine", "weight": 0.182}, {"a": "t-computational-drug-discovery-methods", "b": "c-drug-discovery", "weight": 6}, {"a": "t-machine-learning-in-materials-science", "b": "c-drug-discovery", "weight": 3}, {"a": "t-artificial-intelligence-in-healthcare-and-education", "b": "c-computer-science", "weight": 2}, {"a": "t-topic-modeling", "b": "c-drug-discovery", "weight": 1}, {"a": "t-covid-19-and-mental-health", "b": "c-computer-science", "weight": 1}]}</script>
+    </section>
+    <!-- RESEARCH-MAP:END -->
     <section class="reveal research-intro">
         <p class="research-intro-body" data-bind="researchIntro"></p>
     </section>

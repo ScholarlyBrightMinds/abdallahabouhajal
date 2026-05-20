@@ -38,10 +38,11 @@ from html import escape
 from pathlib import Path
 
 REPO_ROOT  = Path(__file__).resolve().parent
-DATA_PUBS  = REPO_ROOT / "data" / "serpapi" / "serpapi.json"
-DATA_METR  = REPO_ROOT / "data" / "serpapi" / "metrics.json"
-DATA_DOIS  = REPO_ROOT / "data" / "serpapi" / "dois.json"
-DATA_TLDRS = REPO_ROOT / "data" / "tldrs.json"
+DATA_PUBS    = REPO_ROOT / "data" / "serpapi" / "serpapi.json"
+DATA_METR    = REPO_ROOT / "data" / "serpapi" / "metrics.json"
+DATA_DOIS    = REPO_ROOT / "data" / "serpapi" / "dois.json"
+DATA_TLDRS   = REPO_ROOT / "data" / "tldrs.json"
+DATA_OPENALX = REPO_ROOT / "data" / "openalex" / "openalex.json"
 PUBS_HTML  = REPO_ROOT / "publications.html"
 INDEX_HTML = REPO_ROOT / "index.html"
 THEME_CFG  = REPO_ROOT / "theme.config.js"
@@ -147,6 +148,94 @@ def load_tldrs() -> dict:
     return {k: v for k, v in raw.items() if not k.startswith("_")}
 
 
+def load_openalex_cites() -> dict:
+    """Return DOI -> list of {year, cited_by_count} from data/openalex/openalex.json.
+    DOIs are normalised (lower-case, leading https://doi.org/ stripped) so the
+    keys line up with what enrich_dois.py produces."""
+    if not DATA_OPENALX.exists():
+        return {}
+    try:
+        with DATA_OPENALX.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"[WARN] openalex.json could not be parsed: {e}")
+        return {}
+    out: dict[str, list[dict]] = {}
+    for w in data.get("works", []):
+        doi = (w.get("doi") or "").strip().lower()
+        if not doi:
+            continue
+        if doi.startswith("https://doi.org/"):
+            doi = doi[len("https://doi.org/"):]
+        history = w.get("counts_by_year") or []
+        if history:
+            out[doi] = sorted(history, key=lambda r: int(r.get("year") or 0))
+    return out
+
+
+def _render_sparkline(history: list[dict]) -> str:
+    """Inline SVG sparkline of yearly citation counts.
+
+    Produces a 72x22 viewBox polyline plus end-dot. Single-year papers get a
+    single dot (no polyline). Zero-history papers get an empty string."""
+    if not history:
+        return ""
+    years  = [int(r.get("year") or 0) for r in history]
+    counts = [int(r.get("cited_by_count") or 0) for r in history]
+    if not any(counts):
+        return ""
+
+    w, h, pad = 72, 22, 3
+    inner_w = w - 2 * pad
+    inner_h = h - 2 * pad
+
+    cmax = max(counts) or 1
+    if len(history) == 1:
+        # Single-year papers — show a baseline + dot in the middle of the
+        # canvas so the chip reads as "one year of data" rather than
+        # ambiguously plotted at an edge.
+        x = w / 2
+        y = h / 2
+        title = f"{years[0]}: {counts[0]} cite{'s' if counts[0] != 1 else ''}"
+        return (
+            f'<svg class="pub-spark" viewBox="0 0 {w} {h}" role="img" '
+            f'aria-label="{escape(title)}">'
+            f'<title>{escape(title)}</title>'
+            f'<line class="pub-spark-line" x1="{pad}" y1="{y:.1f}" '
+            f'x2="{w - pad}" y2="{y:.1f}" '
+            f'stroke-dasharray="2 2" opacity="0.5"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" class="pub-spark-dot"/>'
+            f'</svg>'
+        )
+
+    span = max(years) - min(years) or 1
+    pts = []
+    for yr, c in zip(years, counts):
+        px = pad + ((yr - min(years)) / span) * inner_w
+        py = h - pad - (c / cmax) * inner_h
+        pts.append(f"{px:.1f},{py:.1f}")
+    polyline = " ".join(pts)
+    end_x, end_y = pts[-1].split(",")
+    total = sum(counts)
+    breakdown = " · ".join(f"{y}: {c}" for y, c in zip(years, counts))
+    title = f"Citations by year ({total} total) — {breakdown}"
+
+    # Build area-under-curve as a soft fill for visual weight on dense histories
+    area_pts = (
+        f"{pad:.1f},{h - pad:.1f} " + polyline +
+        f" {(pad + inner_w):.1f},{h - pad:.1f}"
+    )
+    return (
+        f'<svg class="pub-spark" viewBox="0 0 {w} {h}" role="img" '
+        f'aria-label="{escape(title)}">'
+        f'<title>{escape(title)}</title>'
+        f'<polygon class="pub-spark-area" points="{area_pts}"/>'
+        f'<polyline class="pub-spark-line" points="{polyline}"/>'
+        f'<circle cx="{end_x}" cy="{end_y}" r="2.2" class="pub-spark-dot"/>'
+        f'</svg>'
+    )
+
+
 # Heuristic topic fallback for publications without a DOI-keyed entry in
 # tldrs.json. Run against the title (lower-cased). The first match wins.
 _TOPIC_HEURISTICS = [
@@ -196,7 +285,12 @@ def _journal_name_from_venue(venue: str) -> str:
     return name or venue.strip()
 
 
-def render_article(p: dict, doi: str | None = None, tldr_info: dict | None = None) -> str:
+def render_article(
+    p: dict,
+    doi: str | None = None,
+    tldr_info: dict | None = None,
+    cite_history: list[dict] | None = None,
+) -> str:
     title    = escape(p.get("title", "").strip() or "Untitled")
     authors  = escape(p.get("authors", "").strip())
     venue    = (p.get("venue") or p.get("publication") or "").strip()
@@ -250,6 +344,13 @@ def render_article(p: dict, doi: str | None = None, tldr_info: dict | None = Non
             f'</span>'
         )
 
+    spark_svg = _render_sparkline(cite_history or [])
+    if spark_svg:
+        stats_parts.append(
+            f'<span class="pub-stat pub-stat-spark" '
+            f'title="Yearly citation trend (OpenAlex)">{spark_svg}</span>'
+        )
+
     if year:
         stats_parts.append(
             f'<span class="pub-stat pub-stat-year" title="Year of publication">'
@@ -286,7 +387,7 @@ def render_article(p: dict, doi: str | None = None, tldr_info: dict | None = Non
         </article>"""
 
 
-def render_articles_block(pubs: list[dict], dois: dict, tldrs: dict) -> str:
+def render_articles_block(pubs: list[dict], dois: dict, tldrs: dict, oa_cites: dict) -> str:
     if not pubs:
         return '        <p class="pub-loading">No publications found.</p>'
     rendered = []
@@ -294,7 +395,10 @@ def render_articles_block(pubs: list[dict], dois: dict, tldrs: dict) -> str:
         doi_info = dois.get(_pub_doi_key(p)) or {}
         doi = doi_info.get("doi") or None
         tldr_info = tldrs.get(doi) if doi else None
-        rendered.append(render_article(p, doi=doi, tldr_info=tldr_info))
+        cite_history = oa_cites.get((doi or "").lower()) if doi else None
+        rendered.append(render_article(
+            p, doi=doi, tldr_info=tldr_info, cite_history=cite_history
+        ))
     return "\n".join(rendered)
 
 
@@ -389,7 +493,14 @@ def _ensure_dimensions_script(html: str) -> str:
     return html.replace("</head>", snippet + "\n</head>", 1)
 
 
-def patch_publications_html(pubs: list[dict], metrics: dict, dois: dict, tldrs: dict, ident: dict) -> None:
+def patch_publications_html(
+    pubs: list[dict],
+    metrics: dict,
+    dois: dict,
+    tldrs: dict,
+    oa_cites: dict,
+    ident: dict,
+) -> None:
     if not PUBS_HTML.exists():
         print(f"[FAIL] {PUBS_HTML} missing")
         sys.exit(1)
@@ -402,7 +513,7 @@ def patch_publications_html(pubs: list[dict], metrics: dict, dois: dict, tldrs: 
     html = _ensure_dimensions_script(html)
 
     # 1. Replace article list inner content
-    articles = render_articles_block(pubs, dois, tldrs)
+    articles = render_articles_block(pubs, dois, tldrs, oa_cites)
     pattern = re.compile(
         r'(<section id="list-articles"[^>]*>)(.*?)(</section>)',
         re.DOTALL
@@ -498,11 +609,13 @@ def main() -> int:
     metrics = load_metrics()
     dois = load_dois()
     tldrs = load_tldrs()
+    oa_cites = load_openalex_cites()
     resolved_dois = sum(1 for v in dois.values() if v.get("doi"))
     print(f"[build_html] loaded {len(pubs)} publications, "
           f"{resolved_dois} DOIs, {len(tldrs)} TLDRs, "
+          f"{len(oa_cites)} OpenAlex cite histories, "
           f"metrics keys: {list(metrics.keys())}")
-    patch_publications_html(pubs, metrics, dois, tldrs, ident)
+    patch_publications_html(pubs, metrics, dois, tldrs, oa_cites, ident)
     patch_index_chips(pubs, metrics)
     print("[build_html] done")
     return 0
