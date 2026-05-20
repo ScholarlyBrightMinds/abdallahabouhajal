@@ -14,7 +14,7 @@
     "topics": "llms review"
   },
   "10.1016/j.compbiomed.2025.110156": {
-    "tldr": "A methodological audit of tumour-progression ML papers, showing how weak validation choices inflate apparent performance — and what a more honest benchmark looks like.",
+    "tldr": "A methodological audit of tumour-progression ML papers, showing how weak validation choices inflate apparent performance. Also sketches what a more honest benchmark would look like.",
     "topics": "ml review"
   },
   "10.1016/j.xphs.2025.104147": {
@@ -22,11 +22,11 @@
     "topics": "llms review"
   },
   "10.1080/13696998.2024.2315864": {
-    "tldr": "A pragmatic overview of where AI is actually paying off in pharma R&D today — and the economic forces shaping where it gets adopted next.",
+    "tldr": "A pragmatic overview of where AI is actually paying off in pharma R&D today, and the economic forces shaping where it gets adopted next.",
     "topics": "review"
   },
   "10.1080/17425255.2023.2294939": {
-    "tldr": "The data, validation, and interpretability gaps that keep ML toxicity models from being adopted by regulators — with concrete suggestions for closing each.",
+    "tldr": "The data, validation, and interpretability gaps that keep ML toxicity models from being adopted by regulators, with concrete suggestions for closing each.",
     "topics": "ml review"
   },
   "10.1021/acs.jcim.4c00363": {
@@ -34,11 +34,11 @@
     "topics": "ml thesis"
   },
   "10.1016/j.jsps.2023.01.004": {
-    "tldr": "Head-to-head randomised trial comparing virtual and on-campus pharmacy OSCE exams during COVID-19 — performance was equivalent but examiner experience differed.",
+    "tldr": "Head-to-head randomised trial comparing virtual and on-campus pharmacy OSCE exams during COVID-19. Performance was equivalent but examiner experience differed.",
     "topics": "pharm"
   },
   "10.1016/j.jsps.2023.05.024": {
-    "tldr": "Survey of pharmacy students' experiences with remote learning during COVID-19 — what worked, what did not, and what should carry over.",
+    "tldr": "Survey of pharmacy students' experiences with remote learning during COVID-19. Reports what worked, what did not, and what should carry over.",
     "topics": "pharm"
   },
   "10.18549/pharmpract.2022.3.2713": {
