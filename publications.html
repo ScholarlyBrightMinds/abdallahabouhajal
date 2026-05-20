@@ -737,10 +737,30 @@
                 <span class="update-note" id="update-note"></span>
             </p>
         </div>
+
+        <!-- ═══ FILTER BAR (pure DOM hide/show — SSR preserved) ═══ -->
+        <div class="pub-filter-bar">
+            <div class="pub-filters" role="tablist" aria-label="Filter publications">
+                <button class="pub-filter" data-filter="all"          role="tab">All</button>
+                <span class="pub-filter-sep" aria-hidden="true"></span>
+                <button class="pub-filter" data-filter="topic:ml"     role="tab" title="Machine learning &amp; cheminformatics">ML &amp; Cheminformatics</button>
+                <button class="pub-filter" data-filter="topic:llms"   role="tab" title="Large language models">LLMs</button>
+                <button class="pub-filter" data-filter="topic:review" role="tab" title="Review articles">Reviews</button>
+                <button class="pub-filter" data-filter="topic:pharm"  role="tab" title="Pharmacy education &amp; practice">Pharmacy</button>
+                <span class="pub-filter-sep" aria-hidden="true"></span>
+                <button class="pub-filter" data-filter="year:2026"    role="tab">2026</button>
+                <button class="pub-filter" data-filter="year:2025"    role="tab">2025</button>
+                <button class="pub-filter" data-filter="year:2024"    role="tab">2024</button>
+                <button class="pub-filter" data-filter="year:2023"    role="tab">2023</button>
+                <button class="pub-filter" data-filter="year:2022"    role="tab">2022</button>
+            </div>
+            <span class="pub-filter-count" aria-live="polite"></span>
+        </div>
         <section id="list-articles" class="publication-list" aria-live="polite">
-        <article class="pub-item">
+        <article class="pub-item" data-year="2026" data-topic="review">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:ufrVoPGSRksC" target="_blank" rel="noopener noreferrer">An introduction to GitHub and its significance for AI-driven drug discovery</a></h3>
             <p class="pub-authors">A Abou Hajal, L Bustanji, RA Bryce, MA Ghattas</p>
+            <p class="pub-tldr">Why open-source platforms like GitHub matter for reproducibility in computational drug discovery, with practical guidance for researchers new to version control.</p>
             <p class="pub-venue">Expert Opinion on Drug Discovery 21 (4), 387-392, 2026</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1080/17460441.2026.2641511" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -749,9 +769,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1080/17460441.2026.2641511" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2026" data-topic="ml">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:eQOLeE2rZwMC" target="_blank" rel="noopener noreferrer">Introducing AutoML framework for Drug–Drug Interaction Prediction: Application of AutoGluon</a></h3>
             <p class="pub-authors">A Abou Hajal, M Sakkal</p>
+            <p class="pub-tldr">We use AutoGluon to predict drug–drug interactions, and show that automated model search with molecular fingerprints can match handcrafted pipelines while staying simple to reproduce.</p>
             <p class="pub-venue">Toxicology Mechanisms and Methods, 1-11, 2026</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1080/15376516.2026.2628929" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -759,9 +780,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1080/15376516.2026.2628929" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2025" data-topic="llms review">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC" target="_blank" rel="noopener noreferrer">Language models for drug–drug interactions: current applications, pitfalls, and future directions</a></h3>
             <p class="pub-authors">AZ Al Meslamani, A Abou Hajal</p>
+            <p class="pub-tldr">Where large language models already help with drug-interaction prediction, where they still hallucinate, and what evaluation gaps need closing before regulators rely on them.</p>
             <p class="pub-venue">Expert Opinion on Drug Metabolism &amp; Toxicology 21 (9), 1083-1102, 2025</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1080/17425255.2025.2551724" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -770,9 +792,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1080/17425255.2025.2551724" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2025" data-topic="ml review">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:zYLM7Y9cAGgC" target="_blank" rel="noopener noreferrer">Machine learning predictions of tumor progression: How reliable are we?</a></h3>
             <p class="pub-authors">M Sakkal, A Abou Hajal</p>
+            <p class="pub-tldr">A methodological audit of tumour-progression ML papers, showing how weak validation choices inflate apparent performance — and what a more honest benchmark looks like.</p>
             <p class="pub-venue">Computers in Biology and Medicine 191, 110156, 2025</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1016/j.compbiomed.2025.110156" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -781,9 +804,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1016/j.compbiomed.2025.110156" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2025" data-topic="llms review">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:YsMSGLbcyi4C" target="_blank" rel="noopener noreferrer">Large language models in drug delivery: A review of the current landscape and future perspectives</a></h3>
             <p class="pub-authors">M Sakkal, A Abou Hajal</p>
+            <p class="pub-tldr">What LLMs (ChemCrow, BioBERT, and friends) currently do for formulation and drug-delivery design, and what would have to be true before they replace manual literature triage.</p>
             <p class="pub-venue">Journal of Pharmaceutical Sciences, 104147, 2025</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1016/j.xphs.2025.104147" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -792,9 +816,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1016/j.xphs.2025.104147" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2024" data-topic="review">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener noreferrer">Insights into artificial intelligence utilisation in drug discovery</a></h3>
             <p class="pub-authors">A Abou Hajal, AZ Al Meslamani</p>
+            <p class="pub-tldr">A pragmatic overview of where AI is actually paying off in pharma R&amp;D today — and the economic forces shaping where it gets adopted next.</p>
             <p class="pub-venue">Journal of Medical Economics 27 (1), 304-308, 2024</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1080/13696998.2024.2315864" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -803,9 +828,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1080/13696998.2024.2315864" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2024" data-topic="ml review">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener noreferrer">Overcoming barriers to machine learning applications in toxicity prediction</a></h3>
             <p class="pub-authors">A Abou Hajal, AZ Al Meslamani</p>
+            <p class="pub-tldr">The data, validation, and interpretability gaps that keep ML toxicity models from being adopted by regulators — with concrete suggestions for closing each.</p>
             <p class="pub-venue">Expert Opinion on Drug Metabolism &amp; Toxicology 20 (7), 549-553, 2024</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1080/17425255.2023.2294939" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -814,9 +840,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1080/17425255.2023.2294939" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2024" data-topic="ml thesis">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener noreferrer">Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter</a></h3>
             <p class="pub-authors">A Abou Hajal, RA Bryce, BB Amor, N Atatreh, MA Ghattas</p>
+            <p class="pub-tldr">My MSc thesis. A machine-learning ensemble that flags molecules that look like real bioactive hits but are actually colloidal aggregators, deployed as a public web server so any group can pre-screen their compounds for free.</p>
             <p class="pub-venue">Journal of Chemical Information and Modeling 64 (13), 4991-5005, 2024</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1021/acs.jcim.4c00363" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -825,9 +852,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1021/acs.jcim.4c00363" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2023" data-topic="pharm">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:qjMakFHDy7sC" target="_blank" rel="noopener noreferrer">Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment</a></h3>
             <p class="pub-authors">Z Kharaba, MM AlAhmad, AA Elnour, A Abou Hajal, S Abumweis, ...</p>
+            <p class="pub-tldr">Head-to-head randomised trial comparing virtual and on-campus pharmacy OSCE exams during COVID-19 — performance was equivalent but examiner experience differed.</p>
             <p class="pub-venue">Saudi Pharmaceutical Journal 31 (3), 359-369, 2023</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1016/j.jsps.2023.01.004" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -836,9 +864,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1016/j.jsps.2023.01.004" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2023" data-topic="pharm">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:2osOgNQ5qMEC" target="_blank" rel="noopener noreferrer">Exploring the pharmacy students’ perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey</a></h3>
             <p class="pub-authors">AA Elnour, A Abou Hajal, R Goaddar, N Elsharkawy, S Mousa, ...</p>
+            <p class="pub-tldr">Survey of pharmacy students&#x27; experiences with remote learning during COVID-19 — what worked, what did not, and what should carry over.</p>
             <p class="pub-venue">Saudi Pharmaceutical Journal 31 (7), 1339-1350, 2023</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1016/j.jsps.2023.05.024" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -847,18 +876,20 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1016/j.jsps.2023.05.024" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2023" data-topic="pharm">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener noreferrer">A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study</a></h3>
             <p class="pub-authors">N Al Mazrouei, AA Elnour, A Abou Hajal, A Sadeq, R Hammouri, O Ishbair, ...</p>
+            
             <p class="pub-venue">Pharmacy Practice (Granada) 21 (3), 18, 2023</p>
             <div class="pub-meta">
             <span class="pub-stat pub-stat-cites" title="Google Scholar citations"><span class="pub-stat-icon" aria-hidden="true">&#9733;</span><span class="pub-stat-num">7</span><span class="pub-stat-label">citations</span></span>
             <span class="pub-stat pub-stat-year" title="Year of publication"><span class="pub-stat-icon" aria-hidden="true">&#128197;</span><span class="pub-stat-num">2023</span></span>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2022" data-topic="pharm">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener noreferrer">Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted time-series interventions on pharmacist’s prescribing</a></h3>
             <p class="pub-authors">AA Elnour, NS Raja, F Abdi, F Mostafiz, RI Elmubarak, AM Khalil, ...</p>
+            <p class="pub-tldr">Pre-registered protocol for a systematic review of pharmacist-led prescribing interventions, locking inclusion criteria in before any data extraction.</p>
             <p class="pub-venue">Pharmacy Practice 20 (3), 2713, 2022</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.18549/pharmpract.2022.3.2713" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -867,9 +898,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.18549/pharmpract.2022.3.2713" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2022" data-topic="pharm">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:W7OEmFMy1HYC" target="_blank" rel="noopener noreferrer">Chemical Composition of the Volatile Oil from Aerial Parts of Rosmarinus officinalis L. Growing in UAE</a></h3>
             <p class="pub-authors">MM Hudaib, AF Abu Hajal, MM Sakkal</p>
+            <p class="pub-tldr">GC-MS characterisation of UAE-grown rosemary essential oil, with major-constituent profile and a comparison to other regional sources.</p>
             <p class="pub-venue">Journal of Essential Oil Bearing Plants 25 (2), 282-289, 2022</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1080/0972060x.2022.2072177" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>
@@ -878,9 +910,10 @@
             <a class="pub-stat pub-stat-doi" href="https://doi.org/10.1080/0972060x.2022.2072177" target="_blank" rel="noopener noreferrer" title="Open at publisher via DOI"><span class="pub-stat-icon" aria-hidden="true">&#128279;</span><span class="pub-stat-label">DOI</span></a>
         </div>
         </article>
-        <article class="pub-item">
+        <article class="pub-item" data-year="2022" data-topic="pharm">
             <h3 class="pub-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1I8SvsQAAAAJ&amp;citation_for_view=1I8SvsQAAAAJ:WF5omc3nYNoC" target="_blank" rel="noopener noreferrer">Exploring the pharmacy students&#x27; perspectives on off-campus online learning experiences amid COVID-19 crises: a multicentre cross-sectional survey</a></h3>
             <p class="pub-authors">A Elnour, R Goaddar, S Mousa, N Elsharkawy, A Abou Hajal</p>
+            <p class="pub-tldr">Survey of pharmacy students&#x27; experiences with remote learning during COVID-19 — what worked, what did not, and what should carry over.</p>
             <p class="pub-venue">INTERNATIONAL JOURNAL OF CLINICAL PHARMACY 44 (6), 1514-1515, 2022</p>
             <div class="pub-meta">
             <span class="pub-dimensions __dimensions_badge_embed__" data-doi="10.1016/j.jsps.2023.05.024" data-style="small_circle" data-legend="hover-right" title="Dimensions citation impact (click for details)"></span>

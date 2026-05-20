@@ -51,9 +51,12 @@
     const PAGES = [
         { key: 'home',         href: 'index.html',        label: 'Home' },
         { key: 'about',        href: 'about.html',        label: 'About' },
-        { key: 'projects',     href: 'projects.html',     label: 'Ongoing Research' },
+        { key: 'research',     href: 'research.html',     label: 'Research' },
+        { key: 'projects',     href: 'projects.html',     label: 'Projects' },
         { key: 'publications', href: 'publications.html', label: 'Publications' },
-        { key: 'blog',         href: 'blog.html',         label: 'Blog' }
+        { key: 'talks',        href: 'talks.html',        label: 'Talks' },
+        { key: 'blog',         href: 'blog.html',         label: 'Blog' },
+        { key: 'contact',      href: 'contact.html',      label: 'Contact' }
     ];
 
     function renderNav() {
@@ -149,6 +152,43 @@
             `).join('');
             setBind('pillars', html);
         }
+
+        // PhD CTA block — only renders if SITE_CONFIG.phdCTA exists
+        if (C.phdCTA) {
+            const cta = C.phdCTA;
+            const html = `
+                <div class="phd-cta-inner">
+                    <span class="phd-cta-ribbon">${cta.ribbon}</span>
+                    <h3 class="phd-cta-title">${cta.title}</h3>
+                    <p class="phd-cta-body">${cta.body}</p>
+                    <div class="phd-cta-actions">
+                        <a class="phd-cta-btn phd-cta-btn--primary" href="${cta.primaryHref}">
+                            ${ICONS.email}<span>${cta.primaryLabel}</span>
+                        </a>
+                        <a class="phd-cta-btn phd-cta-btn--secondary" href="${cta.secondaryHref}">
+                            <span>${cta.secondaryLabel}</span>
+                            <span class="phd-cta-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a class="phd-cta-btn phd-cta-btn--tertiary" href="${cta.tertiaryHref}" download>
+                            ${ICONS.cv}<span>${cta.tertiaryLabel}</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+            setBind('phdCTA', html);
+        }
+
+        // Impact stats — big "By the numbers" tiles
+        if (Array.isArray(C.impactStats) && C.impactStats.length) {
+            const html = C.impactStats.map(s => `
+                <div class="impact-tile${s.variant ? ' impact-tile--' + s.variant : ''}">
+                    <div class="impact-num">${s.num}</div>
+                    <div class="impact-label">${s.label}</div>
+                    <div class="impact-sub">${s.sub || ''}</div>
+                </div>
+            `).join('');
+            setBind('impactStats', html);
+        }
     }
 
     // ═══════════════════════════════════════════════════════════════
@@ -160,7 +200,10 @@
             aboutLede:    C.ledes.about,
             projectsLede: C.ledes.projects,
             pubsLede:     C.ledes.publications,
-            blogLede:     C.ledes.blog
+            blogLede:     C.ledes.blog,
+            talksLede:    C.ledes.talks,
+            contactLede:  C.ledes.contact,
+            researchLede: C.ledes.research
         };
         for (const [key, text] of Object.entries(map)) {
             const el = document.querySelector(`[data-bind="${key}"]`);
@@ -249,6 +292,21 @@
                      Want to collaborate?
                    </a>`
                 : '';
+            // Published projects get a "Read paper" button pointing to the DOI
+            const paperUrl  = p.doi ? `https://doi.org/${p.doi}` : (p.paperUrl || '');
+            const venueLine = p.doi && p.venue
+                ? `<span class="proj-venue">${p.venue}</span>`
+                : '';
+            const paperBtn  = paperUrl
+                ? `<a class="proj-paper" href="${paperUrl}" target="_blank" rel="noopener">
+                     <span class="proj-paper-icon" aria-hidden="true">↗</span>
+                     <span>Read paper</span>
+                     ${p.doi ? `<span class="proj-paper-doi">${p.doi}</span>` : ''}
+                   </a>`
+                : '';
+            const actionsRow = (paperBtn || collabBtn)
+                ? `<div class="proj-actions">${paperBtn}${collabBtn}</div>`
+                : '';
 
             return `
             <article class="proj-card proj-card--${kind} reveal reveal-d${(i % 3) + 1}">
@@ -257,12 +315,13 @@
                     <div class="proj-meta">
                         <span class="proj-label">${p.label}</span>
                         ${statusBadge}
+                        ${venueLine}
                     </div>
                     <h3 class="proj-title">${p.title}</h3>
                     <p class="proj-desc">${p.desc}</p>
                     ${needsLine}
                     ${p.tech ? `<div class="proj-tags">${p.tech.map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>` : ''}
-                    ${collabBtn}
+                    ${actionsRow}
                 </div>
             </article>
             `;
@@ -289,23 +348,242 @@
             `;
             return;
         }
-        el.innerHTML = C.blog.map((post, i) => `
-            <a href="${post.file}" class="blog-item reveal reveal-d${(i % 3) + 1}">
-                <div class="blog-item-head">
-                    <span class="blog-num">${String(i + 1).padStart(2, '0')}</span>
-                    ${post.tag ? `<span class="blog-tag">${post.tag}</span>` : ''}
+        el.innerHTML = C.blog.map((post, i) => {
+            const coverKey = post.cover || 'default';
+            const cover = `
+                <div class="blog-cover blog-cover--${coverKey}" aria-hidden="true">
+                    <span class="blog-cover-num">${String(i + 1).padStart(2, '0')}</span>
+                    ${post.tag ? `<span class="blog-cover-tag">${post.tag}</span>` : ''}
                 </div>
-                <h3 class="blog-title">${post.title}</h3>
-                <div class="blog-meta">
-                    <span class="blog-date">${post.date}</span>
-                    <span class="blog-read">Read <span class="arrow">→</span></span>
-                </div>
-            </a>
-        `).join('');
+            `;
+            const excerpt = post.excerpt
+                ? `<p class="blog-excerpt">${post.excerpt}</p>`
+                : '';
+            const readingTime = post.readingTime
+                ? `<span class="blog-readtime">${post.readingTime}</span>`
+                : '';
+            return `
+                <a href="${post.file}" class="blog-item reveal reveal-d${(i % 3) + 1}">
+                    ${cover}
+                    <div class="blog-body">
+                        <h3 class="blog-title">${post.title}</h3>
+                        ${excerpt}
+                        <div class="blog-meta">
+                            <span class="blog-date">${post.date}</span>
+                            ${readingTime}
+                            <span class="blog-read">Read <span class="arrow">→</span></span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }).join('');
 
         if (window.__revealObserver) {
             el.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
         }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  TALKS page bindings (talks.html)
+    // ═══════════════════════════════════════════════════════════════
+    function bindTalks() {
+        const el = document.querySelector('[data-bind="talkList"]');
+        if (!el || !Array.isArray(C.talks)) return;
+        const kindLabel = {
+            hackathon: 'Hackathon',
+            poster:    'Poster',
+            talk:      'Talk',
+            workshop:  'Workshop',
+            thesis:    'Thesis'
+        };
+        el.innerHTML = C.talks.map((t, i) => {
+            const k = (t.kind || 'talk').toLowerCase();
+            const awardBadge = t.award
+                ? `<span class="talk-award">${t.award}</span>`
+                : '';
+            return `
+                <article class="talk-card talk-card--${k} reveal reveal-d${(i % 3) + 1}">
+                    <div class="talk-date">
+                        <span class="talk-date-month">${t.date}</span>
+                        <span class="talk-date-kind">${kindLabel[k] || 'Talk'}</span>
+                    </div>
+                    <div class="talk-body">
+                        <div class="talk-meta-row">
+                            ${awardBadge}
+                        </div>
+                        <h3 class="talk-title">${t.title}</h3>
+                        <p class="talk-venue">${t.venue || ''}</p>
+                        <p class="talk-desc">${t.desc || ''}</p>
+                    </div>
+                </article>
+            `;
+        }).join('');
+        if (window.__revealObserver) {
+            el.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  CONTACT page bindings (contact.html)
+    // ═══════════════════════════════════════════════════════════════
+    function bindContact() {
+        if (!C.contact) return;
+
+        const introEl = document.querySelector('[data-bind="contactIntro"]');
+        if (introEl) {
+            introEl.innerHTML = `
+                <p class="contact-intro">${C.contact.intro}</p>
+            `;
+        }
+
+        // Heading split (Let's + talk)
+        const hEl = document.querySelector('[data-bind="contactH1"]');
+        if (hEl) {
+            hEl.innerHTML = `${C.contact.h1Front} <em>${C.contact.h1Accent}</em>.`;
+        }
+
+        const kEl = document.querySelector('[data-bind="contactKicker"]');
+        if (kEl) kEl.textContent = C.contact.kicker;
+
+        // Direct-contact card
+        const dEl = document.querySelector('[data-bind="contactDirect"]');
+        if (dEl) {
+            dEl.innerHTML = `
+                <p class="contact-direct-row">
+                    <span class="contact-direct-icon">${ICONS.email}</span>
+                    <a class="contact-direct-link" href="mailto:${C.contact.directEmail}">${C.contact.directEmail}</a>
+                </p>
+                <p class="contact-direct-row">
+                    <span class="contact-direct-icon">${ICONS.cv}</span>
+                    <a class="contact-direct-link" href="${C.contact.cvHref}" download>Download CV (PDF)</a>
+                </p>
+                <p class="contact-direct-row">
+                    <span class="contact-direct-icon">${ICONS.linkedin}</span>
+                    <a class="contact-direct-link" href="https://www.linkedin.com/in/${C.ids.linkedin}" target="_blank" rel="noopener">linkedin.com/in/${C.ids.linkedin}</a>
+                </p>
+                <p class="contact-response-time">${C.contact.responseTimeNote || ''}</p>
+            `;
+        }
+
+        // "For supervisors / collaborators / press" blocks
+        const bEl = document.querySelector('[data-bind="contactBlocks"]');
+        if (bEl && Array.isArray(C.contact.blocks)) {
+            bEl.innerHTML = C.contact.blocks.map((b, i) => `
+                <article class="contact-block reveal reveal-d${(i % 3) + 1}">
+                    <div class="contact-block-icon" aria-hidden="true">${b.icon || '·'}</div>
+                    <h3 class="contact-block-title">${b.title}</h3>
+                    <p class="contact-block-body">${b.body}</p>
+                </article>
+            `).join('');
+            if (window.__revealObserver) {
+                bEl.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
+            }
+        }
+
+        // Wire the form action + show a note if endpoint not yet configured
+        const form = document.querySelector('form.contact-form');
+        if (form) {
+            const action = C.contact.formAction || '';
+            const noteEl = form.querySelector('[data-bind="contactFormNote"]');
+            if (action && !action.includes('REPLACE_WITH_FORMSPREE_ID')) {
+                form.setAttribute('action', action);
+                if (noteEl) noteEl.style.display = 'none';
+            } else {
+                // Disable submission until a real endpoint is configured
+                form.setAttribute('data-disabled', 'true');
+                form.addEventListener('submit', e => e.preventDefault());
+                if (noteEl) noteEl.textContent = C.contact.formNote || '';
+            }
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  RESEARCH STATEMENT page bindings (research.html)
+    // ═══════════════════════════════════════════════════════════════
+    function bindResearch() {
+        if (!C.research) return;
+
+        const kEl = document.querySelector('[data-bind="researchKicker"]');
+        if (kEl) kEl.textContent = C.research.kicker;
+
+        const hEl = document.querySelector('[data-bind="researchH1"]');
+        if (hEl) {
+            hEl.innerHTML = `${C.research.h1Front} <em>${C.research.h1Accent}</em>.`;
+        }
+
+        const iEl = document.querySelector('[data-bind="researchIntro"]');
+        if (iEl) iEl.innerHTML = C.research.intro;
+
+        const sEl = document.querySelector('[data-bind="researchSections"]');
+        if (sEl && Array.isArray(C.research.sections)) {
+            sEl.innerHTML = C.research.sections.map((s, i) => `
+                <article class="research-block reveal reveal-d${(i % 3) + 1}">
+                    <p class="sec-kicker">${s.kicker}</p>
+                    <h2 class="research-block-title">${s.title}</h2>
+                    <div class="research-block-body">
+                        ${(s.body || []).map(p => `<p>${p}</p>`).join('')}
+                    </div>
+                </article>
+            `).join('');
+            if (window.__revealObserver) {
+                sEl.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
+            }
+        }
+
+        const fEl = document.querySelector('[data-bind="researchFinalCTA"]');
+        if (fEl && C.research.finalCTAText) {
+            fEl.innerHTML = `
+                <a class="research-final-cta" href="${C.research.finalCTAHref}">
+                    ${ICONS.email}<span>${C.research.finalCTAText}</span>
+                </a>
+            `;
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  PUBLICATION FILTERS (publications.html)
+    // ═══════════════════════════════════════════════════════════════
+    function wireFilters() {
+        const bar = document.querySelector('.pub-filters');
+        const list = document.getElementById('list-articles');
+        if (!bar || !list) return;
+
+        const buttons = Array.from(bar.querySelectorAll('.pub-filter'));
+        const articles = Array.from(list.querySelectorAll('article.pub-item'));
+        const counter = document.querySelector('.pub-filter-count');
+
+        function applyFilter(filter) {
+            const [kind, value] = filter.split(':');
+            let shownCount = 0;
+            articles.forEach(a => {
+                const yr = a.getAttribute('data-year') || '';
+                const topics = (a.getAttribute('data-topic') || '').split(/\s+/);
+                let show = false;
+                if (kind === 'all') show = true;
+                else if (kind === 'year')  show = yr === value;
+                else if (kind === 'topic') show = topics.includes(value);
+                a.classList.toggle('pub-hidden', !show);
+                if (show) shownCount += 1;
+            });
+            if (counter) {
+                counter.textContent = shownCount === articles.length
+                    ? `${shownCount} papers`
+                    : `${shownCount} of ${articles.length}`;
+            }
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyFilter(btn.getAttribute('data-filter') || 'all');
+            });
+        });
+
+        // Initial state — show All
+        const allBtn = bar.querySelector('.pub-filter[data-filter="all"]');
+        if (allBtn) allBtn.classList.add('active');
+        applyFilter('all');
     }
 
     // ═══════════════════════════════════════════════════════════════
@@ -381,6 +659,10 @@
         bindAbout();
         bindProjects();
         bindBlog();
+        bindTalks();
+        bindContact();
+        bindResearch();
+        wireFilters();
         wireTheme();
         wireMobile();
     }

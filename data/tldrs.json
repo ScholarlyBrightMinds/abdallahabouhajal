@@ -1,0 +1,59 @@
+{
+  "_about": "Plain-language summaries + topic tags per publication, keyed by DOI. Picked up by build_html.py and rendered into publications.html. Topics drive the filter buttons; recognised values: ml, llms, review, pharm, thesis. A pub can carry multiple space-separated topics.",
+  "_updated": "2026-05-20",
+  "10.1080/17460441.2026.2641511": {
+    "tldr": "Why open-source platforms like GitHub matter for reproducibility in computational drug discovery, with practical guidance for researchers new to version control.",
+    "topics": "review"
+  },
+  "10.1080/15376516.2026.2628929": {
+    "tldr": "We use AutoGluon to predict drug–drug interactions, and show that automated model search with molecular fingerprints can match handcrafted pipelines while staying simple to reproduce.",
+    "topics": "ml"
+  },
+  "10.1080/17425255.2025.2551724": {
+    "tldr": "Where large language models already help with drug-interaction prediction, where they still hallucinate, and what evaluation gaps need closing before regulators rely on them.",
+    "topics": "llms review"
+  },
+  "10.1016/j.compbiomed.2025.110156": {
+    "tldr": "A methodological audit of tumour-progression ML papers, showing how weak validation choices inflate apparent performance — and what a more honest benchmark looks like.",
+    "topics": "ml review"
+  },
+  "10.1016/j.xphs.2025.104147": {
+    "tldr": "What LLMs (ChemCrow, BioBERT, and friends) currently do for formulation and drug-delivery design, and what would have to be true before they replace manual literature triage.",
+    "topics": "llms review"
+  },
+  "10.1080/13696998.2024.2315864": {
+    "tldr": "A pragmatic overview of where AI is actually paying off in pharma R&D today — and the economic forces shaping where it gets adopted next.",
+    "topics": "review"
+  },
+  "10.1080/17425255.2023.2294939": {
+    "tldr": "The data, validation, and interpretability gaps that keep ML toxicity models from being adopted by regulators — with concrete suggestions for closing each.",
+    "topics": "ml review"
+  },
+  "10.1021/acs.jcim.4c00363": {
+    "tldr": "My MSc thesis. A machine-learning ensemble that flags molecules that look like real bioactive hits but are actually colloidal aggregators, deployed as a public web server so any group can pre-screen their compounds for free.",
+    "topics": "ml thesis"
+  },
+  "10.1016/j.jsps.2023.01.004": {
+    "tldr": "Head-to-head randomised trial comparing virtual and on-campus pharmacy OSCE exams during COVID-19 — performance was equivalent but examiner experience differed.",
+    "topics": "pharm"
+  },
+  "10.1016/j.jsps.2023.05.024": {
+    "tldr": "Survey of pharmacy students' experiences with remote learning during COVID-19 — what worked, what did not, and what should carry over.",
+    "topics": "pharm"
+  },
+  "10.18549/pharmpract.2022.3.2713": {
+    "tldr": "Pre-registered protocol for a systematic review of pharmacist-led prescribing interventions, locking inclusion criteria in before any data extraction.",
+    "topics": "pharm"
+  },
+  "10.1080/0972060x.2022.2072177": {
+    "tldr": "GC-MS characterisation of UAE-grown rosemary essential oil, with major-constituent profile and a comparison to other regional sources.",
+    "topics": "pharm"
+  },
+  "_no_doi_pubs": {
+    "_note": "Pubs without a DOI in dois.json are still topic-tagged via their Scholar pub-key for filter support. Add entries here by matching the pub_key hash that build_html.py computes from the Scholar URL.",
+    "fallback_topics": {
+      "allergic rhinitis": "pharm",
+      "exploring the pharmacy students": "pharm"
+    }
+  }
+}

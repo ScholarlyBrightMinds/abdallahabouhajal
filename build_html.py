@@ -41,6 +41,7 @@ REPO_ROOT  = Path(__file__).resolve().parent
 DATA_PUBS  = REPO_ROOT / "data" / "serpapi" / "serpapi.json"
 DATA_METR  = REPO_ROOT / "data" / "serpapi" / "metrics.json"
 DATA_DOIS  = REPO_ROOT / "data" / "serpapi" / "dois.json"
+DATA_TLDRS = REPO_ROOT / "data" / "tldrs.json"
 PUBS_HTML  = REPO_ROOT / "publications.html"
 INDEX_HTML = REPO_ROOT / "index.html"
 THEME_CFG  = REPO_ROOT / "theme.config.js"
@@ -131,6 +132,43 @@ def load_dois() -> dict:
         return json.load(f)
 
 
+def load_tldrs() -> dict:
+    """tldrs.json keyed by DOI -> {tldr, topics}. `topics` is a space-separated
+    list of filter codes (ml, llms, review, pharm, thesis). Keys starting with
+    '_' are ignored (used for inline documentation in the file)."""
+    if not DATA_TLDRS.exists():
+        return {}
+    try:
+        with DATA_TLDRS.open(encoding="utf-8") as f:
+            raw = json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"[WARN] tldrs.json could not be parsed: {e}")
+        return {}
+    return {k: v for k, v in raw.items() if not k.startswith("_")}
+
+
+# Heuristic topic fallback for publications without a DOI-keyed entry in
+# tldrs.json. Run against the title (lower-cased). The first match wins.
+_TOPIC_HEURISTICS = [
+    ("ml",    ["machine learning", "automl", "autogluon", "fingerprint", "cheminformatics",
+               "graph", "neural network", "deep learning", "ensemble"]),
+    ("llms",  ["language model", "llm", "chatgpt", "transformer", "gpt"]),
+    ("review",["review", "introduction to", "insights into", "barriers", "perspectives"]),
+    ("pharm", ["pharmacy", "pharmacist", "rosmarinus", "essential oil", "covid",
+               "allergic", "osce", "online learning"]),
+]
+
+
+def _infer_topics(title: str) -> str:
+    """Best-effort topic tag for a paper missing from tldrs.json."""
+    t = (title or "").lower()
+    tags = []
+    for tag, keywords in _TOPIC_HEURISTICS:
+        if any(k in t for k in keywords):
+            tags.append(tag)
+    return " ".join(tags) if tags else "other"
+
+
 def _pub_doi_key(pub: dict) -> str:
     """Mirror of enrich_dois.pub_key() — keep these two in sync."""
     import hashlib
@@ -158,7 +196,7 @@ def _journal_name_from_venue(venue: str) -> str:
     return name or venue.strip()
 
 
-def render_article(p: dict, doi: str | None = None) -> str:
+def render_article(p: dict, doi: str | None = None, tldr_info: dict | None = None) -> str:
     title    = escape(p.get("title", "").strip() or "Untitled")
     authors  = escape(p.get("authors", "").strip())
     venue    = (p.get("venue") or p.get("publication") or "").strip()
@@ -170,6 +208,20 @@ def render_article(p: dict, doi: str | None = None) -> str:
     if link and not link.startswith(("http://", "https://")):
         link = ""
     link_attr = f' href="{escape(link)}" target="_blank" rel="noopener noreferrer"' if link else ""
+
+    # Topic + TLDR (Tier-1 plain-language summary). Data attrs drive the
+    # filter buttons; the <p class="pub-tldr"> block is what readers see.
+    info = tldr_info or {}
+    topics = info.get("topics") or _infer_topics(p.get("title", ""))
+    tldr_html = (
+        f'<p class="pub-tldr">{escape(info["tldr"])}</p>'
+        if info.get("tldr") else ""
+    )
+    data_attrs = (
+        f' data-year="{year}"' if year else ""
+    ) + (
+        f' data-topic="{escape(topics)}"' if topics else ""
+    )
 
     # Stats row: Dimensions donut, Scholar citation chip, year chip,
     # DOI link. Each chip is omitted gracefully when the value is missing.
@@ -225,22 +277,24 @@ def render_article(p: dict, doi: str | None = None) -> str:
     )
     venue_block = f'<p class="pub-venue">{venue_e}</p>' if venue_e else ""
 
-    return f"""        <article class="pub-item">
+    return f"""        <article class="pub-item"{data_attrs}>
             <h3 class="pub-title"><a{link_attr}>{title}</a></h3>
             <p class="pub-authors">{authors}</p>
+            {tldr_html}
             {venue_block}
             {stats_block}
         </article>"""
 
 
-def render_articles_block(pubs: list[dict], dois: dict) -> str:
+def render_articles_block(pubs: list[dict], dois: dict, tldrs: dict) -> str:
     if not pubs:
         return '        <p class="pub-loading">No publications found.</p>'
     rendered = []
     for p in pubs:
-        info = dois.get(_pub_doi_key(p)) or {}
-        doi = info.get("doi") or None
-        rendered.append(render_article(p, doi=doi))
+        doi_info = dois.get(_pub_doi_key(p)) or {}
+        doi = doi_info.get("doi") or None
+        tldr_info = tldrs.get(doi) if doi else None
+        rendered.append(render_article(p, doi=doi, tldr_info=tldr_info))
     return "\n".join(rendered)
 
 
@@ -335,7 +389,7 @@ def _ensure_dimensions_script(html: str) -> str:
     return html.replace("</head>", snippet + "\n</head>", 1)
 
 
-def patch_publications_html(pubs: list[dict], metrics: dict, dois: dict, ident: dict) -> None:
+def patch_publications_html(pubs: list[dict], metrics: dict, dois: dict, tldrs: dict, ident: dict) -> None:
     if not PUBS_HTML.exists():
         print(f"[FAIL] {PUBS_HTML} missing")
         sys.exit(1)
@@ -348,7 +402,7 @@ def patch_publications_html(pubs: list[dict], metrics: dict, dois: dict, ident: 
     html = _ensure_dimensions_script(html)
 
     # 1. Replace article list inner content
-    articles = render_articles_block(pubs, dois)
+    articles = render_articles_block(pubs, dois, tldrs)
     pattern = re.compile(
         r'(<section id="list-articles"[^>]*>)(.*?)(</section>)',
         re.DOTALL
@@ -443,10 +497,12 @@ def main() -> int:
     pubs = load_publications()
     metrics = load_metrics()
     dois = load_dois()
+    tldrs = load_tldrs()
     resolved_dois = sum(1 for v in dois.values() if v.get("doi"))
     print(f"[build_html] loaded {len(pubs)} publications, "
-          f"{resolved_dois} DOIs, metrics keys: {list(metrics.keys())}")
-    patch_publications_html(pubs, metrics, dois, ident)
+          f"{resolved_dois} DOIs, {len(tldrs)} TLDRs, "
+          f"metrics keys: {list(metrics.keys())}")
+    patch_publications_html(pubs, metrics, dois, tldrs, ident)
     patch_index_chips(pubs, metrics)
     print("[build_html] done")
     return 0
