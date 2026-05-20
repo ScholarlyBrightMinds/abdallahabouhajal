@@ -432,8 +432,8 @@ window.SITE_CONFIG = {
         h1Front:  "Let's",
         h1Accent: "talk",
         intro: "I read every email. Below the form there are short notes for PhD supervisors and potential collaborators, plus the direct ways to reach me.",
-        formAction: "https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID",
-        formNote: "Form is wired to Formspree. Until I plug in the endpoint ID, please use the direct email link below.",
+        formAction: "https://formspree.io/f/mqejpyjl",
+        formNote: "Your message goes to my inbox directly. I reply within 48 hours.",
         directEmail: "abdallah.abouhajal@gmail.com",
         cvHref: "Abdallah-Abou-Hajal-CV.pdf",
         blocks: [
