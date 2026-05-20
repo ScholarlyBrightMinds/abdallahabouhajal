@@ -132,6 +132,17 @@
     transform: translateY(-2px);
     box-shadow: 0 14px 28px -10px var(--accent-glow);
 }
+.research-final-sub {
+    margin: 1.3rem 0 0;
+    font-size: 0.84rem;
+    color: var(--text-soft);
+}
+.research-final-sub a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-glow);
+}
+.research-final-sub a:hover { color: var(--accent-d, var(--accent)); }
 
 /* ─── Research-map (interactive concept graph) ──────────────────
    Force-directed SVG of top-level concepts + topics from OpenAlex.
