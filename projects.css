@@ -136,12 +136,67 @@
     margin-right: 0.4rem;
 }
 
+/* Actions row holds both the "Read paper" button (for published projects)
+   and the "Want to collaborate?" button (for active projects). */
+.proj-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+/* Venue chip — published projects get a journal-name pill next to status */
+.proj-venue {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    padding-left: 0.4rem;
+    border-left: 1px solid var(--border);
+}
+
+/* Read-paper button (DOI link) */
+.proj-paper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    font-family: var(--body);
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--bg);
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all .25s var(--ease);
+}
+.proj-paper:hover {
+    background: var(--accent-d);
+    border-color: var(--accent-d);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px -10px var(--accent-glow);
+}
+.proj-paper-icon {
+    font-size: 0.95em;
+    transform: translateY(-1px);
+    display: inline-block;
+}
+.proj-paper-doi {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    opacity: 0.78;
+    padding-left: 0.5rem;
+    margin-left: 0.2rem;
+    border-left: 1px solid rgba(0,0,0,0.18);
+}
+
 /* Collaborate button */
 .proj-collab {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1rem;
     padding: 0.55rem 1rem;
     font-family: var(--body);
     font-size: 0.84rem;
