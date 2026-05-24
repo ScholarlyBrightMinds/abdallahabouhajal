@@ -1,0 +1,31 @@
+name: Blog idea for Saturday
+description: Drop a topic and the Saturday job will draft it in your voice. Leave it empty and Claude picks from the idea bank.
+title: "[Blog idea] "
+labels: ["blog-idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Type a topic for this Saturday's post. Put the headline idea in the issue title (after the `[Blog idea]` prefix) and any angle or notes below. If there is an open idea when Saturday runs, it gets used and this issue is closed automatically. One idea per issue.
+  - type: textarea
+    id: angle
+    attributes:
+      label: Angle / notes
+      description: What is the point you want to land? A sentence or two is plenty. Leave blank to let Claude take it where it wants.
+      placeholder: e.g. The real cost of context switching, and one rule that helped me protect a morning of deep work.
+    validations:
+      required: false
+  - type: dropdown
+    id: tag
+    attributes:
+      label: Tag (a hint, Claude may refine it)
+      options:
+        - Culture
+        - Leadership
+        - Productivity
+        - Personal
+        - Research
+        - AI
+        - Event
+    validations:
+      required: false

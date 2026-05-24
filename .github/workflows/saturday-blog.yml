@@ -1,0 +1,76 @@
+name: Saturday blog draft
+
+# Drafts one blog post in Abdallah's voice every Saturday and opens a DRAFT pull
+# request. Nothing reaches the live site until he reviews and merges the PR.
+# Trigger it by hand any time from the Actions tab ("Run workflow").
+
+on:
+  schedule:
+    - cron: "0 9 * * 6"   # 09:00 UTC every Saturday
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Look for a waiting idea
+        id: idea
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          num=$(gh issue list --label blog-idea --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            title=$(gh issue view "$num" --json title --jq '.title' | sed 's/^\[Blog idea\] *//')
+            body=$(gh issue view "$num" --json body --jq '.body')
+            echo "issue=$num" >> "$GITHUB_OUTPUT"
+            { echo "title<<EOF"; echo "$title"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+            { echo "angle<<EOF"; echo "$body"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+            echo "Using idea from issue #$num"
+          else
+            echo "No waiting issue; the script will pull from the idea bank."
+          fi
+
+      - name: Draft the post
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          IDEA_TITLE: ${{ steps.idea.outputs.title }}
+          IDEA_ANGLE: ${{ steps.idea.outputs.angle }}
+        run: python draft_blog.py
+
+      - name: Open draft pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POST_TITLE: ${{ steps.draft.outputs.post_title }}
+          POST_FILE: ${{ steps.draft.outputs.post_file }}
+          ISSUE: ${{ steps.idea.outputs.issue }}
+        run: |
+          git config user.name "blog-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="blog/auto-$(date +%Y-%m-%d)"
+          git checkout -b "$branch"
+          git add -A
+          git commit -m "Draft blog post: $POST_TITLE"
+          git push -u origin "$branch"
+          pr=$(gh pr create --draft \
+            --title "Saturday draft: $POST_TITLE" \
+            --body "Auto-drafted \`$POST_FILE\` in your voice. Read it, tell Claude what to change if anything, then mark ready and merge to publish. Nothing is live until this PR merges." \
+            --head "$branch")
+          echo "Opened $pr"
+          if [ -n "$ISSUE" ]; then
+            gh issue close "$ISSUE" --comment "Drafted in $pr"
+          fi
