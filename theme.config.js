@@ -222,19 +222,6 @@ window.SITE_CONFIG = {
         ]
     },
 
-    // ── PhD CTA block (rendered prominently on index hero) ───────
-    // This is the #1 conversion goal of the site. Make it impossible to miss.
-    phdCTA: {
-        ribbon:  "Open for PhD",
-        title:   "Looking for a PhD position · ML × Drug Discovery · 2026/27",
-        body:    "I am actively applying for PhD opportunities in machine learning and AI for drug discovery, ideally starting late 2026 or 2027. Open to strong groups worldwide. If your work touches virtual screening, cheminformatics, LLM agents for chemistry, or AI-augmented computational toxicology, I would love to hear from you.",
-        primaryLabel: "Email me",
-        primaryHref:  "mailto:abdallah.abouhajal@gmail.com?subject=PhD%20position%20enquiry&body=Hi%20Abdallah%2C%0A%0AI%20saw%20your%20website%20and%20wanted%20to%20discuss%20a%20PhD%20opportunity%20in%20our%20group.%0A%0A",
-        secondaryLabel: "Read my research statement",
-        secondaryHref:  "research.html",
-        tertiaryLabel:  "Download CV",
-        tertiaryHref:   "Abdallah-Abou-Hajal-CV.pdf"
-    },
 
     // ── "By the numbers" impact tiles (home page) ────────────────
     // Each tile is one number + label + sub-line; first tile auto-updates
