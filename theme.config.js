@@ -373,6 +373,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-7.html",
+            title: "The First 30 Days on a New Team",
+            date: "May 24, 2026",
+            tag: "Leadership",
+            cover: "git",
+            readingTime: "4 min read",
+            excerpt: "The instinct on a new team is to prove you belong. Why small reliability beats big impressive fixes, and what the people already there owe the new person."
+        },
+        {
             file: "blog-post-6.html",
             title: "The Office Needs More Fun",
             date: "May 24, 2026",
