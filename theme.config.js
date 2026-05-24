@@ -373,6 +373,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-6.html",
+            title: "The Office Needs More Fun",
+            date: "May 24, 2026",
+            tag: "Culture",
+            cover: "culture",
+            readingTime: "3 min read",
+            excerpt: "Why the quiet office is usually the anxious one, and why fun is not the opposite of work but the thing that makes work last."
+        },
+        {
             file: "blog-post-5.html",
             title: "PhD Hunting: Hard, Exhausting, and Worth It",
             date: "Apr 11, 2026",
