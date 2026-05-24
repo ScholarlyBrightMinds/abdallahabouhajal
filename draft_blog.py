@@ -2,12 +2,13 @@
 """
 draft_blog.py — drafts one blog post in Abdallah's voice and wires it into the site.
 
-Run weekly by .github/workflows/saturday-blog.yml. Picks a topic (a waiting
-"Blog idea for Saturday" issue takes priority, otherwise the next unused idea
-in data/blog/ideas.json), drafts the post with Claude, writes blog-post-N.html,
-and patches the four surfaces a post touches (theme.config.js, blog.html schema,
-sitemap.xml, blog.css cover). The workflow then opens a DRAFT pull request, so
-nothing reaches the live site until Abdallah reviews and merges.
+Invoked by .github/workflows/blog-draft.yml after Abdallah picks a title from
+the weekly menu (or opens a "Blog idea" issue). Drafts the chosen topic with
+Claude, writes blog-post-N.html, and patches the surfaces a post touches
+(theme.config.js, blog.html schema, sitemap.xml). The workflow then opens a
+DRAFT pull request, so nothing reaches the live site until he reviews and merges.
+
+Inputs via env: IDEA_TITLE, IDEA_TAG, IDEA_ANGLE, IDEA_SOURCE ("menu" | "issue").
 
 Model: claude-sonnet-4-6 (cheap, plenty for short personal essays). Cost per run
 is a few cents; see the PR body the workflow generates.
@@ -147,15 +148,27 @@ def voice_anchors(limit=5):
 
 
 def pick_idea():
-    """Issue-driven idea wins; otherwise the next unused bank idea."""
-    issue_title = os.environ.get("IDEA_TITLE", "").strip()
-    if issue_title:
+    """A chosen title wins (menu pick or own-idea issue); else next unused bank idea.
+
+    Returns (idea, bank_index). bank_index is the index in ideas.json to mark
+    used, or None when the topic did not come from the bank.
+    """
+    chosen = os.environ.get("IDEA_TITLE", "").strip()
+    source = os.environ.get("IDEA_SOURCE", "").strip()  # "menu" | "issue" | ""
+    if chosen:
+        bank_index = None
+        if source == "menu":  # a menu pick consumes the matching bank idea
+            data = json.load(open(IDEAS_PATH, encoding="utf-8"))
+            for i, idea in enumerate(data["ideas"]):
+                if idea["title"].strip().lower() == chosen.lower():
+                    bank_index = i
+                    break
         return {
-            "title": issue_title,
+            "title": chosen,
             "tag": os.environ.get("IDEA_TAG", "").strip() or "Culture",
             "angle": os.environ.get("IDEA_ANGLE", "").strip(),
-            "source": "issue",
-        }, None
+            "source": source or "issue",
+        }, bank_index
     data = json.load(open(IDEAS_PATH, encoding="utf-8"))
     for i, idea in enumerate(data["ideas"]):
         if not idea.get("used"):
@@ -199,19 +212,22 @@ def draft(idea):
 
 
 def render_html(post, date_label):
-    title = html.escape(post["title"])
+    # Visible element text keeps apostrophes raw (quote=False), matching the
+    # hand-written posts; attribute values stay quote-safe.
+    title = html.escape(post["title"], quote=False)
+    title_attr = html.escape(post["title"], quote=True)
+    desc_attr = html.escape(post["excerpt"], quote=True)
     emph = post.get("title_emphasis", "").strip()
     title_html = title
     if emph:
-        esc_emph = html.escape(emph)
+        esc_emph = html.escape(emph, quote=False)
         if esc_emph in title:
             title_html = title.replace(esc_emph, f"<em>{esc_emph}</em>", 1)
-    tag = html.escape(post["tag"])
-    desc = html.escape(post["excerpt"])
+    tag = html.escape(post["tag"], quote=False)
 
     blocks = []
     for b in post["body"]:
-        t = html.escape(b["text"].strip())
+        t = html.escape(b["text"].strip(), quote=False)
         if b["kind"] == "h2":
             blocks.append(f"        <h2>{t}</h2>")
         else:
@@ -223,7 +239,7 @@ def render_html(post, date_label):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{title}. {desc} A blog post by Abdallah Abou Hajal.">
+<meta name="description" content="{title_attr}. {desc_attr} A blog post by Abdallah Abou Hajal.">
 <title>{title} · Blog</title>
 
 <link rel="icon" href="images/profile.png" type="image/png">
@@ -346,7 +362,10 @@ def main():
     out_path = os.path.join(REPO, f"blog-post-{n}.html")
     open(out_path, "w", encoding="utf-8").write(render_html(post, date_label))
     patch_files(post, n, date_label, iso_date)
-    refill_bank(post.get("future_ideas", []), bank_index if idea["source"] == "bank" else None)
+    # Consume + refill the bank only when the topic came from it (bank or menu
+    # pick). Own-idea drafts (source "issue") leave the bank untouched.
+    if bank_index is not None or idea["source"] == "bank":
+        refill_bank(post.get("future_ideas", []), bank_index)
 
     # Hand outputs to the workflow via GITHUB_OUTPUT for the PR title/body.
     gh_out = os.environ.get("GITHUB_OUTPUT")

@@ -1,0 +1,52 @@
+name: Blog menu (Saturday)
+
+# Every Saturday, post a "Pick this week's post" issue with a few titles as
+# checkboxes, assign + mention Abdallah so GitHub notifies him, and wait. It
+# does NOT write anything. Drafting only happens after he ticks a box, which
+# blog-draft.yml handles. Run on demand any time from the Actions tab.
+
+on:
+  schedule:
+    - cron: "0 9 * * 6"   # 09:00 UTC every Saturday
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  menu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Ensure labels exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create blog-menu -c "1D76DB" -d "Weekly pick-a-post menu" --force
+          gh label create blog-idea -c "0E8A16" -d "A blog topic you suggested" --force
+
+      - name: Close any stale menu
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for n in $(gh issue list --label blog-menu --state open --json number -q '.[].number'); do
+            gh issue close "$n" --comment "Superseded by a fresh menu."
+          done
+
+      - name: Build and open this week's menu
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MENU_MENTION: AbdallahAbouHajal
+        run: |
+          python blog_menu.py > menu_body.md
+          gh issue create \
+            --title "Pick this week's post ($(date +%Y-%m-%d))" \
+            --label blog-menu \
+            --assignee AbdallahAbouHajal \
+            --body-file menu_body.md
