@@ -1,0 +1,75 @@
+name: Blog draft (after a pick)
+
+# Fires when Abdallah interacts with a blog issue:
+#   - ticks a title box on the weekly menu  -> draft that post
+#   - ticks "give me a fresh set"           -> repost the menu
+#   - opens a "Blog idea" issue (own topic)  -> draft that post
+# Drafting opens a DRAFT pull request and closes the source issue. Nothing
+# reaches the live site until he merges the PR.
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Decide what to do
+        id: route
+        run: python blog_pick.py
+
+      - name: Draft the post
+        if: steps.route.outputs.mode == 'draft'
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          IDEA_TITLE: ${{ steps.route.outputs.title }}
+          IDEA_TAG: ${{ steps.route.outputs.tag }}
+          IDEA_ANGLE: ${{ steps.route.outputs.angle }}
+          IDEA_SOURCE: ${{ steps.route.outputs.source }}
+        run: |
+          pip install anthropic
+          python draft_blog.py
+
+      - name: Open draft PR and close the issue
+        if: steps.route.outputs.mode == 'draft'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POST_TITLE: ${{ steps.draft.outputs.post_title }}
+          POST_FILE: ${{ steps.draft.outputs.post_file }}
+          ISSUE: ${{ steps.route.outputs.issue }}
+        run: |
+          git config user.name "blog-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="blog/auto-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$branch"
+          git add -A
+          git commit -m "Draft blog post: $POST_TITLE"
+          git push -u origin "$branch"
+          pr=$(gh pr create --draft \
+            --title "Draft: $POST_TITLE" \
+            --body "Drafted \`$POST_FILE\` in your voice from the topic you picked. Read it, tell Claude any changes, then mark ready and merge to publish. Nothing is live until you merge." \
+            --head "$branch")
+          echo "Opened $pr"
+          gh issue close "$ISSUE" --comment "Drafted in $pr. Review and merge when ready."
+
+      - name: Refresh the menu
+        if: steps.route.outputs.mode == 'refresh'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ steps.route.outputs.issue }}
+        run: |
+          gh workflow run blog-menu.yml
+          gh issue close "$ISSUE" --comment "Posting a fresh set of titles for you."
