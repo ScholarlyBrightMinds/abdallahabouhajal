@@ -373,6 +373,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-7.html",
+            title: "The Meeting That Should Have Been a Message",
+            date: "May 24, 2026",
+            tag: "Culture",
+            cover: "culture",
+            readingTime: "4 min read",
+            excerpt: "Most meetings are a quiet tax on the one thing that actually moves work forward. Here is when a meeting earns its place, and how to protect your focus without becoming impossible to reach."
+        },
+        {
             file: "blog-post-6.html",
             title: "The Office Needs More Fun",
             date: "May 24, 2026",
