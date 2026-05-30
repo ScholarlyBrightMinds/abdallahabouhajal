@@ -1,17 +1,89 @@
 {
   "_comment": "Rotating blog idea bank. The Saturday job picks the first idea with used=false, writes the draft, and marks it used. Each run also tops the bank back up with 2 fresh Claude-generated ideas, so it never runs dry. To force a specific topic this week, open a 'Blog idea for Saturday' issue instead; the issue takes priority over this bank.",
   "ideas": [
-    { "title": "The meeting that should have been a message", "tag": "Culture", "angle": "Most meetings are a tax on focus. When a meeting earns its place, and how to protect deep work without becoming the person who declines everything.", "used": false },
-    { "title": "Why I write things down before I am sure", "tag": "Productivity", "angle": "Writing is not the record of thinking, it is the thinking. How drafting badly on purpose gets you to the real idea faster.", "used": false },
-    { "title": "The first 30 days on a new team", "tag": "Leadership", "angle": "What actually builds trust early is not impressive output, it is reliability on small things. A field guide for the new person.", "used": false },
-    { "title": "Saying I do not know in a room full of experts", "tag": "Culture", "angle": "The fastest way to lose a team is to bluff. Why admitting the gap out loud is a leadership move, not a weakness.", "used": false },
-    { "title": "The to-do list is lying to you", "tag": "Productivity", "angle": "Long lists feel productive and protect you from doing the one hard thing. Cutting the list down to what actually moves the needle.", "used": false },
-    { "title": "Feedback that people can actually use", "tag": "Leadership", "angle": "Vague praise and vague criticism are both useless. What specific, kind, and timely feedback looks like in practice.", "used": false },
-    { "title": "On being interruptible", "tag": "Culture", "angle": "There is a cost to always being available and a different cost to never being available. Finding the line as someone people depend on.", "used": false },
-    { "title": "The project that taught me to ship smaller", "tag": "Productivity", "angle": "Big-bang launches hide problems until they are expensive. Why shipping the smallest honest version first beats the grand plan.", "used": false },
-    { "title": "Mentoring is not advice", "tag": "Leadership", "angle": "The best thing you can give someone is not your answer, it is better questions. How to mentor without taking over.", "used": false },
-    { "title": "Burnout does not announce itself", "tag": "Culture", "angle": "It does not show up as collapse, it shows up as not caring about work you used to love. Noticing it early, in yourself and in others.", "used": false },
-    { "title": "The email I almost did not send", "tag": "Personal", "angle": "A small story about reaching out to someone above my level, the fear of looking foolish, and what came back.", "used": false },
-    { "title": "Tools do not fix culture", "tag": "Leadership", "angle": "Every new app promises to make the team better. Why the problem is almost never the tool, and what to fix instead.", "used": false }
+    {
+      "title": "The meeting that should have been a message",
+      "tag": "Culture",
+      "angle": "Most meetings are a tax on focus. When a meeting earns its place, and how to protect deep work without becoming the person who declines everything.",
+      "used": false
+    },
+    {
+      "title": "Why I write things down before I am sure",
+      "tag": "Productivity",
+      "angle": "Writing is not the record of thinking, it is the thinking. How drafting badly on purpose gets you to the real idea faster.",
+      "used": false
+    },
+    {
+      "title": "The first 30 days on a new team",
+      "tag": "Leadership",
+      "angle": "What actually builds trust early is not impressive output, it is reliability on small things. A field guide for the new person.",
+      "used": false
+    },
+    {
+      "title": "Saying I do not know in a room full of experts",
+      "tag": "Culture",
+      "angle": "The fastest way to lose a team is to bluff. Why admitting the gap out loud is a leadership move, not a weakness.",
+      "used": false
+    },
+    {
+      "title": "The to-do list is lying to you",
+      "tag": "Productivity",
+      "angle": "Long lists feel productive and protect you from doing the one hard thing. Cutting the list down to what actually moves the needle.",
+      "used": false
+    },
+    {
+      "title": "Feedback that people can actually use",
+      "tag": "Leadership",
+      "angle": "Vague praise and vague criticism are both useless. What specific, kind, and timely feedback looks like in practice.",
+      "used": true
+    },
+    {
+      "title": "On being interruptible",
+      "tag": "Culture",
+      "angle": "There is a cost to always being available and a different cost to never being available. Finding the line as someone people depend on.",
+      "used": false
+    },
+    {
+      "title": "The project that taught me to ship smaller",
+      "tag": "Productivity",
+      "angle": "Big-bang launches hide problems until they are expensive. Why shipping the smallest honest version first beats the grand plan.",
+      "used": false
+    },
+    {
+      "title": "Mentoring is not advice",
+      "tag": "Leadership",
+      "angle": "The best thing you can give someone is not your answer, it is better questions. How to mentor without taking over.",
+      "used": false
+    },
+    {
+      "title": "Burnout does not announce itself",
+      "tag": "Culture",
+      "angle": "It does not show up as collapse, it shows up as not caring about work you used to love. Noticing it early, in yourself and in others.",
+      "used": false
+    },
+    {
+      "title": "The email I almost did not send",
+      "tag": "Personal",
+      "angle": "A small story about reaching out to someone above my level, the fear of looking foolish, and what came back.",
+      "used": false
+    },
+    {
+      "title": "Tools do not fix culture",
+      "tag": "Leadership",
+      "angle": "Every new app promises to make the team better. Why the problem is almost never the tool, and what to fix instead.",
+      "used": false
+    },
+    {
+      "title": "The Meeting That Should Have Been a Message",
+      "tag": "Leadership",
+      "angle": "Most meetings exist because someone was uncomfortable making a decision alone. What good meeting hygiene actually looks like and how to tell the difference between a meeting that moves things forward and one that just moves the anxiety around.",
+      "used": false
+    },
+    {
+      "title": "Asking Better Questions",
+      "tag": "Research",
+      "angle": "The quality of your research is upstream of the quality of your questions. How learning to ask more precise, more honest questions changed the way he works, and what that looks like in practice when talking to a supervisor, a dataset, or a collaborator.",
+      "used": false
+    }
   ]
 }
