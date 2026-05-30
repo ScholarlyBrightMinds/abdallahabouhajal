@@ -360,6 +360,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-8.html",
+            title: "Feedback That Actually Lands",
+            date: "May 30, 2026",
+            tag: "Leadership",
+            cover: "git",
+            readingTime: "4 min read",
+            excerpt: "Vague praise feels good for about ten seconds. Vague criticism stings for days. Neither one helps anyone get better."
+        },
+        {
             file: "blog-post-7.html",
             title: "The First 30 Days on a New Team",
             date: "May 24, 2026",
