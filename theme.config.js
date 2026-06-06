@@ -360,6 +360,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-9.html",
+            title: "Mentoring Is Not Advice",
+            date: "Jun 6, 2026",
+            tag: "Leadership",
+            cover: "git",
+            readingTime: "4 min read",
+            excerpt: "The best mentors I have had did not solve my problems. They asked me questions I could not stop thinking about."
+        },
+        {
             file: "blog-post-8.html",
             title: "Feedback That Actually Lands",
             date: "May 30, 2026",
