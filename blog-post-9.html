@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ship the Smallest Honest Version. Big launches feel responsible. They feel thorough. But they hide the thing you most need to find out, and they hide it until fixing it costs real time. A blog post by Abdallah Abou Hajal.">
+<title>Ship the Smallest Honest Version · Blog</title>
+
+<link rel="icon" href="images/profile.png" type="image/png">
+<link rel="apple-touch-icon" href="images/profile.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="theme.config.js"></script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<div class="mol-bg" aria-hidden="true">
+    <svg class="mol-1" viewBox="0 0 100 100"><polygon points="30,25 55,25 67,50 55,75 30,75 18,50"/><line x1="67" y1="50" x2="82" y2="50"/><circle cx="85" cy="50" r="2.5"/></svg>
+    <svg class="mol-2 amber" viewBox="0 0 100 100"><polygon points="50,20 78,38 68,68 32,68 22,38"/><line x1="78" y1="38" x2="92" y2="28"/><circle cx="94" cy="28" r="2"/></svg>
+    <svg class="mol-3" viewBox="0 0 140 100"><polygon points="30,30 55,30 67,52 55,74 30,74 18,52"/><polygon points="67,30 92,30 104,52 92,74 67,74 55,52"/><line x1="104" y1="52" x2="120" y2="52"/><circle cx="123" cy="52" r="2.5"/></svg>
+</div>
+
+<nav class="nav" data-page="blog"></nav>
+
+<main>
+    <article class="post-article">
+
+        <header class="post-header">
+            <div class="post-meta">
+                <span class="post-tag">Productivity</span>
+                <span class="post-date">Jun 6, 2026</span>
+            </div>
+            <h1 class="post-title">Ship the <em>Smallest</em> Honest Version</h1>
+        </header>
+
+        <div class="post-body">
+        <p> The project I am most embarrassed by took six months to build and two weeks to abandon. </p>
+        <p> We had a plan. A real one. Architecture diagrams, a full feature list, a timeline with milestones. The whole thing looked like seriousness. It felt like diligence. And by the time we shipped, the thing we had been building on turned out to be a wrong assumption we could have caught in week two. </p>
+        <p> That is the tax on big launches. You do not find out what is broken until it is expensive to fix. </p>
+        <p> The assumption was about how users wanted to interact with the model output. We had built an elaborate interface on top of it. When we finally put it in front of someone, they did not want the interface at all. They wanted a CSV. Six months of work and the first piece of honest feedback was a request for a spreadsheet. </p>
+        <p> I am not saying the six months was wasted. There are things you only learn by going deep. But a lot of it was wasted, and the waste came from one specific habit. We kept deferring the moment of truth. Every time we could have shown someone a rough version, we told ourselves it was not ready yet. We wanted to present something complete, something we could be proud of. </p>
+        <p> That instinct is almost always wrong. </p>
+        <h2>The smallest honest version</h2>
+        <p> I have started asking a different question before any project gets scope. What is the least I can build that would tell me if this is worth building at all? </p>
+        <p> Not a prototype you apologize for. Not a sketch you say is rough before you show it. Something honest. Something that actually does the core thing, just nothing else yet. If the core thing works, you add. If it does not, you have lost weeks instead of months. </p>
+        <p> In drug discovery research this is especially easy to avoid doing. The problems feel large, the stakes feel high, and so the instinct is to build something worthy of the problem. But a model that predicts one target badly, shipped in three weeks, teaches you more than a pipeline that predicts forty targets in six months. You just have to be willing to look at the bad result. </p>
+        <p> The grand plan is also a comfort. When you are building toward something ambitious, every week feels justified even if nothing has been tested. Shipping small removes that comfort. You have to sit with uncertainty earlier. You find out sooner that you were wrong. That feels worse in the moment and is much better in practice. </p>
+        <p> There is a version of this that is just laziness, and I want to be clear that is not what I mean. Shipping small is not shipping sloppy. The smallest honest version still runs, still explains itself, still does the core thing without apology. The word that matters is honest. If it cannot do the one thing it is supposed to do, it is not ready. If it can, it is. </p>
+        <p> The other thing I have noticed is that small ships keep teams sharper. When you know a real user will see something in two weeks, the scope conversations get cleaner. Features that were once considered essential become obviously optional. The work becomes more intentional because the feedback loop is short enough to feel real. </p>
+        <p> Every large project I have seen go sideways followed the same shape. Long build. Late reveal. Expensive correction. And at some point, usually around month four, someone on the team privately knew something was off but did not want to slow the momentum. Shipping small does not just catch problems earlier. It makes it safer to say something is wrong before everything depends on it being right. </p>
+        <p> If you are running a team or scoping a project right now, the question is not whether your current plan is ambitious enough. It probably is. The question is when the first real user sees the first real version, and whether that date is close enough to matter. </p>
+        <p> Push that date earlier. Cut whatever you have to cut to get there. The grand version can still exist. It just should not exist before you know the small version works. </p>
+        <p> · Abdallah </p>
+        <p> Currently rebuilding something I overscoped the first time, and trying to practice what I just wrote. </p>
+        </div>
+
+        <footer class="post-footer">
+            <a class="post-back" href="blog.html">← Back to blog</a>
+            <span class="post-date" style="color: var(--muted); font-family: var(--mono); font-size: 0.72rem;">Jun 6, 2026</span>
+        </footer>
+
+    </article>
+</main>
+
+<footer data-bind="footer"></footer>
+<script src="scripts.js"></script>
+</body>
+</html>

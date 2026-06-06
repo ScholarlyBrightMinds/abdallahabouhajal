@@ -47,7 +47,7 @@
       "title": "The project that taught me to ship smaller",
       "tag": "Productivity",
       "angle": "Big-bang launches hide problems until they are expensive. Why shipping the smallest honest version first beats the grand plan.",
-      "used": false
+      "used": true
     },
     {
       "title": "Mentoring is not advice",
@@ -83,6 +83,18 @@
       "title": "Learning in Public",
       "tag": "Research",
       "angle": "Sharing work before it is finished feels risky. But the researchers and builders who do it consistently seem to grow faster. What it costs, what it gives back, and how to start small.",
+      "used": false
+    },
+    {
+      "title": "The Meeting That Should Have Been a Decision",
+      "tag": "Leadership",
+      "angle": "Most meetings stall because no one walking in knows what they are supposed to decide. Explore how naming the decision before the meeting changes everything about how it runs.",
+      "used": false
+    },
+    {
+      "title": "Writing as Thinking, Not Reporting",
+      "tag": "Research",
+      "angle": "The habit of writing up results after the thinking is done versus writing as the tool that does the thinking. How putting words on the page earlier changes what you end up building.",
       "used": false
     }
   ]
