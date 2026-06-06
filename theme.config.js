@@ -360,6 +360,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-9.html",
+            title: "Ship the Smallest Honest Version",
+            date: "Jun 6, 2026",
+            tag: "Productivity",
+            cover: "ai",
+            readingTime: "4 min read",
+            excerpt: "Big plans feel responsible until the moment they fall apart. Here is what one overbuilt project taught me about shipping small and finding out what is real."
+        },
+        {
             file: "blog-post-8.html",
             title: "Feedback That Actually Lands",
             date: "May 30, 2026",
