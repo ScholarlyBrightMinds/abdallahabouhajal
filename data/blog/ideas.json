@@ -53,7 +53,7 @@
       "title": "Mentoring is not advice",
       "tag": "Leadership",
       "angle": "The best thing you can give someone is not your answer, it is better questions. How to mentor without taking over.",
-      "used": false
+      "used": true
     },
     {
       "title": "Burnout does not announce itself",
@@ -83,6 +83,18 @@
       "title": "Learning in Public",
       "tag": "Research",
       "angle": "Sharing work before it is finished feels risky. But the researchers and builders who do it consistently seem to grow faster. What it costs, what it gives back, and how to start small.",
+      "used": false
+    },
+    {
+      "title": "When to Stop Asking and Just Decide",
+      "tag": "Leadership",
+      "angle": "There is a version of collaborative leadership that never actually commits. How to know when you have gathered enough input and it is time to make the call yourself, without apology.",
+      "used": false
+    },
+    {
+      "title": "The Email You Should Send Before the Meeting",
+      "tag": "Productivity",
+      "angle": "Most meetings are bad because everyone arrives cold. One short email sent the day before, with the actual question on the table, changes the whole dynamic. A practical post on how to frame it.",
       "used": false
     }
   ]
