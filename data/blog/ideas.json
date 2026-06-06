@@ -53,7 +53,7 @@
       "title": "Mentoring is not advice",
       "tag": "Leadership",
       "angle": "The best thing you can give someone is not your answer, it is better questions. How to mentor without taking over.",
-      "used": false
+      "used": true
     },
     {
       "title": "Burnout does not announce itself",
@@ -83,6 +83,18 @@
       "title": "Learning in Public",
       "tag": "Research",
       "angle": "Sharing work before it is finished feels risky. But the researchers and builders who do it consistently seem to grow faster. What it costs, what it gives back, and how to start small.",
+      "used": false
+    },
+    {
+      "title": "When Saying No Is the Most Helpful Thing",
+      "tag": "Leadership",
+      "angle": "How to protect your time without closing doors on people who need your help. The difference between a no that shuts someone out and a no that redirects them somewhere better.",
+      "used": false
+    },
+    {
+      "title": "The Meeting That Should Have Been a Conversation",
+      "tag": "Leadership",
+      "angle": "Some of the most important things that happen at work happen informally, in a hallway or over coffee. Why over-structuring every interaction strips out the part where real trust gets built.",
       "used": false
     }
   ]
