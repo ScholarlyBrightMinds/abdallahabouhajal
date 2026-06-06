@@ -53,7 +53,7 @@
       "title": "Mentoring is not advice",
       "tag": "Leadership",
       "angle": "The best thing you can give someone is not your answer, it is better questions. How to mentor without taking over.",
-      "used": false
+      "used": true
     },
     {
       "title": "Burnout does not announce itself",
@@ -83,6 +83,18 @@
       "title": "Learning in Public",
       "tag": "Research",
       "angle": "Sharing work before it is finished feels risky. But the researchers and builders who do it consistently seem to grow faster. What it costs, what it gives back, and how to start small.",
+      "used": false
+    },
+    {
+      "title": "The Feedback You Never Gave",
+      "tag": "Leadership",
+      "angle": "On the cost of staying quiet when someone needed honesty. The mentor or manager who protected themselves from an awkward conversation and what that silence cost the other person over time.",
+      "used": false
+    },
+    {
+      "title": "When to Stop Helping",
+      "tag": "Leadership",
+      "angle": "There is a point where continued support becomes a ceiling for the person you are trying to grow. How to recognize when stepping back is the most useful thing you can do, and how to do it without it feeling like abandonment.",
       "used": false
     }
   ]
