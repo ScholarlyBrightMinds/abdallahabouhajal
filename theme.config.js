@@ -360,6 +360,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-10.html",
+            title: "Saying I Do Not Know",
+            date: "Aug 8, 2026",
+            tag: "Culture",
+            cover: "culture",
+            readingTime: "4 min read",
+            excerpt: "The fastest way to lose a room full of experts is to bluff. Admitting the gap out loud is not a weakness. It is how trust actually gets built."
+        },
+        {
             file: "blog-post-9.html",
             title: "Mentoring Is Not Advice",
             date: "Jun 6, 2026",

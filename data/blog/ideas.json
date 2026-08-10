@@ -23,7 +23,7 @@
       "title": "Saying I do not know in a room full of experts",
       "tag": "Culture",
       "angle": "The fastest way to lose a team is to bluff. Why admitting the gap out loud is a leadership move, not a weakness.",
-      "used": false
+      "used": true
     },
     {
       "title": "The to-do list is lying to you",
@@ -95,6 +95,18 @@
       "title": "The Meeting That Should Have Been a Conversation",
       "tag": "Leadership",
       "angle": "Some of the most important things that happen at work happen informally, in a hallway or over coffee. Why over-structuring every interaction strips out the part where real trust gets built.",
+      "used": false
+    },
+    {
+      "title": "When Expertise Becomes a Blind Spot",
+      "tag": "Culture",
+      "angle": "The more senior you get, the harder it is to see the beginner's question as useful. But that question is often the one that matters most. A post about how deep expertise can quietly close your mind, and what to do about it.",
+      "used": false
+    },
+    {
+      "title": "Disagreeing Without Derailing",
+      "tag": "Culture",
+      "angle": "Most people either stay silent when they disagree or say something that breaks the room. There is a third option. A post on how to push back in a way that moves things forward rather than sideways, especially when you are not the most senior person there.",
       "used": false
     }
   ]
