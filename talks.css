@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════
-   talks.css — Talks & Presentations page
+   talks.css - Talks & Presentations page
    ═══════════════════════════════════════════════════════════════════ */
 
 .sub-hero .sub-lede {
     max-width: 620px;
     margin-top: 1.2rem;
-    font-size: 1rem;
+    font-size: 0.99rem;
     color: var(--text-soft);
     line-height: 1.7;
 }
@@ -28,7 +28,7 @@
     align-items: start;
     position: relative;
     overflow: hidden;
-    transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+    transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
 }
 .talk-card::before {
     content: '';
@@ -38,7 +38,7 @@
     background: var(--accent);
     transform: scaleY(0);
     transform-origin: center;
-    transition: transform .3s var(--ease);
+    transition: transform 0.28s var(--ease);
 }
 .talk-card:hover {
     transform: translateY(-3px);
@@ -60,18 +60,20 @@
     flex-direction: column;
     gap: 0.4rem;
     padding-right: 1rem;
-    border-right: 1px dashed var(--border);
+    border-right: 1px solid var(--border-s);
 }
 .talk-date-month {
     font-family: var(--display);
-    font-size: 1.05rem;
-    font-style: italic;
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--accent);
     line-height: 1.2;
 }
 .talk-date-kind {
     font-family: var(--mono);
     font-size: 0.62rem;
+    font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted);
@@ -95,25 +97,28 @@
     background: var(--amber-bg);
     border: 1px solid var(--amber-glow);
     padding: 0.25rem 0.65rem;
-    border-radius: 0.35rem;
+    border-radius: 6px;
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
+}
+.talk-award svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
 }
 .talk-title {
     font-family: var(--display);
-    font-size: 1.35rem;
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
     color: var(--text);
     margin: 0 0 0.4rem;
 }
 .talk-venue {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 0.92rem;
-    color: var(--text-soft);
+    font-size: 0.88rem;
+    color: var(--muted);
     margin: 0 0 0.8rem;
 }
 .talk-desc {
@@ -134,7 +139,7 @@
 .talks-cta .sec-title { margin-bottom: 1rem; }
 .talks-cta-body {
     color: var(--text-soft);
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     line-height: 1.7;
     max-width: 640px;
     margin-bottom: 1.3rem;
@@ -150,9 +155,10 @@
     border: 1px solid var(--accent);
     font-family: var(--body);
     font-size: 0.86rem;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
-    transition: all .25s var(--ease);
+    transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
+                border-color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
 }
 .talks-cta-btn:hover {
     background: var(--accent-d);
@@ -160,8 +166,9 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 26px -10px var(--accent-glow);
 }
+.talks-cta-btn:active { transform: scale(0.97); }
 .talks-cta-btn span:last-child {
-    transition: transform .25s var(--ease);
+    transition: transform 0.2s var(--ease);
     display: inline-block;
 }
 .talks-cta-btn:hover span:last-child { transform: translateX(4px); }
@@ -180,7 +187,7 @@
         padding-right: 0;
         padding-bottom: 0.6rem;
         border-right: none;
-        border-bottom: 1px dashed var(--border);
+        border-bottom: 1px solid var(--border-s);
     }
-    .talk-title { font-size: 1.2rem; }
+    .talk-title { font-size: 1.16rem; }
 }

@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════
-   contact.css — Contact page (form + direct lines + audience blocks)
+   contact.css - Contact page (form + direct lines + audience blocks)
    ═══════════════════════════════════════════════════════════════════ */
 
 .sub-hero .sub-lede {
     max-width: 620px;
     margin-top: 1.2rem;
-    font-size: 1rem;
+    font-size: 0.99rem;
     color: var(--text-soft);
     line-height: 1.7;
 }
@@ -51,7 +51,8 @@
 }
 .contact-field label {
     font-family: var(--mono);
-    font-size: 0.66rem;
+    font-size: 0.64rem;
+    font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text-soft);
@@ -61,7 +62,6 @@
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: none;
-    font-style: italic;
     margin-left: 0.3rem;
 }
 .contact-field input,
@@ -74,7 +74,7 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-s);
     padding: 0.7rem 0.85rem;
-    transition: border-color .2s var(--ease), background .2s var(--ease);
+    transition: border-color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
     resize: vertical;
     line-height: 1.5;
 }
@@ -112,7 +112,8 @@
     font-weight: 600;
     letter-spacing: 0.02em;
     cursor: pointer;
-    transition: all .25s var(--ease);
+    transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
+                border-color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
 }
 .contact-submit:hover {
     background: var(--accent-d);
@@ -120,9 +121,10 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 26px -10px var(--accent-glow);
 }
+.contact-submit:active { transform: scale(0.97); }
 .contact-submit span:last-child {
     display: inline-block;
-    transition: transform .25s var(--ease);
+    transition: transform 0.2s var(--ease);
 }
 .contact-submit:hover span:last-child { transform: translateX(4px); }
 
@@ -146,14 +148,14 @@
 }
 .contact-direct-title {
     font-family: var(--display);
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.45rem;
+    font-weight: 600;
     line-height: 1.2;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--text);
     margin: 0.4rem 0 1rem;
 }
-.contact-direct-title em { font-style: italic; color: var(--accent); }
+.contact-direct-title em { font-style: normal; color: var(--accent); }
 
 .contact-direct-row {
     display: flex;
@@ -178,9 +180,9 @@
 .contact-direct-link {
     color: var(--text-soft);
     text-decoration: none;
-    font-size: 0.94rem;
+    font-size: 0.93rem;
     word-break: break-word;
-    transition: color .2s;
+    transition: color var(--t-fast) var(--ease);
     border-bottom: 1px dotted var(--accent-glow);
 }
 .contact-direct-link:hover { color: var(--accent); }
@@ -190,13 +192,12 @@
     padding-top: 1rem;
     border-top: 1px dashed var(--border);
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.04em;
     color: var(--muted);
-    font-style: italic;
 }
 
-/* ─── Audience blocks (3 cards: supervisors / collaborators / press) ──── */
+/* ─── Audience blocks (3 cards: supervisors / collaborators / press) ─── */
 .contact-blocks {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -208,7 +209,9 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.6rem 1.5rem;
-    transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
 }
 .contact-block:hover {
     transform: translateY(-3px);
@@ -216,17 +219,25 @@
     box-shadow: var(--shadow-card);
 }
 .contact-block-icon {
-    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-s);
+    background: var(--accent-bg);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
     line-height: 1;
     margin-bottom: 0.9rem;
 }
+.contact-block-icon svg { width: 20px; height: 20px; }
 .contact-block-title {
     font-family: var(--display);
-    font-size: 1.15rem;
-    font-weight: 500;
+    font-size: 1.12rem;
+    font-weight: 600;
     color: var(--text);
     margin-bottom: 0.5rem;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
 }
 .contact-block-body {
     color: var(--text-soft);
