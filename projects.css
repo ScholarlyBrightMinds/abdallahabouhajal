@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════
-   projects.css — Ongoing Research page specifics
+   projects.css - Ongoing Research page specifics
    ═══════════════════════════════════════════════════════════════════ */
 
 .sub-hero .sub-lede {
     max-width: 620px;
     margin-top: 1.2rem;
-    font-size: 1rem;
+    font-size: 0.99rem;
     color: var(--text-soft);
     line-height: 1.7;
 }
@@ -27,7 +27,7 @@
     align-items: start;
     position: relative;
     overflow: hidden;
-    transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+    transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
 }
 .proj-card::before {
     content: '';
@@ -37,7 +37,7 @@
     background: var(--accent);
     transform: scaleY(0);
     transform-origin: center;
-    transition: transform .3s var(--ease);
+    transition: transform 0.28s var(--ease);
 }
 .proj-card:hover {
     transform: translateY(-3px);
@@ -47,13 +47,23 @@
 .proj-card:hover::before { transform: scaleY(1); }
 
 .proj-num {
-    font-family: var(--display);
-    font-size: 2.8rem;
-    font-weight: 300;
-    font-style: italic;
+    font-family: var(--mono);
+    font-size: 1.9rem;
+    font-weight: 500;
     color: var(--accent);
-    line-height: 1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.2rem;
+}
+.proj-num::after {
+    content: '';
+    display: block;
+    width: 26px;
+    height: 1.5px;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    background: var(--accent-glow);
 }
 
 .proj-body { min-width: 0; }
@@ -68,36 +78,36 @@
 .proj-label {
     font-family: var(--mono);
     font-size: 0.62rem;
+    font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
     background: var(--accent-bg);
     border: 1px solid var(--accent-glow);
     padding: 0.22rem 0.55rem;
-    border-radius: 0.3rem;
+    border-radius: 6px;
 }
 .proj-status {
     font-family: var(--mono);
     font-size: 0.64rem;
+    font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     padding: 0.25rem 0.6rem;
-    border-radius: 0.35rem;
+    border-radius: 6px;
     border: 1px solid var(--border);
     background: var(--bg-soft);
     color: var(--text-soft);
     line-height: 1.3;
 }
-/* Status variants — green-ish for published, amber for active, accent for in-review */
+/* Status variants - bright cobalt for published, gold for active work */
 .proj-status--published {
-    color: #7dbf8f;
-    border-color: rgba(125, 191, 143, 0.25);
-    background: rgba(125, 191, 143, 0.08);
+    color: var(--accent-d);
+    border-color: var(--accent-glow);
+    background: var(--accent-bg);
 }
 :root[data-theme="light"] .proj-status--published {
-    color: #2e7a44;
-    border-color: rgba(46, 122, 68, 0.25);
-    background: rgba(46, 122, 68, 0.08);
+    color: var(--accent);
 }
 .proj-status--active {
     color: var(--amber);
@@ -110,12 +120,12 @@
     background: var(--accent-bg);
 }
 
-/* Subtle left-border variant hint on the whole card */
-.proj-card--published::before { background: #7dbf8f; }
-:root[data-theme="light"] .proj-card--published::before { background: #2e7a44; }
+/* Left-rail hint follows the status */
+.proj-card--published::before { background: var(--accent); }
 .proj-card--active::before    { background: var(--amber); }
+.proj-card--active:hover      { border-color: var(--amber); }
 
-/* Needs line — what this project needs right now */
+/* Needs line - what this project needs right now */
 .proj-needs {
     margin: 0 0 1rem 0;
     padding: 0.7rem 0.9rem;
@@ -129,15 +139,15 @@
 }
 .proj-needs-label {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--amber);
     margin-right: 0.4rem;
 }
 
-/* Actions row holds both the "Read paper" button (for published projects)
-   and the "Want to collaborate?" button (for active projects). */
+/* Actions row: "Read paper" (published) + "Want to collaborate?" (active) */
 .proj-actions {
     display: flex;
     gap: 0.6rem;
@@ -146,13 +156,11 @@
     align-items: center;
 }
 
-/* Venue chip — published projects get a journal-name pill next to status */
+/* Venue chip - published projects get a journal name next to status */
 .proj-venue {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-soft);
-    padding-left: 0.4rem;
+    padding-left: 0.55rem;
     border-left: 1px solid var(--border);
 }
 
@@ -164,13 +172,14 @@
     padding: 0.55rem 1rem;
     font-family: var(--body);
     font-size: 0.84rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--bg);
     background: var(--accent);
     border: 1px solid var(--accent);
     border-radius: 999px;
     text-decoration: none;
-    transition: all .25s var(--ease);
+    transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
+                border-color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
 }
 .proj-paper:hover {
     background: var(--accent-d);
@@ -178,6 +187,7 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 26px -10px var(--accent-glow);
 }
+.proj-paper:active { transform: scale(0.97); }
 .proj-paper-icon {
     font-size: 0.95em;
     transform: translateY(-1px);
@@ -185,11 +195,12 @@
 }
 .proj-paper-doi {
     font-family: var(--mono);
-    font-size: 0.7rem;
-    opacity: 0.78;
+    font-size: 0.68rem;
+    font-weight: 500;
+    opacity: 0.8;
     padding-left: 0.5rem;
     margin-left: 0.2rem;
-    border-left: 1px solid rgba(0,0,0,0.18);
+    border-left: 1px solid rgba(0,0,0,0.2);
 }
 
 /* Collaborate button */
@@ -200,38 +211,40 @@
     padding: 0.55rem 1rem;
     font-family: var(--body);
     font-size: 0.84rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--accent);
     background: var(--accent-bg);
     border: 1px solid var(--accent-glow);
     border-radius: 999px;
     text-decoration: none;
-    transition: all .25s var(--ease);
+    transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
+                color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
 }
 .proj-collab:hover {
     background: var(--accent);
-    color: var(--card);
+    color: var(--bg);
     transform: translateY(-2px);
     box-shadow: 0 8px 22px -10px var(--accent-glow);
 }
+.proj-collab:active { transform: scale(0.97); }
 .proj-collab-icon {
-    font-size: 0.95em;
-    display: inline-block;
-    transform: translateY(-1px);
+    display: inline-flex;
+    align-items: center;
 }
+.proj-collab-icon svg { width: 14px; height: 14px; }
 
 .proj-title {
     font-family: var(--display);
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
+    font-size: 1.36rem;
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
     margin-bottom: 0.55rem;
     color: var(--text);
 }
 .proj-desc {
     color: var(--text-soft);
-    font-size: 0.94rem;
+    font-size: 0.93rem;
     line-height: 1.7;
     margin-bottom: 1rem;
     max-width: 620px;
@@ -244,13 +257,13 @@
 }
 .proj-tag {
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.67rem;
     background: var(--bg-soft);
     border: 1px solid var(--border);
     color: var(--text-soft);
     padding: 0.25rem 0.6rem;
-    border-radius: 0.35rem;
-    transition: all .2s var(--ease);
+    border-radius: 6px;
+    transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
 .proj-card:hover .proj-tag {
     border-color: var(--accent-glow);
@@ -263,6 +276,6 @@
         gap: 1rem;
         padding: 1.4rem 1.5rem;
     }
-    .proj-num { font-size: 2.2rem; }
-    .proj-title { font-size: 1.2rem; }
+    .proj-num { font-size: 1.4rem; }
+    .proj-title { font-size: 1.18rem; }
 }

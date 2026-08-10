@@ -7,8 +7,8 @@
 <meta name="author" content="Abdallah Abou Hajal">
 <meta name="application-name" content="Scholarly Bright Minds · Abdallah Abou Hajal">
 <meta name="keywords" content="Abdallah Abou Hajal, AI drug discovery, cheminformatics, machine learning, AutoML, large language models, virtual screening, BAD Molecule Filter, colloidal aggregators, Scifiniti, Al Ain University, Abu Dhabi researcher">
-<meta name="theme-color" content="#0d1411" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f7f3e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <title>Abdallah Abou Hajal · AI for Drug Discovery · Cheminformatics Researcher</title>
 
@@ -20,6 +20,9 @@
 <meta property="og:title" content="Abdallah Abou Hajal · AI for Drug Discovery">
 <meta property="og:description" content="AI × Drug Discovery researcher and AI Automation Lead. ML pipelines and cheminformatics for drug discovery research; LLM agents for academic publishing. First-author in JCIM and Expert Opinion on Drug Discovery.">
 <meta property="og:image" content="https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Abdallah Abou Hajal, researcher in AI for drug discovery">
 <meta property="og:url" content="https://scholarlybrightminds.github.io/abdallahabouhajal/">
 <meta property="og:site_name" content="Scholarly Bright Minds · Abdallah Abou Hajal">
 <meta property="og:locale" content="en_US">
@@ -31,6 +34,7 @@
 <meta name="twitter:title" content="Abdallah Abou Hajal · AI for Drug Discovery">
 <meta name="twitter:description" content="AI × Drug Discovery researcher · AI Automation Lead. ML pipelines, LLM agents, cheminformatics. MSc Pharmaceutical Sciences, Abu Dhabi.">
 <meta name="twitter:image" content="https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png">
+<meta name="twitter:image:alt" content="Abdallah Abou Hajal, researcher in AI for drug discovery">
 
 <!-- Sitemap -->
 <link rel="sitemap" type="application/xml" href="/abdallahabouhajal/sitemap.xml">
@@ -41,9 +45,9 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- Schema.org Person markup — what Google's Knowledge Graph reads.
+<!-- Schema.org Person markup, what Google's Knowledge Graph reads.
      The sameAs array tells Google all these profiles belong to the same
      person, allowing entity consolidation and a researcher panel in SERPs. -->
 <script type="application/ld+json">
@@ -92,7 +96,14 @@
     "name": "United Arab Emirates"
   },
   "email": "abdallah.abouhajal@gmail.com",
-  "image": "https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png",
+  "image": {
+    "@type": "ImageObject",
+    "contentUrl": "https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png",
+    "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png",
+    "caption": "Abdallah Abou Hajal",
+    "width": 1080,
+    "height": 1080
+  },
   "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/",
   "sameAs": [
     "https://scholar.google.com/citations?user=1I8SvsQAAAAJ&hl=en",
@@ -123,7 +134,7 @@
 }
 </script>
 
-<!-- Schema.org WebSite — gives Google an explicit publisher/site-name signal.
+<!-- Schema.org WebSite, gives Google an explicit publisher/site-name signal.
      Without this, github.io subdomains tend to get auto-attributed to
      "GitHub Pages documentation" in search results. -->
 <script type="application/ld+json">
@@ -146,6 +157,26 @@
 </script>
 
 <!-- Theme config (must load BEFORE styles so CSS vars are set) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://scholarlybrightminds.github.io/abdallahabouhajal/#profilepage",
+  "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/",
+  "name": "Abdallah Abou Hajal · Researcher Profile",
+  "dateModified": "2026-08-10",
+  "mainEntity": {
+    "@id": "https://scholarlybrightminds.github.io/abdallahabouhajal/#person"
+  },
+  "primaryImageOfPage": {
+    "@id": "https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png"
+  },
+  "isPartOf": {
+    "@id": "https://scholarlybrightminds.github.io/abdallahabouhajal/#website"
+  }
+}
+</script>
+
 <script src="theme.config.js"></script>
 
 <!-- Styles -->
@@ -164,7 +195,9 @@
         border: 1px solid var(--border);
         border-radius: var(--radius);
         padding: 1.4rem 1.3rem;
-        transition: all .3s var(--ease);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
     }
     .hp-card:hover {
         transform: translateY(-2px);
@@ -172,19 +205,24 @@
         box-shadow: var(--shadow-card);
     }
     .hp-icon {
-        width: 34px; height: 34px;
-        border-radius: 8px;
+        width: 36px; height: 36px;
+        border-radius: var(--radius-s);
         background: var(--accent-bg);
         display: grid;
         place-items: center;
         color: var(--accent);
         margin-bottom: 0.9rem;
+        transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+        position: relative;
+        z-index: 1;
     }
     .hp-icon svg { width: 18px; height: 18px; }
+    .hp-card:hover .hp-icon { background: var(--accent); color: var(--bg); }
     .hp-title {
         font-family: var(--display);
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 600;
+        letter-spacing: -0.01em;
         margin-bottom: 0.35rem;
         color: var(--text);
     }
@@ -202,42 +240,12 @@
 
 <!-- ═══ MOLECULAR BACKGROUND (subtle) ═══ -->
 <div class="mol-bg" aria-hidden="true">
-    <svg class="mol-1" viewBox="0 0 100 100">
-        <polygon points="30,25 55,25 67,50 55,75 30,75 18,50"/>
-        <line x1="67" y1="50" x2="82" y2="50"/>
-        <circle cx="85" cy="50" r="2.5"/>
-        <line x1="24" y1="37" x2="24" y2="63" stroke-width="2"/>
-        <line x1="60" y1="37" x2="60" y2="63" stroke-width="2"/>
-    </svg>
-    <svg class="mol-2 amber" viewBox="0 0 100 100">
-        <polygon points="50,20 78,38 68,68 32,68 22,38"/>
-        <line x1="50" y1="20" x2="50" y2="5"/>
-        <circle cx="50" cy="3" r="2"/>
-        <line x1="78" y1="38" x2="92" y2="28"/>
-    </svg>
-    <svg class="mol-3" viewBox="0 0 140 100">
-        <polygon points="30,30 55,30 67,52 55,74 30,74 18,52"/>
-        <polygon points="67,30 92,30 104,52 92,74 67,74 55,52"/>
-        <line x1="104" y1="52" x2="120" y2="52"/>
-        <circle cx="123" cy="52" r="2.5"/>
-        <line x1="24" y1="42" x2="24" y2="62" stroke-width="2"/>
-        <line x1="97" y1="42" x2="97" y2="62" stroke-width="2"/>
-    </svg>
-    <svg class="mol-4" viewBox="0 0 100 100">
-        <polygon points="35,28 65,28 80,55 65,82 35,82 20,55"/>
-        <circle cx="50" cy="55" r="14" fill="none" stroke-dasharray="2 3"/>
-    </svg>
-    <svg class="mol-5 amber" viewBox="0 0 100 100">
-        <line x1="50" y1="50" x2="30" y2="30" stroke-width="1.5"/>
-        <line x1="50" y1="50" x2="70" y2="30" stroke-width="1.5"/>
-        <line x1="50" y1="50" x2="30" y2="70" stroke-width="1.5"/>
-        <line x1="50" y1="50" x2="70" y2="70" stroke-width="1.5"/>
-        <circle cx="30" cy="30" r="3"/>
-        <circle cx="70" cy="30" r="3"/>
-        <circle cx="30" cy="70" r="3"/>
-        <circle cx="70" cy="70" r="3"/>
-        <circle cx="50" cy="50" r="4"/>
-    </svg>
+    <!-- molecule meets neural network: ambient cobalt motif -->
+    <svg class="mol-1" viewBox="0 0 220 160"><polygon points="58,36 94,56 94,96 58,116 22,96 22,56"/><circle cx="58" cy="36" r="3"/><circle cx="94" cy="56" r="3"/><circle cx="94" cy="96" r="3"/><circle cx="58" cy="116" r="3"/><circle cx="22" cy="96" r="3"/><circle cx="22" cy="56" r="3"/><line x1="94" y1="56" x2="150" y2="34"/><line x1="94" y1="96" x2="152" y2="116"/><line x1="150" y1="34" x2="198" y2="60"/><line x1="152" y1="116" x2="198" y2="60" class="faint"/><circle cx="150" cy="34" r="4.5"/><circle cx="152" cy="116" r="4.5"/><circle cx="198" cy="60" r="6" class="hollow"/></svg>
+    <svg class="mol-2 amber" viewBox="0 0 120 120"><line x1="60" y1="60" x2="60" y2="18"/><line x1="60" y1="60" x2="98" y2="82"/><line x1="60" y1="60" x2="22" y2="82"/><circle cx="60" cy="18" r="3.5"/><circle cx="98" cy="82" r="3.5"/><circle cx="22" cy="82" r="3.5"/><circle cx="60" cy="60" r="4.5"/><circle cx="60" cy="60" r="12" class="hollow faint"/></svg>
+    <svg class="mol-3" viewBox="0 0 260 160"><polygon points="40,44 72,62 72,98 40,116 8,98 8,62"/><polygon points="104,44 136,62 136,98 104,116 72,98 72,62" class="faint"/><circle cx="72" cy="62" r="3"/><circle cx="72" cy="98" r="3"/><circle cx="136" cy="62" r="3"/><circle cx="136" cy="98" r="3"/><line x1="136" y1="62" x2="196" y2="34"/><line x1="136" y1="98" x2="196" y2="80"/><line x1="136" y1="98" x2="196" y2="126" class="faint"/><circle cx="196" cy="34" r="4"/><circle cx="196" cy="80" r="4"/><circle cx="196" cy="126" r="4"/><line x1="196" y1="34" x2="244" y2="80" class="faint"/><line x1="196" y1="80" x2="244" y2="80"/><line x1="196" y1="126" x2="244" y2="80" class="faint"/><circle cx="244" cy="80" r="6" class="hollow"/></svg>
+    <svg class="mol-4" viewBox="0 0 160 160"><polygon points="80,26 126,52 126,104 80,130 34,104 34,52"/><circle cx="80" cy="78" r="22" class="hollow" stroke-dasharray="3 4"/><circle cx="80" cy="26" r="3"/><circle cx="126" cy="104" r="3"/><circle cx="34" cy="104" r="3"/><line x1="126" y1="52" x2="150" y2="40" class="faint"/><circle cx="152" cy="38" r="3"/></svg>
+    <svg class="mol-5 amber" viewBox="0 0 110 110"><line x1="55" y1="55" x2="25" y2="25"/><line x1="55" y1="55" x2="85" y2="25"/><line x1="55" y1="55" x2="25" y2="85"/><line x1="55" y1="55" x2="85" y2="85"/><line x1="25" y1="25" x2="85" y2="25" class="faint"/><line x1="25" y1="85" x2="85" y2="85" class="faint"/><circle cx="25" cy="25" r="3"/><circle cx="85" cy="25" r="3"/><circle cx="25" cy="85" r="3"/><circle cx="85" cy="85" r="3"/><circle cx="55" cy="55" r="4.5"/></svg>
 </div>
 
 <!-- Nav rendered by scripts.js based on config -->
@@ -258,7 +266,7 @@
             <div class="social-links" data-bind="social"></div>
         </div>
         <div class="hero-image">
-            <img data-bind="photo" alt="Profile">
+            <img data-bind="photo" alt="Abdallah Abou Hajal, researcher in AI for drug discovery" width="1080" height="1080" fetchpriority="high">
         </div>
     </section>
 
@@ -268,7 +276,7 @@
     <section class="reveal impact-section">
         <p class="sec-kicker">By the numbers</p>
         <h2 class="sec-title">Track <em>record</em>.</h2>
-        <p class="impact-lede">A snapshot of the published work, awards, and shipped tools — auto-updated each Monday from Google Scholar and OpenAlex.</p>
+        <p class="impact-lede">A snapshot of the published work, awards, and shipped tools, auto-updated each Monday from Google Scholar and OpenAlex.</p>
         <div class="impact-grid" data-bind="impactStats"></div>
     </section>
 
@@ -285,5 +293,6 @@
 <footer data-bind="footer"></footer>
 
 <script src="scripts.js"></script>
+<script src="motion.js" defer></script>
 </body>
 </html>

@@ -29,46 +29,46 @@ window.SITE_CONFIG = {
     // ── Palette ──────────────────────────────────────────────────
     // Hub-assigned color for this researcher. Applied to CSS vars at runtime.
     palette: {
-        name:       "teal",
-        // Dark mode (default — "Night in the Lab")
+        name:       "cobalt",
+        // Dark mode (default: "ink navy, instrument on")
         dark: {
-            bg:          "#0d1411",
-            bgSoft:      "#131a17",
-            bgDeep:      "#080d0b",
-            card:        "#182220",
-            cardSoft:    "#141d1a",
-            text:        "#ebe4d0",
-            textSoft:    "#b5ad98",
-            muted:       "#6e685c",
-            border:      "#253029",
-            borderS:     "#1d2522",
-            accent:      "#6fab98",      /* teal — glow */
-            accentD:     "#93c8b4",      /* teal — hover */
-            accentBg:    "rgba(111,171,152,0.10)",
-            accentGlow:  "rgba(111,171,152,0.20)",
-            amber:       "#d4a668",
-            amberBg:     "rgba(212,166,104,0.10)",
-            amberGlow:   "rgba(212,166,104,0.18)"
+            bg:          "#0a0e16",
+            bgSoft:      "#0e131e",
+            bgDeep:      "#060910",
+            card:        "#101725",
+            cardSoft:    "#0c1219",
+            text:        "#e9eef7",
+            textSoft:    "#a8b3c7",
+            muted:       "#6a7690",
+            border:      "#1d2537",
+            borderS:     "#161d2b",
+            accent:      "#5e9eff",      /* cobalt: signal */
+            accentD:     "#8ab8ff",      /* cobalt: hover, bright */
+            accentBg:    "rgba(94,158,255,0.09)",
+            accentGlow:  "rgba(94,158,255,0.22)",
+            amber:       "#d7aa66",      /* gold: awards only */
+            amberBg:     "rgba(215,170,102,0.10)",
+            amberGlow:   "rgba(215,170,102,0.20)"
         },
-        // Light mode ("Day in the Lab")
+        // Light mode ("cool paper")
         light: {
-            bg:          "#f7f3e8",
-            bgSoft:      "#f0ead8",
-            bgDeep:      "#e9e1c8",
+            bg:          "#f6f7fb",
+            bgSoft:      "#eef1f8",
+            bgDeep:      "#e4e9f3",
             card:        "#ffffff",
-            cardSoft:    "#fbf8ef",
-            text:        "#25251f",
-            textSoft:    "#46443d",
-            muted:       "#8a8378",
-            border:      "#e6dfcd",
-            borderS:     "#f0ead9",
-            accent:      "#2d5547",      /* teal — deep */
-            accentD:     "#1f4134",
-            accentBg:    "#e5efea",
-            accentGlow:  "rgba(45,85,71,0.14)",
-            amber:       "#96642c",
-            amberBg:     "#f6ecdb",
-            amberGlow:   "rgba(150,100,44,0.14)"
+            cardSoft:    "#fafbfe",
+            text:        "#121a2c",
+            textSoft:    "#414d66",
+            muted:       "#6d7990",
+            border:      "#dde3ee",
+            borderS:     "#e8ecf5",
+            accent:      "#1e56c8",      /* cobalt: deep */
+            accentD:     "#17439f",
+            accentBg:    "#e8eefb",
+            accentGlow:  "rgba(30,86,200,0.16)",
+            amber:       "#8f6a2b",
+            amberBg:     "#f6efdf",
+            amberGlow:   "rgba(143,106,43,0.15)"
         }
     },
 
@@ -110,10 +110,10 @@ window.SITE_CONFIG = {
     // (e.g., "14 Publications · 105 Citations") right before each commit, so
     // the static HTML that Google indexes always shows current stats.
     chips: [
-        { label: "14 Publications · 110 Citations" },
+        { label: "15 Publications · 121 Citations" },
         { label: "h-index 7" },
         { label: "4× Corresponding Author" },
-        { label: "🥇 BindHack · Insilico Medicine", variant: "gold" },
+        { label: "BindHack 1st Place · Insilico Medicine", variant: "gold" },
         { label: "MSc Pharm. Sci. · GPA 3.94" }
     ],
 
@@ -230,7 +230,7 @@ window.SITE_CONFIG = {
         { num: "14",  label: "Publications",     sub: "peer-reviewed",                      numLiveSource: "total_documents" },
         { num: "110", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
         { num: "4×",  label: "Corresponding",    sub: "first or corresponding author" },
-        { num: "🥇",  label: "BindHack",         sub: "1st place · Insilico Medicine 2025", variant: "gold" },
+        { num: "1st", label: "BindHack",         sub: "First place · Insilico Medicine 2025", variant: "gold" },
         { num: "1",   label: "Live ML tool",     sub: "BAD Molecule Filter web server" }
     ],
 
@@ -238,17 +238,17 @@ window.SITE_CONFIG = {
     about: {
         paragraphs: [
             "I hold an <strong>MSc in Pharmaceutical Sciences</strong> from Al Ain University (GPA 3.94), working under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI &amp; computer science). My thesis developed a machine-learning tool for predicting promiscuous aggregate-based inhibitors, published first-author in the <em>Journal of Chemical Information and Modeling</em> and deployed as a public web server.",
-            "I currently work as a <strong>Data Analyst at Scifiniti Publishing</strong> (since May 2025), after two years there as <strong>Managing Editor</strong> (Feb 2023 – May 2025). This editorial side-of-the-house gave me a rare, hands-on view of how science actually gets published: peer-review coordination, journal performance analytics, editorial operations across multiple STEM titles.",
-            "In parallel I have kept publishing, with <strong>4 papers as corresponding author</strong>, most recently on an <em>AutoML framework for drug–drug interaction prediction</em>, on <em>large language models in drug delivery</em>, on <em>machine-learning reliability in tumor-progression prediction</em>, and on <em>GitHub's significance for AI-driven drug discovery</em>.",
+            "I currently work as a <strong>Data Analyst at Scifiniti Publishing</strong> (since May 2025), after two years there as <strong>Managing Editor</strong> (Feb 2023 to May 2025). This editorial side-of-the-house gave me a rare, hands-on view of how science actually gets published: peer-review coordination, journal performance analytics, editorial operations across multiple STEM titles.",
+            "In parallel I have kept publishing, with <strong>4 papers as corresponding author</strong>, most recently on an <em>AutoML framework for drug-drug interaction prediction</em>, on <em>large language models in drug delivery</em>, on <em>machine-learning reliability in tumor-progression prediction</em>, and on <em>GitHub's significance for AI-driven drug discovery</em>.",
             "I am <strong>now seeking a PhD opportunity</strong> to further apply machine learning and data-driven methods to impactful challenges in drug discovery: AI-driven virtual and high-throughput screening, predictive modeling, and model interpretability. If that aligns with your group, I would love to hear from you."
         ],
 
         // Vertical timeline on About page
         timeline: [
-            { date: "2016 – 2021",                   title: "BSc in Pharmacy",                  desc: "Al Ain University · GPA 3.83 · Honor Student 2017/2018." },
-            { date: "Sep 2021 – Feb 2023",           title: "MSc &amp; Research / Lab Assistant", desc: "Postgraduate scholarship; undergrad lab sessions; drug-discovery research." },
+            { date: "2016 to 2021",                  title: "BSc in Pharmacy",                  desc: "Al Ain University · GPA 3.83 · Honor Student 2017/2018." },
+            { date: "Sep 2021 to Feb 2023",          title: "MSc &amp; Research / Lab Assistant", desc: "Postgraduate scholarship; undergrad lab sessions; drug-discovery research." },
             { date: "Apr 2023 · Graduation",         title: "MSc Pharmaceutical Sciences",      desc: "GPA 3.94 · Thesis supervised by Prof. Ghattas &amp; Prof. Ben Amor." },
-            { date: "Feb 2023 – May 2025",           title: "Managing Editor · Scifiniti",      desc: "Editorial operations across multiple STEM journals." },
+            { date: "Feb 2023 to May 2025",          title: "Managing Editor · Scifiniti",      desc: "Editorial operations across multiple STEM journals." },
             { date: "2024 · JCIM",                   title: "First-author publication",         desc: "Boosting accuracy of colloidal-aggregator detection." },
             { date: "Since May 2025",                title: "Data Analyst · Scifiniti",         desc: "Journal analytics, workflow automation, strategic reporting.", state: "current" },
             { date: "2026 · Active research",        title: "AI agents &amp; AOP-driven toxicology", desc: "AI-augmented adverse-outcome pathway networks; agent-based drug discovery.", state: "current" },
@@ -264,12 +264,12 @@ window.SITE_CONFIG = {
 
         // Awards section
         awards: [
-            { icon: "🥇", title: "First Place, BindHack Hackathon",         venue: "Insilico Medicine, Masdar City · 2025, antibody–antigen binding prediction in a 6-hour AI/drug discovery competition" },
+            { icon: "🥇", title: "First Place, BindHack Hackathon",         venue: "Insilico Medicine, Masdar City · 2025, antibody-antigen binding prediction in a 6-hour AI/drug discovery competition" },
             { icon: "🥈", title: "Three Minute Thesis, Second Place",      venue: "2nd AAU Health &amp; Biomedical Postgraduate Symposium · 2024" },
             { icon: "🥇", title: "Best Quality Poster, First Place",       venue: "1st International Conference on Pharmacy &amp; Biomedical Sciences, Al Ain University · 2023" },
             { icon: "🎓", title: "MSc Pharmaceutical Sciences · GPA 3.94",  venue: "Graduated with Excellent · Al Ain University, 2023" },
-            { icon: "🎖️", title: "Postgraduate Scholarship",                venue: "Awarded for MSc research and lab-assistant duties · 2021–2023" },
-            { icon: "🏅", title: "Honor Student · 2017–2018",               venue: "Bachelor of Pharmacy · Al Ain University" }
+            { icon: "🎖️", title: "Postgraduate Scholarship",                venue: "Awarded for MSc research and lab-assistant duties · 2021 to 2023" },
+            { icon: "🏅", title: "Honor Student · 2017/2018",               venue: "Bachelor of Pharmacy · Al Ain University" }
         ]
     },
 
@@ -311,8 +311,8 @@ window.SITE_CONFIG = {
         {
             n: "04",
             label: "AutoML · DDI Prediction",
-            title: "Automating Drug–Drug Interaction Prediction",
-            desc:  "Prediction of drug–drug interactions through Automated Machine Learning (AutoML) frameworks. Studies the effects of different molecular feature representations on predictive performance, with insights into automating and improving pharmacovigilance.",
+            title: "Automating Drug-Drug Interaction Prediction",
+            desc:  "Prediction of drug-drug interactions through Automated Machine Learning (AutoML) frameworks. Studies the effects of different molecular feature representations on predictive performance, with insights into automating and improving pharmacovigilance.",
             tech:  ["AutoGluon", "RDKit", "Morgan FP", "Python", "Pharmacovigilance"],
             status: "Published · Toxicology Mechanisms and Methods · 2026",
             statusKind: "published",
@@ -344,7 +344,7 @@ window.SITE_CONFIG = {
         {
             n: "07",
             label: "MSc Thesis · JCIM",
-            title: "BAD Molecule Filter — Detection of Colloidal Aggregators",
+            title: "BAD Molecule Filter: Detection of Colloidal Aggregators",
             desc:  "My MSc work at Al Ain University. We trained a machine-learning ensemble that flags small molecules that <em>look</em> like real bioactive hits but are actually colloidal aggregators causing false positives in early-stage drug screening. Released as a public web server so any group can pre-screen their compounds for free.",
             tech:  ["Cheminformatics", "Mordred", "Morgan FP", "Ensemble ML", "Public Web Server", "RDKit"],
             status: "Published · J. Chem. Inf. Model. · 2024",
@@ -355,7 +355,7 @@ window.SITE_CONFIG = {
     ],
 
     // ── Blog posts (listed newest first) ─────────────────────────
-    // `cover` is a CSS gradient identifier — handled by .blog-cover--<key>
+    // `cover` is a CSS gradient identifier, handled by .blog-cover--<key>
     // in blog.css so we never ship a single PNG for the index page. Each
     // post has a distinctive duotone for visual scannability.
     blog: [
@@ -450,34 +450,34 @@ window.SITE_CONFIG = {
             date: "Sep 2025",
             year: 2025,
             kind: "hackathon",
-            title: "BindHack — Antibody–Antigen Binding Prediction",
+            title: "BindHack: Antibody-Antigen Binding Prediction",
             venue: "Insilico Medicine · Masdar City, Abu Dhabi",
-            award: "1st place 🥇",
-            desc:  "A six-hour competitive AI/drug discovery hackathon. Our team built a fast LLM-assisted scoring pipeline for predicting antibody–antigen binding affinity from sequence-only features, and finished first across all teams."
+            award: "1st place",
+            desc:  "A six-hour competitive AI/drug discovery hackathon. Our team built a fast LLM-assisted scoring pipeline for predicting antibody-antigen binding affinity from sequence-only features, and finished first across all teams."
         },
         {
             date: "Mar 2024",
             year: 2024,
             kind: "thesis",
-            title: "Three Minute Thesis — Boosting Colloidal-Aggregator Detection",
+            title: "Three Minute Thesis: Boosting Colloidal-Aggregator Detection",
             venue: "2nd AAU Health & Biomedical Postgraduate Symposium · Al Ain University",
-            award: "2nd place 🥈",
-            desc:  "Three minutes, one slide, no jargon. Compressed the entire BAD Molecule Filter project — why aggregators ruin early drug screens, what we built, why it matters — into one talk for a non-specialist audience."
+            award: "2nd place",
+            desc:  "Three minutes, one slide, no jargon. Compressed the entire BAD Molecule Filter project (why aggregators ruin early drug screens, what we built, why it matters) into one talk for a non-specialist audience."
         },
         {
             date: "Apr 2023",
             year: 2023,
             kind: "poster",
-            title: "BAD Molecule Filter — Poster Presentation",
+            title: "BAD Molecule Filter: Poster Presentation",
             venue: "1st International Conference on Pharmacy & Biomedical Sciences · Al Ain University",
-            award: "Best Quality Poster · 1st place 🥇",
+            award: "Best Quality Poster · 1st place",
             desc:  "Poster on the machine-learning ensemble behind the BAD Molecule Filter, awarded best-quality poster at the conference. Covered featurisation choice, applicability domain, and the public web-server deployment."
         },
         {
             date: "Apr 2023",
             year: 2023,
             kind: "thesis",
-            title: "MSc Thesis Defence — A Machine-Learning Tool for Promiscuous Aggregate-Based Inhibitors",
+            title: "MSc Thesis Defence: A Machine-Learning Tool for Promiscuous Aggregate-Based Inhibitors",
             venue: "Al Ain University, College of Pharmacy",
             desc:  "Public defence under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI). Graduated with GPA 3.94. Thesis published first-author in JCIM later that year."
         }
@@ -485,7 +485,7 @@ window.SITE_CONFIG = {
 
     // ── Research statement / vision (research.html) ──────────────
     // Each block becomes its own card-style section. Keep the
-    // narrative load-bearing — supervisors actually read this.
+    // narrative load-bearing, supervisors actually read this.
     research: {
         kicker: "Research statement",
         h1Front:  "Where I want to take",
@@ -496,8 +496,8 @@ window.SITE_CONFIG = {
                 kicker: "Origin",
                 title: "From pharmacy bench to chemistry-aware ML",
                 body: [
-                    "I trained as a pharmacist — five years of medicinal chemistry, pharmacokinetics, formulation, and one very long Pharmacology Lab. Most of that time I assumed I would end up at a bench. The shift happened during my MSc at Al Ain University, when my supervisor Prof. <strong>Mohammad Ghattas</strong> handed me a stubborn problem: small molecules that look like real bioactive hits but turn out to be colloidal aggregators causing false positives in screening assays.",
-                    "We tried hand-curated filters first. They worked, until they did not. Adding a second supervisor from AI — Prof. <strong>Boulbaba Ben Amor</strong> — turned the project into a machine-learning one. We trained an ensemble that combined Mordred descriptors with Morgan fingerprints, applied an applicability-domain check, and packaged the whole thing as a public web server. That project, published first-author in <em>JCIM</em>, taught me three things that still shape how I work."
+                    "I trained as a pharmacist: five years of medicinal chemistry, pharmacokinetics, formulation, and one very long Pharmacology Lab. Most of that time I assumed I would end up at a bench. The shift happened during my MSc at Al Ain University, when my supervisor Prof. <strong>Mohammad Ghattas</strong> handed me a stubborn problem: small molecules that look like real bioactive hits but turn out to be colloidal aggregators causing false positives in screening assays.",
+                    "We tried hand-curated filters first. They worked, until they did not. Adding a second supervisor from AI, Prof. <strong>Boulbaba Ben Amor</strong>, turned the project into a machine-learning one. We trained an ensemble that combined Mordred descriptors with Morgan fingerprints, applied an applicability-domain check, and packaged the whole thing as a public web server. That project, published first-author in <em>JCIM</em>, taught me three things that still shape how I work."
                 ]
             },
             {
@@ -505,7 +505,7 @@ window.SITE_CONFIG = {
                 title: "Three lessons I will not give up",
                 body: [
                     "<strong>1. Cheminformatics first, then ML.</strong> A model is only as good as the molecular representation underneath it. I spend more time on standardisation, tautomer handling, descriptor choice, and applicability domain than on hyperparameter search.",
-                    "<strong>2. The best papers ship.</strong> A trained model that sits in a private notebook is not science. A web server, a CLI, a documented dataset — those are. Every project I lead now ends with something a stranger can use.",
+                    "<strong>2. The best papers ship.</strong> A trained model that sits in a private notebook is not science. A web server, a CLI, a documented dataset: those are. Every project I lead now ends with something a stranger can use.",
                     "<strong>3. Honest evaluation matters more than headline accuracy.</strong> My review on <em>ML predictions of tumour progression</em> with Molham Sakkal exists because too many papers in our field benchmark on convenient splits and report numbers that do not survive contact with new chemistry. I am not going to be one of them."
                 ]
             },
@@ -513,7 +513,7 @@ window.SITE_CONFIG = {
                 kicker: "Current focus",
                 title: "Three threads I am pulling on now",
                 body: [
-                    "<strong>AI agents for drug discovery.</strong> LLM-backed agent frameworks that can plan, reason, and call specialised chemistry tools — RDKit, docking engines, free-energy estimators — without constant human scaffolding. I am benchmarking which agent topologies actually win on multi-step discovery tasks vs. which ones just hide their failures.",
+                    "<strong>AI agents for drug discovery.</strong> LLM-backed agent frameworks that can plan, reason, and call specialised chemistry tools (RDKit, docking engines, free-energy estimators) without constant human scaffolding. I am benchmarking which agent topologies actually win on multi-step discovery tasks vs. which ones just hide their failures.",
                     "<strong>AI-augmented Adverse Outcome Pathway networks.</strong> AOPs are the regulator's mental model for how a molecular event becomes a toxic outcome. They are also painfully manual to build. I want to combine literature-mining LLMs with graph ML to assemble AOP networks at scale, and identify the choke-point nodes that matter most for regulatory toxicology.",
                     "<strong>LLMs vs. fingerprints, on chemistry.</strong> The honest question: do reasoning LLMs actually beat a well-tuned GNN or a Morgan-fingerprint ensemble on molecular property prediction? My hunch from preliminary work is that they do not yet, and the interesting research is figuring out why and what to fix."
                 ]
@@ -523,7 +523,7 @@ window.SITE_CONFIG = {
                 title: "What a PhD with me would look like",
                 body: [
                     "I am looking for a PhD starting late 2026 or 2027 in a group working on <em>any</em> of: AI-driven virtual or high-throughput screening, predictive ADMET / toxicity modelling, LLM agents for chemistry, computational toxicology, or model interpretability for drug discovery.",
-                    "The shape I want is: 3–4 first-author publications, at least one of which is a tool other groups end up using; deep technical chops in either GNN-based property prediction, agent-based pipelines, or AOP-style mechanistic modelling; and at least one external collaboration with a wet-lab team so the work is grounded.",
+                    "The shape I want is: 3 to 4 first-author publications, at least one of which is a tool other groups end up using; deep technical chops in either GNN-based property prediction, agent-based pipelines, or AOP-style mechanistic modelling; and at least one external collaboration with a wet-lab team so the work is grounded.",
                     "What I bring to a PhD group: a published first-author paper in <em>JCIM</em>, four corresponding-author papers, three years of journal-operations experience that taught me how publishing actually works, and a strong appetite for the engineering side of research. I write Python that other people can read, I document, and I ship."
                 ]
             },

@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════
-   research.css — Research statement / vision page
+   research.css - Research statement / vision page
    ═══════════════════════════════════════════════════════════════════ */
 
 .sub-hero .sub-lede {
     max-width: 640px;
     margin-top: 1.2rem;
-    font-size: 1rem;
+    font-size: 0.99rem;
     color: var(--text-soft);
     line-height: 1.7;
 }
@@ -21,12 +21,12 @@
     position: relative;
 }
 .research-intro-body {
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 300;
-    font-size: 1.1rem;
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 1.06rem;
     color: var(--text-soft);
-    line-height: 1.65;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
     margin: 0;
     max-width: 760px;
 }
@@ -45,7 +45,7 @@
     padding: 1.9rem 2.1rem 2rem;
     position: relative;
     overflow: hidden;
-    transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+    transition: border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
 }
 .research-block::before {
     content: '';
@@ -55,7 +55,7 @@
     background: var(--accent);
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform .35s var(--ease);
+    transition: transform 0.3s var(--ease);
 }
 .research-block:hover {
     border-color: var(--accent);
@@ -68,16 +68,16 @@
 }
 .research-block-title {
     font-family: var(--display);
-    font-size: clamp(1.4rem, 2.4vw, 1.7rem);
-    font-weight: 400;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.24;
+    letter-spacing: -0.02em;
     color: var(--text);
     margin: 0 0 1rem;
 }
 .research-block-body {
     color: var(--text-soft);
-    font-size: 0.98rem;
+    font-size: 0.97rem;
     line-height: 1.78;
     max-width: 760px;
 }
@@ -89,20 +89,22 @@
     color: var(--accent);
     text-decoration: none;
     border-bottom: 1px dotted var(--accent-glow);
-    transition: color .2s;
+    transition: color var(--t-fast) var(--ease);
 }
 .research-block-body a:hover { color: var(--accent-d); }
 
 /* ─── Final CTA ───────────────────────────────────────────────── */
 .research-final {
-    background: linear-gradient(180deg, var(--card) 0%, var(--card-soft) 100%);
+    background:
+        radial-gradient(circle at 10% 10%, var(--accent-glow), transparent 55%),
+        var(--card);
     border: 1px solid var(--accent-glow);
     border-radius: var(--radius);
     padding: 2rem 2.2rem 2.1rem;
 }
 .research-final-body {
     color: var(--text-soft);
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     line-height: 1.7;
     max-width: 620px;
     margin-bottom: 1.4rem;
@@ -120,7 +122,8 @@
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all .25s var(--ease);
+    transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
+                border-color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
 }
 .research-final-cta svg {
     width: 16px;
@@ -132,6 +135,7 @@
     transform: translateY(-2px);
     box-shadow: 0 14px 28px -10px var(--accent-glow);
 }
+.research-final-cta:active { transform: scale(0.97); }
 .research-final-sub {
     margin: 1.3rem 0 0;
     font-size: 0.84rem;
@@ -163,8 +167,9 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(60% 70% at 20% 20%, rgba(255,184,77,0.07), transparent 60%),
-        radial-gradient(50% 60% at 80% 80%, rgba(120,200,180,0.05), transparent 60%);
+        radial-gradient(60% 70% at 20% 20%, var(--accent-glow), transparent 62%),
+        radial-gradient(50% 60% at 80% 80%, var(--amber-glow), transparent 65%);
+    opacity: 0.4;
     pointer-events: none;
 }
 .research-map .sec-kicker,
@@ -175,7 +180,7 @@
 }
 .research-map-lede {
     color: var(--text-soft);
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     line-height: 1.65;
     max-width: 720px;
     margin: 0.7rem 0 1.2rem;
@@ -185,10 +190,9 @@
     z-index: 1;
     width: 100%;
     aspect-ratio: 1000 / 560;
-    border-radius: 14px;
-    background: linear-gradient(180deg,
-        rgba(0,0,0,0.18) 0%,
-        rgba(0,0,0,0.05) 100%);
+    border-radius: var(--radius-s);
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-soft) 100%);
+    border: 1px solid var(--border-s);
     overflow: hidden;
 }
 .research-map-svg {
@@ -203,9 +207,9 @@
 /* Edges */
 .rm-edges { pointer-events: none; }
 .rm-edge {
-    stroke: rgba(255,184,77,0.30);
+    stroke: var(--accent-glow);
     stroke-linecap: round;
-    transition: stroke .2s, stroke-width .2s, opacity .2s;
+    transition: stroke 0.2s var(--ease), stroke-width 0.2s var(--ease), opacity 0.2s var(--ease);
 }
 .rm-edge--focus {
     stroke: var(--accent);
@@ -217,7 +221,7 @@
 /* Nodes */
 .rm-node {
     cursor: pointer;
-    transition: opacity .25s var(--ease);
+    transition: opacity 0.22s var(--ease);
 }
 .rm-node--dim { opacity: 0.35; }
 .rm-node--focus .rm-node-disc {
@@ -226,10 +230,10 @@
 .rm-node--dragging { cursor: grabbing; }
 
 .rm-node-disc {
-    fill: var(--card-soft, #1a2622);
-    stroke: var(--border, rgba(255,184,77,0.22));
+    fill: var(--card-soft, #0c1219);
+    stroke: var(--border, #1d2537);
     stroke-width: 1.4;
-    transition: fill .2s, stroke .2s;
+    transition: fill 0.2s var(--ease), stroke 0.2s var(--ease);
 }
 .rm-node-label {
     fill: var(--text);
@@ -245,13 +249,14 @@
     stroke: var(--accent);
 }
 .rm-node--center .rm-node-label {
-    fill: var(--bg, #0d1411);
+    fill: var(--bg, #0a0e16);
     font-size: 12.5px;
     font-weight: 700;
 }
 .rm-node--concept .rm-node-disc {
-    fill: rgba(255,184,77,0.14);
-    stroke: rgba(255,184,77,0.55);
+    fill: var(--accent-bg);
+    stroke: var(--accent);
+    stroke-opacity: 0.6;
 }
 .rm-node--concept .rm-node-label {
     font-size: 12px;
@@ -259,8 +264,9 @@
     fill: var(--accent);
 }
 .rm-node--topic .rm-node-disc {
-    fill: rgba(120,200,180,0.10);
-    stroke: rgba(120,200,180,0.50);
+    fill: var(--amber-bg);
+    stroke: var(--amber);
+    stroke-opacity: 0.5;
 }
 .rm-node--topic .rm-node-label {
     font-size: 10.5px;
@@ -272,10 +278,10 @@
     stroke-width: 2.2;
 }
 .rm-node--focus.rm-node--concept .rm-node-disc {
-    fill: rgba(255,184,77,0.28);
+    fill: var(--accent-glow);
 }
 .rm-node--focus.rm-node--topic .rm-node-disc {
-    fill: rgba(120,200,180,0.22);
+    fill: var(--amber-glow);
 }
 
 /* ─── Responsive ───────────────────────────────────────────────── */

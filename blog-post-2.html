@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
 <meta name="description" content="ChatGPT Is Turning 3!!! A blog post by Abdallah Abou Hajal.">
 <title>ChatGPT Is Turning 3!!! · Blog</title>
 
@@ -11,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script src="theme.config.js"></script>
 <link rel="stylesheet" href="styles.css">
@@ -20,9 +22,10 @@
 <body>
 
 <div class="mol-bg" aria-hidden="true">
-    <svg class="mol-1" viewBox="0 0 100 100"><polygon points="30,25 55,25 67,50 55,75 30,75 18,50"/><line x1="67" y1="50" x2="82" y2="50"/><circle cx="85" cy="50" r="2.5"/></svg>
-    <svg class="mol-2 amber" viewBox="0 0 100 100"><polygon points="50,20 78,38 68,68 32,68 22,38"/><line x1="78" y1="38" x2="92" y2="28"/><circle cx="94" cy="28" r="2"/></svg>
-    <svg class="mol-3" viewBox="0 0 140 100"><polygon points="30,30 55,30 67,52 55,74 30,74 18,52"/><polygon points="67,30 92,30 104,52 92,74 67,74 55,52"/><line x1="104" y1="52" x2="120" y2="52"/><circle cx="123" cy="52" r="2.5"/></svg>
+    <!-- molecule meets neural network: ambient cobalt motif -->
+    <svg class="mol-1" viewBox="0 0 220 160"><polygon points="58,36 94,56 94,96 58,116 22,96 22,56"/><circle cx="58" cy="36" r="3"/><circle cx="94" cy="56" r="3"/><circle cx="94" cy="96" r="3"/><circle cx="58" cy="116" r="3"/><circle cx="22" cy="96" r="3"/><circle cx="22" cy="56" r="3"/><line x1="94" y1="56" x2="150" y2="34"/><line x1="94" y1="96" x2="152" y2="116"/><line x1="150" y1="34" x2="198" y2="60"/><line x1="152" y1="116" x2="198" y2="60" class="faint"/><circle cx="150" cy="34" r="4.5"/><circle cx="152" cy="116" r="4.5"/><circle cx="198" cy="60" r="6" class="hollow"/></svg>
+    <svg class="mol-2 amber" viewBox="0 0 120 120"><line x1="60" y1="60" x2="60" y2="18"/><line x1="60" y1="60" x2="98" y2="82"/><line x1="60" y1="60" x2="22" y2="82"/><circle cx="60" cy="18" r="3.5"/><circle cx="98" cy="82" r="3.5"/><circle cx="22" cy="82" r="3.5"/><circle cx="60" cy="60" r="4.5"/><circle cx="60" cy="60" r="12" class="hollow faint"/></svg>
+    <svg class="mol-4" viewBox="0 0 160 160"><polygon points="80,26 126,52 126,104 80,130 34,104 34,52"/><circle cx="80" cy="78" r="22" class="hollow" stroke-dasharray="3 4"/><circle cx="80" cy="26" r="3"/><circle cx="126" cy="104" r="3"/><circle cx="34" cy="104" r="3"/><line x1="126" y1="52" x2="150" y2="40" class="faint"/><circle cx="152" cy="38" r="3"/></svg>
 </div>
 
 <nav class="nav" data-page="blog"></nav>
@@ -58,5 +61,6 @@
 
 <footer data-bind="footer"></footer>
 <script src="scripts.js"></script>
+<script src="motion.js" defer></script>
 </body>
 </html>

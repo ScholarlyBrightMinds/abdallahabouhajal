@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   about.css — About page specifics
+   about.css - About page specifics
    ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Narrative + Timeline grid ──────────────────────────────────── */
@@ -12,7 +12,7 @@
 
 .about-text p {
     color: var(--text-soft);
-    font-size: 1rem;
+    font-size: 0.99rem;
     line-height: 1.8;
     margin-bottom: 1.1rem;
 }
@@ -24,8 +24,6 @@
 .about-text em {
     font-style: italic;
     color: var(--accent);
-    font-family: var(--display);
-    font-size: 1.02em;
 }
 
 /* ── Timeline ───────────────────────────────────────────────────── */
@@ -40,7 +38,7 @@
     top: 9px;
     bottom: 9px;
     width: 1px;
-    background: var(--border);
+    background: linear-gradient(180deg, var(--accent-glow), var(--border) 30%, var(--border));
 }
 .tl-item {
     position: relative;
@@ -56,8 +54,9 @@
     border-radius: 50%;
     background: var(--card);
     border: 1.5px solid var(--accent);
-    transition: all .3s var(--ease);
+    transition: box-shadow 0.25s var(--ease), background-color 0.25s var(--ease);
 }
+.tl-item:hover::before { box-shadow: 0 0 0 4px var(--accent-bg); }
 .tl-item.current::before {
     background: var(--accent);
     box-shadow: 0 0 0 4px var(--accent-glow);
@@ -69,26 +68,27 @@
 }
 .tl-date {
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
+    font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
 }
 .tl-item.current .tl-date { color: var(--accent); }
 .tl-item.future  .tl-date { color: var(--amber); }
 
 .tl-title {
     font-family: var(--display);
-    font-size: 1.02rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--text);
     line-height: 1.35;
     margin-bottom: 0.25rem;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
 }
 .tl-desc {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
     color: var(--text-soft);
     line-height: 1.55;
 }
@@ -104,7 +104,7 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.8rem 1.7rem 1.7rem;
-    transition: all .3s var(--ease);
+    transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
     position: relative;
     overflow: hidden;
 }
@@ -116,7 +116,7 @@
     background: var(--accent);
     transform: scaleY(0);
     transform-origin: center;
-    transition: transform .3s var(--ease);
+    transition: transform 0.28s var(--ease);
 }
 .pillar-card:hover {
     transform: translateY(-3px);
@@ -127,32 +127,34 @@
 
 .pillar-card .p-icon {
     width: 42px; height: 42px;
-    border-radius: 10px;
+    border-radius: var(--radius-s);
     background: var(--accent-bg);
     display: grid;
     place-items: center;
     color: var(--accent);
     margin-bottom: 1rem;
-    transition: all .3s var(--ease);
+    transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+    position: relative;
+    z-index: 1;
 }
 .pillar-card:hover .p-icon {
     background: var(--accent);
-    color: var(--card);
+    color: var(--bg);
 }
 .pillar-card .p-icon svg {
     width: 22px; height: 22px;
 }
 .pillar-card .p-title {
     font-family: var(--display);
-    font-size: 1.08rem;
-    font-weight: 500;
+    font-size: 1.06rem;
+    font-weight: 600;
     line-height: 1.3;
     margin-bottom: 0.5rem;
     color: var(--text);
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
 }
 .pillar-card .p-desc {
-    font-size: 0.88rem;
+    font-size: 0.87rem;
     color: var(--text-soft);
     line-height: 1.6;
 }
@@ -162,18 +164,18 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.85rem;
 }
 .award-item {
     display: grid;
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: 52px 1fr;
     gap: 1.2rem;
     align-items: center;
     padding: 1.1rem 1.4rem;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    transition: all .3s var(--ease);
+    transition: transform 0.2s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
 }
 .award-item:hover {
     transform: translateX(3px);
@@ -181,36 +183,37 @@
     box-shadow: var(--shadow-card);
 }
 .award-icon {
-    width: 50px; height: 50px;
-    border-radius: 50%;
+    width: 46px; height: 46px;
+    border-radius: var(--radius-s);
     background: var(--amber-bg);
     border: 1px solid var(--amber-glow);
+    color: var(--amber);
     display: grid;
     place-items: center;
-    font-size: 1.3rem;
     flex-shrink: 0;
+    font-size: 1.1rem;
 }
+.award-icon svg { width: 22px; height: 22px; }
 .award-body .a-title {
     font-family: var(--display);
-    font-size: 1.02rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--text);
     line-height: 1.35;
     margin-bottom: 0.15rem;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
 }
 .award-body .a-venue {
     font-size: 0.82rem;
     color: var(--text-soft);
-    font-style: italic;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 /* ── Sub-lede paragraph ─────────────────────────────────────────── */
 .sub-hero .sub-lede {
     max-width: 620px;
     margin-top: 1.2rem;
-    font-size: 1rem;
+    font-size: 0.99rem;
     color: var(--text-soft);
     line-height: 1.7;
 }
@@ -221,17 +224,18 @@
     .pillars-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 540px) {
-    .award-item { grid-template-columns: 42px 1fr; gap: 0.9rem; padding: 1rem 1.1rem; }
-    .award-icon { width: 38px; height: 38px; font-size: 1.05rem; }
+    .award-item { grid-template-columns: 40px 1fr; gap: 0.9rem; padding: 1rem 1.1rem; }
+    .award-icon { width: 38px; height: 38px; }
+    .award-icon svg { width: 19px; height: 19px; }
 }
 
-/* ── ORCID verified panel — baked from data/orcid/orcid.json each Monday ── */
+/* ── ORCID verified panel - baked from data/orcid/orcid.json each Monday ── */
 .orcid-panel {
     margin-top: 1rem;
 }
 .orcid-lede {
     color: var(--text-soft);
-    font-size: 0.96rem;
+    font-size: 0.94rem;
     max-width: 640px;
     margin-bottom: 1.4rem;
     line-height: 1.6;
@@ -252,9 +256,10 @@
     border: 1px solid var(--border);
     border-radius: 999px;
     color: var(--text);
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-    font-size: 0.86rem;
-    transition: border-color .25s var(--ease), transform .25s var(--ease);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    transition: border-color var(--t-fast) var(--ease), transform 0.2s var(--ease);
 }
 .orcid-id:hover {
     border-color: #a6ce39;       /* ORCID brand green */
@@ -271,9 +276,8 @@
     background: #a6ce39;
     color: #fff;
     font-family: var(--display);
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
-    font-style: italic;
     letter-spacing: -0.03em;
 }
 .orcid-id-text {
@@ -297,20 +301,22 @@
     background: var(--bg-soft);
     border: 1px solid var(--border);
     border-radius: 999px;
-    font-size: 0.83rem;
+    font-size: 0.82rem;
     color: var(--text-soft);
-    transition: border-color .25s var(--ease);
+    transition: border-color var(--t-fast) var(--ease);
 }
 .orcid-pill:hover { border-color: var(--accent); }
 .orcid-pill strong {
     color: var(--text);
     font-weight: 600;
     font-family: var(--display);
-    font-size: 0.98rem;
+    font-size: 0.96rem;
+    font-variant-numeric: tabular-nums;
 }
 .orcid-synced {
     color: var(--muted);
-    font-size: 0.78rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
     margin-top: 1rem;
 }
 
@@ -320,7 +326,7 @@
 }
 .oa-lede {
     color: var(--text-soft);
-    font-size: 0.96rem;
+    font-size: 0.94rem;
     max-width: 640px;
     margin-bottom: 1.4rem;
     line-height: 1.6;
@@ -336,16 +342,15 @@
     align-items: center;
     padding: 0.45rem 1rem;
     background: var(--accent-bg);
-    border: 1px solid var(--accent);
-    border-color: rgba(111,171,152,0.32);
+    border: 1px solid var(--accent-glow);
     border-radius: 999px;
-    color: var(--accent-d);
+    color: var(--accent);
     font-family: var(--display);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    transition: transform .25s var(--ease), background-color .25s var(--ease);
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    transition: transform 0.2s var(--ease), border-color var(--t-fast) var(--ease);
 }
-.oa-chip:hover { transform: translateY(-1px); background-color: rgba(111,171,152,0.18); }
+.oa-chip:hover { transform: translateY(-1px); border-color: var(--accent); }
 
 .oa-badges {
     display: flex;
@@ -361,19 +366,22 @@
     background: var(--bg-soft);
     border: 1px solid var(--border);
     border-radius: 999px;
-    font-size: 0.83rem;
+    font-size: 0.82rem;
     color: var(--text-soft);
 }
 .oa-badge strong {
     color: var(--text);
     font-family: var(--display);
     font-weight: 600;
+    font-variant-numeric: tabular-nums;
 }
 .oa-profile-link {
     display: inline-block;
     margin-top: 0.5rem;
     color: var(--accent);
+    text-decoration: none;
     font-size: 0.86rem;
     font-weight: 500;
+    border-bottom: 1px dotted var(--accent-glow);
 }
 .oa-profile-link:hover { color: var(--accent-d); }
