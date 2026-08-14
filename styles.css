@@ -443,6 +443,68 @@ main {
     background-repeat: no-repeat;
 }
 
+/* Saltatory conduction: the four viewfinder ticks fire in sequence like
+   nodes of Ranvier on a myelinated axon. A registered angle steps corner
+   to corner (steps(), never glides), so the gradient repaints only four
+   times per cycle. Two fast laps at load as a power-on self test, then a
+   slow ambient clock; hovering the portrait excites conduction. The
+   crisp static ticks above stay the base state for reduced motion and
+   for browsers without @property. The hero is aspect-ratio 1/1, so the
+   corners sit at exactly 45/135/225/315deg from center at every size.
+   Site-wide freeze: set --sbm-anim: paused on :root. */
+@property --beam {
+    syntax: "<angle>";
+    initial-value: 45deg;
+    inherits: false;
+}
+@property --beam2 {
+    syntax: "<angle>";
+    initial-value: 315deg;
+    inherits: false;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .hero-image::after {
+        background:
+            conic-gradient(from calc(var(--beam, 45deg) - 45deg),
+                color-mix(in srgb, var(--accent) 88%, white) 0 90deg,
+                transparent 90deg) top left / 100% 100%,
+            conic-gradient(from calc(var(--beam2, 315deg) - 45deg),
+                color-mix(in srgb, var(--accent) 58%, transparent) 0 90deg,
+                transparent 90deg) top left / 100% 100%,
+            linear-gradient(
+                color-mix(in srgb, var(--accent) 38%, transparent),
+                color-mix(in srgb, var(--accent) 38%, transparent)) top left / 100% 100%;
+        background-repeat: no-repeat;
+        -webkit-mask:
+            linear-gradient(#000, #000) top left    / 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) top left    / 1.5px 18px no-repeat,
+            linear-gradient(#000, #000) top right   / 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) top right   / 1.5px 18px no-repeat,
+            linear-gradient(#000, #000) bottom left / 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) bottom left / 1.5px 18px no-repeat,
+            linear-gradient(#000, #000) bottom right/ 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) bottom right/ 1.5px 18px no-repeat;
+        mask:
+            linear-gradient(#000, #000) top left    / 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) top left    / 1.5px 18px no-repeat,
+            linear-gradient(#000, #000) top right   / 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) top right   / 1.5px 18px no-repeat,
+            linear-gradient(#000, #000) bottom left / 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) bottom left / 1.5px 18px no-repeat,
+            linear-gradient(#000, #000) bottom right/ 18px 1.5px no-repeat,
+            linear-gradient(#000, #000) bottom right/ 1.5px 18px no-repeat;
+        animation:
+            conductBoot 1.9s steps(8, end) 0.55s 1 both,
+            conduct var(--conduct-period, 4.8s) steps(4, end) 2.45s infinite,
+            conductTrail var(--conduct-period, 4.8s) steps(4, end) 3.65s infinite;
+        animation-play-state: var(--sbm-anim, running);
+    }
+    .hero-image:hover::after { --conduct-period: 1.4s; }
+    @keyframes conductBoot { from { --beam: 45deg; } to { --beam: 765deg; } }
+    @keyframes conduct     { from { --beam: 45deg; } to { --beam: 405deg; } }
+    @keyframes conductTrail { from { --beam2: 45deg; } to { --beam2: 405deg; } }
+}
+
 /* Hero chips: quick-stat readouts */
 .chips {
     display: flex;
