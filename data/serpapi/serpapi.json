@@ -4,17 +4,8 @@
     "authors": "A Abou Hajal, AZ Al Meslamani",
     "venue": "Journal of Medical Economics 27 (1), 304-308, 2024",
     "year": "2024",
-    "cited_by": 23,
+    "cited_by": 20,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:UeHWp8X0CEIC",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "Overcoming barriers to machine learning applications in toxicity prediction",
-    "authors": "A Abou Hajal, AZ Al Meslamani",
-    "venue": "Expert Opinion on Drug Metabolism & Toxicology 20 (7), 549-553, 2024",
-    "year": "2024",
-    "cited_by": 15,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:IjCSPb-OGe4C",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -22,17 +13,17 @@
     "authors": "AA Elnour, A Abou Hajal, R Goaddar, N Elsharkawy, S Mousa, ...",
     "venue": "Saudi Pharmaceutical Journal 31 (7), 1339-1350, 2023",
     "year": "2023",
-    "cited_by": 15,
+    "cited_by": 17,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:2osOgNQ5qMEC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
-    "title": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
-    "authors": "Z Kharaba, MM AlAhmad, AA Elnour, A Abou Hajal, S Abumweis, ...",
-    "venue": "Saudi Pharmaceutical Journal 31 (3), 359-369, 2023",
-    "year": "2023",
-    "cited_by": 15,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:qjMakFHDy7sC",
+    "title": "Overcoming barriers to machine learning applications in toxicity prediction",
+    "authors": "A Abou Hajal, AZ Al Meslamani",
+    "venue": "Expert Opinion on Drug Metabolism & Toxicology 20 (7), 549-553, 2024",
+    "year": "2024",
+    "cited_by": 16,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:IjCSPb-OGe4C",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -40,8 +31,17 @@
     "authors": "M Sakkal, A Abou Hajal",
     "venue": "Computers in Biology and Medicine 191, 110156, 2025",
     "year": "2025",
-    "cited_by": 11,
+    "cited_by": 12,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:zYLM7Y9cAGgC",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
+    "title": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
+    "authors": "Z Kharaba, MM AlAhmad, A Ahmed Elnour, A Abou Hajal, S Abumweis, ...",
+    "venue": "Saudi Pharmaceutical Journal 31 (3), 359-369, 2023",
+    "year": "2023",
+    "cited_by": 12,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:qjMakFHDy7sC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -49,7 +49,7 @@
     "authors": "AZ Al Meslamani, A Abou Hajal",
     "venue": "Expert Opinion on Drug Metabolism & Toxicology 21 (9), 1083-1102, 2025",
     "year": "2025",
-    "cited_by": 10,
+    "cited_by": 11,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:Y0pCki6q_DkC",
     "author_id": "1I8SvsQAAAAJ"
   },
@@ -58,12 +58,12 @@
     "authors": "AA Elnour, NS Raja, F Abdi, F Mostafiz, RI Elmubarak, AM Khalil, ...",
     "venue": "Pharmacy Practice 20 (3), 2713, 2022",
     "year": "2022",
-    "cited_by": 9,
+    "cited_by": 8,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:u-x6o8ySG0sC",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
-    "title": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter",
+    "title": "Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD molecule filter",
     "authors": "A Abou Hajal, RA Bryce, BB Amor, N Atatreh, MA Ghattas",
     "venue": "Journal of Chemical Information and Modeling 64 (13), 4991-5005, 2024",
     "year": "2024",
@@ -90,21 +90,21 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
+    "title": "Large language models in drug delivery: A review of the current landscape and future perspectives",
+    "authors": "M Sakkal, A Abou Hajal",
+    "venue": "Journal of Pharmaceutical Sciences, 104147, 2025",
+    "year": "2025",
+    "cited_by": 2,
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:YsMSGLbcyi4C",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
     "title": "An introduction to GitHub and its significance for AI-driven drug discovery",
     "authors": "A Abou Hajal, L Bustanji, RA Bryce, MA Ghattas",
     "venue": "Expert Opinion on Drug Discovery 21 (4), 387-392, 2026",
     "year": "2026",
     "cited_by": 1,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:ufrVoPGSRksC",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "Large language models in drug delivery: A review of the current landscape and future perspectives",
-    "authors": "M Sakkal, A Abou Hajal",
-    "venue": "Journal of Pharmaceutical Sciences, 104147, 2025",
-    "year": "2025",
-    "cited_by": 1,
-    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:YsMSGLbcyi4C",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -117,9 +117,9 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
-    "title": "Introducing AutoML framework for Drug–Drug Interaction Prediction: Application of AutoGluon",
+    "title": "Introducing AutoML framework for drug–drug interaction prediction: application of AutoGluon",
     "authors": "A Abou Hajal, M Sakkal",
-    "venue": "Toxicology Mechanisms and Methods, 1-11, 2026",
+    "venue": "Toxicology Mechanisms and Methods 36 (4), 494-502, 2026",
     "year": "2026",
     "cited_by": 0,
     "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1I8SvsQAAAAJ&citation_for_view=1I8SvsQAAAAJ:eQOLeE2rZwMC",
