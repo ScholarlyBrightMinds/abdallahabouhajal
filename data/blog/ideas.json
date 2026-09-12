@@ -83,7 +83,7 @@
       "title": "Learning in Public",
       "tag": "Research",
       "angle": "Sharing work before it is finished feels risky. But the researchers and builders who do it consistently seem to grow faster. What it costs, what it gives back, and how to start small.",
-      "used": false
+      "used": true
     },
     {
       "title": "When Saying No Is the Most Helpful Thing",
@@ -107,6 +107,18 @@
       "title": "Disagreeing Without Derailing",
       "tag": "Culture",
       "angle": "Most people either stay silent when they disagree or say something that breaks the room. There is a third option. A post on how to push back in a way that moves things forward rather than sideways, especially when you are not the most senior person there.",
+      "used": false
+    },
+    {
+      "title": "Writing to Think",
+      "tag": "Research",
+      "angle": "Writing is not how you communicate what you already know. It is how you figure out what you actually think. A post on using writing as a research tool, not just a reporting one, and why the researchers who write constantly seem to think more clearly than the ones who only write to publish.",
+      "used": false
+    },
+    {
+      "title": "The Collaboration That Almost Did Not Happen",
+      "tag": "Research",
+      "angle": "Most good collaborations start with one uncomfortable ask. Someone had to go first. A post on the friction of starting to work with someone new, why people wait too long, and what makes the difference between a collaboration that gets off the ground and one that stays an idea.",
       "used": false
     }
   ]

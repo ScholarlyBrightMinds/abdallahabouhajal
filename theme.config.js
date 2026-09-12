@@ -360,6 +360,15 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
+            file: "blog-post-11.html",
+            title: "Learning in Public",
+            date: "Sep 12, 2026",
+            tag: "Research",
+            cover: "git",
+            readingTime: "4 min read",
+            excerpt: "Sharing work before it is finished feels risky. But the people who do it consistently seem to grow faster than everyone who waited until it was ready."
+        },
+        {
             file: "blog-post-10.html",
             title: "Saying I Do Not Know",
             date: "Aug 8, 2026",
