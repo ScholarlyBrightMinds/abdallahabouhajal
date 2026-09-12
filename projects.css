@@ -176,7 +176,7 @@
     color: var(--bg);
     background: var(--accent);
     border: 1px solid var(--accent);
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     text-decoration: none;
     transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
                 border-color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);
@@ -215,7 +215,7 @@
     color: var(--accent);
     background: var(--accent-bg);
     border: 1px solid var(--accent-glow);
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     text-decoration: none;
     transition: transform 0.2s var(--ease), background-color var(--t-fast) var(--ease),
                 color var(--t-fast) var(--ease), box-shadow 0.2s var(--ease);

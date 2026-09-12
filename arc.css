@@ -53,14 +53,14 @@
     max-width: 280px;
     height: 3px;
     background: var(--accent-bg);
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     overflow: hidden;
 }
 .arc-hero-progress-fill {
     height: 100%;
     width: 0;
     background: linear-gradient(90deg, var(--accent), var(--accent-d, var(--accent)));
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     transition: width 0.35s var(--ease);
 }
 
@@ -235,7 +235,7 @@
 }
 .arc-node--center + .arc-node-text {
     fill: var(--bg, #0a0e16);
-    font-weight: 700;
+    font-weight: var(--weight-heading);
 }
 .arc-node-text {
     fill: var(--text);
@@ -434,11 +434,11 @@ a.arc-milestone:hover {
     align-items: center;
     gap: 0.55rem;
     padding: 0.78rem 1.4rem;
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     background: var(--accent);
     color: var(--bg);
     border: 1px solid var(--accent);
-    font-family: var(--body);
+    font-family: var(--f-ui);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
