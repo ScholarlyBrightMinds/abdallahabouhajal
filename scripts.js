@@ -72,10 +72,7 @@
         { key: 'home',         href: 'index.html',        label: 'Home' },
         { key: 'about',        href: 'about.html',        label: 'About' },
         { key: 'research',     href: 'research.html',     label: 'Research' },
-        { key: 'projects',     href: 'projects.html',     label: 'Projects' },
         { key: 'publications', href: 'publications.html', label: 'Publications' },
-        { key: 'talks',        href: 'talks.html',        label: 'Talks' },
-        { key: 'blog',         href: 'blog.html',         label: 'Blog' },
         { key: 'contact',      href: 'contact.html',      label: 'Contact' }
     ];
 
@@ -404,7 +401,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  TALKS page bindings (talks.html)
+    //  TALKS bindings (now a section on publications.html)
     // ═══════════════════════════════════════════════════════════════
     function bindTalks() {
         const el = document.querySelector('[data-bind="talkList"]');
@@ -561,7 +558,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  ARC (scrollytelling research-arc page · arc.html)
+    //  ARC (retired page; renderer kept, nothing binds to it)
     // ═══════════════════════════════════════════════════════════════
     function bindArc() {
         if (!C.arc) return;

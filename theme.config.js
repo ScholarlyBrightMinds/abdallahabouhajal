@@ -580,7 +580,7 @@ window.SITE_CONFIG = {
             {
                 icon: "🤝",
                 title: "Collaborators",
-                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See the <a href=\"projects.html\">Ongoing Research</a> page for what is currently active."
+                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See the <a href=\"research.html#projects\">current projects</a> for what is active."
             },
             {
                 icon: "✉️",
