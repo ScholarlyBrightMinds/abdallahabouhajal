@@ -45,17 +45,11 @@
 
     --shadow-card:  0 18px 44px -22px rgba(2, 6, 16, 0.6);
     --shadow-modal: 0 32px 90px -24px rgba(2, 6, 16, 0.7);
-    --mol-opacity:  0.10;
-    --grid-opacity: 0.05;
-    --halo-opacity: 1;
     --overlay:      rgba(4, 7, 14, 0.72);
 }
 :root[data-theme="light"] {
     --shadow-card:  0 16px 38px -22px rgba(24, 42, 82, 0.16);
     --shadow-modal: 0 30px 80px -24px rgba(24, 42, 82, 0.22);
-    --mol-opacity:  0.09;
-    --grid-opacity: 0.05;
-    --halo-opacity: 0.55;
     --overlay:      rgba(28, 36, 56, 0.4);
 }
 
@@ -84,73 +78,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     border-radius: 4px;
 }
 
-/* ─── Instrument grid: fine dot lattice, faded toward the fold ─── */
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(var(--accent) 1px, transparent 1.4px);
-    background-size: 30px 30px;
-    opacity: var(--grid-opacity);
-    -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, black 30%, transparent 85%);
-            mask-image: radial-gradient(120% 90% at 50% 0%, black 30%, transparent 85%);
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity .5s var(--ease);
-}
 
-/* ─── Cobalt halo behind the top of every page ─── */
-body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(46% 34% at 18% -6%, var(--accent-glow), transparent 70%),
-        radial-gradient(30% 24% at 88% 2%, var(--amber-glow), transparent 75%);
-    opacity: calc(var(--halo-opacity) * 0.5);
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity .5s var(--ease);
-}
 
-/* ═══════════════════════════════════════════════════════════════════
-   MOLECULE × NEURAL NETWORK · ambient signature motif
-   Fixed, decorative, cobalt strokes with one gold cluster. Slow drift.
-   ═══════════════════════════════════════════════════════════════════ */
-.mol-bg {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-.mol-bg svg {
-    position: absolute;
-    opacity: var(--mol-opacity);
-    stroke: var(--accent);
-    fill: none;
-    stroke-width: 1.1;
-    stroke-linecap: round;
-    transition: opacity .5s var(--ease);
-}
-.mol-bg svg circle { fill: var(--accent); stroke: none; }
-.mol-bg svg circle.hollow { fill: none; stroke: var(--accent); stroke-width: 1.1; }
-.mol-bg svg .faint { opacity: 0.5; }
-.mol-bg svg.amber { stroke: var(--amber); }
-.mol-bg svg.amber circle { fill: var(--amber); }
-.mol-bg svg.amber circle.hollow { fill: none; stroke: var(--amber); }
-
-.mol-1 { top: 7%;    left: 4%;   width: 240px; animation: drift1 70s var(--ease-io) infinite; }
-.mol-2 { top: 30%;   right: 3%;  width: 150px; animation: drift2 84s var(--ease-io) infinite; }
-.mol-3 { bottom: 10%; left: 6%;  width: 260px; animation: drift3 76s var(--ease-io) infinite; }
-.mol-4 { top: 56%;   right: 8%;  width: 190px; animation: drift4 92s var(--ease-io) infinite; }
-.mol-5 { top: 14%;   left: 44%;  width: 130px; animation: drift5 80s var(--ease-io) infinite; }
-
-@keyframes drift1 { 0%,100%{transform:translate(0,0) rotate(0)}    50%{transform:translate(22px,14px) rotate(5deg)} }
-@keyframes drift2 { 0%,100%{transform:translate(0,0) rotate(0)}    50%{transform:translate(-18px,20px) rotate(-6deg)} }
-@keyframes drift3 { 0%,100%{transform:translate(0,0) rotate(0)}    50%{transform:translate(16px,-14px) rotate(4deg)} }
-@keyframes drift4 { 0%,100%{transform:translate(0,0) rotate(0)}    50%{transform:translate(-14px,-18px) rotate(-4deg)} }
-@keyframes drift5 { 0%,100%{transform:translate(0,0) rotate(0)}    50%{transform:translate(12px,16px) rotate(7deg)} }
 
 /* Everything above the background */
 .header, main, footer, .nav { position: relative; z-index: 2; }
@@ -797,13 +726,10 @@ html.js .reveal.vis {
     .nav-item.active::after, .nav-item:hover::after { display: none; }
     .nav-item.active { color: var(--accent); }
     footer { grid-template-columns: 1fr; gap: 1.2rem; }
-    .mol-1, .mol-3 { width: 170px; }
-    .mol-4 { width: 130px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .mol-bg svg { animation: none !important; }
     .brand-dot::after, .hero-status .live-dot::after { animation: none !important; }
     .hero-text > *, .hero-image { animation: none; opacity: 1; transform: none; }
     .reveal, html.js .reveal { opacity: 1; transform: none; transition: none; }
