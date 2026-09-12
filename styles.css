@@ -706,12 +706,12 @@ footer {
 /* ═══════════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS · fast, ease-out, opacity + translate only
    ═══════════════════════════════════════════════════════════════════ */
-.reveal {
+html.js .reveal {
     opacity: 0;
     transform: translateY(14px);
     transition: opacity var(--t-reveal) var(--ease), transform var(--t-reveal) var(--ease);
 }
-.reveal.vis {
+html.js .reveal.vis {
     opacity: 1;
     transform: translateY(0);
 }
@@ -806,7 +806,7 @@ footer {
     .mol-bg svg { animation: none !important; }
     .brand-dot::after, .hero-status .live-dot::after { animation: none !important; }
     .hero-text > *, .hero-image { animation: none; opacity: 1; transform: none; }
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal, html.js .reveal { opacity: 1; transform: none; transition: none; }
     .impact-tile::after, .hp-card::after, .pillar-card::after,
     .metric-card::after, .proj-card::after, .contact-block::after,
     .blog-item::after, .talk-card::after, .pub-item::after,
