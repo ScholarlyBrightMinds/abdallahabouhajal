@@ -7,8 +7,7 @@
 <meta name="description" content="About Abdallah Abou Hajal. MSc Pharmaceutical Sciences (Al Ain University, GPA 3.94). Researcher at the intersection of cheminformatics, AutoML, and large language models for drug discovery. Career timeline, research pillars, awards including First Place at the Insilico Medicine BindHack Hackathon.">
 <meta name="author" content="Abdallah Abou Hajal">
 <meta name="keywords" content="Abdallah Abou Hajal about, AI drug discovery researcher, cheminformatics, MSc Pharmaceutical Sciences, Al Ain University, Scifiniti, BindHack Hackathon, Abu Dhabi researcher">
-<meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#f6f7fb">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <title>About · Abdallah Abou Hajal · Researcher in AI for Drug Discovery</title>
 
@@ -91,6 +90,38 @@
 <script src="theme.config.js"></script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog.html",
+  "name": "Abdallah Abou Hajal · Blog",
+  "isPartOf": {
+    "@type": "WebSite",
+    "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/"
+  },
+  "author": {
+    "@type": "Person",
+    "@id": "https://scholarlybrightminds.github.io/abdallahabouhajal/#person",
+    "name": "Abdallah Abou Hajal",
+    "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/"
+  },
+  "blogPost": [
+    {"@type": "BlogPosting", "headline": "Learning in Public", "datePublished": "2026-09-12", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-11.html"},
+    {"@type": "BlogPosting", "headline": "Saying I Do Not Know", "datePublished": "2026-08-08", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-10.html"},
+    {"@type": "BlogPosting", "headline": "Mentoring Is Not Advice", "datePublished": "2026-06-06", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-9.html"},
+    {"@type": "BlogPosting", "headline": "Feedback That Actually Lands", "datePublished": "2026-05-30", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-8.html"},
+    {"@type": "BlogPosting", "headline": "The First 30 Days on a New Team", "datePublished": "2026-05-24", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-7.html"},
+    {"@type": "BlogPosting", "headline": "The Office Needs More Fun", "datePublished": "2026-05-24", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-6.html"},
+    {"@type": "BlogPosting", "headline": "PhD Hunting: Hard, Exhausting, and Worth It", "datePublished": "2026-04-11", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-5.html"},
+    {"@type": "BlogPosting", "headline": "GitHub in Drug Discovery", "datePublished": "2025-12-14", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-4.html"},
+    {"@type": "BlogPosting", "headline": "Hackathon @ Insilico Medicine", "datePublished": "2025-11-11", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-3.html"},
+    {"@type": "BlogPosting", "headline": "ChatGPT is Turning 3", "datePublished": "2025-10-25", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-2.html"},
+    {"@type": "BlogPosting", "headline": "Should You Go the Distance?", "datePublished": "2025-10-20", "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-1.html"}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -102,7 +133,7 @@
 
     <section class="sub-hero">
         <p class="sub-meta">About</p>
-        <h1>The <em>short</em> version.</h1>
+        <h1>The short version</h1>
         <p class="sub-lede" data-bind="aboutLede"></p>
     </section>
 
@@ -118,22 +149,29 @@
 
     <!-- ═══ RESEARCH PILLARS ═══ -->
     <section class="reveal">
-        <p class="sec-kicker">Research</p>
-        <h2 class="sec-title">Three <em>pillars</em>.</h2>
-        <div class="pillars-grid" data-bind="aboutPillars"></div>
+        <h2 class="sec-title">Three pillars</h2>
+        <dl class="ledger" data-bind="aboutPillars"></dl>
     </section>
 
     <hr class="rule">
 
     <!-- ═══ AWARDS ═══ -->
     <section class="reveal">
-        <p class="sec-kicker">Recognition</p>
-        <h2 class="sec-title">Awards &amp; <em>honours</em>.</h2>
+        <h2 class="sec-title">Awards &amp; honours</h2>
         <ul class="awards-list" data-bind="awards"></ul>
     </section>
 
-    <!-- OPENALEX-PANEL-START --><section class="reveal openalex-panel" aria-label="OpenAlex research topics"><p class="sec-kicker">Research focus</p><h2 class="sec-title">Topics by <em>OpenAlex</em>.</h2><p class="oa-lede">Auto-derived from publication metadata indexed in OpenAlex: the larger the chip, the stronger the topic association.</p><div class="oa-chips"><span class="oa-chip" style="font-size:1.11rem">Medicine</span><span class="oa-chip" style="font-size:1.06rem">Computer science</span><span class="oa-chip" style="font-size:1.04rem">Drug discovery</span><span class="oa-chip" style="font-size:1.03rem">Machine learning</span><span class="oa-chip" style="font-size:0.89rem">Internal medicine</span></div><div class="oa-badges"><span class="oa-badge"><strong>50%</strong> open access</span><span class="oa-badge"><strong>i10-index</strong> 1</span><span class="oa-badge"><strong>65</strong> verified citations</span></div><a class="oa-profile-link" href="https://openalex.org/A5102914480" target="_blank" rel="noopener">View full OpenAlex profile →</a></section><!-- OPENALEX-PANEL-END -->
-    <!-- ORCID-PANEL-START --><section class="reveal orcid-panel" aria-label="ORCID verified activity"><p class="sec-kicker">Verified profile</p><h2 class="sec-title">ORCID <em>activity</em>.</h2><p class="orcid-lede">Synced from the public ORCID record. Counts come straight from orcid.org and reflect what peer-review and editorial work is on file with the registry.</p><div class="orcid-grid"><a class="orcid-id" href="https://orcid.org/0009-0006-1807-2178" target="_blank" rel="noopener" title="View on orcid.org"><span class="orcid-logo" aria-hidden="true">iD</span><span class="orcid-id-text">0009-0006-1807-2178</span></a><div class="orcid-pills"><span class="orcid-pill"><strong>12</strong> works</span><span class="orcid-pill"><strong>2</strong> peer reviews</span><span class="orcid-pill"><strong>1</strong> employments</span><span class="orcid-pill"><strong>1</strong> educations</span></div></div><p class="orcid-synced">Last synced May 19, 2026</p></section><!-- ORCID-PANEL-END -->
+    <!-- OPENALEX-PANEL-START --><section class="reveal openalex-panel" aria-label="OpenAlex research topics"><h2 class="sec-title">Topics by OpenAlex</h2><p class="oa-lede">Auto-derived from publication metadata indexed in OpenAlex: the larger the chip, the stronger the topic association.</p><div class="oa-chips"><span class="oa-chip" style="font-size:1.11rem">Medicine</span><span class="oa-chip" style="font-size:1.06rem">Computer science</span><span class="oa-chip" style="font-size:1.04rem">Drug discovery</span><span class="oa-chip" style="font-size:1.03rem">Machine learning</span><span class="oa-chip" style="font-size:0.89rem">Internal medicine</span></div><div class="oa-badges"><span class="oa-badge"><strong>50%</strong> open access</span><span class="oa-badge"><strong>i10-index</strong> 1</span><span class="oa-badge"><strong>65</strong> verified citations</span></div><a class="oa-profile-link" href="https://openalex.org/A5102914480" target="_blank" rel="noopener">View full OpenAlex profile →</a></section><!-- OPENALEX-PANEL-END -->
+    <!-- ORCID-PANEL-START --><section class="reveal orcid-panel" aria-label="ORCID verified activity"><h2 class="sec-title">ORCID activity</h2><p class="orcid-lede">Synced from the public ORCID record. Counts come straight from orcid.org and reflect what peer-review and editorial work is on file with the registry.</p><div class="orcid-grid"><a class="orcid-id" href="https://orcid.org/0009-0006-1807-2178" target="_blank" rel="noopener" title="View on orcid.org"><span class="orcid-logo" aria-hidden="true">iD</span><span class="orcid-id-text">0009-0006-1807-2178</span></a><div class="orcid-pills"><span class="orcid-pill"><strong>12</strong> works</span><span class="orcid-pill"><strong>2</strong> peer reviews</span><span class="orcid-pill"><strong>1</strong> employments</span><span class="orcid-pill"><strong>1</strong> educations</span></div></div><p class="orcid-synced">Last synced May 19, 2026</p></section><!-- ORCID-PANEL-END -->
+
+    <hr class="rule">
+
+    <section class="reveal" id="writing">
+        <h2 class="sec-title">Writing</h2>
+        <p class="sub-lede" data-bind="blogLede"></p>
+    </section>
+
+    <section class="blog-list" data-bind="blogList"></section>
 
 </main>
 

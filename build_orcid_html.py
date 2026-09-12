@@ -78,8 +78,7 @@ def render_panel(payload: dict) -> str:
     )
     return (
         '<section class="reveal orcid-panel" aria-label="ORCID verified activity">'
-        '<p class="sec-kicker">Verified profile</p>'
-        '<h2 class="sec-title">ORCID <em>activity</em>.</h2>'
+        '<h2 class="sec-title">ORCID activity</h2>'
         '<p class="orcid-lede">Synced from the public ORCID record. Counts come straight from orcid.org and reflect what peer-review and editorial work is on file with the registry.</p>'
         '<div class="orcid-grid">'
         + orcid_link

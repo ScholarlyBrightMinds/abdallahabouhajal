@@ -4,7 +4,6 @@
 //  Responsibilities:
 //    1. Render the nav bar + footer from SITE_CONFIG (consistent everywhere)
 //    2. Data-bind hero fields on the home page (data-bind attributes)
-//    3. Theme toggle (delegates to window.__applyTheme from theme.config.js)
 //    4. Scroll-reveal observer
 //    5. Mobile hamburger behaviour
 //
@@ -23,8 +22,6 @@
 
     // ── SVG icons used across the site (kept inline to avoid image requests)
     const ICONS = {
-        sun: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`,
-        moon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`,
 
         // Social platform icons
         scholar:      `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L.5 9.5 12 1l11.5 8.5-4.742 4.269C17.548 11.249 14.978 9.5 12 9.5s-5.548 1.749-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>`,
@@ -72,10 +69,7 @@
         { key: 'home',         href: 'index.html',        label: 'Home' },
         { key: 'about',        href: 'about.html',        label: 'About' },
         { key: 'research',     href: 'research.html',     label: 'Research' },
-        { key: 'projects',     href: 'projects.html',     label: 'Projects' },
         { key: 'publications', href: 'publications.html', label: 'Publications' },
-        { key: 'talks',        href: 'talks.html',        label: 'Talks' },
-        { key: 'blog',         href: 'blog.html',         label: 'Blog' },
         { key: 'contact',      href: 'contact.html',      label: 'Contact' }
     ];
 
@@ -90,17 +84,12 @@
 
         nav.innerHTML = `
             <a href="index.html" class="brand">
-                <span class="brand-dot"></span>
                 ${C.identity.fullName}
                 <span class="brand-meta">${C.identity.role}</span>
             </a>
             <div class="nav-right">
                 <div class="hamburger" aria-label="Menu"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
                 <div class="nav-menu">${menuItems}</div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle day/night">
-                    <span class="icon-sun">${ICONS.sun}</span>
-                    <span class="icon-moon">${ICONS.moon}</span>
-                </button>
             </div>
         `;
     }
@@ -164,10 +153,9 @@
         const pillars = C.about && C.about.pillars;
         if (pillars) {
             const html = pillars.map(p => `
-                <div class="hp-card">
-                    <div class="hp-icon">${ICONS[p.icon] || ICONS.molecule}</div>
-                    <h3 class="hp-title">${p.title}</h3>
-                    <p class="hp-desc">${p.desc}</p>
+                <div class="ledger-row">
+                    <dt class="ledger-label">${p.title}</dt>
+                    <dd class="ledger-body">${p.desc}</dd>
                 </div>
             `).join('');
             setBind('pillars', html);
@@ -259,10 +247,9 @@
         const pEl = document.querySelector('[data-bind="aboutPillars"]');
         if (pEl && C.about.pillars) {
             pEl.innerHTML = C.about.pillars.map(p => `
-                <div class="pillar-card">
-                    <div class="p-icon">${ICONS[p.icon] || ICONS.molecule}</div>
-                    <h3 class="p-title">${p.title}</h3>
-                    <p class="p-desc">${p.desc}</p>
+                <div class="ledger-row">
+                    <dt class="ledger-label">${p.title}</dt>
+                    <dd class="ledger-body">${p.desc}</dd>
                 </div>
             `).join('');
         }
@@ -404,7 +391,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  TALKS page bindings (talks.html)
+    //  TALKS bindings (now a section on publications.html)
     // ═══════════════════════════════════════════════════════════════
     function bindTalks() {
         const el = document.querySelector('[data-bind="talkList"]');
@@ -561,7 +548,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  ARC (scrollytelling research-arc page · arc.html)
+    //  ARC (retired page; renderer kept, nothing binds to it)
     // ═══════════════════════════════════════════════════════════════
     function bindArc() {
         if (!C.arc) return;
@@ -654,18 +641,6 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  THEME TOGGLE wiring
-    // ═══════════════════════════════════════════════════════════════
-    function wireTheme() {
-        const btn = document.getElementById('themeToggle');
-        if (!btn) return;
-        btn.addEventListener('click', () => {
-            const cur = document.documentElement.getAttribute('data-theme') || 'dark';
-            (window.__applyTheme || (() => {}))(cur === 'dark' ? 'light' : 'dark');
-        });
-    }
-
-    // ═══════════════════════════════════════════════════════════════
     //  SCROLL REVEAL
     // ═══════════════════════════════════════════════════════════════
     function wireReveal() {
@@ -731,7 +706,6 @@
         bindResearch();
         bindArc();
         wireFilters();
-        wireTheme();
         wireMobile();
     }
 

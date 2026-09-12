@@ -106,7 +106,7 @@
     border-color: var(--accent-glow);
     background: var(--accent-bg);
 }
-:root[data-theme="light"] .proj-status--published {
+.proj-status--published {
     color: var(--accent);
 }
 .proj-status--active {

@@ -8,8 +8,7 @@
 <meta name="author" content="Abdallah Abou Hajal">
 <meta name="application-name" content="Scholarly Bright Minds · Abdallah Abou Hajal">
 <meta name="keywords" content="Abdallah Abou Hajal, AI drug discovery, cheminformatics, machine learning, AutoML, large language models, virtual screening, BAD Molecule Filter, colloidal aggregators, Scifiniti, Al Ain University, Abu Dhabi researcher">
-<meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#f6f7fb">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <title>Abdallah Abou Hajal · AI for Drug Discovery · Cheminformatics Researcher</title>
 
@@ -182,53 +181,6 @@
 
 <style>
     /* ── home-specific polish only ── */
-    .home-pillars {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-    .hp-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 1.4rem 1.3rem;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
-    }
-    .hp-card:hover {
-        transform: translateY(-2px);
-        border-color: var(--accent);
-        box-shadow: var(--shadow-card);
-    }
-    .hp-icon {
-        width: 36px; height: 36px;
-        border-radius: var(--radius-s);
-        background: var(--accent-bg);
-        display: grid;
-        place-items: center;
-        color: var(--accent);
-        margin-bottom: 0.9rem;
-        transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
-        position: relative;
-        z-index: 1;
-    }
-    .hp-icon svg { width: 18px; height: 18px; }
-    .hp-card:hover .hp-icon { background: var(--accent); color: var(--bg); }
-    .hp-title {
-        font-family: var(--display);
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        margin-bottom: 0.35rem;
-        color: var(--text);
-    }
-    .hp-desc {
-        font-size: 0.82rem;
-        color: var(--text-soft);
-        line-height: 1.5;
-    }
     @media (max-width: 760px) {
         .home-pillars { grid-template-columns: 1fr; }
     }
@@ -263,8 +215,7 @@
 
     <!-- ═══ BY THE NUMBERS ═══ -->
     <section class="reveal impact-section">
-        <p class="sec-kicker">By the numbers</p>
-        <h2 class="sec-title">Track <em>record</em>.</h2>
+        <h2 class="sec-title">Track record</h2>
         <p class="impact-lede">A snapshot of the published work, awards, and shipped tools, auto-updated each Monday from Google Scholar and OpenAlex.</p>
         <div class="impact-grid" data-bind="impactStats"></div>
     </section>
@@ -273,9 +224,8 @@
 
     <!-- ═══ RESEARCH PILLARS PREVIEW ═══ -->
     <section class="reveal">
-        <p class="sec-kicker">Research</p>
-        <h2 class="sec-title">What I <em>work on</em>.</h2>
-        <div class="home-pillars" data-bind="pillars"></div>
+        <h2 class="sec-title">What I work on</h2>
+        <dl class="ledger" data-bind="pillars"></dl>
     </section>
 </main>
 

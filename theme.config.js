@@ -29,29 +29,9 @@ window.SITE_CONFIG = {
     // ── Palette ──────────────────────────────────────────────────
     // Hub-assigned color for this researcher. Applied to CSS vars at runtime.
     palette: {
-        name:       "cobalt",
-        // Dark mode (default: "ink navy, instrument on")
-        dark: {
-            bg:          "#0a0e16",
-            bgSoft:      "#0e131e",
-            bgDeep:      "#060910",
-            card:        "#101725",
-            cardSoft:    "#0c1219",
-            text:        "#e9eef7",
-            textSoft:    "#a8b3c7",
-            muted:       "#6a7690",
-            border:      "#1d2537",
-            borderS:     "#161d2b",
-            accent:      "#5e9eff",      /* cobalt: signal */
-            accentD:     "#8ab8ff",      /* cobalt: hover, bright */
-            accentBg:    "rgba(94,158,255,0.09)",
-            accentGlow:  "rgba(94,158,255,0.22)",
-            amber:       "#d7aa66",      /* gold: awards only */
-            amberBg:     "rgba(215,170,102,0.10)",
-            amberGlow:   "rgba(215,170,102,0.20)"
-        },
-        // Light mode ("cool paper")
-        light: {
+        name: "cobalt",
+        // One palette. The site is light only: no dark mode, no toggle.
+        colors: {
             bg:          "#f6f7fb",
             bgSoft:      "#eef1f8",
             bgDeep:      "#e4e9f3",
@@ -580,7 +560,7 @@ window.SITE_CONFIG = {
             {
                 icon: "🤝",
                 title: "Collaborators",
-                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See the <a href=\"projects.html\">Ongoing Research</a> page for what is currently active."
+                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See the <a href=\"research.html#projects\">current projects</a> for what is active."
             },
             {
                 icon: "✉️",
@@ -603,40 +583,9 @@ window.SITE_CONFIG = {
 //  APPLY PALETTE TO CSS VARIABLES (runs on every page, before render)
 // ═══════════════════════════════════════════════════════════════════
 (function applyPalette() {
-    const P = window.SITE_CONFIG.palette;
     const root = document.documentElement;
-
-    function setMode(mode) {
-        const p = P[mode];
-        Object.entries(p).forEach(([k, v]) => {
-            // camelCase → kebab-case; "bgSoft" → "--bg-soft"
-            const cssVar = '--' + k.replace(/([A-Z])/g, '-$1').toLowerCase();
-            root.style.setProperty(cssVar, v);
-        });
-    }
-
-    // Determine initial theme: saved > system
-    let theme = null;
-    try { theme = localStorage.getItem('sbm-theme'); } catch (e) {}
-    if (!theme) {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        theme = prefersDark ? 'dark' : 'dark';   // default dark for hub identity
-    }
-    root.setAttribute('data-theme', theme);
-    setMode(theme);
-
-    // Expose for toggle use
-    window.__applyTheme = function(mode) {
-        root.setAttribute('data-theme', mode);
-        setMode(mode);
-        try { localStorage.setItem('sbm-theme', mode); } catch (e) {}
-
-        // Swap highlight.js themes if both stylesheets are present
-        const hL = document.getElementById('hljs-light');
-        const hD = document.getElementById('hljs-dark');
-        if (hL && hD) {
-            hL.disabled = (mode === 'dark');
-            hD.disabled = (mode !== 'dark');
-        }
-    };
+    Object.entries(window.SITE_CONFIG.palette.colors).forEach(([k, v]) => {
+        // camelCase -> kebab-case; "bgSoft" becomes "--bg-soft"
+        root.style.setProperty('--' + k.replace(/([A-Z])/g, '-$1').toLowerCase(), v);
+    });
 })();
