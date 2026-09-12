@@ -5,7 +5,7 @@ draft_blog.py — drafts one blog post in Abdallah's voice and wires it into the
 Invoked by .github/workflows/blog-draft.yml after Abdallah picks a title from
 the weekly menu (or opens a "Blog idea" issue). Drafts the chosen topic with
 Claude, writes blog-post-N.html, and patches the surfaces a post touches
-(theme.config.js, blog.html schema, sitemap.xml). The workflow then opens a
+(theme.config.js, the Blog schema now in about.html, sitemap.xml). The workflow then opens a
 DRAFT pull request, so nothing reaches the live site until he reviews and merges.
 
 Inputs via env: IDEA_TITLE, IDEA_TAG, IDEA_ANGLE, IDEA_SOURCE ("menu" | "issue").
@@ -27,7 +27,7 @@ import anthropic
 REPO = os.path.dirname(os.path.abspath(__file__))
 IDEAS_PATH = os.path.join(REPO, "data", "blog", "ideas.json")
 THEME_PATH = os.path.join(REPO, "theme.config.js")
-BLOG_INDEX_PATH = os.path.join(REPO, "blog.html")
+BLOG_INDEX_PATH = os.path.join(REPO, "about.html")   # blog index folded into About
 SITEMAP_PATH = os.path.join(REPO, "sitemap.xml")
 BASE_URL = "https://scholarlybrightminds.github.io/abdallahabouhajal"
 
@@ -273,7 +273,7 @@ def render_html(post, date_label):
         </div>
 
         <footer class="post-footer">
-            <a class="post-back" href="blog.html">← Back to blog</a>
+            <a class="post-back" href="about.html#writing">← Back to writing</a>
             <span class="post-date" style="color: var(--muted); font-family: var(--mono); font-size: 0.72rem;">{date_label}</span>
         </footer>
 
@@ -310,7 +310,7 @@ def patch_files(post, n, date_label, iso_date):
     theme = theme.replace("    blog: [\n", entry, 1)
     open(THEME_PATH, "w", encoding="utf-8").write(theme)
 
-    # blog.html — prepend a BlogPosting to the schema array
+    # about.html — prepend a BlogPosting to the schema array
     idx = open(BLOG_INDEX_PATH, encoding="utf-8").read()
     posting = (
         '  "blogPost": [\n'
