@@ -179,59 +179,74 @@
 <!-- Styles -->
 <link rel="stylesheet" href="styles.css">
 
-<style>
-    /* ── home-specific polish only ── */
-    @media (max-width: 760px) {
-        .home-pillars { grid-template-columns: 1fr; }
-    }
-</style>
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
 
-
-<!-- Nav rendered by scripts.js based on config -->
 <nav class="nav" data-page="home"></nav>
 
-<main>
-    <!-- ═══ HERO ═══ -->
-    <section class="hero">
-        <div class="hero-text">
-            <span class="hero-status">
-                <span class="live-dot"></span>
-                <span data-bind="statusText">Currently · exploring</span>
-            </span>
-            <h1 data-bind="heading"></h1>
-            <p class="hero-tagline" data-bind="tagline"></p>
-            <p class="hero-bio" data-bind="bio"></p>
-            <div class="chips" data-bind="chips"></div>
-            <div class="social-links" data-bind="social"></div>
+<main class="home">
+
+    <section class="home-intro" aria-labelledby="home-name">
+        <img class="home-portrait" src="images/profile.png" alt="Abdallah Abou Hajal" width="72" height="72">
+        <h1 id="home-name">Abdallah Abou Hajal</h1>
+        <p class="home-lede">Machine learning for drug discovery, and AI agents for academic publishing. Automation lead at Scifiniti, looking for a PhD.</p>
+        <p class="home-stats" data-bind="stats">
+            <a href="publications.html"><strong>14</strong> papers</a>
+            <span><strong>94</strong> citations</span>
+            <span>h-index <strong>8</strong></span>
+        </p>
+        <div class="home-links">
+            <a class="primary" href="research.html">Research</a>
+            <a href="Abdallah-Abou-Hajal-CV.pdf">CV</a>
+            <a href="mailto:abdallah.abouhajal@gmail.com">Email</a>
         </div>
-        <div class="hero-image">
-            <img data-bind="photo" alt="Abdallah Abou Hajal, researcher in AI for drug discovery" width="1080" height="1080" fetchpriority="high">
+    </section>
+
+    <section class="game" data-game data-state="loading" aria-labelledby="game-title">
+        <header class="game-head">
+            <h2 id="game-title" class="game-title">Name the molecule</h2>
+            <p class="game-meta" data-g="meta" aria-live="polite"></p>
+        </header>
+
+        <div class="game-stage" data-g="stage">
+            <svg data-g="svg" viewBox="0 0 600 400" role="img" aria-label="A molecule drawing itself"></svg>
+        </div>
+        <div class="game-end" data-g="end" hidden>
+            <p class="game-score" data-g="final"></p>
+            <p class="game-summary" data-g="summary"></p>
+            <div class="game-recap" data-g="recap"></div>
+        </div>
+
+        <div class="game-controls">
+            <div class="game-intro" data-g="intro">
+                <p>It draws itself atom by atom. Name it early for more points.</p>
+                <div class="game-intro-row">
+                    <button type="button" class="g-btn g-btn--primary" data-g="play">Play</button>
+                    <p class="game-best" data-g="best" hidden></p>
+                </div>
+            </div>
+            <div class="game-choices" data-g="choices" hidden></div>
+            <div class="game-actions" data-g="actions" hidden>
+                <button type="button" class="g-btn g-btn--primary" data-g="again">Play again</button>
+                <button type="button" class="g-btn" data-g="share">Copy score</button>
+            </div>
+        </div>
+
+        <div class="game-foot" data-g="foot" aria-live="polite">
+            <div>
+                <p class="game-hint" data-g="hint"></p>
+                <p class="game-fact" data-g="fact"></p>
+            </div>
+            <button type="button" class="g-btn" data-g="next" hidden>Next</button>
         </div>
     </section>
 
-    <hr class="rule">
-
-    <!-- ═══ BY THE NUMBERS ═══ -->
-    <section class="reveal impact-section">
-        <h2 class="sec-title">Track record</h2>
-        <p class="impact-lede">A snapshot of the published work, awards, and shipped tools, auto-updated each Monday from Google Scholar and OpenAlex.</p>
-        <div class="impact-grid" data-bind="impactStats"></div>
-    </section>
-
-    <hr class="rule">
-
-    <!-- ═══ RESEARCH PILLARS PREVIEW ═══ -->
-    <section class="reveal">
-        <h2 class="sec-title">What I work on</h2>
-        <dl class="ledger" data-bind="pillars"></dl>
-    </section>
 </main>
 
 <footer data-bind="footer"></footer>
 
 <script src="scripts.js"></script>
-<script src="motion.js" defer></script>
+<script src="game.js" defer></script>
 </body>
 </html>

@@ -1,8 +1,24 @@
 {
-  "total_documents": 15,
-  "total_citations": 121,
-  "h_index": 7,
+  "total_documents": 14,
+  "total_citations": 94,
+  "h_index": 8,
   "author_id": "1I8SvsQAAAAJ",
-  "source": "serpapi_profile",
-  "last_updated": "2026-08-31T11:26:34Z"
+  "source": "open_indexes",
+  "last_updated": "2026-09-12T19:34:23Z",
+  "sources": {
+    "openalex": {
+      "papers": 15,
+      "citations": 91
+    },
+    "crossref": {
+      "papers": 15,
+      "citations": 85
+    },
+    "semantic_scholar": {
+      "papers": 14,
+      "citations": 74
+    },
+    "carried_forward": 0,
+    "excluded_non_papers": 0
+  }
 }
