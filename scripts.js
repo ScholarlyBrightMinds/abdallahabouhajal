@@ -680,7 +680,7 @@
                     observer.unobserve(e.target);
                 }
             });
-        }, { threshold: 0.01, rootMargin: '0px 0px -5% 0px' });
+        }, { threshold: 0, rootMargin: '0px 0px 55% 0px' });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         // Expose so dynamically-added elements can register
         window.__revealObserver = observer;
