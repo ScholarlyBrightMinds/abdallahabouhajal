@@ -22,11 +22,16 @@
     --mono:    var(--f-mono);
 
     /* Motion tokens */
-    --ease:     cubic-bezier(0.23, 1, 0.32, 1);      /* strong ease-out */
-    --ease-io:  cubic-bezier(0.77, 0, 0.175, 1);     /* on-screen movement */
-    --t-fast:   0.16s;
-    --t-med:    0.26s;
-    --t-reveal: 0.55s;
+    /* "Motion explains, or it does not happen." Entrance curve, reveal
+       distance and duration are the manual's values, not invented ones. */
+    --ease:       cubic-bezier(.16, 1, .3, 1);       /* entrances */
+    --ease-io:    cubic-bezier(0.77, 0, 0.175, 1);   /* on-screen movement */
+    --ease-spring: cubic-bezier(.34, 1.56, .64, 1);  /* springs */
+    --t-fast:     0.16s;
+    --t-med:      0.26s;
+    --t-reveal:   0.72s;    /* slower reads as sluggish */
+    --reveal-rise: 24px;    /* enough to notice, not enough to jump */
+    --stagger:     80ms;
 
     /* Layout tokens */
     --container-max: 1080px;
@@ -48,20 +53,18 @@
     --track-kicker:  0.22em;
     --weight-heading: 640;  /* never 700, Charter bold is heavy */
 
-    /* Defaults here; overwritten at runtime by theme.config.js */
-    --bg: #0a0e16; --bg-soft: #0e131e; --bg-deep: #060910;
-    --card: #101725; --card-soft: #0c1219;
-    --text: #e9eef7; --text-soft: #a8b3c7; --muted: #6a7690;
-    --border: #1d2537; --border-s: #161d2b;
-    --accent: #5e9eff; --accent-d: #8ab8ff;
-    --accent-bg: rgba(94,158,255,0.09); --accent-glow: rgba(94,158,255,0.22);
-    --amber: #d7aa66; --amber-bg: rgba(215,170,102,0.10); --amber-glow: rgba(215,170,102,0.20);
+    /* One palette. Light only. theme.config.js restates these at runtime
+       so a config edit is still the single source of truth. */
+    --bg: #f6f7fb; --bg-soft: #eef1f8; --bg-deep: #e4e9f3;
+    --card: #ffffff; --card-soft: #fafbfe;
+    --text: #121a2c; --text-soft: #414d66; --muted: #6d7990;
+    --border: #dde3ee; --border-s: #e8ecf5;
+    --accent: #1e56c8; --accent-d: #17439f;
+    --accent-bg: #e8eefb; --accent-glow: rgba(30,86,200,0.16);
+    --amber: #8f6a2b; --amber-bg: #f6efdf; --amber-glow: rgba(143,106,43,0.15);
 
-    --shadow-card:  0 18px 44px -22px rgba(2, 6, 16, 0.6);
-    --shadow-modal: 0 32px 90px -24px rgba(2, 6, 16, 0.7);
-    --overlay:      rgba(4, 7, 14, 0.72);
-}
-:root[data-theme="light"] {
+    /* Cards sit one small step off the ground, paper on a desk rather
+       than a floating panel. No heavy drop shadows. */
     --shadow-card:  0 16px 38px -22px rgba(24, 42, 82, 0.16);
     --shadow-modal: 0 30px 80px -24px rgba(24, 42, 82, 0.22);
     --overlay:      rgba(28, 36, 56, 0.4);
@@ -112,9 +115,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     border-radius: 4px;
 }
 
-
-
-
 /* Everything above the background */
 .header, main, footer, .nav { position: relative; z-index: 2; }
 
@@ -146,22 +146,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     gap: 0.6rem;
     color: var(--text);
     text-decoration: none;
-}
-.brand-dot {
-    width: 9px; height: 9px;
-    border-radius: 2px;
-    background: var(--accent);
-    position: relative;
-    flex-shrink: 0;
-    transform: rotate(45deg);
-}
-.brand-dot::after {
-    content: '';
-    position: absolute; inset: -4px;
-    border-radius: 3px;
-    border: 1px solid var(--accent);
-    opacity: 0;
-    animation: pulse 3.2s ease-out infinite;
 }
 @keyframes pulse {
     0%   { transform: scale(0.7); opacity: 0.7; }
@@ -218,29 +202,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .nav-item:hover::after { transform: scaleX(0.4); }
 .nav-item.active { color: var(--text); }
 .nav-item.active::after { transform: scaleX(1); }
-
-.theme-toggle {
-    width: 34px; height: 34px;
-    border-radius: var(--radius-s);
-    border: 1px solid var(--border);
-    background: var(--card);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    color: var(--text-soft);
-    transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform 0.22s var(--ease);
-    padding: 0;
-}
-.theme-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: rotate(18deg);
-}
-.theme-toggle:active { transform: rotate(18deg) scale(0.92); }
-.theme-toggle svg { width: 16px; height: 16px; }
-.theme-toggle .icon-moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-sun  { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
 /* Hamburger (mobile) */
 .hamburger {
@@ -667,21 +628,59 @@ footer {
 .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
 
 /* ═══════════════════════════════════════════════════════════════════
+   LEDGER · replaces the three equal icon cards
+   A row list, not a card grid. Mono label left, prose right, one
+   hairline between rows. Takes two items or nine without redesign,
+   which a three-column grid cannot. Three equal cards assert three
+   things matter equally, and that was never true here.
+   ═══════════════════════════════════════════════════════════════════ */
+.ledger {
+    margin-top: 2.2rem;
+    border-top: 1px solid var(--border);
+}
+.ledger-row {
+    display: grid;
+    grid-template-columns: minmax(8rem, 13rem) 1fr;
+    gap: 0 clamp(1.5rem, 4vw, 3rem);
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.ledger-label {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 0.3rem;
+    font-variant-numeric: tabular-nums;
+}
+.ledger-body {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 58ch;
+}
+@media (max-width: 720px) {
+    .ledger-row { grid-template-columns: 1fr; gap: 0.45rem; padding: 1.05rem 0; }
+    .ledger-label { padding-top: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS · fast, ease-out, opacity + translate only
    ═══════════════════════════════════════════════════════════════════ */
 html.js .reveal {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(var(--reveal-rise));
     transition: opacity var(--t-reveal) var(--ease), transform var(--t-reveal) var(--ease);
 }
 html.js .reveal.vis {
     opacity: 1;
     transform: translateY(0);
 }
-.reveal-d1 { transition-delay: .06s; }
-.reveal-d2 { transition-delay: .12s; }
-.reveal-d3 { transition-delay: .18s; }
-.reveal-d4 { transition-delay: .24s; }
+.reveal-d1 { transition-delay: calc(var(--stagger) * 1); }
+.reveal-d2 { transition-delay: calc(var(--stagger) * 2); }
+.reveal-d3 { transition-delay: calc(var(--stagger) * 3); }
+.reveal-d4 { transition-delay: calc(var(--stagger) * 4); }
 
 @keyframes riseIn {
     from { opacity: 0; transform: translateY(14px); }
@@ -700,30 +699,6 @@ html.js .reveal.vis {
 .hero-text > *:nth-child(4) { animation-delay: .26s; }
 .hero-text > *:nth-child(5) { animation-delay: .33s; }
 .hero-text > *:nth-child(6) { animation-delay: .40s; }
-
-/* ═══════════════════════════════════════════════════════════════════
-   SPOTLIGHT MICRO-INTERACTION · cursor-tracked glow on cards
-   --mx / --my are set by motion.js (pointer: fine devices only)
-   ═══════════════════════════════════════════════════════════════════ */
-.impact-tile::after, .hp-card::after, .pillar-card::after,
-.metric-card::after, .proj-card::after, .contact-block::after,
-.blog-item::after, .talk-card::after, .pub-item::after,
-.research-block::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--accent-glow), transparent 72%);
-    opacity: 0;
-    transition: opacity .3s var(--ease);
-}
-.impact-tile:hover::after, .hp-card:hover::after, .pillar-card:hover::after,
-.metric-card:hover::after, .proj-card:hover::after, .contact-block:hover::after,
-.blog-item:hover::after, .talk-card:hover::after, .pub-item:hover::after,
-.research-block:hover::after {
-    opacity: 0.5;
-}
 
 /* ═══════════════════════════════════════════════════════════════════
    RESPONSIVE
@@ -764,13 +739,9 @@ html.js .reveal.vis {
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .brand-dot::after, .hero-status .live-dot::after { animation: none !important; }
+    .hero-status .live-dot::after { animation: none !important; }
     .hero-text > *, .hero-image { animation: none; opacity: 1; transform: none; }
     .reveal, html.js .reveal { opacity: 1; transform: none; transition: none; }
-    .impact-tile::after, .hp-card::after, .pillar-card::after,
-    .metric-card::after, .proj-card::after, .contact-block::after,
-    .blog-item::after, .talk-card::after, .pub-item::after,
-    .research-block::after { display: none; }
     *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
 

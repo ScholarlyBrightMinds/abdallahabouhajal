@@ -4,9 +4,6 @@
 //  1. Count-up on metric numbers when they first enter the viewport
 //     (#m-total / #m-cites / #m-h on publications.html, .impact-num on
 //     the home page). Pure integers only; anything else is left alone.
-//  2. Cursor-tracked spotlight on cards: writes --mx/--my custom props
-//     that styles.css turns into a radial glow. Fine pointers only.
-//
 //  Everything here is decorative and defensive: no dependencies, no
 //  layout writes, transform/opacity/custom-props only, and every effect
 //  is skipped under prefers-reduced-motion. Removing this file leaves
@@ -62,30 +59,8 @@
         els.forEach(function (el) { io.observe(el); });
     }
 
-    // ── 2 · CARD SPOTLIGHT ──────────────────────────────────────────
-    var SPOT_SELECTOR = [
-        '.impact-tile', '.hp-card', '.pillar-card', '.metric-card',
-        '.proj-card', '.contact-block', '.blog-item', '.talk-card',
-        '.pub-item', '.research-block'
-    ].join(',');
-
-    function initSpotlight() {
-        if (reduceMotion) return;
-        var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-        if (!finePointer) return;
-
-        document.addEventListener('pointermove', function (e) {
-            var card = e.target && e.target.closest ? e.target.closest(SPOT_SELECTOR) : null;
-            if (!card) return;
-            var rect = card.getBoundingClientRect();
-            card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-            card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
-        }, { passive: true });
-    }
-
     function init() {
         initCountUp();
-        initSpotlight();
     }
 
     if (document.readyState === 'loading') {

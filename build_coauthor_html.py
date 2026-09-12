@@ -198,8 +198,7 @@ def render_panel(payload: dict) -> str:
 
     return (
         '<section class="reveal coauth-panel" aria-label="Co-author network">'
-        '<p class="sec-kicker">Network</p>'
-        '<h2 class="sec-title">Top <em>co-authors</em>.</h2>'
+        '<h2 class="sec-title">Top co-authors</h2>'
         '<p class="coauth-lede">Built from OpenAlex authorships across every indexed publication. '
         'Node size and edge weight scale with the number of shared papers.</p>'
         '<div class="coauth-wrap">' + svg + '</div>'

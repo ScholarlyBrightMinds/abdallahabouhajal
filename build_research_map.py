@@ -325,9 +325,8 @@ def _render_section(graph: dict, positions: dict) -> str:
 
     return (
         '\n    <section class="research-map reveal" aria-labelledby="research-map-h2">\n'
-        '        <p class="sec-kicker">Research map</p>\n'
         '        <h2 id="research-map-h2" class="sec-title">'
-        'Where my research <em>sits</em>.</h2>\n'
+        'Where my research sits</h2>\n'
         '        <p class="research-map-lede">Top-level disciplines surround the centre. '
         'Topics radiate outward, clustered near the discipline they most overlap with. '
         'Sourced from OpenAlex. Concept scores and topic counts are computed across the full '
