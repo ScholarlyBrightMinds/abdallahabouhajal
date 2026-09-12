@@ -90,8 +90,8 @@ window.SITE_CONFIG = {
     // (e.g., "14 Publications · 105 Citations") right before each commit, so
     // the static HTML that Google indexes always shows current stats.
     chips: [
-        { label: "15 Publications · 121 Citations" },
-        { label: "h-index 7" },
+        { label: "14 Publications · 94 Citations" },
+        { label: "h-index 8" },
         { label: "4× Corresponding Author" },
         { label: "BindHack 1st Place · Insilico Medicine", variant: "gold" },
         { label: "MSc Pharm. Sci. · GPA 3.94" }
@@ -101,7 +101,7 @@ window.SITE_CONFIG = {
     ledes: {
         about:        "Researcher in AI-driven drug discovery, now working at the intersection of cheminformatics, AutoML, and large language models.",
         projects:     "Active work on AI agents and computational toxicology at the top, followed by published output. If any of these intersect with your work, I would love to collaborate.",
-        publications: "Peer-reviewed output across machine learning, cheminformatics, and drug discovery. Synced weekly from Google Scholar.",
+        publications: "Peer-reviewed output across machine learning, cheminformatics, and drug discovery. Synced weekly from OpenAlex and Crossref.",
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper.",
         talks:        "Hackathon wins, conference talks, poster sessions, and the three-minute thesis. Slides and posters are linked where I have them.",
         contact:      "The fastest way to reach me. Below the form there is a short note for PhD supervisors and another for potential collaborators.",
@@ -208,7 +208,7 @@ window.SITE_CONFIG = {
     // via build_html.py from the weekly SerpApi pull (see numLiveSource).
     impactStats: [
         { num: "14",  label: "Publications",     sub: "peer-reviewed",                      numLiveSource: "total_documents" },
-        { num: "110", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
+        { num: "94", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
         { num: "4×",  label: "Corresponding",    sub: "first or corresponding author" },
         { num: "1st", label: "BindHack",         sub: "First place · Insilico Medicine 2025", variant: "gold" },
         { num: "1",   label: "Live ML tool",     sub: "BAD Molecule Filter web server" }
