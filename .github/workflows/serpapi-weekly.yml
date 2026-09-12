@@ -105,15 +105,6 @@ jobs:
           set -euo pipefail
           python build_coauthor_html.py
 
-      - name: Bake interactive research-map into research.html
-        # Reads data/openalex/openalex.json and bakes a force-directed
-        # concept graph (1 center node + 5 top concepts + top topics, with
-        # weighted edges) into the RESEARCH-MAP marker block on
-        # research.html. Also embeds the graph JSON for research-map.js
-        # to pick up and run a spring simulation on top of the static SVG.
-        run: |
-          set -euo pipefail
-          python build_research_map.py
 
       - name: Generate per-paper OG share cards
         # Pillow-based renderer that emits 1200x630 PNGs into images/og/

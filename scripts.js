@@ -282,77 +282,6 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  PROJECTS page bindings
-    // ═══════════════════════════════════════════════════════════════
-    function bindProjects() {
-        const el = document.querySelector('[data-bind="projectList"]');
-        if (!el || !C.projects) return;
-
-        // Email for "Want to collaborate?" button
-        const email = C.identity.email
-                   || (C.ids && C.ids.email)
-                   || (C.social && C.social.find(s => s.key === 'email')?.url?.replace('mailto:',''))
-                   || '';
-
-        el.innerHTML = C.projects.map((p, i) => {
-            const kind = (p.statusKind || 'active').toLowerCase();
-            const statusBadge = p.status
-                ? `<span class="proj-status proj-status--${kind}">${p.status}</span>`
-                : '';
-            const needsLine = p.needs
-                ? `<p class="proj-needs"><span class="proj-needs-label">Needs:</span> ${p.needs}</p>`
-                : '';
-            // Only show collaborate button on active / review projects (not already-published ones)
-            const showCollab = kind === 'active' || kind === 'review' || kind === 'draft';
-            const subject = encodeURIComponent(`Collaboration on "${p.title}"`);
-            const body    = encodeURIComponent(`Hi ${C.identity.firstName || ''},\n\nI saw your "${p.title}" project on your website and would like to discuss a potential collaboration.\n\n`);
-            const collabBtn = (showCollab && email)
-                ? `<a class="proj-collab" href="mailto:${email}?subject=${subject}&body=${body}">
-                     <span class="proj-collab-icon" aria-hidden="true">${ICONS.email}</span>
-                     Want to collaborate?
-                   </a>`
-                : '';
-            // Published projects get a "Read paper" button pointing to the DOI
-            const paperUrl  = p.doi ? `https://doi.org/${p.doi}` : (p.paperUrl || '');
-            const venueLine = p.doi && p.venue
-                ? `<span class="proj-venue">${p.venue}</span>`
-                : '';
-            const paperBtn  = paperUrl
-                ? `<a class="proj-paper" href="${paperUrl}" target="_blank" rel="noopener">
-                     <span class="proj-paper-icon" aria-hidden="true">↗</span>
-                     <span>Read paper</span>
-                     ${p.doi ? `<span class="proj-paper-doi">${p.doi}</span>` : ''}
-                   </a>`
-                : '';
-            const actionsRow = (paperBtn || collabBtn)
-                ? `<div class="proj-actions">${paperBtn}${collabBtn}</div>`
-                : '';
-
-            return `
-            <article class="proj-card proj-card--${kind} reveal reveal-d${(i % 3) + 1}">
-                <div class="proj-num">${p.n}</div>
-                <div class="proj-body">
-                    <div class="proj-meta">
-                        <span class="proj-label">${p.label}</span>
-                        ${statusBadge}
-                        ${venueLine}
-                    </div>
-                    <h3 class="proj-title">${p.title}</h3>
-                    <p class="proj-desc">${p.desc}</p>
-                    ${needsLine}
-                    ${p.tech ? `<div class="proj-tags">${p.tech.map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>` : ''}
-                    ${actionsRow}
-                </div>
-            </article>
-            `;
-        }).join('');
-
-        if (window.__revealObserver) {
-            el.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
-        }
-    }
-
-    // ═══════════════════════════════════════════════════════════════
     //  BLOG page bindings
     // ═══════════════════════════════════════════════════════════════
     function bindBlog() {
@@ -456,14 +385,11 @@
             `;
         }
 
-        // Heading split (Let's + talk)
+        // Heading, plain: no accent word, no full stop
         const hEl = document.querySelector('[data-bind="contactH1"]');
         if (hEl) {
-            hEl.innerHTML = `${C.contact.h1Front} <em>${C.contact.h1Accent}</em>.`;
+            hEl.textContent = `${C.contact.h1Front} ${C.contact.h1Accent}`.trim();
         }
-
-        const kEl = document.querySelector('[data-bind="contactKicker"]');
-        if (kEl) kEl.textContent = C.contact.kicker;
 
         // Direct-contact card
         const dEl = document.querySelector('[data-bind="contactDirect"]');
@@ -514,49 +440,6 @@
                 form.addEventListener('submit', e => e.preventDefault());
                 if (noteEl) noteEl.textContent = C.contact.formNote || '';
             }
-        }
-    }
-
-    // ═══════════════════════════════════════════════════════════════
-    //  RESEARCH STATEMENT page bindings (research.html)
-    // ═══════════════════════════════════════════════════════════════
-    function bindResearch() {
-        if (!C.research) return;
-
-        const kEl = document.querySelector('[data-bind="researchKicker"]');
-        if (kEl) kEl.textContent = C.research.kicker;
-
-        const hEl = document.querySelector('[data-bind="researchH1"]');
-        if (hEl) {
-            hEl.innerHTML = `${C.research.h1Front} <em>${C.research.h1Accent}</em>.`;
-        }
-
-        const iEl = document.querySelector('[data-bind="researchIntro"]');
-        if (iEl) iEl.innerHTML = C.research.intro;
-
-        const sEl = document.querySelector('[data-bind="researchSections"]');
-        if (sEl && Array.isArray(C.research.sections)) {
-            sEl.innerHTML = C.research.sections.map((s, i) => `
-                <article class="research-block reveal reveal-d${(i % 3) + 1}">
-                    <p class="sec-kicker">${s.kicker}</p>
-                    <h2 class="research-block-title">${s.title}</h2>
-                    <div class="research-block-body">
-                        ${(s.body || []).map(p => `<p>${p}</p>`).join('')}
-                    </div>
-                </article>
-            `).join('');
-            if (window.__revealObserver) {
-                sEl.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
-            }
-        }
-
-        const fEl = document.querySelector('[data-bind="researchFinalCTA"]');
-        if (fEl && C.research.finalCTAText) {
-            fEl.innerHTML = `
-                <a class="research-final-cta" href="${C.research.finalCTAHref}">
-                    ${ICONS.email}<span>${C.research.finalCTAText}</span>
-                </a>
-            `;
         }
     }
 
@@ -675,6 +558,30 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
+    //  WHAT I WORK ON (research.html): in progress, then published
+    // ═══════════════════════════════════════════════════════════════
+    function bindWork() {
+        const nowEl = document.querySelector('[data-bind="workNow"]');
+        const doneEl = document.querySelector('[data-bind="workDone"]');
+        if (!C.projects || (!nowEl && !doneEl)) return;
+
+        const published = p => (p.statusKind || '').toLowerCase() === 'published';
+        const item = p => {
+            const title = p.doi
+                ? `<a href="https://doi.org/${p.doi}" target="_blank" rel="noopener">${p.title}</a>`
+                : p.title;
+            const year = ((p.status || '').match(/\b(19|20)\d{2}\b/) || [''])[0];
+            const meta = published(p) && p.venue
+                ? `<p class="work-meta">${p.venue}${year ? ' · ' + year : ''}</p>` : '';
+            const ask = !published(p) && p.needs
+                ? `<p class="work-ask"><strong>Looking for:</strong> ${p.needs}</p>` : '';
+            return `<li class="work-item"><h3>${title}</h3><p>${p.desc}</p>${meta}${ask}</li>`;
+        };
+        if (nowEl) nowEl.innerHTML = C.projects.filter(p => !published(p)).map(item).join('');
+        if (doneEl) doneEl.innerHTML = C.projects.filter(published).map(item).join('');
+    }
+
+    // ═══════════════════════════════════════════════════════════════
     //  MOBILE hamburger
     // ═══════════════════════════════════════════════════════════════
     function wireMobile() {
@@ -712,11 +619,10 @@
         bindLedes();
         wireReveal();
         bindAbout();
-        bindProjects();
+        bindWork();
         bindBlog();
         bindTalks();
         bindContact();
-        bindResearch();
         bindArc();
         wireFilters();
         wireMobile();
