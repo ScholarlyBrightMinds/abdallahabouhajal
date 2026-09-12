@@ -101,7 +101,7 @@ window.SITE_CONFIG = {
     ledes: {
         about:        "Researcher in AI-driven drug discovery, now working at the intersection of cheminformatics, AutoML, and large language models.",
         projects:     "Active work on AI agents and computational toxicology at the top, followed by published output. If any of these intersect with your work, I would love to collaborate.",
-        publications: "Peer-reviewed output across machine learning, cheminformatics, and drug discovery. Synced weekly from OpenAlex and Crossref.",
+        publications: "Peer-reviewed papers on machine learning, cheminformatics and drug discovery.",
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper.",
         talks:        "Hackathon wins, conference talks, poster sessions, and the three-minute thesis. Slides and posters are linked where I have them.",
         contact:      "The fastest way to reach me. Below the form there is a short note for PhD supervisors and another for potential collaborators.",
@@ -260,28 +260,28 @@ window.SITE_CONFIG = {
         {
             n: "01",
             label: "AI Agents · Drug Discovery",
-            title: "AI Agents in Drug Discovery",
-            desc:  "Exploring autonomous AI agents that can plan, reason, and execute drug-discovery workflows end-to-end, from target identification through molecular generation to property prediction. Focus on LLM-backed agent frameworks that integrate specialised chemistry tools and orchestrate multi-step pipelines without constant human scaffolding.",
+            title: "AI agents for drug discovery",
+            desc: "Language model agents that plan a drug discovery task and call real chemistry tools to carry it out, without a person steering every step.",
             tech:  ["LLM Agents", "Tool Use", "Drug Discovery", "Python", "AutoGen", "LangGraph"],
             status: "Active: data collection &amp; framework design",
             statusKind: "active",
-            needs: "Looking for a collaborator with strong ML / LLM-agent experience or domain expertise in target discovery."
+            needs: "A collaborator who builds LLM agents, or who knows target discovery."
         },
         {
             n: "02",
             label: "Computational Toxicology · AOP",
-            title: "AI-Augmented AOP Networks in Computational Toxicology",
-            desc:  "Building AI-augmented Adverse Outcome Pathway (AOP) networks that link molecular initiating events to adverse health outcomes. The goal: use graph-based learning and LLM-assisted literature synthesis to automate AOP construction and identify critical pathway nodes for regulatory and screening use.",
+            title: "AI for adverse outcome pathways",
+            desc: "Using graph learning and language models to build Adverse Outcome Pathway networks, the maps that link a molecular event to a toxic effect.",
             tech:  ["AOP Networks", "Graph ML", "Toxicology", "Literature Mining", "LLMs", "Python"],
             status: "Active: literature synthesis &amp; network prototyping",
             statusKind: "active",
-            needs: "Open to toxicologists, graph-ML researchers, or teams interested in regulatory-adjacent computational tox work."
+            needs: "Toxicologists, graph ML researchers, or teams doing regulatory toxicology."
         },
         {
             n: "03",
             label: "Open Science · Review",
-            title: "GitHub in AI-Driven Drug Discovery",
-            desc:  "Examines the role of collaborative software platforms in modern science through an analysis of GitHub's application in AI-driven drug discovery. Studies how open-source code sharing affects research transparency and reproducibility, with insights into best practices for computational research.",
+            title: "GitHub in AI-driven drug discovery",
+            desc: "How sharing code on GitHub makes AI drug discovery research easier to check and reproduce.",
             tech:  ["Open Science", "GitHub", "Reproducibility", "AI", "Drug Discovery"],
             status: "Published · Expert Opinion on Drug Discovery · 2026",
             statusKind: "published",
@@ -291,8 +291,8 @@ window.SITE_CONFIG = {
         {
             n: "04",
             label: "AutoML · DDI Prediction",
-            title: "Automating Drug-Drug Interaction Prediction",
-            desc:  "Prediction of drug-drug interactions through Automated Machine Learning (AutoML) frameworks. Studies the effects of different molecular feature representations on predictive performance, with insights into automating and improving pharmacovigilance.",
+            title: "Predicting drug-drug interactions with AutoML",
+            desc: "Automated machine learning for drug-drug interactions, and how the way a molecule is represented changes the result.",
             tech:  ["AutoGluon", "RDKit", "Morgan FP", "Python", "Pharmacovigilance"],
             status: "Published · Toxicology Mechanisms and Methods · 2026",
             statusKind: "published",
@@ -302,8 +302,8 @@ window.SITE_CONFIG = {
         {
             n: "05",
             label: "LLMs · Drug Delivery",
-            title: "Large Language Models in Drug Delivery",
-            desc:  "Review of LLM applications in pharmaceutical formulation and drug-delivery-system design. Evaluates existing LLM-powered tools like ChemCrow and BioBERT and contributes to discussions on integrating AI into experimental workflows and personalised medicine.",
+            title: "Language models in drug delivery",
+            desc: "A review of language model tools, such as ChemCrow and BioBERT, for formulation and drug delivery design.",
             tech:  ["LLMs", "ChemCrow", "BioBERT", "Drug Delivery", "Review"],
             status: "Published · Journal of Pharmaceutical Sciences · 2025",
             statusKind: "published",
@@ -313,8 +313,8 @@ window.SITE_CONFIG = {
         {
             n: "06",
             label: "ML Reliability · Oncology",
-            title: "ML Predictions of Tumor Progression",
-            desc:  "A methodological look at how reliable machine-learning predictions of tumor progression actually are, examining benchmarking rigour, dataset bias, and what \"reliable\" should mean in an oncology-ML setting.",
+            title: "How reliable are ML predictions of tumor progression?",
+            desc: "A close look at how machine learning models of tumor progression are benchmarked, where dataset bias creeps in, and what reliable should mean.",
             tech:  ["Machine Learning", "Oncology", "Benchmarking", "Model Reliability"],
             status: "Published · Computers in Biology and Medicine · 2025",
             statusKind: "published",
@@ -324,8 +324,8 @@ window.SITE_CONFIG = {
         {
             n: "07",
             label: "MSc Thesis · JCIM",
-            title: "BAD Molecule Filter: Detection of Colloidal Aggregators",
-            desc:  "My MSc work at Al Ain University. We trained a machine-learning ensemble that flags small molecules that <em>look</em> like real bioactive hits but are actually colloidal aggregators causing false positives in early-stage drug screening. Released as a public web server so any group can pre-screen their compounds for free.",
+            title: "BAD Molecule Filter",
+            desc: "My MSc work. A model that flags molecules that look like real hits in a drug screen but are actually clumping together and causing false positives. It runs as a free public web server.",
             tech:  ["Cheminformatics", "Mordred", "Morgan FP", "Ensemble ML", "Public Web Server", "RDKit"],
             status: "Published · J. Chem. Inf. Model. · 2024",
             statusKind: "published",
@@ -481,69 +481,12 @@ window.SITE_CONFIG = {
         }
     ],
 
-    // ── Research statement / vision (research.html) ──────────────
-    // Each block becomes its own card-style section. Keep the
-    // narrative load-bearing, supervisors actually read this.
-    research: {
-        kicker: "Research statement",
-        h1Front:  "Where I want to take",
-        h1Accent: "this next",
-        intro: "I want to spend the next stretch of my career making AI for early-stage drug discovery more reliable, more interpretable, and more usable for the wet-lab teams who depend on it. The papers below show how that focus formed; the section after them describes what a PhD with me would look like.",
-        sections: [
-            {
-                kicker: "Origin",
-                title: "From pharmacy bench to chemistry-aware ML",
-                body: [
-                    "I trained as a pharmacist: five years of medicinal chemistry, pharmacokinetics, formulation, and one very long Pharmacology Lab. Most of that time I assumed I would end up at a bench. The shift happened during my MSc at Al Ain University, when my supervisor Prof. <strong>Mohammad Ghattas</strong> handed me a stubborn problem: small molecules that look like real bioactive hits but turn out to be colloidal aggregators causing false positives in screening assays.",
-                    "We tried hand-curated filters first. They worked, until they did not. Adding a second supervisor from AI, Prof. <strong>Boulbaba Ben Amor</strong>, turned the project into a machine-learning one. We trained an ensemble that combined Mordred descriptors with Morgan fingerprints, applied an applicability-domain check, and packaged the whole thing as a public web server. That project, published first-author in <em>JCIM</em>, taught me three things that still shape how I work."
-                ]
-            },
-            {
-                kicker: "What I learned",
-                title: "Three lessons I will not give up",
-                body: [
-                    "<strong>1. Cheminformatics first, then ML.</strong> A model is only as good as the molecular representation underneath it. I spend more time on standardisation, tautomer handling, descriptor choice, and applicability domain than on hyperparameter search.",
-                    "<strong>2. The best papers ship.</strong> A trained model that sits in a private notebook is not science. A web server, a CLI, a documented dataset: those are. Every project I lead now ends with something a stranger can use.",
-                    "<strong>3. Honest evaluation matters more than headline accuracy.</strong> My review on <em>ML predictions of tumour progression</em> with Molham Sakkal exists because too many papers in our field benchmark on convenient splits and report numbers that do not survive contact with new chemistry. I am not going to be one of them."
-                ]
-            },
-            {
-                kicker: "Current focus",
-                title: "Three threads I am pulling on now",
-                body: [
-                    "<strong>AI agents for drug discovery.</strong> LLM-backed agent frameworks that can plan, reason, and call specialised chemistry tools (RDKit, docking engines, free-energy estimators) without constant human scaffolding. I am benchmarking which agent topologies actually win on multi-step discovery tasks vs. which ones just hide their failures.",
-                    "<strong>AI-augmented Adverse Outcome Pathway networks.</strong> AOPs are the regulator's mental model for how a molecular event becomes a toxic outcome. They are also painfully manual to build. I want to combine literature-mining LLMs with graph ML to assemble AOP networks at scale, and identify the choke-point nodes that matter most for regulatory toxicology.",
-                    "<strong>LLMs vs. fingerprints, on chemistry.</strong> The honest question: do reasoning LLMs actually beat a well-tuned GNN or a Morgan-fingerprint ensemble on molecular property prediction? My hunch from preliminary work is that they do not yet, and the interesting research is figuring out why and what to fix."
-                ]
-            },
-            {
-                kicker: "PhD vision",
-                title: "What a PhD with me would look like",
-                body: [
-                    "I am looking for a PhD starting late 2026 or 2027 in a group working on <em>any</em> of: AI-driven virtual or high-throughput screening, predictive ADMET / toxicity modelling, LLM agents for chemistry, computational toxicology, or model interpretability for drug discovery.",
-                    "The shape I want is: 3 to 4 first-author publications, at least one of which is a tool other groups end up using; deep technical chops in either GNN-based property prediction, agent-based pipelines, or AOP-style mechanistic modelling; and at least one external collaboration with a wet-lab team so the work is grounded.",
-                    "What I bring to a PhD group: a published first-author paper in <em>JCIM</em>, four corresponding-author papers, three years of journal-operations experience that taught me how publishing actually works, and a strong appetite for the engineering side of research. I write Python that other people can read, I document, and I ship."
-                ]
-            },
-            {
-                kicker: "If we should talk",
-                title: "Reasons to email me",
-                body: [
-                    "If you supervise a group that works on any of the threads above, or if you are doing methods work I have cited in <em>JCIM</em>, <em>Expert Opinion on Drug Discovery</em>, <em>Computers in Biology and Medicine</em>, or <em>Journal of Pharmaceutical Sciences</em>, I would like to hear from you. Even a 20-minute Zoom about whether we would be a fit is worth it.",
-                    "I am also happy to be told my framing is off. PhD applicants who already know exactly what they will work on are usually wrong. I have a direction and a habit of working hard; the right group will sharpen the rest."
-                ]
-            }
-        ],
-        finalCTAText: "Email Abdallah →",
-        finalCTAHref: "mailto:abdallah.abouhajal@gmail.com?subject=PhD%20position%20enquiry&body=Hi%20Abdallah%2C%0A%0AI%20saw%20your%20research%20statement%20and%20wanted%20to%20discuss%20a%20PhD%20opportunity%20in%20our%20group.%0A%0A"
-    },
 
     // ── Contact page (contact.html) ───────────────────────────────
     // formAction = a Formspree endpoint. Will need to be created at
     // formspree.io (free tier ok) before the form actually delivers mail.
     // Until then the page still works for direct email + CV download.
     contact: {
-        kicker: "Get in touch",
         h1Front:  "Let's",
         h1Accent: "talk",
         intro: "I read every email. Below the form there are short notes for PhD supervisors and potential collaborators, plus the direct ways to reach me.",
