@@ -257,12 +257,6 @@ def render_html(post, date_label):
 </head>
 <body>
 
-<div class="mol-bg" aria-hidden="true">
-    <!-- molecule meets neural network: ambient cobalt motif -->
-    <svg class="mol-1" viewBox="0 0 220 160"><polygon points="58,36 94,56 94,96 58,116 22,96 22,56"/><circle cx="58" cy="36" r="3"/><circle cx="94" cy="56" r="3"/><circle cx="94" cy="96" r="3"/><circle cx="58" cy="116" r="3"/><circle cx="22" cy="96" r="3"/><circle cx="22" cy="56" r="3"/><line x1="94" y1="56" x2="150" y2="34"/><line x1="94" y1="96" x2="152" y2="116"/><line x1="150" y1="34" x2="198" y2="60"/><line x1="152" y1="116" x2="198" y2="60" class="faint"/><circle cx="150" cy="34" r="4.5"/><circle cx="152" cy="116" r="4.5"/><circle cx="198" cy="60" r="6" class="hollow"/></svg>
-    <svg class="mol-2 amber" viewBox="0 0 120 120"><line x1="60" y1="60" x2="60" y2="18"/><line x1="60" y1="60" x2="98" y2="82"/><line x1="60" y1="60" x2="22" y2="82"/><circle cx="60" cy="18" r="3.5"/><circle cx="98" cy="82" r="3.5"/><circle cx="22" cy="82" r="3.5"/><circle cx="60" cy="60" r="4.5"/><circle cx="60" cy="60" r="12" class="hollow faint"/></svg>
-    <svg class="mol-4" viewBox="0 0 160 160"><polygon points="80,26 126,52 126,104 80,130 34,104 34,52"/><circle cx="80" cy="78" r="22" class="hollow" stroke-dasharray="3 4"/><circle cx="80" cy="26" r="3"/><circle cx="126" cy="104" r="3"/><circle cx="34" cy="104" r="3"/><line x1="126" y1="52" x2="150" y2="40" class="faint"/><circle cx="152" cy="38" r="3"/></svg>
-</div>
 
 <nav class="nav" data-page="blog"></nav>
 
