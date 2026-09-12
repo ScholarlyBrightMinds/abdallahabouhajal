@@ -146,6 +146,19 @@
         setBind('social', socialHTML);
 
         // Profile photo
+        // Homepage stats line, from the chips build_html.py rewrites every Monday
+        const statsEl = document.querySelector('[data-bind="stats"]');
+        if (statsEl && C.chips) {
+            const pc = ((C.chips.find(c => /Publications · /.test(c.label)) || {}).label || '')
+                .match(/(\d[\d,]*) Publications · (\d[\d,]*) Citations/);
+            const hm = ((C.chips.find(c => /^h-index /.test(c.label)) || {}).label || '').match(/h-index (\d+)/);
+            if (pc) {
+                statsEl.innerHTML = `<a href="publications.html"><strong>${pc[1]}</strong> papers</a>` +
+                    `<span><strong>${pc[2]}</strong> citations</span>` +
+                    (hm ? `<span>h-index <strong>${hm[1]}</strong></span>` : '');
+            }
+        }
+
         const photoEl = document.querySelector('[data-bind="photo"]');
         if (photoEl) photoEl.src = C.identity.photo;
 
