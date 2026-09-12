@@ -48,7 +48,7 @@
 }
 
 .metric-num {
-    font-family: var(--display);
+    font-family: var(--f-mono);
     font-size: 2.55rem;
     font-weight: 600;
     line-height: 1;
@@ -170,7 +170,7 @@
 }
 
 .publication-category {
-    font-family: var(--body);
+    font-family: var(--f-ui);
     font-size: 0.84rem;
     color: var(--text-soft);
     text-decoration: none;
@@ -216,11 +216,11 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0.4rem 0.8rem;
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     border: 1px solid var(--border);
     background: var(--bg-soft);
     font-size: 0.78rem;
-    font-family: var(--body);
+    font-family: var(--f-ui);
     color: var(--text-soft);
     text-decoration: none;
     transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform 0.18s var(--ease);
@@ -342,10 +342,10 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0.38rem 0.7rem;
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     background: var(--bg-soft);
     border: 1px solid var(--border);
-    font-family: var(--body);
+    font-family: var(--f-ui);
     font-size: 0.78rem;
     line-height: 1;
     color: var(--text-soft);
@@ -566,7 +566,7 @@ a.pub-stat-doi:hover .pub-stat-label { color: inherit; }
 .coauth-row-count {
     background: var(--accent-bg);
     color: var(--accent);
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     padding: 0.18rem 0.6rem;
     font-family: var(--mono);
     font-weight: 600;

@@ -72,7 +72,7 @@
     pointer-events: none;
 }
 .blog-cover-num {
-    font-family: var(--display);
+    font-family: var(--f-mono);
     font-size: 2.4rem;
     font-weight: 600;
     line-height: 1;

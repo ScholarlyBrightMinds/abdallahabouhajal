@@ -3,15 +3,23 @@
    Palette values are injected by theme.config.js at runtime.
    Do not hard-code colors here - use the --var names.
 
-   Type    : Space Grotesk (display) · Instrument Sans (body) · JetBrains Mono (data)
+   Type    : Charter (read) · system sans (operate) · system mono (measure)
+             No webfont requests. Every face ships with the OS.
    Motion  : fast, ease-out, transform/opacity only, honors reduced motion
-   Shapes  : cards 16px · inputs 10px · interactive pills · viewfinder ticks
+   Shapes  : cards 10px · controls 6px · nothing is a pill · viewfinder ticks
    ═══════════════════════════════════════════════════════════════════ */
 
 :root {
-    --display: 'Space Grotesk', 'Instrument Sans', -apple-system, sans-serif;
-    --body:    'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    /* Serif for what you read, sans for what you operate, mono for what you
+       measure. None of them downloaded. */
+    --f-text: Charter, 'Bitstream Charter', 'Iowan Old Style', Palatino, Georgia, serif;
+    --f-ui:   system-ui, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    --f-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* Legacy aliases, so the eight page stylesheets keep resolving */
+    --display: var(--f-text);
+    --body:    var(--f-text);
+    --mono:    var(--f-mono);
 
     /* Motion tokens */
     --ease:     cubic-bezier(0.23, 1, 0.32, 1);      /* strong ease-out */
@@ -22,17 +30,23 @@
 
     /* Layout tokens */
     --container-max: 1080px;
-    --radius:        16px;
-    --radius-s:      10px;
+    --radius:        10px;   /* cards */
+    --radius-s:      6px;    /* controls */
 
     /* Type scale */
-    --fs-hero:  clamp(2.7rem, 6.2vw, 4.3rem);
-    --fs-h1:    clamp(2.3rem, 4.8vw, 3.4rem);
-    --fs-h2:    clamp(1.55rem, 3vw, 2.05rem);
-    --fs-h3:    1.16rem;
-    --fs-body:  0.97rem;
-    --fs-small: 0.85rem;
-    --fs-micro: 0.72rem;
+    --fs-hero:  clamp(2.6rem, 5.8vw, 4.6rem);
+    --fs-h1:    clamp(2.0rem, 4.2vw, 2.7rem);
+    --fs-h2:    clamp(1.28rem, 2.4vw, 1.42rem);
+    --fs-h3:    1.08rem;
+    --fs-body:  1rem;
+    --fs-small: 0.84rem;    /* 13.5px caption */
+    --fs-micro: 0.66rem;    /* 10.5px kicker */
+
+    /* Charter runs small, so body sits above the usual 16 */
+    --measure:      68ch;
+    --track-display: -0.02em;
+    --track-kicker:  0.22em;
+    --weight-heading: 640;  /* never 700, Charter bold is heavy */
 
     /* Defaults here; overwritten at runtime by theme.config.js */
     --bg: #0a0e16; --bg-soft: #0e131e; --bg-deep: #060910;
@@ -54,12 +68,32 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ─── Typography rules from the brand manual ───
+   A two line heading with one word on the second line looks like a bug.
+   Large serif needs tightening. Small uppercase needs opening. Any column
+   of figures gets tabular figures, or the digits shift width. */
+h1, h2, h3, h4,
+.hero h1, .sub-hero h1, .sec-title,
+[class$="-title"], [class*="-title "] {
+    text-wrap: balance;
+    font-weight: var(--weight-heading);
+    letter-spacing: var(--track-display);
+}
+.sec-kicker, .arc-hero-kicker, .arc-step-kicker, .blog-cover-tag, .proj-label {
+    letter-spacing: var(--track-kicker);
+}
+.impact-num, .metric-num, .pub-stat-num, .proj-num, .blog-cover-num,
+.coauth-row-count, .oa-badge strong, .orcid-pill strong, td, th {
+    font-variant-numeric: tabular-nums;
+}
 html { scroll-behavior: smooth; }
 
 body {
-    font-family: var(--body);
+    font-family: var(--f-text);
     font-weight: 400;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.62;
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
@@ -157,7 +191,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     align-items: center;
 }
 .nav-item {
-    font-family: var(--body);
+    font-family: var(--f-ui);
     font-size: 0.79rem;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -187,7 +221,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 
 .theme-toggle {
     width: 34px; height: 34px;
-    border-radius: 50%;
+    border-radius: var(--radius-s);
     border: 1px solid var(--border);
     background: var(--card);
     cursor: pointer;
@@ -266,7 +300,7 @@ main {
     background: var(--accent-bg);
     border: 1px solid var(--accent-glow);
     padding: 0.42rem 0.9rem;
-    border-radius: 2rem;
+    border-radius: var(--radius-s);
     margin-bottom: 1.7rem;
 }
 .hero-status .live-dot {
@@ -447,7 +481,7 @@ main {
     gap: 0.45rem;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 2rem;
+    border-radius: var(--radius-s);
     padding: 0.42rem 0.9rem;
     font-size: 0.77rem;
     color: var(--text-soft);
@@ -476,7 +510,7 @@ main {
 }
 .social-icon {
     width: 38px; height: 38px;
-    border-radius: 50%;
+    border-radius: var(--radius-s);
     background: var(--card);
     border: 1px solid var(--border);
     display: grid;
@@ -786,7 +820,7 @@ html.js .reveal.vis {
     color: var(--bg);
     background: var(--accent);
     padding: 0.32rem 0.8rem;
-    border-radius: 999px;
+    border-radius: var(--radius-s);
 }
 .phd-cta-title {
     font-family: var(--display);
@@ -815,8 +849,8 @@ html.js .reveal.vis {
     align-items: center;
     gap: 0.55rem;
     padding: 0.7rem 1.15rem;
-    border-radius: 999px;
-    font-family: var(--body);
+    border-radius: var(--radius-s);
+    font-family: var(--f-ui);
     font-size: 0.84rem;
     font-weight: 600;
     text-decoration: none;
@@ -906,7 +940,7 @@ html.js .reveal.vis {
 }
 .impact-tile:hover::before { transform: scaleX(1); }
 .impact-num {
-    font-family: var(--display);
+    font-family: var(--f-mono);
     font-size: clamp(2.3rem, 4vw, 2.9rem);
     font-weight: 600;
     line-height: 1;
@@ -921,7 +955,7 @@ html.js .reveal.vis {
 }
 .impact-tile--gold:hover { border-color: var(--amber); }
 .impact-label {
-    font-family: var(--body);
+    font-family: var(--f-ui);
     font-size: 0.92rem;
     font-weight: 600;
     color: var(--text);
@@ -997,11 +1031,11 @@ html.js .reveal.vis {
     align-items: center;
 }
 .pub-filter {
-    font-family: var(--body);
+    font-family: var(--f-ui);
     font-size: 0.78rem;
     font-weight: 500;
     padding: 0.4rem 0.85rem;
-    border-radius: 999px;
+    border-radius: var(--radius-s);
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text-soft);

@@ -116,7 +116,7 @@
             <div class="footer-left">
                 <div>${C.identity.fullName} · ${C.identity.location} · © ${C.footer.copyrightYear}</div>
                 <div class="colophon">
-                    ${C.footer.tagline} Space Grotesk · Instrument Sans · JetBrains Mono. ${C.footer.credits}
+                    ${C.footer.tagline} Set in Charter and the system faces, none of them downloaded. ${C.footer.credits}
                 </div>
             </div>
             <div class="footer-links">${links}</div>
