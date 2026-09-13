@@ -517,7 +517,7 @@ window.SITE_CONFIG = {
     // ── Footer text ───────────────────────────────────────────────
     footer: {
         copyrightYear: 2026,
-        tagline: "Part of the Scholarly Bright Minds hub.",
+        tagline: "Part of the <a href=\"https://scholarlybrightminds.github.io/\">Scholarly Bright Minds</a> hub.",
         credits: "A fork of <a href=\"https://github.com/muhammedrashidx/ScholarSite_2.0\" target=\"_blank\" rel=\"noopener\">ScholarSite_2.0</a>."
     }
 };
