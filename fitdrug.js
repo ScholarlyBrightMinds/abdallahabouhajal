@@ -39,7 +39,9 @@
         pocket: $('pocket'), stat: $('static'), card: $('card'), mol: $('mol'), say: $('say'),
         note: $('note'), actions: $('actions'), chartwrap: $('chartwrap'), chart: $('chart'),
         prov: $('prov'), step1: $('step1'), step2: $('step2'), step3: $('step3'),
-        goal: $('goal'), key: $('key')
+        goal: $('goal'), key: $('key'),
+        zoomIn: $('zoomin'), zoomOut: $('zoomout'), zoomReset: $('zoomreset'),
+        zoom: $('zoom')
     };
 
     // ── small helpers ───────────────────────────────────────────────
@@ -76,7 +78,11 @@
     var g = null;                // the run in progress
     var visible = false, rafId = 0, anims = [];
     var pointNodes = [], selected = -1, pred = null, unc = null, lastMol = -1, topPick = -1;
-    var heatCells = null, heatCtx = null;
+    var heatCells = null, heatCtx = null, heatImg = null, lodLayer = null;
+    // the camera over the map: the base viewBox is the whole world
+    var BASE = { x: -25, y: 0, w: 1050, h: 700 };
+    var view = { x: BASE.x, y: BASE.y, w: BASE.w, h: BASE.h };
+    var zoomNow = 1, lodTimer = 0, lodKey = '', dragged = false, nnDist = null;
 
     // ═══════════════════════════════════════════════════════════ tabs
     function showTab(which) {
@@ -178,6 +184,13 @@
         return o;
     }
     function rgb(c) { return 'rgb(' + c[0] + ',' + c[1] + ',' + c[2] + ')'; }
+    // the same scale, but dark enough at the weak end to draw a molecule with
+    var INK = [116, 129, 155];
+    function inkRamp(p) {
+        var t = clamp((p - 4.5) / 5.0, 0, 1), i, o = [];
+        for (i = 0; i < 3; i++) o.push(Math.round(INK[i] + (HI[i] - INK[i]) * t));
+        return o;
+    }
 
     function layoutHeat() { if (!heatCells) buildCells(); }
     // 40 by 28 cells, each one keyed to the three compounds nearest to it
@@ -218,10 +231,19 @@
                 ctx.fillRect(i, j, 1, 1);
             }
         }
+        if (heatImg) heatImg.setAttribute('href', ui.heat.toDataURL());
     }
+    function heatOpacity(v) { if (heatImg) heatImg.style.opacity = v; }
 
     function buildMap() {
         ui.map.innerHTML = '';
+        // the heat lives inside the map as an image, so panning and zooming the
+        // viewBox carries it along with the compounds
+        heatImg = el('image', {
+            x: BASE.x, y: BASE.y, width: BASE.w, height: BASE.h,
+            preserveAspectRatio: 'none', 'class': 'fit-heatimg'
+        }, ui.map);
+        lodLayer = el('g', { 'class': 'fit-mols' }, ui.map);
         var gp = el('g', { 'class': 'fit-points' }, ui.map);
         pointNodes = [];
         for (var i = 0; i < N; i++) {
@@ -235,10 +257,27 @@
         el('g', { 'class': 'fit-marks' }, ui.map);
         show(ui.map, true);
     }
+    // a dot is 8 px across whatever the zoom, so zooming spreads the map out
+    // instead of inflating everything on it
+    function pointScale() {
+        var box = ui.map.getBoundingClientRect();
+        return box.width ? view.w / box.width : 1;
+    }
+    function sizePoints() {
+        if (!pointNodes.length) return;
+        var s = pointScale();
+        for (var i = 0; i < N; i++) {
+            var on = g && g.seen[i];
+            pointNodes[i].setAttribute('r', fmt((on ? 11 : 8) * s, 2));
+            pointNodes[i].style.strokeWidth = fmt(1.6 * s, 2);
+        }
+    }
     function paintPoints() {
+        var ps = pointScale();
         for (var i = 0; i < N; i++) {
             var node = pointNodes[i], on = g && g.seen[i];
-            node.setAttribute('r', on ? 11 : 8);
+            node.setAttribute('r', fmt((on ? 11 : 8) * ps, 2));
+            node.style.strokeWidth = fmt(1.6 * ps, 2);
             node.setAttribute('class', 'fit-pt' + (on ? ' on' : '') + (on && y[i] >= 8 ? ' hit' : '') +
                                        (i === selected ? ' sel' : ''));
             // measured compounds wear their real potency, the rest wear the model's guess
@@ -247,6 +286,7 @@
                 (on ? ', measured pIC50 ' + fmt(y[i]) : ', the model expects pIC50 ' + fmt(pred[i])));
         }
         markTopPick();
+        if (lodKey) { lodKey = ''; drawLOD(); }
     }
     // the compound the picker would spend its next assay on
     function markTopPick() {
@@ -257,6 +297,140 @@
         el('circle', { cx: MX[topPick], cy: MY[topPick], r: 17 }, gm);
         var t = el('text', { x: MX[topPick], y: MY[topPick] - 24, 'text-anchor': 'middle' }, gm);
         t.textContent = 'model pick';
+    }
+
+    // ═══════════════════════════════════ the camera over the map
+    // Zooming only moves the viewBox, so the heat, the compounds, the rings
+    // and the drawn molecules all travel together with no second coordinate
+    // system to keep in step.
+    var MAX_Z = 8, LOD_Z = 2.2, LABEL_Z = 3.4, MOL_SIZE = 58;
+
+    function applyView() {
+        zoomNow = BASE.w / view.w;
+        ui.map.setAttribute('viewBox',
+            fmt(view.x, 1) + ' ' + fmt(view.y, 1) + ' ' + fmt(view.w, 1) + ' ' + fmt(view.h, 1));
+        ui.stage.classList.toggle('is-zoomed', zoomNow > 1.02);
+        if (ui.zoomOut) ui.zoomOut.disabled = zoomNow <= 1.02;
+        if (ui.zoomIn) ui.zoomIn.disabled = zoomNow >= MAX_Z - 0.01;
+        sizePoints();
+        clearTimeout(lodTimer);
+        lodTimer = setTimeout(drawLOD, 80);
+    }
+    // keep the world point (fx, fy) under the same pixel while the zoom changes
+    function setZoom(z, fx, fy) {
+        z = clamp(z, 1, MAX_Z);
+        var nw = BASE.w / z, nh = BASE.h / z;
+        if (fx === undefined) { fx = view.x + view.w / 2; fy = view.y + view.h / 2; }
+        var nx = fx - (fx - view.x) * (nw / view.w);
+        var ny = fy - (fy - view.y) * (nh / view.h);
+        view.w = nw; view.h = nh;
+        view.x = clamp(nx, BASE.x, BASE.x + BASE.w - nw);
+        view.y = clamp(ny, BASE.y, BASE.y + BASE.h - nh);
+        applyView();
+    }
+    function resetView() {
+        view.x = BASE.x; view.y = BASE.y; view.w = BASE.w; view.h = BASE.h;
+        applyView();
+    }
+    function panBy(dx, dy) {
+        view.x = clamp(view.x + dx, BASE.x, BASE.x + BASE.w - view.w);
+        view.y = clamp(view.y + dy, BASE.y, BASE.y + BASE.h - view.h);
+        applyView();
+    }
+
+    // ── the compounds as molecules, once they are big enough to read ──
+    function clearLOD() {
+        if (lodLayer && lodLayer.childNodes.length) lodLayer.textContent = '';
+        lodKey = '';
+        if (ui.stage) ui.stage.classList.remove('has-mols');
+    }
+    // how far the nearest other compound sits, so a molecule is only drawn
+    // where there is room for it. Clusters resolve as you zoom into them.
+    function buildNN() {
+        nnDist = new Float32Array(N);
+        for (var i = 0; i < N; i++) {
+            var best = 1e9;
+            for (var j = 0; j < N; j++) {
+                if (j === i) continue;
+                var dx = MX[i] - MX[j], dy = MY[i] - MY[j], d = dx * dx + dy * dy;
+                if (d < best) best = d;
+            }
+            nnDist[i] = Math.sqrt(best);
+        }
+    }
+    function drawLOD() {
+        if (!mols || !lodLayer || state !== 'screen' || zoomNow < LOD_Z) { clearLOD(); return; }
+        if (!nnDist) buildNN();
+        var box = ui.map.getBoundingClientRect();
+        if (!box.width) return;
+        // the drawing keeps the same size on screen whatever the zoom, so
+        // zooming in gives each molecule more room rather than a bigger picture
+        var perPx = view.w / box.width;
+        var size = 96 * perPx;
+        var cx = view.x + view.w / 2, cy = view.y + view.h / 2, i, j, near = [];
+        for (i = 0; i < N; i++) {
+            if (MX[i] < view.x - size || MX[i] > view.x + view.w + size) continue;
+            if (MY[i] < view.y - size || MY[i] > view.y + view.h + size) continue;
+            near.push([i, (MX[i] - cx) * (MX[i] - cx) + (MY[i] - cy) * (MY[i] - cy)]);
+        }
+        near.sort(function (a, b) { return a[1] - b[1]; });
+        // take them from the middle of the view outwards, skipping any that
+        // would land on top of one already taken. Zooming shrinks the gap they
+        // need, so a cluster opens up into its molecules as you go in.
+        var gap = size * 0.8, list = [];
+        for (i = 0; i < near.length && list.length < 60; i++) {
+            var k = near[i][0], ok = true;
+            for (j = 0; j < list.length; j++) {
+                var a = list[j][0];
+                if (Math.abs(MX[a] - MX[k]) < gap && Math.abs(MY[a] - MY[k]) < gap) { ok = false; break; }
+            }
+            if (ok) list.push(near[i]);
+        }
+        var labels = zoomNow >= LABEL_Z;
+        var key = list.map(function (r) { return r[0]; }).join(',') + '|' + (labels ? 1 : 0) +
+                  '|' + Math.round(size);
+        if (key === lodKey) return;                 // same molecules, nothing to redo
+        lodKey = key;
+        lodLayer.textContent = '';
+        ui.stage.classList.toggle('has-mols', list.length > 0);
+        var D = window.SBMDraw;
+        for (i = 0; i < N; i++) pointNodes[i].classList.remove('under-mol');
+        for (i = 0; i < list.length; i++) {
+            // the dot steps out of the way of its own molecule
+            pointNodes[list[i][0]].classList.add('under-mol');
+            drawOne(list[i][0], D, labels, size, perPx);
+        }
+    }
+    function drawOne(i, D, labels, size, perPx) {
+        var mol = molOf(i);
+        if (!mol) return;
+        var f = D.fit(mol, size, size, size * 0.07, size / 5);
+        var on = g && g.seen[i];
+        var node = el('g', {
+            'class': 'fit-molm' + (on ? ' on' : ''),
+            'stroke-width': fmt(perPx * (on ? 2 : 1.5), 2),
+            transform: 'translate(' + fmt(MX[i] - size / 2, 1) + ',' + fmt(MY[i] - size / 2, 1) + ')'
+        }, lodLayer);
+        node.style.setProperty('--c', rgb(inkRamp(on ? y[i] : pred[i])));
+        var labelled = mol.atoms.map(function (a) { return labels && a[0] !== 'C'; });
+        mol.bonds.forEach(function (b) {
+            D.bondLines(b, f.pts, f.s, labelled).forEach(function (sg) {
+                el('line', {
+                    x1: fmt(sg[0], 1), y1: fmt(sg[1], 1), x2: fmt(sg[2], 1), y2: fmt(sg[3], 1)
+                }, node);
+            });
+        });
+        if (!labels) return;
+        mol.atoms.forEach(function (a, k) {
+            if (a[0] === 'C') return;
+            var tx = el('text', {
+                x: fmt(f.pts[k][0], 1), y: fmt(f.pts[k][1], 1),
+                'font-size': fmt(perPx * 11, 2), 'stroke-width': fmt(perPx * 2.6, 2),
+                'text-anchor': 'middle', 'dominant-baseline': 'central',
+                'class': LABELLED[a[0]] || ''
+            }, node);
+            tx.textContent = a[0];
+        });
     }
 
     // ══════════════════════════════════════════════ molecule drawing
@@ -383,6 +557,8 @@
     }
 
     function newRun() {
+        resetView();
+        clearLOD();
         g = {
             seen: new Uint8Array(N), revealed: [], picks: [], budget: meta.game.assays, used: 0,
             best: -1, bestAssay: 0, hits: 0, warm: [], picker: null, compound: -1, docked: null,
@@ -398,10 +574,11 @@
         setStep(1);
         show(ui.stat, false);
         show(ui.map, true);
-        ui.heat.style.opacity = '';
+        heatOpacity('');
         show(ui.pocket, false);
         show(ui.chartwrap, false);
         show(ui.key, true);
+        if (ui.zoom) ui.zoom.hidden = false;
         ui.title.textContent = 'Screen';
         buildMap();
         g.warm.forEach(function (k) { reveal(k, true); });
@@ -512,9 +689,12 @@
     // ═══════════════════════════════════════════════════════ step two
     function toDock() {
         state = 'dock';
+        resetView();
+        clearLOD();
         root.setAttribute('data-state', 'dock');
         setStep(2);
         show(ui.key, false);
+        if (ui.zoom) ui.zoom.hidden = true;
         show(ui.goal, false);
         ui.title.textContent = 'Dock';
         ui.meta.textContent = '';
@@ -595,7 +775,7 @@
 
     function drawPocket(opts) {
         show(ui.map, false);
-        ui.heat.style.opacity = '0';
+        heatOpacity('0');
         show(ui.pocket, true);
         ui.pocket.innerHTML = '';
         var slabs = el('g', { 'class': 'fit-slabs' }, ui.pocket), k;
@@ -945,11 +1125,14 @@
         poseNodes.B.node.classList.add('drifted');
         ui.meta.innerHTML = '<span>A <strong>holds</strong></span><span>B <strong>drifts</strong></span>';
         ui.say.textContent = (right ? 'You were right. ' : 'Not this time. ') +
+            'RMSD is how far the drug has slid from where docking put it, in Angstrom, so a small ' +
+            'number means it is still sitting where it started and a few Angstrom means it has left. ' +
             'Pose A held in ' + v.A.seeds_holding + ' of ' + v.A.seeds + ' seeds, median RMSD over the last ' +
             'nanosecond ' + v.A.median_rmsd_last_1ns.join(', ') + ' Angstrom. Pose B drifted in all ' +
             v.B.seeds + ', at ' + v.B.median_rmsd_last_1ns.join(', ') + ' Angstrom.';
         var hinge = mdata.runs.filter(function (r) { return r.pose === 'A'; }).map(function (r) { return r.hinge_pct; });
-        ui.note.innerHTML = 'Pose A keeps the Met769 hinge contact in ' + Math.min.apply(null, hinge) + ' to ' +
+        ui.note.innerHTML = 'Met769 is the residue a drug has to hydrogen bond to in this pocket, and ' +
+            'keeping that bond is what holding on looks like. Pose A keeps it in ' + Math.min.apply(null, hinge) + ' to ' +
             Math.max.apply(null, hinge) + ' percent of frames. Pose B never makes it.';
         actions([
             { label: 'See the run', primary: true, focus: true, go: finish },
@@ -1032,12 +1215,14 @@
     // click, not pointerdown, so a finger dragging the page still scrolls
     ui.map.addEventListener('click', function (e) {
         if (state !== 'screen') return;
+        if (dragged) { dragged = false; return; }   // that was a pan, not a pick
         var p = mapPoint(e);
         if (!p) return;
-        // a generous radius, so a finger does not have to be exact
+        // a generous radius, so a finger does not have to be exact. It shrinks
+        // as you zoom in, because then the compounds are further apart on screen.
         var box = ui.map.getBoundingClientRect();
-        var unitsPerPx = 1050 / Math.max(1, box.width);
-        var i = nearest(p.x, p.y, Math.max(26, 20 * unitsPerPx));
+        var unitsPerPx = view.w / Math.max(1, box.width);
+        var i = nearest(p.x, p.y, Math.max(26 / zoomNow, 20 * unitsPerPx));
         if (i >= 0) { selectPoint(i); pointNodes[i].focus({ preventScroll: true }); }
     });
     ui.map.addEventListener('keydown', function (e) {
@@ -1063,6 +1248,85 @@
         if (best >= 0) { selectPoint(best); pointNodes[best].focus({ preventScroll: true }); }
     });
 
+    // ── dragging the map, pinching it, and the wheel ─────────────────
+    (function wireCamera() {
+        var pts = {}, pan = null, pinch = null;
+
+        function count() { var n = 0, k; for (k in pts) n++; return n; }
+        function unitsPerPx() {
+            var box = ui.map.getBoundingClientRect();
+            return view.w / Math.max(1, box.width);
+        }
+        ui.map.addEventListener('pointerdown', function (e) {
+            if (state !== 'screen') return;
+            pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+            if (count() === 2) {
+                var a = [], k;
+                for (k in pts) a.push(pts[k]);
+                pinch = { d: Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y), z: zoomNow };
+                pan = null;
+            } else if (count() === 1 && zoomNow > 1.02) {
+                pan = { sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: false };
+                ui.map.setPointerCapture(e.pointerId);
+            }
+        });
+        ui.map.addEventListener('pointermove', function (e) {
+            if (!pts[e.pointerId]) return;
+            pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+            if (pinch && count() === 2) {
+                var a = [], k;
+                for (k in pts) a.push(pts[k]);
+                var d = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y);
+                e.preventDefault();
+                dragged = true;
+                setZoom(pinch.z * (d / Math.max(1, pinch.d)));
+                return;
+            }
+            if (!pan) return;
+            var mx = e.clientX - pan.sx, my = e.clientY - pan.sy;
+            if (!pan.moved && Math.hypot(mx, my) < 6) return;   // still a tap
+            pan.moved = true;
+            dragged = true;
+            e.preventDefault();
+            var u = unitsPerPx();
+            view.x = clamp(pan.vx - mx * u, BASE.x, BASE.x + BASE.w - view.w);
+            view.y = clamp(pan.vy - my * u, BASE.y, BASE.y + BASE.h - view.h);
+            applyView();
+        });
+        function up(e) {
+            delete pts[e.pointerId];
+            if (count() < 2) pinch = null;
+            if (count() === 0) pan = null;
+        }
+        ui.map.addEventListener('pointerup', up);
+        ui.map.addEventListener('pointercancel', up);
+        ui.map.addEventListener('pointerleave', function (e) { if (!pan || !pan.moved) up(e); });
+
+        ui.map.addEventListener('wheel', function (e) {
+            if (state !== 'screen') return;
+            var p = mapPoint(e);
+            if (!p) return;
+            e.preventDefault();
+            setZoom(zoomNow * Math.exp(-e.deltaY * 0.0016), p.x, p.y);
+        }, { passive: false });
+
+        if (ui.zoomIn) ui.zoomIn.addEventListener('click', function () { setZoom(zoomNow * 1.6); });
+        if (ui.zoomOut) ui.zoomOut.addEventListener('click', function () { setZoom(zoomNow / 1.6); });
+        if (ui.zoomReset) ui.zoomReset.addEventListener('click', resetView);
+
+        ui.map.addEventListener('keydown', function (e) {
+            if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoomNow * 1.6); }
+            else if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(zoomNow / 1.6); }
+            else if (e.key === '0') { e.preventDefault(); resetView(); }
+            else if (zoomNow > 1.02 && e.shiftKey) {
+                var d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+                if (!d) return;
+                e.preventDefault();
+                panBy(d[0] * view.w * 0.2, d[1] * view.h * 0.2);
+            }
+        });
+    })();
+
     // ═══════════════════════════════════════════════════════════ boot
     function ready() {
         state = 'ready';
@@ -1071,6 +1335,7 @@
         show(ui.map, true);
         show(ui.goal, false);
         show(ui.key, false);
+        if (ui.zoom) ui.zoom.hidden = true;
         ui.title.textContent = 'Screen, dock, simulate';
         ui.say.innerHTML = '<b>' + meta.game.assays + '</b> tests to find a strong EGFR inhibitor among <b>' +
             N + '</b> real compounds. A model in this browser learns from every result.';

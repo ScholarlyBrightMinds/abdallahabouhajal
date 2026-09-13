@@ -195,7 +195,7 @@
 <main class="home">
 
     <section class="home-intro" aria-labelledby="home-name">
-        <img class="home-portrait" src="images/profile.png" alt="Abdallah Abou Hajal" width="72" height="72">
+        <img class="home-portrait" src="images/profile.png" alt="Abdallah Abou Hajal" width="168" height="168">
         <h1 id="home-name">Abdallah Abou Hajal</h1>
         <p class="home-lede">Machine learning for drug discovery, and AI agents for academic publishing. Automation lead at Scifiniti, looking for a PhD.</p>
         <p class="home-stats" data-bind="stats">
@@ -246,6 +246,11 @@
                      role="group" aria-label="A map of EGFR compounds, arranged so that similar molecules sit together. Arrow keys move between compounds, Enter spends an assay."></svg>
                 <svg class="fit-view" data-f="pocket" viewBox="0 0 600 400" hidden
                      role="img" aria-label="A flat view into the EGFR pocket from the 1M17 crystal structure"></svg>
+                <div class="fit-zoom" data-f="zoom" hidden>
+                    <button type="button" data-f="zoomin" aria-label="Zoom in on the map">+</button>
+                    <button type="button" data-f="zoomout" aria-label="Zoom out" disabled>&#8722;</button>
+                    <button type="button" data-f="zoomreset" aria-label="Fit the whole map">Fit</button>
+                </div>
                 <div class="fit-static" data-f="static">
                     <p>Three steps on data that was computed before you arrived. <b>Screen</b>: 302 real EGFR
                     compounds from ChEMBL sit on a map, you have eight assays, and a model in your browser
