@@ -246,103 +246,31 @@ window.SITE_CONFIG = {
     // post has a distinctive duotone for visual scannability.
     blog: [
         {
-            file: "blog-post-11.html",
-            title: "Learning in Public",
-            date: "Sep 12, 2026",
-            tag: "Research",
-            cover: "git",
-            readingTime: "4 min read",
-            excerpt: "Sharing work before it is finished feels risky. But the people who do it consistently seem to grow faster than everyone who waited until it was ready."
-        },
-        {
-            file: "blog-post-10.html",
-            title: "Saying I Do Not Know",
-            date: "Aug 8, 2026",
-            tag: "Culture",
-            cover: "culture",
-            readingTime: "4 min read",
-            excerpt: "The fastest way to lose a room full of experts is to bluff. Admitting the gap out loud is not a weakness. It is how trust actually gets built."
-        },
-        {
-            file: "blog-post-9.html",
-            title: "Mentoring Is Not Advice",
-            date: "Jun 6, 2026",
-            tag: "Leadership",
-            cover: "git",
-            readingTime: "4 min read",
-            excerpt: "The best mentors I have had did not solve my problems. They asked me questions I could not stop thinking about."
-        },
-        {
-            file: "blog-post-8.html",
-            title: "Feedback That Actually Lands",
-            date: "May 30, 2026",
-            tag: "Leadership",
-            cover: "git",
-            readingTime: "4 min read",
-            excerpt: "Vague praise and vague criticism are both useless. Here is what specific, kind, and timely feedback looks like when you get it right."
-        },
-        {
-            file: "blog-post-7.html",
-            title: "The First 30 Days on a New Team",
-            date: "May 24, 2026",
-            tag: "Leadership",
-            cover: "git",
-            readingTime: "4 min read",
-            excerpt: "The instinct on a new team is to prove you belong. Why small reliability beats big impressive fixes, and what the people already there owe the new person."
-        },
-        {
-            file: "blog-post-6.html",
-            title: "The Office Needs More Fun",
-            date: "May 24, 2026",
-            tag: "Culture",
-            cover: "culture",
-            readingTime: "3 min read",
-            excerpt: "Why the quiet office is usually the anxious one, and why fun is not the opposite of work but the thing that makes work last."
-        },
-        {
             file: "blog-post-5.html",
-            title: "PhD Hunting: Hard, Exhausting, and Worth It",
+            title: "The emails that get no reply",
             date: "Apr 11, 2026",
             tag: "Personal",
             cover: "phd",
-            readingTime: "6 min read",
-            excerpt: "What three months of cold-emailing professors has taught me about applying to PhD programs from outside the usual feeder universities."
+            readingTime: "2 min read",
+            excerpt: "Why an email that goes unanswered is harder to deal with than a rejection, written from the middle of a PhD search."
         },
         {
             file: "blog-post-4.html",
-            title: "GitHub in Drug Discovery",
+            title: "Reading a drug discovery repo before you trust it",
             date: "Dec 14, 2025",
             tag: "Research",
             cover: "git",
-            readingTime: "8 min read",
-            excerpt: "Why a pharma chemist should learn git. A short tour of what version control actually buys you when your science lives in Jupyter notebooks."
+            readingTime: "3 min read",
+            excerpt: "What our Expert Opinion on Drug Discovery report found about GitHub use in drug discovery, and the checks I run on a repository before I rely on it."
         },
         {
             file: "blog-post-3.html",
-            title: "Hackathon @ Insilico Medicine",
+            title: "Six hours to predict antibody binding",
             date: "Nov 11, 2025",
             tag: "Event",
             cover: "hack",
-            readingTime: "5 min read",
-            excerpt: "Six hours, a team of strangers, an antibody binding problem, and a 1st-place finish. Notes from the BindHack hackathon at Masdar City."
-        },
-        {
-            file: "blog-post-2.html",
-            title: "ChatGPT is Turning 3",
-            date: "Oct 25, 2025",
-            tag: "AI",
-            cover: "ai",
-            readingTime: "4 min read",
-            excerpt: "Three years in: what large language models actually changed about how I write code, draft papers, and triage literature, and what they still cannot do."
-        },
-        {
-            file: "blog-post-1.html",
-            title: "Should You Go the Distance?",
-            date: "Oct 20, 2025",
-            tag: "Personal",
-            cover: "distance",
-            readingTime: "7 min read",
-            excerpt: "Two years ago I almost stopped after the MSc. This is what I wish someone had told me about whether to push on or stop."
+            readingTime: "2 min read",
+            excerpt: "Notes from BindHack at Insilico Medicine in Masdar City: six hours to predict antibody antigen binding, five teammates, and a first place finish."
         }
     ],
 
