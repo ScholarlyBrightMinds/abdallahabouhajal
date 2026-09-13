@@ -41,7 +41,7 @@
         prov: $('prov'), step1: $('step1'), step2: $('step2'), step3: $('step3'),
         goal: $('goal'), key: $('key'),
         zoomIn: $('zoomin'), zoomOut: $('zoomout'), zoomReset: $('zoomreset'),
-        zoom: $('zoom')
+        zoom: $('zoom'), three: $('three'), threeBtn: $('threebtn'), threeHint: $('threehint')
     };
 
     // ── small helpers ───────────────────────────────────────────────
@@ -570,6 +570,8 @@
             if (!chosen[i]) { chosen[i] = 1; g.warm.push(i); }
         }
         state = 'screen';
+        close3D();
+        if (ui.threeBtn) ui.threeBtn.hidden = true;
         root.setAttribute('data-state', 'screen');
         setStep(1);
         show(ui.stat, false);
@@ -686,11 +688,268 @@
         root.setAttribute('data-state', 'screendone');
     }
 
+    // ═══════════════════════════════════════════════ the pocket in 3D
+    // The flat pocket is a projection baked offline. This is the same pocket
+    // as real coordinates, turned in the browser: 675 protein atoms from 1M17
+    // and the pose Vina computed, bonded by distance and drawn back to front
+    // on a canvas. No library, and the data only loads when it is asked for.
+    var P3 = null, p3Promise = null, three = null;
+    var EL_COL = {
+        C: [26, 36, 58], N: [30, 86, 200], O: [179, 64, 47], S: [143, 106, 43],
+        F: [47, 125, 91], Cl: [47, 125, 91], Br: [47, 125, 91], P: [143, 106, 43],
+        I: [47, 125, 91], Se: [143, 106, 43]
+    };
+    function ensure3D() {
+        if (!p3Promise) {
+            p3Promise = getJSON('pocket3d.json').then(function (d) {
+                P3 = d;
+                P3.xyz = decode3(d.pocket);
+                P3.bonds = bond3(P3.xyz, d.pocket.e, d.els);
+                // which atoms belong to a residue worth naming, for colour
+                P3.keyAtom = {};
+                d.res.forEach(function (r) {
+                    if (!r.k) return;
+                    for (var k = r.i; k < r.i + r.c; k++) P3.keyAtom[k] = 1;
+                });
+                return d;
+            });
+        }
+        return p3Promise;
+    }
+    function decode3(part) {
+        var n = part.e.length, out = new Float32Array(n * 3), k;
+        for (k = 0; k < n * 3; k++) out[k] = part.p[k] / P3.scale;
+        return out;
+    }
+    // heavy atoms bond when they are close enough, with room for sulphur
+    function bond3(xyz, els, names) {
+        var n = els.length, out = [], i, j;
+        for (i = 0; i < n; i++) {
+            var si = names[els[i]];
+            for (j = i + 1; j < n; j++) {
+                var cut = 1.78 + ((si === 'S' || si === 'P' || names[els[j]] === 'S' ||
+                                   names[els[j]] === 'P') ? 0.24 : 0);
+                var dx = xyz[i * 3] - xyz[j * 3], dy = xyz[i * 3 + 1] - xyz[j * 3 + 1],
+                    dz = xyz[i * 3 + 2] - xyz[j * 3 + 2];
+                var d2 = dx * dx + dy * dy + dz * dz;
+                if (d2 < cut * cut && d2 > 0.64) out.push(i, j);
+            }
+        }
+        return out;
+    }
+    function ligand3(part) {
+        var xyz = decode3(part);
+        return { xyz: xyz, els: part.e, bonds: bond3(xyz, part.e, P3.els) };
+    }
+
+    function open3D() {
+        if (!ui.three) return;
+        show(ui.map, false);
+        show(ui.pocket, false);
+        ui.three.hidden = false;
+        if (ui.threeBtn) ui.threeBtn.textContent = 'Flat view';
+        ui.stage.classList.add('is-3d');
+        ensure3D().then(function () {
+            build3D();
+            spin3D();
+        }).catch(function () {
+            ui.three.hidden = true;
+            ui.stage.classList.remove('is-3d');
+            show(ui.pocket, true);
+            if (ui.threeBtn) { ui.threeBtn.textContent = '3D view'; ui.threeBtn.disabled = true; }
+            ui.note.textContent = 'The 3D view could not load, so this is the flat one.';
+        });
+    }
+    function close3D() {
+        if (!ui.three) return;
+        ui.three.hidden = true;
+        ui.stage.classList.remove('is-3d');
+        if (three) { cancelAnimationFrame(three.raf); three.raf = 0; }
+        if (ui.threeBtn) ui.threeBtn.textContent = '3D view';
+        show(ui.pocket, true);
+    }
+    function build3D() {
+        var canvas = ui.three.querySelector('canvas');
+        var ligs = [];
+        if (state === 'simulate') {
+            ligs.push({ part: ligand3(P3.lig.A), col: [30, 86, 200], name: 'pose A' });
+            ligs.push({ part: ligand3(P3.lig.B), col: [143, 106, 43], name: 'pose B' });
+        } else {
+            var id = g && g.compound >= 0 ? rows[g.compound][0] : null;
+            var mine = id && P3.deck[id] ? P3.deck[id] : P3.lig.A;
+            ligs.push({ part: ligand3(mine), col: null, name: 'your compound' });
+            ligs.push({ part: ligand3(P3.lig.crystal), col: [150, 160, 178], ghost: true,
+                        name: 'crystal erlotinib' });
+        }
+        three = three || { rx: -0.22, ry: 0.6, zoom: 1, raf: 0, user: false };
+        three.canvas = canvas;
+        three.ctx = canvas.getContext('2d');
+        three.ligs = ligs;
+        three.legend = ligs.map(function (l) { return l.name; }).join(' and ');
+        draw3D();
+        if (!three.wired) { wire3D(); three.wired = true; }
+    }
+    function spin3D() {
+        if (REDUCE || !three || three.user) return;
+        var last = 0;
+        var step = function (now) {
+            if (!three || ui.three.hidden || three.user) return;
+            if (last) three.ry += (now - last) * 0.00016;
+            last = now;
+            draw3D();
+            three.raf = requestAnimationFrame(step);
+        };
+        three.raf = requestAnimationFrame(step);
+    }
+    function draw3D() {
+        if (!three || !P3) return;
+        var c = three.canvas, ctx = three.ctx;
+        var dpr = Math.min(2, window.devicePixelRatio || 1);
+        var box = c.getBoundingClientRect();
+        if (!box.width) return;
+        if (c.width !== Math.round(box.width * dpr)) {
+            c.width = Math.round(box.width * dpr);
+            c.height = Math.round(box.height * dpr);
+        }
+        var W = c.width, H = c.height, cx = W / 2, cy = H / 2;
+        var s = Math.min(W, H) / 32 * three.zoom * dpr / dpr;   // about 16 Angstrom across
+        var cosx = Math.cos(three.rx), sinx = Math.sin(three.rx);
+        var cosy = Math.cos(three.ry), siny = Math.sin(three.ry);
+        function proj(x, y, z) {
+            var x1 = x * cosy + z * siny, z1 = -x * siny + z * cosy;
+            var y1 = y * cosx - z1 * sinx, z2 = y * sinx + z1 * cosx;
+            return [cx + x1 * s, cy - y1 * s, z2];
+        }
+        ctx.clearRect(0, 0, W, H);
+
+        var items = [], i, a, b, p1, p2;
+        // the pocket, as thin sticks
+        for (i = 0; i < P3.bonds.length; i += 2) {
+            a = P3.bonds[i]; b = P3.bonds[i + 1];
+            p1 = proj(P3.xyz[a * 3], P3.xyz[a * 3 + 1], P3.xyz[a * 3 + 2]);
+            p2 = proj(P3.xyz[b * 3], P3.xyz[b * 3 + 1], P3.xyz[b * 3 + 2]);
+            items.push({ z: (p1[2] + p2[2]) / 2, p1: p1, p2: p2, kind: 'pocket', a: a });
+        }
+        // the ligands, as thick sticks coloured by the atoms at each end
+        three.ligs.forEach(function (L) {
+            var P = L.part;
+            for (var k = 0; k < P.bonds.length; k += 2) {
+                var ia = P.bonds[k], ib = P.bonds[k + 1];
+                var q1 = proj(P.xyz[ia * 3], P.xyz[ia * 3 + 1], P.xyz[ia * 3 + 2]);
+                var q2 = proj(P.xyz[ib * 3], P.xyz[ib * 3 + 1], P.xyz[ib * 3 + 2]);
+                items.push({
+                    z: (q1[2] + q2[2]) / 2, p1: q1, p2: q2, kind: 'lig', ghost: L.ghost,
+                    c1: L.col || EL_COL[P3.els[P.els[ia]]] || EL_COL.C,
+                    c2: L.col || EL_COL[P3.els[P.els[ib]]] || EL_COL.C
+                });
+            }
+        });
+        items.sort(function (u, v) { return u.z - v.z; });
+
+        var zs = items.length ? items[0].z : 0, ze = items.length ? items[items.length - 1].z : 1;
+        var span = Math.max(0.001, ze - zs);
+        for (i = 0; i < items.length; i++) {
+            var it = items[i], depth = (it.z - zs) / span;          // 0 far, 1 near
+            if (it.kind === 'pocket') {
+                var key = P3.keyAtom && P3.keyAtom[it.a];
+                ctx.strokeStyle = key
+                    ? 'rgba(30,86,200,' + (0.34 + depth * 0.52).toFixed(2) + ')'
+                    : 'rgba(128,141,166,' + (0.14 + depth * 0.42).toFixed(2) + ')';
+                ctx.lineWidth = (key ? 2.2 : 1.5) * dpr * (0.6 + depth * 0.7);
+                ctx.beginPath();
+                ctx.moveTo(it.p1[0], it.p1[1]);
+                ctx.lineTo(it.p2[0], it.p2[1]);
+                ctx.stroke();
+            } else {
+                var mx = (it.p1[0] + it.p2[0]) / 2, my = (it.p1[1] + it.p2[1]) / 2;
+                var alpha = it.ghost ? (0.18 + depth * 0.22) : (0.55 + depth * 0.45);
+                ctx.lineCap = 'round';
+                ctx.lineWidth = (it.ghost ? 2 : 4.6) * dpr * (0.7 + depth * 0.6);
+                ctx.strokeStyle = 'rgba(' + it.c1.join(',') + ',' + alpha.toFixed(2) + ')';
+                ctx.beginPath(); ctx.moveTo(it.p1[0], it.p1[1]); ctx.lineTo(mx, my); ctx.stroke();
+                ctx.strokeStyle = 'rgba(' + it.c2.join(',') + ',' + alpha.toFixed(2) + ')';
+                ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(it.p2[0], it.p2[1]); ctx.stroke();
+            }
+        }
+
+        // which colour is which, when there are two of them in the pocket
+        ctx.font = (11 * dpr) + 'px ui-monospace, SFMono-Regular, Menlo, monospace';
+        ctx.textAlign = 'left';
+        three.ligs.forEach(function (L, k) {
+            if (!L.col || L.ghost) return;
+            var yy = (16 + k * 16) * dpr;
+            ctx.strokeStyle = 'rgb(' + L.col.join(',') + ')';
+            ctx.lineWidth = 3 * dpr;
+            ctx.beginPath();
+            ctx.moveTo(10 * dpr, yy); ctx.lineTo(26 * dpr, yy); ctx.stroke();
+            ctx.fillStyle = 'rgba(65,77,102,0.95)';
+            ctx.fillText(L.name, 32 * dpr, yy + 4 * dpr);
+        });
+
+        // the four residues worth naming, at the middle of their own atoms
+        ctx.textAlign = 'center';
+        ctx.lineJoin = 'round';
+        // on a small canvas four labels collide, so only the hinge is named
+        var only = W / dpr < 430 ? 'Met769' : null;
+        P3.res.forEach(function (r) {
+            if (!r.k || (only && r.n !== only)) return;
+            var sx = 0, sy = 0, sz = 0, k;
+            for (k = r.i; k < r.i + r.c; k++) { sx += P3.xyz[k * 3]; sy += P3.xyz[k * 3 + 1]; sz += P3.xyz[k * 3 + 2]; }
+            var p = proj(sx / r.c, sy / r.c, sz / r.c);
+            ctx.lineWidth = 3 * dpr;
+            ctx.strokeStyle = 'rgba(246,247,251,0.9)';
+            ctx.strokeText(r.n, p[0], p[1]);
+            ctx.fillStyle = 'rgba(30,86,200,0.95)';
+            ctx.fillText(r.n, p[0], p[1]);
+        });
+    }
+    function wire3D() {
+        var c = three.canvas, from = null;
+        c.addEventListener('pointerdown', function (e) {
+            from = { x: e.clientX, y: e.clientY, rx: three.rx, ry: three.ry };
+            three.user = true;
+            if (ui.threeHint) ui.threeHint.hidden = true;
+            cancelAnimationFrame(three.raf);
+            c.setPointerCapture(e.pointerId);
+        });
+        c.addEventListener('pointermove', function (e) {
+            if (!from) return;
+            three.ry = from.ry + (e.clientX - from.x) * 0.008;
+            three.rx = clamp(from.rx - (e.clientY - from.y) * 0.008, -1.4, 1.4);
+            draw3D();
+        });
+        function up() { from = null; }
+        c.addEventListener('pointerup', up);
+        c.addEventListener('pointercancel', up);
+        c.addEventListener('wheel', function (e) {
+            e.preventDefault();
+            three.zoom = clamp(three.zoom * Math.exp(-e.deltaY * 0.0016), 0.6, 3.2);
+            draw3D();
+        }, { passive: false });
+        c.addEventListener('keydown', function (e) {
+            var d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+            if (!d) return;
+            e.preventDefault();
+            three.user = true;
+            three.ry += d[0] * 0.18;
+            three.rx = clamp(three.rx + d[1] * 0.18, -1.4, 1.4);
+            draw3D();
+        });
+        window.addEventListener('resize', function () { if (!ui.three.hidden) draw3D(); });
+    }
+
+    if (ui.threeBtn) {
+        ui.threeBtn.addEventListener('click', function () {
+            if (ui.three.hidden) open3D(); else close3D();
+        });
+    }
+
     // ═══════════════════════════════════════════════════════ step two
     function toDock() {
         state = 'dock';
         resetView();
         clearLOD();
+        if (ui.threeBtn) ui.threeBtn.hidden = false;
         root.setAttribute('data-state', 'dock');
         setStep(2);
         show(ui.key, false);
@@ -969,6 +1228,8 @@
     // ═════════════════════════════════════════════════════ step three
     function toSim() {
         state = 'simulate';
+        if (ui.threeBtn) ui.threeBtn.hidden = false;
+        if (three && !ui.three.hidden) { build3D(); }
         root.setAttribute('data-state', 'simulate');
         setStep(3);
         ui.title.textContent = 'Simulate';
@@ -1143,6 +1404,8 @@
     // ═══════════════════════════════════════════════════════════ end
     function finish() {
         state = 'done';
+        close3D();
+        if (ui.threeBtn) ui.threeBtn.hidden = true;
         root.setAttribute('data-state', 'done');
         ui.title.textContent = 'Your run';
         ui.meta.textContent = '';
@@ -1259,6 +1522,9 @@
         }
         ui.map.addEventListener('pointerdown', function (e) {
             if (state !== 'screen') return;
+            // a fresh press starts a fresh judgement of tap against drag. Without
+            // this, a pan that ends off the map leaves the next tap swallowed.
+            dragged = false;
             pts[e.pointerId] = { x: e.clientX, y: e.clientY };
             if (count() === 2) {
                 var a = [], k;

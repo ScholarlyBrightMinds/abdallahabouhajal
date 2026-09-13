@@ -787,3 +787,46 @@ main.home {
 .fit-pt.under-mol.on { stroke-opacity: 0.8; }
 .fit-pt.under-mol.sel, .fit-pt.under-mol.hit { stroke-opacity: 1; }
 .fit-stage.has-mols .fit-pt { fill-opacity: 0.5; }
+
+/* ── the pocket in three dimensions ───────────────────────────────── */
+.fit-three { position: absolute; inset: 0; }
+.fit-three canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+    touch-action: none;
+}
+.fit-three canvas:active { cursor: grabbing; }
+.fit-three canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.fit-3dbtn {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    z-index: 2;
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 7px 10px;
+    color: var(--text-soft);
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+}
+.fit-3dbtn:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+.fit-3dbtn:disabled { opacity: 0.45; cursor: default; }
+.fit-stage.is-3d { background: var(--bg-soft); }
+.fit-3dhint {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    color: var(--muted);
+    pointer-events: none;
+}
+@media (max-width: 560px) {
+    .fit-3dhint { display: none; }
+}
