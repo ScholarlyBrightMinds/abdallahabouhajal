@@ -92,7 +92,7 @@ window.SITE_CONFIG = {
     chips: [
         { label: "14 Publications · 94 Citations" },
         { label: "h-index 8" },
-        { label: "4× Corresponding Author" },
+        { label: "5× Corresponding Author" },
         { label: "BindHack 1st Place · Insilico Medicine", variant: "gold" },
         { label: "MSc Pharm. Sci. · GPA 3.94" }
     ],
@@ -105,101 +105,7 @@ window.SITE_CONFIG = {
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper.",
         talks:        "Hackathon wins, conference talks, poster sessions, and the three-minute thesis. Slides and posters are linked where I have them.",
         contact:      "The fastest way to reach me. Below the form there is a short note for PhD supervisors and another for potential collaborators.",
-        research:     "The longer version of the work I do, the questions I want to answer, and where I would like to take this next. Written with PhD supervisors in mind.",
-        arc:          "The longer story of how I got from pharmacy to AI for drug discovery, told as a sequence of moments rather than a CV."
-    },
-
-    // ── Scrollytelling research arc (rendered on arc.html) ───────
-    // Each chapter is a sticky-scroll step with a kicker + title + body,
-    // an optional milestone card, and a frame ID that maps to the
-    // sticky illustration that fades in while this chapter is in view.
-    // Frame IDs ship with stock SVGs in arc.html (origin | sieve |
-    // editorial | network | horizon). Adding a new frame requires
-    // adding a matching <div class="arc-frame" data-frame="..."> in
-    // arc.html.
-    arc: {
-        kicker: "Research arc",
-        h1Front: "The long way around to",
-        h1Accent: "AI for drug discovery",
-        intro: "The research statement is the short version. This page is the long way around. Five chapters, in order, told as a sequence of moments rather than a CV. Scroll at your own pace.",
-        chapters: [
-            {
-                key: "origin",
-                frame: "origin",
-                kicker: "Chapter 1 · 2016 to 2021",
-                title: "Pharmacy, with one question I could not let go of.",
-                body: [
-                    "I did my BSc in Pharmacy at Al Ain University and graduated as an honor student in 2018. Most of pharmacy is downstream of where I find the interesting questions. The five years made me very comfortable around drugs as objects, around the language of chemistry and pharmacology, around clinical thinking. But the question that kept following me was a step upstream.",
-                    "Why does most of what shows up in a high-throughput screen turn out to be noise? Why are the molecules that look most promising in an assay the ones that most often fail downstream? That question is what eventually pulled me into computational drug discovery."
-                ],
-                milestone: {
-                    label: "Honor Student",
-                    sub: "BSc Pharmacy, Al Ain University, 2017 to 2018"
-                }
-            },
-            {
-                key: "msc",
-                frame: "sieve",
-                kicker: "Chapter 2 · 2021 to 2024",
-                title: "An MSc, a thesis, and the BAD Molecule Filter.",
-                body: [
-                    "I started a postgraduate scholarship at Al Ain University in 2021, co-supervised by Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI and computer science). The brief was clear. Build something that helps a screening lab spend its time on real hits instead of false positives.",
-                    "We trained an ensemble that flags small molecules that look like genuine bioactives but are actually colloidal aggregators. The result was published first-author in the Journal of Chemical Information and Modeling in 2024, and the model is deployed as a public web server so any group can pre-screen their compounds for free.",
-                    "That paper is also when I learned what I actually like doing. Not just running models. Building the thing that other people use."
-                ],
-                milestone: {
-                    label: "MSc GPA 3.94 · JCIM 2024",
-                    sub: "BAD Molecule Filter for colloidal aggregator detection",
-                    href: "https://doi.org/10.1021/acs.jcim.4c00363"
-                }
-            },
-            {
-                key: "editorial",
-                frame: "editorial",
-                kicker: "Chapter 3 · 2023 to 2025",
-                title: "Two years inside scientific publishing.",
-                body: [
-                    "From early 2023 to mid-2025 I was Managing Editor at Scifiniti Publishing, an STM publisher in Abu Dhabi. The job is exactly what it sounds like. Peer-review coordination, journal-performance analytics, editorial operations across multiple STEM titles. Quietly, the most useful experience of my career so far.",
-                    "Seeing the publishing pipeline from the editor's side reset my sense of what reproducibility, peer review, and the word novel actually mean as operational categories. Sitting in that seat for two years is also what made me sympathetic to open-science arguments that earlier in my training I had only read about.",
-                    "Since mid-2025 I have stayed at Scifiniti as Data Analyst and AI Automation Lead, building LLM-backed tooling that touches the editorial workflow."
-                ],
-                milestone: {
-                    label: "Scifiniti Publishing",
-                    sub: "Managing Editor then Data Analyst and AI Automation Lead"
-                }
-            },
-            {
-                key: "now",
-                frame: "network",
-                kicker: "Chapter 4 · 2025 to 2026",
-                title: "AI agents, AutoML, and a four-paper run.",
-                body: [
-                    "The last 18 months have been the most productive stretch of my research life so far. Four papers as corresponding author, on an AutoML framework for drug to drug interaction prediction, on large language models in drug delivery, on machine-learning reliability in tumour-progression prediction, and on GitHub's significance for AI-driven drug discovery.",
-                    "I am now spending most of my research time on two parallel threads. Autonomous LLM-backed agents that plan, reason, and execute drug-discovery workflows. And AI-augmented Adverse Outcome Pathway networks that link molecular initiating events to adverse health outcomes through graph-based learning.",
-                    "Both threads share the same instinct as the MSc. Build the thing the next researcher will actually use."
-                ],
-                milestone: {
-                    label: "Four times corresponding author across 2025 to 2026",
-                    sub: "AutoML DDI · LLMs in delivery · ML reliability · GitHub and open science"
-                }
-            },
-            {
-                key: "next",
-                frame: "horizon",
-                kicker: "Chapter 5 · The PhD",
-                title: "What I want a PhD to look like.",
-                body: [
-                    "I am applying for PhD positions starting late 2026 or 2027, in groups working on machine learning for drug discovery, LLM-agent frameworks for chemistry, computational toxicology, or AI-augmented AOP networks. Strong methods groups everywhere are on the list.",
-                    "The shape I am looking for. A supervisor with a clear technical direction. A problem where the data is hard enough to be interesting. Collaborators close enough to argue with daily. And the freedom to ship the things we build as public tools rather than just papers.",
-                    "If any of that fits your group, the fastest way to start a conversation is to email me. I reply within 48 hours."
-                ],
-                milestone: {
-                    label: "Open for PhD · 2026 or 2027 start",
-                    sub: "ML × drug discovery · LLM agents · AOP networks",
-                    href: "mailto:abdallah.abouhajal@gmail.com?subject=PhD%20position%20enquiry"
-                }
-            }
-        ]
+        research:     "The longer version of the work I do, the questions I want to answer, and where I would like to take this next. Written with PhD supervisors in mind."
     },
 
 
@@ -209,7 +115,7 @@ window.SITE_CONFIG = {
     impactStats: [
         { num: "14",  label: "Publications",     sub: "peer-reviewed",                      numLiveSource: "total_documents" },
         { num: "94", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
-        { num: "4×",  label: "Corresponding",    sub: "first or corresponding author" },
+        { num: "5×",  label: "Corresponding",    sub: "first or corresponding author" },
         { num: "1st", label: "BindHack",         sub: "First place · Insilico Medicine 2025", variant: "gold" },
         { num: "1",   label: "Live ML tool",     sub: "BAD Molecule Filter web server" }
     ],
@@ -217,10 +123,10 @@ window.SITE_CONFIG = {
     // ── About page: research narrative ───────────────────────────
     about: {
         paragraphs: [
-            "I hold an <strong>MSc in Pharmaceutical Sciences</strong> from Al Ain University (GPA 3.94), working under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI &amp; computer science). My thesis developed a machine-learning tool for predicting promiscuous aggregate-based inhibitors, published first-author in the <em>Journal of Chemical Information and Modeling</em> and deployed as a public web server.",
-            "I currently work as a <strong>Data Analyst at Scifiniti Publishing</strong> (since May 2025), after two years there as <strong>Managing Editor</strong> (Feb 2023 to May 2025). This editorial side-of-the-house gave me a rare, hands-on view of how science actually gets published: peer-review coordination, journal performance analytics, editorial operations across multiple STEM titles.",
-            "In parallel I have kept publishing, with <strong>4 papers as corresponding author</strong>, most recently on an <em>AutoML framework for drug-drug interaction prediction</em>, on <em>large language models in drug delivery</em>, on <em>machine-learning reliability in tumor-progression prediction</em>, and on <em>GitHub's significance for AI-driven drug discovery</em>.",
-            "I am <strong>now seeking a PhD opportunity</strong> to further apply machine learning and data-driven methods to impactful challenges in drug discovery: AI-driven virtual and high-throughput screening, predictive modeling, and model interpretability. If that aligns with your group, I would love to hear from you."
+            "<strong>MSc Pharmaceutical Sciences</strong>, Al Ain University, GPA 3.94, on a postgraduate scholarship that came with research and lab assistant duties and undergraduate lab teaching. My thesis built a machine learning tool for predicting promiscuous aggregate-based inhibitors, supervised by Prof. Mohammad Ghattas and Prof. Boulbaba Ben Amor. It was published first author in the <em>Journal of Chemical Information and Modeling</em> and runs as a public web server.",
+            "Since February 2023 I have been at <strong>Scifiniti Publishing</strong>, first as Managing Editor across 5+ STEM journals, and since May 2025 as Data Analyst and AI Automation Lead: LLM agents for editorial workflows, Python tooling, journal performance dashboards. Two years of running peer review is the best view of how science actually gets published that I could have asked for.",
+            "Fourteen papers so far, five as corresponding author. The recent ones: an <em>AutoML framework for drug-drug interaction prediction</em>, <em>large language models in drug delivery</em>, <em>machine learning reliability in tumor-progression prediction</em>, <em>GitHub for AI-driven drug discovery</em>, and <em>computational approaches to adverse outcome pathway networks</em>.",
+            "I am <strong>looking for a PhD</strong> in machine learning for drug discovery: virtual and high-throughput screening, predictive modeling, model interpretability. If that fits your group, email me."
         ],
 
         // Vertical timeline on About page
@@ -230,7 +136,7 @@ window.SITE_CONFIG = {
             { date: "Apr 2023 · Graduation",         title: "MSc Pharmaceutical Sciences",      desc: "GPA 3.94 · Thesis supervised by Prof. Ghattas &amp; Prof. Ben Amor." },
             { date: "Feb 2023 to May 2025",          title: "Managing Editor · Scifiniti",      desc: "Editorial operations across multiple STEM journals." },
             { date: "2024 · JCIM",                   title: "First-author publication",         desc: "Boosting accuracy of colloidal-aggregator detection." },
-            { date: "Since May 2025",                title: "Data Analyst · Scifiniti",         desc: "Journal analytics, workflow automation, strategic reporting.", state: "current" },
+            { date: "Since May 2025",                title: "Data Analyst and AI Automation Lead · Scifiniti", desc: "LLM agents for editorial workflows, Python tooling, journal dashboards.", state: "current" },
             { date: "2026 · Active research",        title: "AI agents &amp; AOP-driven toxicology", desc: "AI-augmented adverse-outcome pathway networks; agent-based drug discovery.", state: "current" },
             { date: "Next · PhD Search",             title: "Actively seeking a position",      desc: "ML × cheminformatics × drug discovery. Open to strong groups worldwide.", state: "future" }
         ],
@@ -445,7 +351,7 @@ window.SITE_CONFIG = {
     // `award` is a string when there is a prize; omit otherwise.
     talks: [
         {
-            date: "Sep 2025",
+            date: "Nov 2025",
             year: 2025,
             kind: "hackathon",
             title: "BindHack: Antibody-Antigen Binding Prediction",
@@ -477,7 +383,7 @@ window.SITE_CONFIG = {
             kind: "thesis",
             title: "MSc Thesis Defence: A Machine-Learning Tool for Promiscuous Aggregate-Based Inhibitors",
             venue: "Al Ain University, College of Pharmacy",
-            desc:  "Public defence under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI). Graduated with GPA 3.94. Thesis published first-author in JCIM later that year."
+            desc:  "Public defence under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI). Graduated with GPA 3.94. Thesis published first author in JCIM in 2024."
         }
     ],
 
@@ -503,7 +409,7 @@ window.SITE_CONFIG = {
             {
                 icon: "🤝",
                 title: "Collaborators",
-                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See the <a href=\"research.html#projects\">current projects</a> for what is active."
+                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See <a href=\"research.html\">what I work on</a> for what is active."
             },
             {
                 icon: "✉️",
