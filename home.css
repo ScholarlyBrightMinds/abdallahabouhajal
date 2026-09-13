@@ -913,3 +913,163 @@ main.home {
     .fit-playbtn::after { animation: none; opacity: 0.3; }
     .fit-playbtn:hover { transform: translate(-50%, -50%); }
 }
+
+/* ── the wall of notes around the introduction ────────────────────────
+   Wide screens scatter the notes into the space either side of him.
+   Narrower ones lay them out in a row under the links, because there is
+   no side space left to stick anything to. */
+.wall { position: absolute; inset: 0; pointer-events: none; }
+.wall-notes { list-style: none; margin: 0; padding: 0; }
+
+.note {
+    position: absolute;
+    left: var(--x, 4%);
+    top: var(--y, 20%);
+    width: clamp(140px, 12vw, 178px);
+    min-height: 104px;
+    padding: 18px 14px 12px;
+    background: #f7e9a0;
+    border: 0;
+    border-radius: 2px;
+    text-align: left;
+    transform: rotate(var(--r, 0deg));
+    box-shadow: 0 10px 20px -12px rgba(24, 42, 82, 0.45), 0 1px 0 rgba(0, 0, 0, 0.04);
+    pointer-events: auto;
+}
+/* the tape that holds it up */
+.note-tape {
+    position: absolute;
+    left: 50%;
+    top: -9px;
+    width: 58px;
+    height: 18px;
+    transform: translateX(-50%) rotate(-2deg);
+    background: rgba(255, 255, 255, 0.62);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+.note-text {
+    margin: 0;
+    font-family: var(--f-ui);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #4a3f13;
+    overflow-wrap: anywhere;
+}
+.note-from, .note-life {
+    margin: 6px 0 0;
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    color: #8a7526;
+}
+.note-life { opacity: 0.72; }
+.note.is-new { animation: note-stick 420ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) both; }
+@keyframes note-stick {
+    from { transform: rotate(var(--r, 0deg)) scale(0.82) translateY(-10px); opacity: 0; }
+    to   { transform: rotate(var(--r, 0deg)) scale(1) translateY(0); opacity: 1; }
+}
+
+/* the invitation is a note nobody has written on yet */
+.note-add {
+    background: transparent;
+    border: 1.5px dashed #c9b978;
+    box-shadow: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    gap: 4px;
+    color: #8a7526;
+    transition: background-color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.note-add .note-text { color: inherit; text-align: center; }
+.note-add .note-plus { font-size: 1.3rem; line-height: 1; }
+.note-add .note-tape { opacity: 0.5; }
+.note-add:hover { background: rgba(247, 233, 160, 0.5); border-color: #a8912f; }
+.wall-said {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    margin: 0;
+    text-align: center;
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    color: var(--muted);
+}
+
+/* ── writing one ──────────────────────────────────────────────────── */
+.wall-dialog {
+    width: min(340px, calc(100vw - 32px));
+    /* the site reset zeroes every margin, which would pin a modal dialog to
+       the top left, so it asks for its centring back */
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 3px;
+    background: #f7e9a0;
+    box-shadow: 0 40px 80px -30px rgba(24, 42, 82, 0.5);
+    color: #4a3f13;
+}
+.wall-dialog::backdrop { background: rgba(18, 26, 44, 0.34); }
+.wall-form { position: relative; padding: 24px 20px 18px; display: grid; gap: 6px; }
+.wall-lab {
+    font-family: var(--f-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a7526;
+}
+.wall-form textarea, .wall-form input[type="text"] {
+    width: 100%;
+    font-family: var(--f-ui);
+    font-size: 0.9rem;
+    color: #3b3210;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(138, 117, 38, 0.35);
+    border-radius: 2px;
+    padding: 8px 10px;
+    resize: none;
+}
+.wall-form textarea:focus, .wall-form input:focus { outline: 2px solid #8a7526; outline-offset: 1px; }
+.wall-count { margin: 0; font-family: var(--f-mono); font-size: 0.6rem; color: #8a7526; text-align: right; }
+.wall-send {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 4px;
+    font-family: var(--f-ui);
+    font-size: 0.78rem;
+}
+.wall-buttons { display: flex; gap: 8px; margin-top: 8px; }
+.wall-stick, .wall-cancel {
+    font-family: var(--f-ui);
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+}
+.wall-stick { background: #4a3f13; color: #f7e9a0; border: 0; }
+.wall-stick:hover { background: #6b5a1c; }
+.wall-cancel { background: transparent; border: 1px solid rgba(74, 63, 19, 0.35); color: #4a3f13; }
+.wall-fine { margin: 8px 0 0; font-family: var(--f-mono); font-size: 0.58rem; line-height: 1.5; color: #8a7526; }
+
+/* under 1180px there is no room beside him, so the notes queue up below */
+@media (max-width: 1180px) {
+    .wall {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 14px;
+        margin-top: 30px;
+        pointer-events: auto;
+    }
+    .wall-notes { display: contents; }
+    .note { position: static; transform: rotate(var(--r, 0deg)); width: 150px; }
+    .wall-said { position: static; flex-basis: 100%; margin-top: 6px; }
+}
+@media (max-width: 560px) {
+    .note { width: 132px; min-height: 92px; padding: 16px 11px 10px; }
+}

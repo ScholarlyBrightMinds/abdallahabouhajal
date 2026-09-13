@@ -207,6 +207,18 @@
             <a href="Abdallah-Abou-Hajal-CV.pdf">CV</a>
             <a href="mailto:abdallah.abouhajal@gmail.com">Email</a>
         </div>
+
+        <!-- The wall of notes. notes.js unhides it and fills it from the
+             reader's own browser; with JavaScript off there is nothing here. -->
+        <div class="wall" data-wall hidden data-endpoint="https://formspree.io/f/mqejpyjl">
+            <ul class="wall-notes" data-wall-list aria-label="Notes stuck on this page"></ul>
+            <button type="button" class="note note-add" data-wall-add>
+                <span class="note-tape" aria-hidden="true"></span>
+                <span class="note-plus" aria-hidden="true">+</span>
+                <span class="note-text">Leave a note</span>
+            </button>
+            <p class="wall-said" role="status" aria-live="polite" data-wall-said></p>
+        </div>
         <a class="home-cue" href="#play">
             <span>Thanks for stopping by. There is a game below.</span>
             <svg class="home-cue-arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
@@ -349,6 +361,25 @@
 
 </main>
 
+<dialog class="wall-dialog" data-wall-dialog aria-label="Write a note">
+    <form method="dialog" class="wall-form" data-wall-form>
+        <span class="note-tape" aria-hidden="true"></span>
+        <label class="wall-lab" for="wall-text">Write something</label>
+        <textarea id="wall-text" data-wall-text maxlength="160" rows="4"
+                  placeholder="Say hi, or tell me what you are working on"></textarea>
+        <p class="wall-count" data-wall-count>160 left</p>
+        <label class="wall-lab" for="wall-from">From, if you like</label>
+        <input id="wall-from" data-wall-from type="text" maxlength="28" placeholder="your name">
+        <label class="wall-send"><input type="checkbox" data-wall-send checked> Send it to Abdallah too</label>
+        <div class="wall-buttons">
+            <button type="submit" class="wall-stick">Stick it</button>
+            <button type="button" class="wall-cancel" data-wall-cancel>Cancel</button>
+        </div>
+        <p class="wall-fine">Notes live in your browser and clear after a week. Nothing else is kept.</p>
+    </form>
+</dialog>
+
+
 <footer data-bind="footer"><div class="footer-left">
                 <div>Abdallah Abou Hajal · Abu Dhabi, UAE · © 2026</div>
                 <div class="colophon">
@@ -360,5 +391,6 @@
 <script src="scripts.js"></script>
 <script src="game.js" defer></script>
 <script src="fitdrug.js" defer></script>
+<script src="notes.js" defer></script>
 </body>
 </html>
