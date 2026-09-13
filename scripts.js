@@ -62,7 +62,6 @@
         nav.innerHTML = `
             <a href="index.html" class="brand">
                 ${C.identity.fullName}
-                <span class="brand-meta">${C.identity.role}</span>
             </a>
             <div class="nav-right">
                 <div class="hamburger" aria-label="Menu"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>

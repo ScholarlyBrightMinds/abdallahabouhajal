@@ -2,13 +2,16 @@
    about.css - About page specifics
    ═══════════════════════════════════════════════════════════════════ */
 
-/* ── Narrative + Timeline grid ──────────────────────────────────── */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3.5rem;
-    align-items: start;
+/* ── The narrative ──────────────────────────────────────────────────
+   This section used to be a narrative beside a timeline. The timeline is
+   gone, so the text takes the whole page and runs in two columns, which
+   uses the right hand side and halves the scrolling. */
+.about-grid { display: block; }
+.about-text {
+    columns: 2;
+    column-gap: 3.2rem;
 }
+.about-text p { break-inside: avoid; }
 
 .about-text p {
     color: var(--text-soft);
@@ -130,7 +133,7 @@
 
 /* ── Responsive ─────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-    .about-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+    .about-text { columns: 1; }
 }
 @media (max-width: 540px) {
     .award-item { padding: 0.9rem 0; }
