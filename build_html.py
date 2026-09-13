@@ -268,6 +268,64 @@ def _pub_doi_key(pub: dict) -> str:
     return hashlib.sha1(fallback.encode("utf-8"), usedforsecurity=False).hexdigest()[:16]
 
 
+def _slugify_doi(doi: str) -> str:
+    """Make a filesystem-safe slug from a DOI. e.g. ``10.1080/abc.123`` ->
+    ``10-1080-abc-123``. Hash long DOIs to keep filenames sane.
+
+    Same body as og_card_generator._slugify_doi, copied because that module
+    exits at import when Pillow is missing. Keep the two in sync:
+    build_paper_thumbs.py names images/papers/<slug>.webp with this function
+    and render_article looks the file up with it."""
+    import hashlib
+    safe = re.sub(r"[^a-z0-9]+", "-", doi.lower()).strip("-")
+    if len(safe) > 80:
+        safe = safe[:60] + "-" + hashlib.sha1(
+            doi.encode("utf-8"), usedforsecurity=False
+        ).hexdigest()[:8]
+    return safe
+
+
+# Card thumbnails: a crop of each paper's first article page, made locally by
+# build_paper_thumbs.py (the publisher PDFs are not in the repo) and committed.
+PAPER_THUMBS_DIR = REPO_ROOT / "images" / "papers"
+
+
+def _paper_thumb_size(path: Path) -> tuple[int, int] | None:
+    """Read (width, height) from a lossy or lossless WebP header without
+    Pillow, so the weekly build needs no extra dependency. Returns None when
+    the file is missing or not a WebP we understand."""
+    try:
+        head = path.read_bytes()[:30]
+    except OSError:
+        return None
+    if len(head) < 30 or head[:4] != b"RIFF" or head[8:12] != b"WEBP":
+        return None
+    chunk = head[12:16]
+    if chunk == b"VP8 ":
+        w = int.from_bytes(head[26:28], "little") & 0x3FFF
+        h = int.from_bytes(head[28:30], "little") & 0x3FFF
+        return (w, h)
+    if chunk == b"VP8L":
+        b = head[21:25]
+        w = 1 + (b[0] | ((b[1] & 0x3F) << 8))
+        h = 1 + (((b[1] >> 6) | (b[2] << 2) | ((b[3] & 0x0F) << 10)))
+        return (w, h)
+    if chunk == b"VP8X":
+        w = 1 + int.from_bytes(head[24:27], "little")
+        h = 1 + int.from_bytes(head[27:30], "little")
+        return (w, h)
+    return None
+
+
+def _paper_thumb(doi: str | None) -> tuple[str, tuple[int, int]] | None:
+    """(slug, (width, height)) for images/papers/<slug>.webp, or None."""
+    if not doi:
+        return None
+    slug = _slugify_doi(doi)
+    dims = _paper_thumb_size(PAPER_THUMBS_DIR / f"{slug}.webp")
+    return (slug, dims) if dims else None
+
+
 # ─────────────────────────────────────────────────────────────────────────
 # Render: per-publication <article> blocks (for #list-articles section)
 # ─────────────────────────────────────────────────────────────────────────
@@ -378,8 +436,22 @@ def render_article(
     )
     venue_block = f'<p class="pub-venue">{venue_e}</p>' if venue_e else ""
 
+    # First page thumbnail, only when build_paper_thumbs.py has made one. The
+    # title link below carries the accessible name, so this second link to
+    # the same DOI is hidden from assistive tech and skipped by Tab.
+    thumb_line = ""
+    thumb = _paper_thumb(doi)
+    if thumb:
+        slug, (tw, th) = thumb
+        thumb_line = (
+            f'            <a class="pub-thumb" href="https://doi.org/{escape(doi)}" '
+            f'target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">'
+            f'<img src="images/papers/{slug}.webp" alt="" width="{tw}" height="{th}" '
+            f'loading="lazy" decoding="async"></a>\n'
+        )
+
     return f"""        <article class="pub-item"{data_attrs}>
-            <h3 class="pub-title"><a{link_attr}>{title}</a></h3>
+{thumb_line}            <h3 class="pub-title"><a{link_attr}>{title}</a></h3>
             <p class="pub-authors">{authors}</p>
             {tldr_html}
             {venue_block}
@@ -431,6 +503,9 @@ def render_jsonld(pubs: list[dict], dois: dict, ident: dict) -> str:
         if doi:
             article["identifier"] = {"@type": "PropertyValue", "propertyID": "doi", "value": doi}
             article["sameAs"] = f"https://doi.org/{doi}"
+            thumb = _paper_thumb(doi)
+            if thumb:
+                article["image"] = f"{site_base}/images/papers/{thumb[0]}.webp"
         cites = int(p.get("cited_by") or 0)
         if cites:
             article["interactionStatistic"] = {

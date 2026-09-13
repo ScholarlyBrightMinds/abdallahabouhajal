@@ -98,11 +98,16 @@
 }
 
 /* ─── PUBLICATION CARDS ─────────────────────────────────────────── */
+/* A grid of paper cards. 17.5rem is the narrowest card that still reads:
+   three columns in the 1080px container, two near 900px, one on a phone. */
 .publication-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.05rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+    gap: 1.4rem 1.2rem;
+    align-items: stretch;
 }
+.publication-list > .pub-loading,
+.publication-list > p { grid-column: 1 / -1; }
 
 .pub-loading {
     color: var(--muted);
@@ -237,62 +242,128 @@
 /* ═══════════════════════════════════════════════════════════════════
    PUB-ITEM CARDS (markup emitted weekly by build_html.py)
    ═══════════════════════════════════════════════════════════════════ */
+/* Card: the paper's first page on top, then what it is, then the numbers
+   pinned to the bottom so rows line up however long the title runs. */
 .pub-item {
+    --card-pad: 1.05rem;
+    --lift: cubic-bezier(.16, 1, .3, 1);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.4rem 1.6rem 1.2rem;
+    padding: 0 0 0.95rem;
     position: relative;
     overflow: hidden;
-    transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
+    transition: border-color 180ms var(--lift);
 }
-.pub-item::before {
+.pub-item > :not(.pub-thumb) {
+    margin-left: var(--card-pad);
+    margin-right: var(--card-pad);
+}
+.pub-item:hover,
+.pub-item:focus-within {
+    border-color: var(--accent);
+}
+.pub-item:hover .pub-title a { color: var(--accent); }
+
+/* First page thumbnail. Fixed box so every row aligns; the page is pinned
+   to the top and the last lines melt into the card instead of stopping on
+   a hard edge. */
+.pub-thumb {
+    display: block;
+    position: relative;
+    aspect-ratio: 4 / 3.4;
+    overflow: hidden;
+    background: var(--card);
+    border-bottom: 1px solid var(--border-s);
+}
+.pub-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 180ms var(--lift);
+}
+.pub-thumb::after {
     content: '';
     position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, var(--accent), var(--amber, var(--accent)));
-    transform: scaleY(0);
-    transform-origin: center;
-    transition: transform 0.28s var(--ease);
+    left: 0; right: 0; bottom: 0;
+    height: 24%;
+    background: linear-gradient(to bottom, transparent, var(--card) 92%);
+    pointer-events: none;
 }
-.pub-item:hover {
+.pub-item:hover .pub-thumb img {
     transform: translateY(-2px);
-    border-color: var(--accent);
-    box-shadow: var(--shadow-card);
 }
-.pub-item:hover::before { transform: scaleY(1); }
 
 .pub-title {
     font-family: var(--display);
-    font-size: 1.13rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: -0.015em;
-    margin: 0 0 .45rem;
+    line-height: 1.32;
+    letter-spacing: -0.012em;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
     color: var(--text);
 }
 .pub-title a {
     color: inherit;
     text-decoration: none;
     transition: color var(--t-fast) var(--ease);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
 }
 .pub-title a:hover { color: var(--accent); }
 
 .pub-authors {
-    font-size: 0.85rem;
-    color: var(--text-soft);
-    line-height: 1.55;
-    margin: 0 0 .35rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
 }
 
 .pub-venue {
     font-family: var(--mono);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1.5;
     letter-spacing: 0.01em;
     color: var(--muted);
-    margin: 0 0 .8rem;
+    margin-top: 0;
+    margin-bottom: 0.9rem;
 }
+
+/* Plain-language summary: kept, but it sits back behind the title. */
+.pub-item .pub-tldr {
+    order: 1;
+    margin-top: 0;
+    margin-bottom: 0.95rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+.pub-item .pub-tldr::before { content: none; }
+.pub-item > .pub-meta { order: 2; }
 
 /* ═══════════════════════════════════════════════════════════════════
    STATS ROW - Dimensions badge + data chips
@@ -301,11 +372,39 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.7rem 0.9rem;
-    padding-top: 0.8rem;
+    gap: 0.45rem 0.35rem;
+    padding-top: 0.7rem;
     border-top: 1px solid var(--border-s);
-    margin-top: 0.2rem;
+    margin-top: auto;   /* sits on the floor of the card */
 }
+
+/* Inside a card the chips carry numbers only: the year is already in the
+   venue line and the little pictograms were noise at this size. */
+.publication-list .pub-stat-year { display: none; }
+.publication-list .pub-stat-icon { display: none; }
+.publication-list .pub-stat {
+    padding: 0.28rem 0.45rem;
+    font-size: 0.74rem;
+    gap: 0.28rem;
+}
+.publication-list .pub-stat-num { font-size: 0.76rem; }
+.publication-list .pub-stat-spark { padding: 0.16rem 0.36rem; }
+.publication-list .pub-spark { width: 52px; height: 20px; }
+/* The Dimensions donut ships at 64px, which shouts inside a card. Scale the
+   embed down to sit level with the chips; the link and its hover legend keep
+   working. */
+.publication-list .pub-dimensions {
+    min-width: 0;
+    min-height: 0;
+    width: 46px;
+    height: 46px;
+    transform: none;
+}
+.publication-list .pub-dimensions > * {
+    transform: scale(0.72);
+    transform-origin: top left;
+}
+.publication-list .pub-dimensions:hover > * { transform: scale(0.78); }
 
 /* Altmetric slot - kept for the eventual return of Altmetric badges. */
 .pub-altmetric {
@@ -419,10 +518,16 @@
     stroke: var(--bg, #0a0e16);
     stroke-width: 0.8;
 }
+/* The line draws once, when its card scrolls into view. publications-grid.js
+   adds .spark-wait to the list when it starts watching and .spark-in to each
+   card as it arrives. No JS, no observer, or reduced motion: the line is
+   simply there. Dashed single-year baselines are left alone. */
 @media (prefers-reduced-motion: no-preference) {
-    .pub-stat-spark .pub-spark-line {
+    .spark-wait .pub-item polyline.pub-spark-line {
         stroke-dasharray: 200;
         stroke-dashoffset: 200;
+    }
+    .spark-wait .pub-item.spark-in polyline.pub-spark-line {
         animation: pub-spark-draw 1.1s var(--ease) forwards;
     }
 }
@@ -457,11 +562,12 @@ a.pub-stat-doi:hover .pub-stat-label { color: inherit; }
     .metrics-dash { grid-template-columns: 1fr; }
     .publication-item { padding: 1.3rem 1.3rem; }
     .publication-title { font-size: 1.05rem; }
-    .pub-item { padding: 1.2rem 1.2rem 1rem; }
-    .pub-title { font-size: 1.03rem; }
-    .pub-meta { gap: 0.55rem; }
-    .pub-meta > a.pub-stat-doi:last-child { margin-left: 0; }
+    .pub-item { --card-pad: 1rem; }
     .pub-altmetric { min-width: 56px; min-height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pub-item, .pub-thumb img { transition: none; }
+    .pub-item:hover .pub-thumb img { transform: none; }
 }
 
 /* ── Co-author network - baked from data/openalex/openalex.json each Monday ── */
