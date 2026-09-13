@@ -87,7 +87,7 @@ h1, h2, h3, h4,
     letter-spacing: var(--track-kicker);
 }
 .impact-num, .metric-num, .pub-stat-num, .proj-num, .blog-cover-num,
-.coauth-row-count, .oa-badge strong, .orcid-pill strong, td, th {
+.oa-badge strong, .orcid-pill strong, td, th {
     font-variant-numeric: tabular-nums;
 }
 html { scroll-behavior: smooth; }
@@ -407,44 +407,6 @@ footer {
     transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
 }
 .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
-
-/* ═══════════════════════════════════════════════════════════════════
-   LEDGER · replaces the three equal icon cards
-   A row list, not a card grid. Mono label left, prose right, one
-   hairline between rows. Takes two items or nine without redesign,
-   which a three-column grid cannot. Three equal cards assert three
-   things matter equally, and that was never true here.
-   ═══════════════════════════════════════════════════════════════════ */
-.ledger {
-    margin-top: 2.2rem;
-    border-top: 1px solid var(--border);
-}
-.ledger-row {
-    display: grid;
-    grid-template-columns: minmax(8rem, 13rem) 1fr;
-    gap: 0 clamp(1.5rem, 4vw, 3rem);
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
-}
-.ledger-label {
-    font-family: var(--f-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-top: 0.3rem;
-    font-variant-numeric: tabular-nums;
-}
-.ledger-body {
-    color: var(--text-soft);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 58ch;
-}
-@media (max-width: 720px) {
-    .ledger-row { grid-template-columns: 1fr; gap: 0.45rem; padding: 1.05rem 0; }
-    .ledger-label { padding-top: 0; }
-}
 
 /* ═══════════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS · fast, ease-out, opacity + translate only

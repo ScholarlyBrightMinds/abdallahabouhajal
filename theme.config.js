@@ -99,13 +99,11 @@ window.SITE_CONFIG = {
 
     // ── Per-page sub-hero lede text ──────────────────────────────
     ledes: {
-        about:        "Researcher in AI-driven drug discovery, now working at the intersection of cheminformatics, AutoML, and large language models.",
-        projects:     "Active work on AI agents and computational toxicology at the top, followed by published output. If any of these intersect with your work, I would love to collaborate.",
+        about:        "MSc Pharmaceutical Sciences, Al Ain University. Data Analyst and AI Automation Lead at Scifiniti Publishing in Abu Dhabi. Machine learning and language models for drug discovery.",
         publications: "Peer-reviewed papers on machine learning, cheminformatics and drug discovery.",
         blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper.",
-        talks:        "Hackathon wins, conference talks, poster sessions, and the three-minute thesis. Slides and posters are linked where I have them.",
-        contact:      "The fastest way to reach me. Below the form there is a short note for PhD supervisors and another for potential collaborators.",
-        research:     "The longer version of the work I do, the questions I want to answer, and where I would like to take this next. Written with PhD supervisors in mind."
+        contact:      "Use the form, or email me directly.",
+        research:     "Machine learning and language models for drug discovery and toxicology."
     },
 
 
@@ -141,28 +139,40 @@ window.SITE_CONFIG = {
             { date: "Next · PhD Search",             title: "Actively seeking a position",      desc: "ML × cheminformatics × drug discovery. Open to strong groups worldwide.", state: "future" }
         ],
 
-        // Three research-pillar cards
-        pillars: [
-            { icon: "molecule",  title: "Cheminformatics",           desc: "Molecular standardization, fingerprinting (Morgan / Mordred), applicability domain analysis, featurewiz selection." },
-            { icon: "network",   title: "Machine Learning &amp; AutoML", desc: "LightGBM / CatBoost / XGBoost ensembles, AutoGluon stacked models, Chemprop GNNs, consensus voting." },
-            { icon: "document",  title: "LLMs for Science",          desc: "Benchmarking reasoning vs non-reasoning LLMs for molecular property prediction against GNN &amp; fingerprint baselines." }
-        ],
-
-        // Awards section
+        // Awards section, plain list on about.html
         awards: [
-            { icon: "🥇", title: "First Place, BindHack Hackathon",         venue: "Insilico Medicine, Masdar City · 2025, antibody-antigen binding prediction in a 6-hour AI/drug discovery competition" },
-            { icon: "🥈", title: "Three Minute Thesis, Second Place",      venue: "2nd AAU Health &amp; Biomedical Postgraduate Symposium · 2024" },
-            { icon: "🥇", title: "Best Quality Poster, First Place",       venue: "1st International Conference on Pharmacy &amp; Biomedical Sciences, Al Ain University · 2023" },
-            { icon: "🎓", title: "MSc Pharmaceutical Sciences · GPA 3.94",  venue: "Graduated with Excellent · Al Ain University, 2023" },
-            { icon: "🎖️", title: "Postgraduate Scholarship",                venue: "Awarded for MSc research and lab-assistant duties · 2021 to 2023" },
-            { icon: "🏅", title: "Honor Student · 2017/2018",               venue: "Bachelor of Pharmacy · Al Ain University" }
+            { title: "First place, BindHack",             venue: "Insilico Medicine, Masdar City, 2025" },
+            { title: "Three Minute Thesis, second place", venue: "2nd AAU Health and Biomedical Postgraduate Symposium, 2024" },
+            { title: "Best Quality Poster, first place",  venue: "1st International Conference on Pharmacy and Biomedical Sciences, Al Ain University, 2023" }
         ]
     },
 
     // ── Projects (Ongoing Research) ──────────────────────────────
-    // statusKind: 'active' | 'review' | 'published' | 'draft'
-    // A "Want to collaborate?" button is added to every card automatically.
+    // statusKind is the status field research.html groups by:
+    //   'review'    renders under "Under review", meta line comes from `status`
+    //   'published' renders under "Published", title links to the DOI
+    //   'active'    renders under "Now", with the `needs` line
     projects: [
+        {
+            n: "R1",
+            label: "Chemical Language Models · Review",
+            title: "Chemical Language Models for Early-Stage Drug Discovery: Applications, Pitfalls, and Future Directions",
+            desc: "A review of what chemical language models are used for in early drug discovery and where they break down.",
+            tech:  ["Chemical Language Models", "Drug Discovery", "Review"],
+            status: "Under review · Journal of Computer-Aided Molecular Design",
+            statusKind: "review",
+            venue: "Journal of Computer-Aided Molecular Design"
+        },
+        {
+            n: "R2",
+            label: "Assay Interference · Review",
+            title: "Computational Flagging of Assay Interference in Drug Discovery: A Review of Rule-Based, Machine Learning, Graph Neural Networks, and Chemical Language Models",
+            desc: "A review of the methods used to flag assay interference compounds, from substructure rules through to graph neural networks and chemical language models.",
+            tech:  ["Assay Interference", "Machine Learning", "Graph Neural Networks", "Review"],
+            status: "Submitted · Journal of Chemical Information and Modeling",
+            statusKind: "review",
+            venue: "Journal of Chemical Information and Modeling"
+        },
         {
             n: "01",
             label: "AI Agents · Drug Discovery",
@@ -185,6 +195,17 @@ window.SITE_CONFIG = {
         },
         {
             n: "03",
+            label: "Toxicology · AOP Networks",
+            title: "Computational approaches to adverse outcome pathway networks",
+            desc: "A review of how adverse outcome pathway networks are built, quantified and used to support regulatory decisions.",
+            tech:  ["AOP Networks", "Toxicology", "Regulatory Science", "Review"],
+            status: "Published · Computational Toxicology · 2026",
+            statusKind: "published",
+            doi:   "10.1016/j.comtox.2026.100429",
+            venue: "Computational Toxicology"
+        },
+        {
+            n: "04",
             label: "Open Science · Review",
             title: "GitHub in AI-driven drug discovery",
             desc: "How sharing code on GitHub makes AI drug discovery research easier to check and reproduce.",
@@ -195,7 +216,7 @@ window.SITE_CONFIG = {
             venue: "Expert Opinion on Drug Discovery"
         },
         {
-            n: "04",
+            n: "05",
             label: "AutoML · DDI Prediction",
             title: "Predicting drug-drug interactions with AutoML",
             desc: "Automated machine learning for drug-drug interactions, and how the way a molecule is represented changes the result.",
@@ -206,7 +227,7 @@ window.SITE_CONFIG = {
             venue: "Toxicology Mechanisms and Methods"
         },
         {
-            n: "05",
+            n: "06",
             label: "LLMs · Drug Delivery",
             title: "Language models in drug delivery",
             desc: "A review of language model tools, such as ChemCrow and BioBERT, for formulation and drug delivery design.",
@@ -217,7 +238,7 @@ window.SITE_CONFIG = {
             venue: "Journal of Pharmaceutical Sciences"
         },
         {
-            n: "06",
+            n: "07",
             label: "ML Reliability · Oncology",
             title: "How reliable are ML predictions of tumor progression?",
             desc: "A close look at how machine learning models of tumor progression are benchmarked, where dataset bias creeps in, and what reliable should mean.",
@@ -228,7 +249,7 @@ window.SITE_CONFIG = {
             venue: "Computers in Biology and Medicine"
         },
         {
-            n: "07",
+            n: "08",
             label: "MSc Thesis · JCIM",
             title: "BAD Molecule Filter",
             desc: "My MSc work. A model that flags molecules that look like real hits in a drug screen but are actually clumping together and causing false positives. It runs as a free public web server.",
@@ -346,48 +367,6 @@ window.SITE_CONFIG = {
         }
     ],
 
-    // ── Talks, posters, presentations ─────────────────────────────
-    // Newest first. `kind`: 'hackathon' | 'poster' | 'talk' | 'workshop' | 'thesis'
-    // `award` is a string when there is a prize; omit otherwise.
-    talks: [
-        {
-            date: "Nov 2025",
-            year: 2025,
-            kind: "hackathon",
-            title: "BindHack: Antibody-Antigen Binding Prediction",
-            venue: "Insilico Medicine · Masdar City, Abu Dhabi",
-            award: "1st place",
-            desc:  "A six-hour competitive AI/drug discovery hackathon. Our team built a fast LLM-assisted scoring pipeline for predicting antibody-antigen binding affinity from sequence-only features, and finished first across all teams."
-        },
-        {
-            date: "Mar 2024",
-            year: 2024,
-            kind: "thesis",
-            title: "Three Minute Thesis: Boosting Colloidal-Aggregator Detection",
-            venue: "2nd AAU Health & Biomedical Postgraduate Symposium · Al Ain University",
-            award: "2nd place",
-            desc:  "Three minutes, one slide, no jargon. Compressed the entire BAD Molecule Filter project (why aggregators ruin early drug screens, what we built, why it matters) into one talk for a non-specialist audience."
-        },
-        {
-            date: "Apr 2023",
-            year: 2023,
-            kind: "poster",
-            title: "BAD Molecule Filter: Poster Presentation",
-            venue: "1st International Conference on Pharmacy & Biomedical Sciences · Al Ain University",
-            award: "Best Quality Poster · 1st place",
-            desc:  "Poster on the machine-learning ensemble behind the BAD Molecule Filter, awarded best-quality poster at the conference. Covered featurisation choice, applicability domain, and the public web-server deployment."
-        },
-        {
-            date: "Apr 2023",
-            year: 2023,
-            kind: "thesis",
-            title: "MSc Thesis Defence: A Machine-Learning Tool for Promiscuous Aggregate-Based Inhibitors",
-            venue: "Al Ain University, College of Pharmacy",
-            desc:  "Public defence under Prof. Mohammad Ghattas (medicinal chemistry) and Prof. Boulbaba Ben Amor (AI). Graduated with GPA 3.94. Thesis published first author in JCIM in 2024."
-        }
-    ],
-
-
     // ── Contact page (contact.html) ───────────────────────────────
     // formAction = a Formspree endpoint. Will need to be created at
     // formspree.io (free tier ok) before the form actually delivers mail.
@@ -395,36 +374,17 @@ window.SITE_CONFIG = {
     contact: {
         h1Front:  "Let's",
         h1Accent: "talk",
-        intro: "I read every email. Below the form there are short notes for PhD supervisors and potential collaborators, plus the direct ways to reach me.",
         formAction: "https://formspree.io/f/mqejpyjl",
         formNote: "Your message goes to my inbox directly. I reply within 48 hours.",
         directEmail: "abdallah.abouhajal@gmail.com",
         cvHref: "Abdallah-Abou-Hajal-CV.pdf",
-        blocks: [
-            {
-                icon: "🎓",
-                title: "PhD supervisors",
-                body:  "Looking to start late 2026 or 2027. Interested in ML × drug discovery, LLM agents for chemistry, AI-augmented AOP networks, and ADMET / toxicity prediction. I will respond within 48 hours and can send the long-form research statement, CV, and a transcript on request."
-            },
-            {
-                icon: "🤝",
-                title: "Collaborators",
-                body:  "Open to collaborations on cheminformatics, AutoML for pharmacology, LLMs for drug discovery, and open-science tooling. If you have a wet-lab problem that needs a quick ML proof-of-concept, I am genuinely interested. See <a href=\"research.html\">what I work on</a> for what is active."
-            },
-            {
-                icon: "✉️",
-                title: "Journalists & podcasts",
-                body:  "Happy to talk about AI in drug discovery, the limits of LLMs on chemistry, and what it actually looks like to do computational pharma research from outside the usual UK / US / EU hubs. Reach out via the form or directly by email."
-            }
-        ],
         responseTimeNote: "Usually within 48 hours, faster on weekdays in Gulf Standard Time."
     },
 
     // ── Footer text ───────────────────────────────────────────────
     footer: {
         copyrightYear: 2026,
-        tagline: "Part of the <a href=\"https://scholarlybrightminds.github.io/\">Scholarly Bright Minds</a> hub.",
-        credits: "A fork of <a href=\"https://github.com/muhammedrashidx/ScholarSite_2.0\" target=\"_blank\" rel=\"noopener\">ScholarSite_2.0</a>."
+        tagline: "Part of the <a href=\"https://scholarlybrightminds.github.io/\">Scholarly Bright Minds</a> hub."
     }
 };
 

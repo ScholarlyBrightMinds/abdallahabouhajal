@@ -58,7 +58,7 @@ jobs:
           python citations_fetcher.py
 
       - name: Fetch OpenAlex author + works
-        # OpenAlex Public API — no key needed, polite-pool by mailto.
+        # OpenAlex Public API, no key needed, polite-pool by mailto.
         # Pulls verified citations, h/i10-index, OA percentage, top
         # research concepts, and the full works list into
         # data/openalex/openalex.json.
@@ -76,7 +76,7 @@ jobs:
         # bakes the article list + headline metrics + Schema.org JSON-LD into
         # publications.html and theme.config.js BEFORE git commit. Result:
         # Googlebot's first crawl pass sees real publication titles, journal
-        # names, and citation counts in the served HTML — not empty divs.
+        # names, and citation counts in the served HTML, not empty divs.
         run: |
           set -euo pipefail
           python build_html.py
@@ -96,20 +96,10 @@ jobs:
           set -euo pipefail
           python build_openalex_html.py
 
-      - name: Bake co-author network into publications.html
-        # Reads data/openalex/openalex.json and renders a radial SVG of
-        # top co-authors (node size and edge weight scale with shared
-        # paper count) plus a tabular fallback list. Patches the
-        # COAUTHOR-NETWORK marker block in publications.html.
-        run: |
-          set -euo pipefail
-          python build_coauthor_html.py
-
-
       - name: Generate per-paper OG share cards
         # Pillow-based renderer that emits 1200x630 PNGs into images/og/
         # for each DOI-resolved publication plus one publications-summary
-        # card used by publications.html OG meta. Idempotent — each PNG
+        # card used by publications.html OG meta. Idempotent: each PNG
         # is only rewritten if its byte content would change.
         run: |
           set -euo pipefail

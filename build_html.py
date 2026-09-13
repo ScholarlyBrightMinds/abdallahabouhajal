@@ -191,7 +191,7 @@ def _render_sparkline(history: list[dict]) -> str:
 
     cmax = max(counts) or 1
     if len(history) == 1:
-        # Single-year papers — show a baseline + dot in the middle of the
+        # Single-year papers: show a baseline + dot in the middle of the
         # canvas so the chip reads as "one year of data" rather than
         # ambiguously plotted at an edge.
         x = w / 2
@@ -218,7 +218,7 @@ def _render_sparkline(history: list[dict]) -> str:
     end_x, end_y = pts[-1].split(",")
     total = sum(counts)
     breakdown = " · ".join(f"{y}: {c}" for y, c in zip(years, counts))
-    title = f"Citations by year ({total} total) — {breakdown}"
+    title = f"Citations by year, {total} total · {breakdown}"
 
     # Build area-under-curve as a soft fill for visual weight on dense histories
     area_pts = (
