@@ -41,7 +41,8 @@
         prov: $('prov'), step1: $('step1'), step2: $('step2'), step3: $('step3'),
         goal: $('goal'), key: $('key'),
         zoomIn: $('zoomin'), zoomOut: $('zoomout'), zoomReset: $('zoomreset'),
-        zoom: $('zoom'), three: $('three'), threeBtn: $('threebtn'), threeHint: $('threehint')
+        zoom: $('zoom'), three: $('three'), threeHint: $('threehint'),
+        inset: $('inset')
     };
 
     // ── small helpers ───────────────────────────────────────────────
@@ -571,7 +572,6 @@
         }
         state = 'screen';
         close3D();
-        if (ui.threeBtn) ui.threeBtn.hidden = true;
         root.setAttribute('data-state', 'screen');
         setStep(1);
         show(ui.stat, false);
@@ -581,6 +581,9 @@
         show(ui.chartwrap, false);
         show(ui.key, true);
         if (ui.zoom) ui.zoom.hidden = false;
+        showInset(true);
+        // step two is 3D, and screening takes a minute, so fetch it in the background
+        ensure3D().catch(function () {});
         ui.title.textContent = 'Screen';
         buildMap();
         g.warm.forEach(function (k) { reveal(k, true); });
@@ -688,6 +691,82 @@
         root.setAttribute('data-state', 'screendone');
     }
 
+    // ═══════════════════════════ the target, beside the screening map
+    // One point per residue of the EGFR kinase domain, joined into the fold,
+    // with the residues that line the pocket picked out. It turns slowly, so
+    // the map beside it is clearly a screen against something real.
+    var TR = null, trPromise = null, trSpin = 0, trRaf = 0;
+    function ensureTrace() {
+        if (!trPromise) {
+            trPromise = getJSON('trace.json').then(function (d) {
+                TR = d;
+                TR.xyz = new Float32Array(d.p.length);
+                for (var i = 0; i < d.p.length; i++) TR.xyz[i] = d.p[i] / d.scale;
+                // the file is centred on the ligand, which is off to one side of
+                // the fold, so the picture centres on the protein itself
+                var n = d.k.length, c = [0, 0, 0], k, j;
+                for (k = 0; k < n; k++) for (j = 0; j < 3; j++) c[j] += TR.xyz[k * 3 + j] / n;
+                var far = 0;
+                for (k = 0; k < n; k++) {
+                    for (j = 0; j < 3; j++) TR.xyz[k * 3 + j] -= c[j];
+                    far = Math.max(far, Math.hypot(TR.xyz[k * 3], TR.xyz[k * 3 + 1], TR.xyz[k * 3 + 2]));
+                }
+                TR.far = far;
+                return d;
+            });
+        }
+        return trPromise;
+    }
+    function showInset(on) {
+        if (!ui.inset) return;
+        ui.inset.hidden = !on;
+        cancelAnimationFrame(trRaf);
+        if (!on) return;
+        ensureTrace().then(function () {
+            if (REDUCE) { drawTrace(); return; }
+            var step = function () {
+                if (ui.inset.hidden) return;
+                trSpin += 0.0045;
+                drawTrace();
+                trRaf = requestAnimationFrame(step);
+            };
+            trRaf = requestAnimationFrame(step);
+        }).catch(function () { ui.inset.hidden = true; });
+    }
+    function drawTrace() {
+        var c = ui.inset.querySelector('canvas');
+        var dpr = Math.min(2, window.devicePixelRatio || 1);
+        var box = c.getBoundingClientRect();
+        if (!box.width) return;
+        if (c.width !== Math.round(box.width * dpr)) {
+            c.width = Math.round(box.width * dpr);
+            c.height = Math.round(box.height * dpr);
+        }
+        var W = c.width, H = c.height, ctx = c.getContext('2d');
+        var n = TR.k.length, i, s = Math.min(W, H) * 0.44 / (TR.far || 30), cx = W / 2, cy = H / 2;
+        var cosy = Math.cos(trSpin), siny = Math.sin(trSpin);
+        var cosx = Math.cos(-0.35), sinx = Math.sin(-0.35);
+        ctx.clearRect(0, 0, W, H);
+        var pts = [];
+        for (i = 0; i < n; i++) {
+            var x = TR.xyz[i * 3], y = TR.xyz[i * 3 + 1], z = TR.xyz[i * 3 + 2];
+            var x1 = x * cosy + z * siny, z1 = -x * siny + z * cosy;
+            var y1 = y * cosx - z1 * sinx;
+            pts.push([cx + x1 * s, cy - y1 * s, y * sinx + z1 * cosx]);
+        }
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        for (i = 1; i < n; i++) {
+            var key = TR.k[i] && TR.k[i - 1];
+            ctx.strokeStyle = key ? 'rgba(30,86,200,0.95)' : 'rgba(126,139,164,0.42)';
+            ctx.lineWidth = (key ? 2.6 : 1.5) * dpr;
+            ctx.beginPath();
+            ctx.moveTo(pts[i - 1][0], pts[i - 1][1]);
+            ctx.lineTo(pts[i][0], pts[i][1]);
+            ctx.stroke();
+        }
+    }
+
     // ═══════════════════════════════════════════════ the pocket in 3D
     // The flat pocket is a projection baked offline. This is the same pocket
     // as real coordinates, turned in the browser: 675 protein atoms from 1M17
@@ -747,7 +826,6 @@
         show(ui.map, false);
         show(ui.pocket, false);
         ui.three.hidden = false;
-        if (ui.threeBtn) ui.threeBtn.textContent = 'Flat view';
         ui.stage.classList.add('is-3d');
         ensure3D().then(function () {
             build3D();
@@ -756,7 +834,6 @@
             ui.three.hidden = true;
             ui.stage.classList.remove('is-3d');
             show(ui.pocket, true);
-            if (ui.threeBtn) { ui.threeBtn.textContent = '3D view'; ui.threeBtn.disabled = true; }
             ui.note.textContent = 'The 3D view could not load, so this is the flat one.';
         });
     }
@@ -765,7 +842,6 @@
         ui.three.hidden = true;
         ui.stage.classList.remove('is-3d');
         if (three) { cancelAnimationFrame(three.raf); three.raf = 0; }
-        if (ui.threeBtn) ui.threeBtn.textContent = '3D view';
         show(ui.pocket, true);
     }
     function build3D() {
@@ -777,11 +853,14 @@
         } else {
             var id = g && g.compound >= 0 ? rows[g.compound][0] : null;
             var mine = id && P3.deck[id] ? P3.deck[id] : P3.lig.A;
-            ligs.push({ part: ligand3(mine), col: null, name: 'your compound' });
+            // it waits outside the pocket until it is dropped in
+            ligs.push({ part: ligand3(mine), col: null, name: 'your compound', mover: true });
             ligs.push({ part: ligand3(P3.lig.crystal), col: [150, 160, 178], ghost: true,
                         name: 'crystal erlotinib' });
         }
         three = three || { rx: -0.22, ry: 0.6, zoom: 1, raf: 0, user: false };
+        three.mode = state === 'simulate' ? 'poses' : 'dock';
+        three.off = (state === 'dock' && lig && !lig.in) ? [24, 10, 4] : [0, 0, 0];
         three.canvas = canvas;
         three.ctx = canvas.getContext('2d');
         three.ligs = ligs;
@@ -789,6 +868,26 @@
         draw3D();
         if (!three.wired) { wire3D(); three.wired = true; }
     }
+    // the same run the chart is drawing, in the pocket
+    function mdFrame3D(f) {
+        if (!three || !P3 || !P3.md || ui.three.hidden) return;
+        if (three.mode !== 'md') {
+            three.mode = 'md';
+            three.ligs = ['A', 'B'].map(function (k) {
+                var src = { e: P3.md[k].e, p: P3.md[k].f[0] };
+                return {
+                    part: ligand3(src), col: k === 'A' ? [30, 86, 200] : [143, 106, 43],
+                    name: 'pose ' + k, pose: k
+                };
+            });
+        }
+        three.ligs.forEach(function (L) {
+            var fr = P3.md[L.pose].f[clamp(f, 0, P3.md[L.pose].f.length - 1)];
+            for (var i = 0; i < L.part.xyz.length; i++) L.part.xyz[i] = fr[i] / P3.scale;
+        });
+        draw3D();
+    }
+
     function spin3D() {
         if (REDUCE || !three || three.user) return;
         var last = 0;
@@ -831,12 +930,13 @@
             items.push({ z: (p1[2] + p2[2]) / 2, p1: p1, p2: p2, kind: 'pocket', a: a });
         }
         // the ligands, as thick sticks coloured by the atoms at each end
+        var off = three.off || [0, 0, 0];
         three.ligs.forEach(function (L) {
-            var P = L.part;
+            var P = L.part, ox = L.mover ? off[0] : 0, oy = L.mover ? off[1] : 0, oz = L.mover ? off[2] : 0;
             for (var k = 0; k < P.bonds.length; k += 2) {
                 var ia = P.bonds[k], ib = P.bonds[k + 1];
-                var q1 = proj(P.xyz[ia * 3], P.xyz[ia * 3 + 1], P.xyz[ia * 3 + 2]);
-                var q2 = proj(P.xyz[ib * 3], P.xyz[ib * 3 + 1], P.xyz[ib * 3 + 2]);
+                var q1 = proj(P.xyz[ia * 3] + ox, P.xyz[ia * 3 + 1] + oy, P.xyz[ia * 3 + 2] + oz);
+                var q2 = proj(P.xyz[ib * 3] + ox, P.xyz[ib * 3 + 1] + oy, P.xyz[ib * 3 + 2] + oz);
                 items.push({
                     z: (q1[2] + q2[2]) / 2, p1: q1, p2: q2, kind: 'lig', ghost: L.ghost,
                     c1: L.col || EL_COL[P3.els[P.els[ia]]] || EL_COL.C,
@@ -938,22 +1038,16 @@
         window.addEventListener('resize', function () { if (!ui.three.hidden) draw3D(); });
     }
 
-    if (ui.threeBtn) {
-        ui.threeBtn.addEventListener('click', function () {
-            if (ui.three.hidden) open3D(); else close3D();
-        });
-    }
-
     // ═══════════════════════════════════════════════════════ step two
     function toDock() {
         state = 'dock';
         resetView();
         clearLOD();
-        if (ui.threeBtn) ui.threeBtn.hidden = false;
         root.setAttribute('data-state', 'dock');
         setStep(2);
         show(ui.key, false);
         if (ui.zoom) ui.zoom.hidden = true;
+        showInset(false);
         show(ui.goal, false);
         ui.title.textContent = 'Dock';
         ui.meta.textContent = '';
@@ -987,6 +1081,7 @@
         }
         drawPocket({ ghost: true });
         placeLigand();
+        open3D();
         ensureMD().catch(function () {});             // wanted at step 3, fetched now
         showMol(g.compound, 1600);
         ui.note.innerHTML = 'The pale outline is erlotinib, where the crystal structure puts it.';
@@ -1186,10 +1281,15 @@
         lig.in = true;
         lig.node.removeAttribute('tabindex');
         var d0 = lig.dx, d1 = lig.dy, r0 = lig.rot, s0 = lig.scale;
+        var o0 = (three && three.off) ? three.off.slice() : null;
         tween(760, function (t) {
             lig.dx = d0 * (1 - t); lig.dy = d1 * (1 - t); lig.rot = r0 * (1 - t);
             lig.scale = s0 + (1 - s0) * t;
             applyLig(); moveBench();
+            if (o0 && three) {
+                three.off = [o0[0] * (1 - t), o0[1] * (1 - t), o0[2] * (1 - t)];
+                if (!ui.three.hidden) draw3D();
+            }
         }, docked);
         if (lig.bench) lig.bench.classList.add('gone');
         var ring = ui.pocket.querySelector('.fit-target');
@@ -1228,7 +1328,6 @@
     // ═════════════════════════════════════════════════════ step three
     function toSim() {
         state = 'simulate';
-        if (ui.threeBtn) ui.threeBtn.hidden = false;
         if (three && !ui.three.hidden) { build3D(); }
         root.setAttribute('data-state', 'simulate');
         setStep(3);
@@ -1248,6 +1347,7 @@
     var poseNodes = {};
     function startSim() {
         drawPocket({ ghost: false });
+        open3D();
         poseNodes = {};
         var legend = el('g', { 'class': 'pose-legend' }, ui.pocket);
         ['A', 'B'].forEach(function (k, n) {
@@ -1356,9 +1456,12 @@
             }
             paths[p].setAttribute('points', out.join(' '));
         }
+        var frames3d = P3 && P3.md ? P3.md.A.f.length : 0;
+        var at3d = function (f) { if (frames3d) mdFrame3D(Math.round(f / nf * (frames3d - 1))); };
         if (REDUCE) {
             drawFrame('A', nf - 1); drawFrame('B', nf - 1);
             drawSeries('A', nf - 1); drawSeries('B', nf - 1);
+            at3d(nf - 1);
             verdict();
             return;
         }
@@ -1367,11 +1470,13 @@
             if (f >= nf) {
                 drawFrame('A', nf - 1); drawFrame('B', nf - 1);
                 drawSeries('A', nf - 1); drawSeries('B', nf - 1);
+                at3d(nf - 1);
                 verdict();
                 return false;
             }
             drawFrame('A', f); drawFrame('B', f);
             drawSeries('A', f); drawSeries('B', f);
+            at3d(f);
             var ns = (f * mdata.play.A.ps_per_frame / 1000);
             ui.meta.innerHTML = '<span>seed 1 · <strong>' + ns.toFixed(2) + '</strong> ns</span>' +
                 '<span>A <strong>' + fmt(mdata.play.A.rmsd100[f] / 100) + '</strong> A</span>' +
@@ -1405,7 +1510,6 @@
     function finish() {
         state = 'done';
         close3D();
-        if (ui.threeBtn) ui.threeBtn.hidden = true;
         root.setAttribute('data-state', 'done');
         ui.title.textContent = 'Your run';
         ui.meta.textContent = '';
@@ -1602,6 +1706,7 @@
         show(ui.goal, false);
         show(ui.key, false);
         if (ui.zoom) ui.zoom.hidden = true;
+        showInset(false);
         ui.title.textContent = 'Screen, dock, simulate';
         ui.say.innerHTML = '<b>' + meta.game.assays + '</b> tests to find a strong EGFR inhibitor among <b>' +
             N + '</b> real compounds. A model in this browser learns from every result.';

@@ -246,12 +246,15 @@
                      role="group" aria-label="A map of EGFR compounds, arranged so that similar molecules sit together. Arrow keys move between compounds, Enter spends an assay."></svg>
                 <svg class="fit-view" data-f="pocket" viewBox="0 0 600 400" hidden
                      role="img" aria-label="A flat view into the EGFR pocket from the 1M17 crystal structure"></svg>
+                <div class="fit-inset" data-f="inset" hidden>
+                    <canvas aria-hidden="true"></canvas>
+                    <p>EGFR kinase domain<span>the pocket you are screening for</span></p>
+                </div>
                 <div class="fit-three" data-f="three" hidden>
                     <canvas tabindex="0" role="img"
                             aria-label="The EGFR pocket from 1M17 in three dimensions, with the docked pose inside it. Drag to turn it, arrow keys also turn it."></canvas>
                     <p class="fit-3dhint" data-f="threehint">Drag to turn it, scroll to zoom</p>
                 </div>
-                <button type="button" class="fit-3dbtn" data-f="threebtn" hidden>3D view</button>
                 <div class="fit-zoom" data-f="zoom" hidden>
                     <button type="button" data-f="zoomin" aria-label="Zoom in on the map">+</button>
                     <button type="button" data-f="zoomout" aria-label="Zoom out" disabled>&#8722;</button>
