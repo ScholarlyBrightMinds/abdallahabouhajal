@@ -87,7 +87,7 @@ h1, h2, h3, h4,
     letter-spacing: var(--track-kicker);
 }
 .impact-num, .metric-num, .pub-stat-num, .proj-num, .blog-cover-num,
-.coauth-row-count, .oa-badge strong, .orcid-pill strong, td, th {
+.oa-badge strong, .orcid-pill strong, td, th {
     font-variant-numeric: tabular-nums;
 }
 html { scroll-behavior: smooth; }
@@ -407,44 +407,6 @@ footer {
     transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
 }
 .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
-
-/* ═══════════════════════════════════════════════════════════════════
-   LEDGER · replaces the three equal icon cards
-   A row list, not a card grid. Mono label left, prose right, one
-   hairline between rows. Takes two items or nine without redesign,
-   which a three-column grid cannot. Three equal cards assert three
-   things matter equally, and that was never true here.
-   ═══════════════════════════════════════════════════════════════════ */
-.ledger {
-    margin-top: 2.2rem;
-    border-top: 1px solid var(--border);
-}
-.ledger-row {
-    display: grid;
-    grid-template-columns: minmax(8rem, 13rem) 1fr;
-    gap: 0 clamp(1.5rem, 4vw, 3rem);
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
-}
-.ledger-label {
-    font-family: var(--f-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-top: 0.3rem;
-    font-variant-numeric: tabular-nums;
-}
-.ledger-body {
-    color: var(--text-soft);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 58ch;
-}
-@media (max-width: 720px) {
-    .ledger-row { grid-template-columns: 1fr; gap: 0.45rem; padding: 1.05rem 0; }
-    .ledger-label { padding-top: 0; }
-}
 
 /* ═══════════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS · fast, ease-out, opacity + translate only
@@ -784,76 +746,4 @@ html.js .reveal.vis {
     color: var(--accent);
     font-weight: 600;
     margin-right: 0.2rem;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   PUBLICATION FILTERS · sit above the article list on publications.html
-   Pure DOM hide/show; SSR + Schema.org JSON-LD remain unchanged for SEO.
-   ═══════════════════════════════════════════════════════════════════ */
-.pub-filter-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    padding: 0.7rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-.pub-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    align-items: center;
-}
-.pub-filter {
-    font-family: var(--f-ui);
-    font-size: 0.78rem;
-    font-weight: 500;
-    padding: 0.4rem 0.85rem;
-    border-radius: var(--radius-s);
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    cursor: pointer;
-    transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease),
-                background-color var(--t-fast) var(--ease), transform 0.15s var(--ease);
-    white-space: nowrap;
-}
-.pub-filter:hover {
-    color: var(--accent);
-    border-color: var(--accent-glow);
-    background: var(--accent-bg);
-}
-.pub-filter:active { transform: scale(0.96); }
-.pub-filter.active {
-    color: var(--bg);
-    background: var(--accent);
-    border-color: var(--accent);
-    font-weight: 600;
-}
-.pub-filter-sep {
-    display: inline-block;
-    width: 1px;
-    height: 18px;
-    background: var(--border);
-    margin: 0 0.25rem;
-}
-.pub-filter-count {
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-}
-.pub-hidden {
-    display: none !important;
-}
-
-@media (max-width: 640px) {
-    .pub-filter-sep { display: none; }
-    .pub-filter { font-size: 0.72rem; padding: 0.36rem 0.7rem; }
-    .pub-filter-bar { gap: 0.5rem; }
 }

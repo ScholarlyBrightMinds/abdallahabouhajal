@@ -251,7 +251,9 @@
     flex-direction: column;
     min-width: 0;
     background: var(--card);
-    border: 1px solid var(--border);
+    /* One notch up from the site hairline. Same token, mixed a shade deeper,
+       so the card edge reads as an edge around the paper thumbnail. */
+    border: 1px solid color-mix(in srgb, var(--border) 82%, var(--muted));
     border-radius: var(--radius);
     padding: 0 0 0.95rem;
     position: relative;
@@ -277,7 +279,7 @@
     aspect-ratio: 4 / 3.4;
     overflow: hidden;
     background: var(--card);
-    border-bottom: 1px solid var(--border-s);
+    border-bottom: 1px solid var(--border);
 }
 .pub-thumb img {
     display: block;
@@ -568,124 +570,4 @@ a.pub-stat-doi:hover .pub-stat-label { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
     .pub-item, .pub-thumb img { transition: none; }
     .pub-item:hover .pub-thumb img { transform: none; }
-}
-
-/* ── Co-author network - baked from data/openalex/openalex.json each Monday ── */
-.coauth-panel {
-    margin-top: 3.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-}
-.coauth-lede {
-    color: var(--text-soft);
-    font-size: 0.94rem;
-    max-width: 640px;
-    margin-bottom: 1.4rem;
-    line-height: 1.6;
-}
-.coauth-wrap {
-    margin: 0 auto 1.4rem;
-    max-width: 760px;
-}
-.coauth-network {
-    width: 100%;
-    height: auto;
-    display: block;
-    overflow: visible;
-}
-.coauth-edge {
-    stroke: var(--accent, #5e9eff);
-    transition: stroke-opacity 0.2s var(--ease, cubic-bezier(0.23,1,0.32,1));
-}
-.coauth-centre {
-    fill: var(--accent, #5e9eff);
-    stroke: var(--bg, #0a0e16);
-    stroke-width: 4;
-    transition: filter 0.2s var(--ease);
-}
-.coauth-centre-label {
-    font-family: var(--display, sans-serif);
-    font-size: 1.5rem;
-    font-weight: 600;
-    fill: var(--bg, #0a0e16);
-    pointer-events: none;
-}
-.coauth-node {
-    fill: var(--card, #101725);
-    stroke: var(--accent-glow, rgba(94,158,255,0.4));
-    stroke-width: 1.5;
-    cursor: pointer;
-    transition: fill 0.2s var(--ease), stroke 0.2s var(--ease), stroke-width 0.2s var(--ease);
-}
-.coauth-node:hover {
-    fill: var(--accent-bg, rgba(94,158,255,0.2));
-    stroke: var(--accent, #5e9eff);
-    stroke-width: 2.5;
-}
-.coauth-label {
-    font-family: var(--body, sans-serif);
-    font-size: 0.76rem;
-    fill: var(--text-soft);
-    pointer-events: none;
-}
-.coauth-label .coauth-name { font-weight: 500; }
-.coauth-label .coauth-papers {
-    fill: var(--accent, #5e9eff);
-    font-weight: 600;
-    font-family: var(--mono, monospace);
-    font-size: 0.7rem;
-}
-
-/* Co-author tabular list - accessible reading-order fallback. */
-.coauth-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0.45rem;
-}
-.coauth-row {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    align-items: center;
-    gap: 0.7rem;
-    padding: 0.55rem 0.85rem;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s);
-    transition: border-color var(--t-fast) var(--ease);
-}
-.coauth-row:hover { border-color: var(--accent); }
-.coauth-row-name {
-    color: var(--text);
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color var(--t-fast) var(--ease);
-}
-.coauth-row-name:hover { color: var(--accent); }
-.coauth-row-inst {
-    color: var(--muted);
-    font-size: 0.76rem;
-}
-.coauth-row-count {
-    background: var(--accent-bg);
-    color: var(--accent);
-    border-radius: var(--radius-s);
-    padding: 0.18rem 0.6rem;
-    font-family: var(--mono);
-    font-weight: 600;
-    font-size: 0.8rem;
-    font-variant-numeric: tabular-nums;
-    min-width: 28px;
-    text-align: center;
-}
-
-@media (max-width: 600px) {
-    .coauth-label { font-size: 0.68rem; }
-    .coauth-centre-label { font-size: 1.2rem; }
-    .coauth-list { grid-template-columns: 1fr; }
-    .coauth-row { grid-template-columns: 1fr auto; gap: 0.45rem; }
-    .coauth-row-inst { grid-column: 1 / -1; }
 }

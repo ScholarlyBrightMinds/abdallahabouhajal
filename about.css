@@ -93,54 +93,30 @@
     line-height: 1.55;
 }
 
-/* ── Pillars ────────────────────────────────────────────────────── */
+/* ── Awards: a plain list, one row per award ────────────────────── */
 .awards-list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
+    max-width: 720px;
+    margin-top: 1.4rem;
+    border-top: 1px solid var(--border);
 }
 .award-item {
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 1.2rem;
-    align-items: center;
-    padding: 1.1rem 1.4rem;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: transform 0.2s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
 }
-.award-item:hover {
-    transform: translateX(3px);
-    border-color: var(--amber);
-    box-shadow: var(--shadow-card);
-}
-.award-icon {
-    width: 46px; height: 46px;
-    border-radius: var(--radius-s);
-    background: var(--amber-bg);
-    border: 1px solid var(--amber-glow);
-    color: var(--amber);
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    font-size: 1.1rem;
-}
-.award-icon svg { width: 22px; height: 22px; }
-.award-body .a-title {
+.award-item .a-title {
     font-family: var(--display);
     font-size: 1rem;
     font-weight: 600;
     color: var(--text);
     line-height: 1.35;
-    margin-bottom: 0.15rem;
     letter-spacing: -0.01em;
 }
-.award-body .a-venue {
-    font-size: 0.82rem;
+.award-item .a-venue {
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
     color: var(--text-soft);
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
 /* ── Sub-lede paragraph ─────────────────────────────────────────── */
@@ -157,9 +133,7 @@
     .about-grid { grid-template-columns: 1fr; gap: 2.4rem; }
 }
 @media (max-width: 540px) {
-    .award-item { grid-template-columns: 40px 1fr; gap: 0.9rem; padding: 1rem 1.1rem; }
-    .award-icon { width: 38px; height: 38px; }
-    .award-icon svg { width: 19px; height: 19px; }
+    .award-item { padding: 0.9rem 0; }
 }
 
 /* ── ORCID verified panel - baked from data/orcid/orcid.json each Monday ── */

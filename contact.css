@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   contact.css - Contact page (form + direct lines + audience blocks)
+   contact.css - Contact page (form + direct lines)
    ═══════════════════════════════════════════════════════════════════ */
 
 .sub-hero .sub-lede {
@@ -197,63 +197,7 @@
     color: var(--muted);
 }
 
-/* ─── Audience blocks (3 cards: supervisors / collaborators / press) ─── */
-.contact-blocks {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.1rem;
-    margin-top: 0.5rem;
-}
-.contact-block {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.6rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.22s var(--ease), border-color var(--t-fast) var(--ease), box-shadow 0.25s var(--ease);
-}
-.contact-block:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
-    box-shadow: var(--shadow-card);
-}
-.contact-block-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-s);
-    background: var(--accent-bg);
-    color: var(--accent);
-    display: grid;
-    place-items: center;
-    font-size: 1.2rem;
-    line-height: 1;
-    margin-bottom: 0.9rem;
-}
-.contact-block-icon svg { width: 20px; height: 20px; }
-.contact-block-title {
-    font-family: var(--display);
-    font-size: 1.12rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-}
-.contact-block-body {
-    color: var(--text-soft);
-    font-size: 0.88rem;
-    line-height: 1.65;
-    margin: 0;
-}
-.contact-block-body a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--accent-glow);
-}
-.contact-block-body a:hover { color: var(--accent-d); }
-
 /* ─── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 900px) {
     .contact-grid { grid-template-columns: 1fr; gap: 1.4rem; }
-    .contact-blocks { grid-template-columns: 1fr; }
 }

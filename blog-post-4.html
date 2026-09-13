@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="theme-color" content="#f6f7fb">
-<meta name="description" content="GitHub in Drug Discovery. A blog post by Abdallah Abou Hajal.">
-<title>GitHub in Drug Discovery · Abdallah Abou Hajal</title>
+<meta name="description" content="What our Expert Opinion on Drug Discovery report found about GitHub use in drug discovery, and the checks I run on a repository before I rely on it.">
+<title>Reading a drug discovery repo before you trust it · Abdallah Abou Hajal</title>
 <link rel="canonical" href="https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-4.html">
 <meta name="author" content="Abdallah Abou Hajal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub in Drug Discovery">
-<meta property="og:description" content="GitHub in Drug Discovery. A blog post by Abdallah Abou Hajal.">
+<meta property="og:title" content="Reading a drug discovery repo before you trust it">
+<meta property="og:description" content="What our Expert Opinion on Drug Discovery report found about GitHub use in drug discovery, and the checks I run on a repository before I rely on it.">
 <meta property="og:url" content="https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-4.html">
-<meta property="og:image" content="https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png">
+<meta property="og:image" content="https://scholarlybrightminds.github.io/abdallahabouhajal/images/workflow.png">
 <meta property="og:site_name" content="Abdallah Abou Hajal">
 <meta property="article:published_time" content="2025-12-14">
 <meta property="article:author" content="https://scholarlybrightminds.github.io/abdallahabouhajal/">
@@ -22,12 +22,13 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "GitHub in Drug Discovery",
-  "description": "GitHub in Drug Discovery. A blog post by Abdallah Abou Hajal.",
+  "headline": "Reading a drug discovery repo before you trust it",
+  "description": "What our Expert Opinion on Drug Discovery report found about GitHub use in drug discovery, and the checks I run on a repository before I rely on it.",
   "datePublished": "2025-12-14",
+  "dateModified": "2026-09-13",
   "url": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-4.html",
   "mainEntityOfPage": "https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-4.html",
-  "image": "https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png",
+  "image": "https://scholarlybrightminds.github.io/abdallahabouhajal/images/workflow.png",
   "inLanguage": "en",
   "author": {
     "@type": "Person",
@@ -71,58 +72,25 @@
                 <span class="post-tag">Research</span>
                 <span class="post-date">Dec 14, 2025</span>
             </div>
-            <h1 class="post-title">GitHub in Drug <em>Discovery</em></h1>
+            <h1 class="post-title">Reading a drug discovery repo before you <em>trust it</em></h1>
         </header>
 
         <div class="post-body">
-        <p>Okay, real talk. If you work in AI for drug discovery and you have not spent time on GitHub, you are missing the point. During the recent hackathon at Insilico Medicine and through a lot of my recent work, one thing kept showing up again and again. Code is now just as important as your paper.</p>
-        <p>A predictive model in a publication is great. A working GitHub repo that runs, explains, and evolves is better. That is how real science moves forward. Transparency, sharing, and building on what came before.</p>
-        <p>We have written an editorial that is in review showing how GitHub usage is growing in drug discovery, with about a <strong>60% jump</strong> in publications that reference it from 2023 to 2024. That is significant.</p>
-        <h2>What is GitHub and why it matters here</h2>
-        <p>GitHub is a platform that hosts code and manages change using Git. It helps teams track edits, review work, and collaborate in the open. For drug discovery, that matters because AI projects include complex software stacks and data that must be easy to find, access, interoperate with, and reuse. These are the FAIR principles. Containers like Docker and Singularity package code with exact dependencies so other labs can run the same workflow. Together with GitHub, this makes results reproducible and lets peers inspect, confirm, and build on prior work.</p>
-        <ul>
-        <li>
-        <strong>FAIR</strong> means findable, accessible, interoperable, and reusable so others can use and extend your work.</li>
-        <li>
-        <strong>Containers</strong> bundle code and dependencies which is critical with version sensitive stacks like RDKit, PyTorch, or docking engines.</li>
-        <li>
-        <strong>Version control</strong> tracks changes and supports collaboration. GitHub is widely used in research because it makes sharing and reproducibility straightforward.</li>
-        </ul>
-        <h2>Why GitHub matters for new researchers</h2>
-        <p>In simple terms:</p>
-        <ul>
-        <li>You will run into it</li>
-        <li>It looks confusing at first</li>
-        <li>And yes, you will need it anyway</li>
-        </ul>
-        <p>The first time I opened a GitHub repo, it felt like walking into a foreign city with no map. Then the basics clicked:</p>
-        <ul>
-        <li>
-        <strong>README.md</strong> is your guidebook. If it is clear, you are good. If it is vague, brace yourself.</li>
-        <li>
-        <strong>Issues</strong> and <strong>pull requests</strong> are like lab meeting notes. This is where the real action happens.</li>
-        </ul>
-        <h2>A simple GitHub workflow that works</h2>
-        <!-- Centered mid-article PNG with caption -->
+        <p>Most of the methods I want to use reach me as a GitHub link. The paper tells me why something should work. The repository is where I find out whether it runs.</p>
+        <p>We tried to put a number on that shift. In Scopus, English language records from 2013 to 2024 that mention GitHub alongside drug discovery terms such as virtual screening, docking, QSAR, cheminformatics, ADMET and pharmacophore modeling grew by roughly 60 percent in 2024 over 2023. Read that as a count of how often people say they used GitHub, not of how often they did: anyone who used it quietly is invisible to the query. The direction is still hard to miss.</p>
+        <p>The full analysis is in a report I wrote with Lana Bustanji, Richard Bryce and Mohammad Ghattas, <a href="https://doi.org/10.1080/17460441.2026.2641511" target="_blank" rel="noopener">now out in Expert Opinion on Drug Discovery</a>.</p>
+        <p>A public link is not the same as a reproducible result. Cheminformatics stacks are version sensitive in a way that punishes casual sharing: one RDKit build, one PyTorch, a docking engine compiled against something you do not have. Code with no pinned environment runs on the author's machine and nowhere else. Add the randomness inside model training and the same repository can hand you two different answers on two different afternoons.</p>
+        <h2>What I look at before I rely on a repo</h2>
+        <p>A README that says what the tool is for and where it fails. A license, because without one you cannot legally reuse the code however friendly the README sounds. A pinned environment: a conda file, a lockfile, a Docker or Singularity image. Tests that run on every commit, so a silent break shows up as a red badge instead of as a wrong number in your table. A tagged release, archived with a DOI where possible, so the paper points at one state of the code rather than at a branch that keeps moving. And some statement of how the model was validated: which benchmark, which split, what was tried and dropped.</p>
+        <p>Stars and forks tell you a project is popular. They say nothing about whether it was validated outside the data it was trained on. Public benchmarks in this field lean heavily on well studied target classes, kinases and GPCRs above all, so an impressive reported metric can mean the model learned that neighborhood rather than the chemistry.</p>
+        <h2>How far in you need to go</h2>
+        <p>That depends on what the project ships. If there is a web server, start there: no install, and ten minutes tells you whether the tool answers your question at all. If not, look for a package on PyPI or conda, a versioned release, or a container image you can pull straight into your environment. If none of that exists you are reading source code, and the example notebook is the fastest way in, because it shows the input shapes the author actually tested.</p>
         <figure class="mid-figure mid-figure--narrow">
-        <img src="images/workflow.png" alt="Three step GitHub workflow for drug discovery projects" loading="lazy" >
-        <figcaption> A practical three step workflow for new researchers. 1) Discover with precise keywords. 2) Assess maintenance, documentation, and containerization. 3) Engage by running and modifying examples to learn what truly works. </figcaption>
+        <img src="images/workflow.png" alt="Workflow for using a GitHub repository, from web server to installable package or container to source code, against what each route lets you do with the model" loading="lazy">
+        <figcaption>The three ways into a repository, in order of effort: run the web server and use the model as it is, install the package or container and fine tune it, or go to the source and retrain. The further down you go, the more of the result is yours.</figcaption>
         </figure>
-        <ul>
-        <li>
-        <strong>1)</strong> Discover tools with clear keywords like ligand binding prediction or generative molecule design.</li>
-        <li>
-        <strong>2)</strong> Assess the repo. Is it maintained? Is the documentation clear? Does it include Docker or Conda files?</li>
-        <li>
-        <strong>3)</strong> Engage by running examples. Test it. Break it. See what happens when you tweak it.</li>
-        </ul>
-        <p>The goal is not just to use code. It is to understand it, reuse it, and improve it. That is how we move forward.</p>
-        <h2>The bigger picture</h2>
-        <p>Imagine this. Every AI model in every paper backed by a clean, documented, reproducible GitHub repo. That is the future we should aim for.</p>
-        <p>If you are new to research or just getting started, open that repo. Clone that project. Break it, fix it, learn from it. It is all part of the process.</p>
-        <p>
-        <strong>Happy coding and til next time</strong>
-        </p>
+        <p>The argument we make in the report is that a repository should be treated as a research output a reviewer can assess, not as supplementary material stapled to a PDF. That sounds like more work than it is. Intended use and limits written down, an environment someone else can install, a license, tests, a versioned release with a DOI: that is an afternoon of effort for code you already wrote.</p>
+        <p>The first repository I ever opened made no sense to me and I assumed the problem was me. Often enough it was the repository. If you are starting out, take one tool you already cite and try to run it on a molecule of your own. Where it breaks is the useful part, and it usually tells you something the paper left out.</p>
         </div>
 
         <footer class="post-footer">
@@ -136,7 +104,7 @@
 <footer data-bind="footer"><div class="footer-left">
                 <div>Abdallah Abou Hajal · Abu Dhabi, UAE · © 2026</div>
                 <div class="colophon">
-                    Part of the <a href="https://scholarlybrightminds.github.io/">Scholarly Bright Minds</a> hub. Set in Charter and the system faces, none of them downloaded. A fork of <a href="https://github.com/muhammedrashidx/ScholarSite_2.0" target="_blank" rel="noopener">ScholarSite_2.0</a>.
+                    Part of the <a href="https://scholarlybrightminds.github.io/">Scholarly Bright Minds</a> hub.
                 </div>
             </div>
             <div class="footer-links"><a href="https://scholar.google.com/citations?user=1I8SvsQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0009-0006-1807-2178" target="_blank" rel="noopener">ORCID</a><a href="https://www.linkedin.com/in/abdallah-abou-hajal/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.researchgate.net/profile/Abdallah-Abou-Hajal-2" target="_blank" rel="noopener">ResearchGate</a><a href="https://github.com/ScholarlyBrightMinds" target="_blank" rel="noopener">GitHub</a><a href="Abdallah-Abou-Hajal-CV.pdf" target="_blank" rel="noopener">Download CV</a><a href="https://www.instagram.com/abdallah_abouhajal/" target="_blank" rel="noopener">Instagram</a><a href="mailto:abdallah.abouhajal@gmail.com" target="_blank" rel="noopener">Email</a></div></footer>
