@@ -544,14 +544,22 @@
             document.querySelectorAll('.reveal').forEach(el => el.classList.add('vis'));
             return;
         }
+        // Where scroll driven animations exist, styles.css does the reveal and
+        // this observer only finishes the job for sections near the end of the
+        // document, which can run out of scroll mid animation. Elsewhere it is
+        // the reveal itself. Both end in the same class.
+        const scrollDriven = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()'));
+        const ratio = scrollDriven ? 0.6 : 0.01;
         const observer = new IntersectionObserver(entries => {
             entries.forEach(e => {
-                if (e.isIntersecting) {
+                const deepEnough = e.intersectionRatio >= ratio
+                    || e.boundingClientRect.top <= window.innerHeight * 0.35;
+                if (e.isIntersecting && deepEnough) {
                     e.target.classList.add('vis');
                     observer.unobserve(e.target);
                 }
             });
-        }, { threshold: 0, rootMargin: '0px 0px 55% 0px' });
+        }, { threshold: [0, ratio], rootMargin: '0px 0px -8% 0px' });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         // Expose so dynamically-added elements can register
         window.__revealObserver = observer;

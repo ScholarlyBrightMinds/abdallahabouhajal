@@ -77,7 +77,7 @@
    Large serif needs tightening. Small uppercase needs opening. Any column
    of figures gets tabular figures, or the digits shift width. */
 h1, h2, h3, h4,
-.hero h1, .sub-hero h1, .sec-title,
+.sub-hero h1, .sec-title,
 [class$="-title"], [class*="-title "] {
     text-wrap: balance;
     font-weight: var(--weight-heading);
@@ -146,11 +146,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     gap: 0.6rem;
     color: var(--text);
     text-decoration: none;
-}
-@keyframes pulse {
-    0%   { transform: scale(0.7); opacity: 0.7; }
-    70%  { transform: scale(1.7); opacity: 0;   }
-    100% { opacity: 0; }
 }
 .brand-meta {
     font-family: var(--mono);
@@ -233,200 +228,6 @@ main {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 3rem;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   HERO (home page)
-   ═══════════════════════════════════════════════════════════════════ */
-.hero {
-    padding: 4.2rem 0 3.4rem;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 3.4rem;
-    align-items: center;
-}
-.hero-text { min-width: 0; }
-.hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    max-width: 100%;
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    line-height: 1.6;
-    color: var(--accent);
-    background: var(--accent-bg);
-    border: 1px solid var(--accent-glow);
-    padding: 0.42rem 0.9rem;
-    border-radius: var(--radius-s);
-    margin-bottom: 1.7rem;
-}
-.hero-status .live-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    position: relative;
-    flex-shrink: 0;
-}
-.hero-status .live-dot::after {
-    content: '';
-    position: absolute; inset: -3px;
-    border-radius: 50%;
-    border: 1px solid var(--accent);
-    animation: pulse 2.4s ease-out infinite;
-}
-.hero-meta {
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.4rem;
-}
-.hero h1 {
-    font-family: var(--display);
-    font-size: var(--fs-hero);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-    margin-bottom: 1.2rem;
-    color: var(--text);
-}
-.hero h1 em {
-    font-style: normal;
-    font-weight: 600;
-    color: var(--accent);
-}
-.hero-tagline {
-    font-family: var(--body);
-    font-size: clamp(1.02rem, 1.5vw, 1.18rem);
-    font-weight: 500;
-    color: var(--text-soft);
-    line-height: 1.55;
-    max-width: 560px;
-    margin-bottom: 1.4rem;
-    letter-spacing: -0.005em;
-}
-.hero-bio {
-    color: var(--text-soft);
-    font-size: 0.95rem;
-    line-height: 1.75;
-    max-width: 560px;
-    margin-bottom: 1.9rem;
-}
-.hero-bio a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent-glow); }
-.hero-bio a:hover { color: var(--accent-d); }
-
-/* Profile image: viewfinder treatment */
-.hero-image {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    max-width: 330px;
-    margin: 0 auto;
-}
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    filter: saturate(0.98) contrast(1.02);
-    position: relative;
-    z-index: 1;
-    display: block;
-}
-/* offset cobalt echo frame */
-.hero-image::before {
-    content: '';
-    position: absolute;
-    inset: 16px -16px -16px 16px;
-    border: 1px solid var(--accent-glow);
-    border-radius: var(--radius);
-    z-index: 0;
-}
-/* viewfinder corner ticks */
-.hero-image::after {
-    content: '';
-    position: absolute;
-    inset: -11px;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0.9;
-    background:
-        linear-gradient(var(--accent), var(--accent)) top left    / 18px 1.5px,
-        linear-gradient(var(--accent), var(--accent)) top left    / 1.5px 18px,
-        linear-gradient(var(--accent), var(--accent)) top right   / 18px 1.5px,
-        linear-gradient(var(--accent), var(--accent)) top right   / 1.5px 18px,
-        linear-gradient(var(--accent), var(--accent)) bottom left / 18px 1.5px,
-        linear-gradient(var(--accent), var(--accent)) bottom left / 1.5px 18px,
-        linear-gradient(var(--accent), var(--accent)) bottom right/ 18px 1.5px,
-        linear-gradient(var(--accent), var(--accent)) bottom right/ 1.5px 18px;
-    background-repeat: no-repeat;
-}
-
-/* Saltatory conduction: the four viewfinder ticks fire in sequence like
-   nodes of Ranvier on a myelinated axon. A registered angle steps corner
-   to corner (steps(), never glides), so the gradient repaints only four
-   times per cycle. Two fast laps at load as a power-on self test, then a
-   slow ambient clock; hovering the portrait excites conduction. The
-   crisp static ticks above stay the base state for reduced motion and
-   for browsers without @property. The hero is aspect-ratio 1/1, so the
-   corners sit at exactly 45/135/225/315deg from center at every size.
-   Site-wide freeze: set --sbm-anim: paused on :root. */
-@property --beam {
-    syntax: "<angle>";
-    initial-value: 45deg;
-    inherits: false;
-}
-@property --beam2 {
-    syntax: "<angle>";
-    initial-value: 315deg;
-    inherits: false;
-}
-@media (prefers-reduced-motion: no-preference) {
-    .hero-image::after {
-        background:
-            conic-gradient(from calc(var(--beam, 45deg) - 45deg),
-                color-mix(in srgb, var(--accent) 88%, white) 0 90deg,
-                transparent 90deg) top left / 100% 100%,
-            conic-gradient(from calc(var(--beam2, 315deg) - 45deg),
-                color-mix(in srgb, var(--accent) 58%, transparent) 0 90deg,
-                transparent 90deg) top left / 100% 100%,
-            linear-gradient(
-                color-mix(in srgb, var(--accent) 38%, transparent),
-                color-mix(in srgb, var(--accent) 38%, transparent)) top left / 100% 100%;
-        background-repeat: no-repeat;
-        -webkit-mask:
-            linear-gradient(#000, #000) top left    / 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) top left    / 1.5px 18px no-repeat,
-            linear-gradient(#000, #000) top right   / 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) top right   / 1.5px 18px no-repeat,
-            linear-gradient(#000, #000) bottom left / 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) bottom left / 1.5px 18px no-repeat,
-            linear-gradient(#000, #000) bottom right/ 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) bottom right/ 1.5px 18px no-repeat;
-        mask:
-            linear-gradient(#000, #000) top left    / 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) top left    / 1.5px 18px no-repeat,
-            linear-gradient(#000, #000) top right   / 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) top right   / 1.5px 18px no-repeat,
-            linear-gradient(#000, #000) bottom left / 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) bottom left / 1.5px 18px no-repeat,
-            linear-gradient(#000, #000) bottom right/ 18px 1.5px no-repeat,
-            linear-gradient(#000, #000) bottom right/ 1.5px 18px no-repeat;
-        animation:
-            conductBoot 1.9s steps(8, end) 0.55s 1 both,
-            conduct var(--conduct-period, 4.8s) steps(4, end) 2.45s infinite,
-            conductTrail var(--conduct-period, 4.8s) steps(4, end) 3.65s infinite;
-        animation-play-state: var(--sbm-anim, running);
-    }
-    .hero-image:hover::after { --conduct-period: 1.4s; }
-    @keyframes conductBoot { from { --beam: 45deg; } to { --beam: 765deg; } }
-    @keyframes conduct     { from { --beam: 45deg; } to { --beam: 405deg; } }
-    @keyframes conductTrail { from { --beam2: 45deg; } to { --beam2: 405deg; } }
 }
 
 /* Hero chips: quick-stat readouts */
@@ -648,6 +449,11 @@ footer {
 /* ═══════════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS · fast, ease-out, opacity + translate only
    ═══════════════════════════════════════════════════════════════════ */
+/* Two ways in, same result. Browsers with scroll driven animations run the
+   reveal off the element's own position in the scrollport, which cannot leave
+   a section stuck at opacity 0 because the fill resolves from the timeline,
+   not from a class a script has to remember to add. Everything else keeps the
+   observer path below. Visible is the authored state either way. */
 html.js .reveal {
     opacity: 0;
     transform: translateY(var(--reveal-rise));
@@ -662,30 +468,44 @@ html.js .reveal.vis {
 .reveal-d3 { transition-delay: calc(var(--stagger) * 3); }
 .reveal-d4 { transition-delay: calc(var(--stagger) * 4); }
 
-@keyframes riseIn {
-    from { opacity: 0; transform: translateY(14px); }
+@keyframes revealRise {
+    from { opacity: 0; transform: translateY(var(--reveal-rise)); }
     to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes frameIn {
-    from { opacity: 0; transform: translateY(10px) scale(0.985); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-.hero-image { opacity: 0; animation: frameIn .7s .25s var(--ease) forwards; }
 
-.hero-text > * { opacity: 0; animation: riseIn .55s var(--ease) forwards; }
-.hero-text > *:nth-child(1) { animation-delay: .05s; }
-.hero-text > *:nth-child(2) { animation-delay: .12s; }
-.hero-text > *:nth-child(3) { animation-delay: .19s; }
-.hero-text > *:nth-child(4) { animation-delay: .26s; }
-.hero-text > *:nth-child(5) { animation-delay: .33s; }
-.hero-text > *:nth-child(6) { animation-delay: .40s; }
+@supports (animation-timeline: view()) {
+    html.js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: revealRise linear both;
+        animation-timeline: view();
+        /* Starts as the top edge enters the scrollport, finishes a third of
+           the way in, so it is over before the reader reaches the text. */
+        animation-range: entry 0% entry 34%;
+        animation-play-state: var(--sbm-anim, running);
+    }
+    .reveal-d1 { animation-range: entry 2% entry 36%; }
+    .reveal-d2 { animation-range: entry 4% entry 38%; }
+    .reveal-d3 { animation-range: entry 6% entry 40%; }
+    .reveal-d4 { animation-range: entry 8% entry 42%; }
+
+    /* An element near the end of the document can run out of scroll before
+       its entry range finishes, which would leave the last section faded.
+       scripts.js adds .vis once a section is mostly on screen, and that
+       cancels the timeline at its finished state. */
+    html.js .reveal.vis {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 
 /* ═══════════════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 2.6rem; }
-    .hero-image { max-width: 250px; }
 }
 @media (max-width: 760px) {
     .nav, main, footer, .container {
@@ -719,9 +539,15 @@ html.js .reveal.vis {
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .hero-status .live-dot::after { animation: none !important; }
-    .hero-text > *, .hero-image { animation: none; opacity: 1; transform: none; }
-    .reveal, html.js .reveal { opacity: 1; transform: none; transition: none; }
+    /* Reduced motion, JavaScript off and a frozen site are the same state
+       reached three ways: everything sits at its finished position. */
+    :root { --sbm-anim: paused; }
+    .reveal, html.js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: none;
+    }
     *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
 
