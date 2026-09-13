@@ -137,7 +137,10 @@
         const r = stage.getBoundingClientRect();
         if (!r.width || !r.height) return;
         aspect = r.width / r.height;
-        const wantW = clamp(r.width * 1.02, 760, 1520);
+        // On a phone the whole world height would leave a band of empty sky, so
+        // the camera is allowed to crop it and sit closer to him.
+        const floor = r.width < 560 ? 620 : 760;
+        const wantW = clamp(r.width * 1.02, floor, 1520);
         baseH = Math.min(WORLD_H, wantW / aspect);
     }
 
