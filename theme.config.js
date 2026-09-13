@@ -169,7 +169,7 @@ window.SITE_CONFIG = {
             title: "Computational Flagging of Assay Interference in Drug Discovery: A Review of Rule-Based, Machine Learning, Graph Neural Networks, and Chemical Language Models",
             desc: "A review of the methods used to flag assay interference compounds, from substructure rules through to graph neural networks and chemical language models.",
             tech:  ["Assay Interference", "Machine Learning", "Graph Neural Networks", "Review"],
-            status: "Submitted · Journal of Chemical Information and Modeling",
+            status: "Submitted · European Journal of Medicinal Chemistry",
             statusKind: "review",
             venue: "Journal of Chemical Information and Modeling"
         },

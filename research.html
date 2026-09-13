@@ -94,20 +94,39 @@
         <p class="work-lede">Machine learning and language models for drug discovery and toxicology.</p>
     </header>
 
-    <section class="work-group" aria-labelledby="work-review">
-        <h2 id="work-review">Under review</h2>
-        <ol class="work-list" data-bind="workReview"></ol>
-    </section>
+    <div class="work-body">
 
-    <section class="work-group" aria-labelledby="work-done">
-        <h2 id="work-done">Published</h2>
-        <ol class="work-list" data-bind="workDone"></ol>
-    </section>
+        <div class="work-lists">
+            <section class="work-group" aria-labelledby="work-review">
+                <h2 id="work-review">Under review</h2>
+                <ol class="work-list" data-bind="workReview"><li class="work-item"><h3>Chemical Language Models for Early-Stage Drug Discovery: Applications, Pitfalls, and Future Directions</h3><p>A review of what chemical language models are used for in early drug discovery and where they break down.</p><p class="work-meta">Under review · Journal of Computer-Aided Molecular Design</p></li><li class="work-item"><h3>Computational Flagging of Assay Interference in Drug Discovery: A Review of Rule-Based, Machine Learning, Graph Neural Networks, and Chemical Language Models</h3><p>A review of the methods used to flag assay interference compounds, from substructure rules through to graph neural networks and chemical language models.</p><p class="work-meta">Submitted · European Journal of Medicinal Chemistry</p></li></ol>
+            </section>
 
-    <section class="work-group" id="projects" aria-labelledby="work-now">
-        <h2 id="work-now">Now</h2>
-        <ol class="work-list" data-bind="workNow"></ol>
-    </section>
+            <section class="work-group" aria-labelledby="work-done">
+                <h2 id="work-done">Published</h2>
+                <ol class="work-list" data-bind="workDone"><li class="work-item"><h3><a href="https://doi.org/10.1016/j.comtox.2026.100429" target="_blank" rel="noopener">Computational approaches to adverse outcome pathway networks</a></h3><p>A review of how adverse outcome pathway networks are built, quantified and used to support regulatory decisions.</p><p class="work-meta">Computational Toxicology · 2026</p></li><li class="work-item"><h3><a href="https://doi.org/10.1080/17460441.2026.2641511" target="_blank" rel="noopener">GitHub in AI-driven drug discovery</a></h3><p>How sharing code on GitHub makes AI drug discovery research easier to check and reproduce.</p><p class="work-meta">Expert Opinion on Drug Discovery · 2026</p></li><li class="work-item"><h3><a href="https://doi.org/10.1080/15376516.2026.2628929" target="_blank" rel="noopener">Predicting drug-drug interactions with AutoML</a></h3><p>Automated machine learning for drug-drug interactions, and how the way a molecule is represented changes the result.</p><p class="work-meta">Toxicology Mechanisms and Methods · 2026</p></li><li class="work-item"><h3><a href="https://doi.org/10.1016/j.xphs.2025.104147" target="_blank" rel="noopener">Language models in drug delivery</a></h3><p>A review of language model tools, such as ChemCrow and BioBERT, for formulation and drug delivery design.</p><p class="work-meta">Journal of Pharmaceutical Sciences · 2025</p></li><li class="work-item"><h3><a href="https://doi.org/10.1016/j.compbiomed.2025.110156" target="_blank" rel="noopener">How reliable are ML predictions of tumor progression?</a></h3><p>A close look at how machine learning models of tumor progression are benchmarked, where dataset bias creeps in, and what reliable should mean.</p><p class="work-meta">Computers in Biology and Medicine · 2025</p></li><li class="work-item"><h3><a href="https://doi.org/10.1021/acs.jcim.4c00363" target="_blank" rel="noopener">BAD Molecule Filter</a></h3><p>My MSc work. A model that flags molecules that look like real hits in a drug screen but are actually clumping together and causing false positives. It runs as a free public web server.</p><p class="work-meta">Journal of Chemical Information and Modeling · 2024</p></li></ol>
+            </section>
+
+            <section class="work-group" id="projects" aria-labelledby="work-now">
+                <h2 id="work-now">Now</h2>
+                <ol class="work-list" data-bind="workNow"><li class="work-item"><h3>AI agents for drug discovery</h3><p>Language model agents that plan a drug discovery task and call real chemistry tools to carry it out, without a person steering every step.</p><p class="work-ask"><strong>Looking for:</strong> A collaborator who builds LLM agents, or who knows target discovery.</p></li><li class="work-item"><h3>AI for adverse outcome pathways</h3><p>Using graph learning and language models to build Adverse Outcome Pathway networks, the maps that link a molecular event to a toxic effect.</p><p class="work-ask"><strong>Looking for:</strong> Toxicologists, graph ML researchers, or teams doing regulatory toxicology.</p></li></ol>
+            </section>
+        </div>
+
+        <!-- One molecule per thing on this page, drawn from real coordinates.
+             research-figure.js fills it and unhides it. -->
+        <aside class="mol-panel" hidden aria-label="Molecules from this work">
+            <svg class="mol-svg" viewBox="0 0 300 300" aria-hidden="true"></svg>
+            <p class="mol-name"></p>
+            <p class="mol-note"></p>
+            <dl class="mol-numbers"></dl>
+            <div class="mol-foot">
+                <div class="mol-dots"></div>
+                <p class="mol-src">Coordinates and descriptors from RDKit, computed once and baked in.</p>
+            </div>
+        </aside>
+
+    </div>
 
     <p class="work-contact">Working on something close to this? <a href="mailto:abdallah.abouhajal@gmail.com">Email me</a>.</p>
 
@@ -122,5 +141,6 @@
             <div class="footer-links"><a href="https://scholar.google.com/citations?user=1I8SvsQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0009-0006-1807-2178" target="_blank" rel="noopener">ORCID</a><a href="https://www.linkedin.com/in/abdallah-abou-hajal/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.researchgate.net/profile/Abdallah-Abou-Hajal-2" target="_blank" rel="noopener">ResearchGate</a><a href="https://github.com/ScholarlyBrightMinds" target="_blank" rel="noopener">GitHub</a><a href="Abdallah-Abou-Hajal-CV.pdf" target="_blank" rel="noopener">Download CV</a><a href="https://www.instagram.com/abdallah_abouhajal/" target="_blank" rel="noopener">Instagram</a><a href="mailto:abdallah.abouhajal@gmail.com" target="_blank" rel="noopener">Email</a></div></footer>
 
 <script src="scripts.js"></script>
+<script src="research-figure.js" defer></script>
 </body>
 </html>

@@ -332,52 +332,6 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  PUBLICATION FILTERS (publications.html)
-    // ═══════════════════════════════════════════════════════════════
-    function wireFilters() {
-        const bar = document.querySelector('.pub-filters');
-        const list = document.getElementById('list-articles');
-        if (!bar || !list) return;
-
-        const buttons = Array.from(bar.querySelectorAll('.pub-filter'));
-        const articles = Array.from(list.querySelectorAll('article.pub-item'));
-        const counter = document.querySelector('.pub-filter-count');
-
-        function applyFilter(filter) {
-            const [kind, value] = filter.split(':');
-            let shownCount = 0;
-            articles.forEach(a => {
-                const yr = a.getAttribute('data-year') || '';
-                const topics = (a.getAttribute('data-topic') || '').split(/\s+/);
-                let show = false;
-                if (kind === 'all') show = true;
-                else if (kind === 'year')  show = yr === value;
-                else if (kind === 'topic') show = topics.includes(value);
-                a.classList.toggle('pub-hidden', !show);
-                if (show) shownCount += 1;
-            });
-            if (counter) {
-                counter.textContent = shownCount === articles.length
-                    ? `${shownCount} papers`
-                    : `${shownCount} of ${articles.length}`;
-            }
-        }
-
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                applyFilter(btn.getAttribute('data-filter') || 'all');
-            });
-        });
-
-        // Initial state, show All
-        const allBtn = bar.querySelector('.pub-filter[data-filter="all"]');
-        if (allBtn) allBtn.classList.add('active');
-        applyFilter('all');
-    }
-
-    // ═══════════════════════════════════════════════════════════════
     //  SCROLL REVEAL
     // ═══════════════════════════════════════════════════════════════
     function wireReveal() {
@@ -485,7 +439,6 @@
         bindWork();
         bindBlog();
         bindContact();
-        wireFilters();
         wireMobile();
     }
 
