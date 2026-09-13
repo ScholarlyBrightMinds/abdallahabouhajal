@@ -8,42 +8,52 @@
 .home [hidden] { display: none !important; }
 
 main.home {
-    display: grid;
-    grid-template-columns: minmax(0, 4.2fr) minmax(0, 7fr);
-    gap: clamp(28px, 5vw, 64px);
-    align-items: start;
-    padding-top: clamp(28px, 6vh, 72px);
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
     padding-bottom: clamp(40px, 8vh, 96px);
-    min-height: calc(100dvh - 88px);
 }
 
-/* ── introduction ─────────────────────────────────────────────────── */
-.home-intro { padding-top: clamp(0px, 4vh, 44px); }
+/* ── introduction: the first screen, centred ──────────────────────── */
+.home-intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* the nav sits above this, and the game has to peek over the fold */
+    min-height: calc(88vh - 72px);
+    min-height: calc(88svh - 72px);
+    padding: 20px 0 78px;
+}
 .home-portrait {
-    width: 72px;
-    height: 72px;
+    width: 84px;
+    height: 84px;
     border-radius: var(--radius);
     object-fit: cover;
     display: block;
     background: var(--bg-deep);
 }
 .home-intro h1 {
-    font-size: clamp(2.5rem, 5.4vw, 4.1rem);
+    font-size: clamp(2.5rem, 6.2vw, 4.4rem);
     line-height: 1.02;
     letter-spacing: -0.03em;
-    margin: 22px 0 18px;
+    margin: 20px 0 16px;
     color: var(--text);
 }
 .home-lede {
-    font-size: 1.12rem;
+    font-size: clamp(1.04rem, 1.5vw, 1.2rem);
     line-height: 1.55;
     color: var(--text-soft);
-    max-width: 34ch;
+    max-width: 42ch;
+    margin-inline: auto;
     text-wrap: pretty;
 }
 .home-stats {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 8px 22px;
     margin-top: 26px;
     font-family: var(--f-mono);
@@ -63,6 +73,7 @@ main.home {
 .home-links {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
     margin-top: 28px;
 }
@@ -83,6 +94,32 @@ main.home {
 @media (hover: hover) and (pointer: fine) {
     .home-links a:hover { border-color: var(--accent); }
     .home-links a.primary:hover { background: var(--accent); border-color: var(--accent); }
+}
+
+/* the line that sends you to the game */
+.home-cue {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    font-family: var(--f-ui);
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 160ms var(--ease);
+}
+.home-cue-arrow { display: block; animation: home-bob 2s ease-in-out infinite; }
+@keyframes home-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+@media (hover: hover) and (pointer: fine) {
+    .home-cue:hover { color: var(--accent); }
 }
 
 /* ── the game card ────────────────────────────────────────────────── */
@@ -328,8 +365,8 @@ main.home {
 
 /* ── small screens ────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-    main.home { grid-template-columns: 1fr; min-height: 0; align-items: start; }
-    .home-lede { max-width: 46ch; }
+    .home-intro { min-height: calc(88vh - 92px); min-height: calc(88svh - 92px); }
+    .home-lede { max-width: 34ch; }
 }
 @media (max-width: 520px) {
     .game-choices { grid-template-columns: 1fr; gap: 8px; }
@@ -343,6 +380,7 @@ main.home {
 
 /* ── reduced motion: the reveal stays, because it is the game ─────── */
 @media (prefers-reduced-motion: reduce) {
+    .home-cue-arrow { animation: none; }
     .mol line { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 0; transition: opacity 240ms ease; }
     .bond.on line { opacity: 1; }
     .atom { transform: none; transition: opacity 240ms ease; }
