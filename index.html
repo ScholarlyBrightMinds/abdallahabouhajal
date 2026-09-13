@@ -217,7 +217,67 @@
         </a>
     </section>
 
-    <section class="game" id="play" data-game data-state="loading" aria-labelledby="game-title">
+    <section class="play" id="play" aria-label="Games">
+
+        <div class="play-tabs" role="tablist" aria-label="Choose a game">
+            <button type="button" class="play-tab" role="tab" id="tab-fit" aria-controls="panel-fit"
+                    aria-selected="true">Find a drug</button>
+            <button type="button" class="play-tab" role="tab" id="tab-mol" aria-controls="panel-mol"
+                    aria-selected="false" tabindex="-1">Name the molecule</button>
+        </div>
+
+        <div class="fit" id="panel-fit" role="tabpanel" aria-labelledby="tab-fit" data-fit data-state="boot">
+            <header class="fit-head">
+                <h2 class="fit-title" data-f="title">Screen, dock, simulate</h2>
+                <p class="fit-meta" data-f="meta" aria-live="polite"></p>
+            </header>
+
+            <ol class="fit-steps">
+                <li data-f="step1" aria-current="step"><b>1</b> Screen</li>
+                <li data-f="step2"><b>2</b> Dock</li>
+                <li data-f="step3"><b>3</b> Simulate</li>
+            </ol>
+
+            <div class="fit-stage" data-f="stage">
+                <canvas class="fit-heat" data-f="heat" width="210" height="140" aria-hidden="true"></canvas>
+                <svg class="fit-view" data-f="map" viewBox="-25 0 1050 700" hidden tabindex="0"
+                     role="group" aria-label="A map of EGFR compounds, arranged so that similar molecules sit together. Arrow keys move between compounds, Enter spends an assay."></svg>
+                <svg class="fit-view" data-f="pocket" viewBox="0 0 600 400" hidden
+                     role="img" aria-label="A flat view into the EGFR pocket from the 1M17 crystal structure"></svg>
+                <div class="fit-static" data-f="static">
+                    <p>Three steps on data that was computed before you arrived. <b>Screen</b>: 302 real EGFR
+                    compounds from ChEMBL sit on a map, you have eight assays, and a model in your browser
+                    guesses the rest. <b>Dock</b>: your best compound drops into the EGFR pocket from crystal
+                    structure 1M17 and takes its AutoDock Vina pose. <b>Simulate</b>: two poses score the same,
+                    2 ns of OpenMM molecular dynamics decides which one holds.</p>
+                </div>
+            </div>
+
+            <div class="fit-panel">
+                <div class="fit-card" data-f="card" hidden>
+                    <svg class="fit-mol" data-f="mol" viewBox="0 0 300 200" aria-hidden="true"></svg>
+                </div>
+                <div class="fit-text">
+                    <p class="fit-say" data-f="say" aria-live="polite"></p>
+                    <p class="fit-note" data-f="note"></p>
+                    <div class="fit-actions" data-f="actions"></div>
+                </div>
+            </div>
+
+            <div class="fit-chart-wrap" data-f="chartwrap" hidden>
+                <svg class="fit-chart" data-f="chart" viewBox="0 0 600 210" role="img"
+                     aria-label="Ligand RMSD against time for both poses"></svg>
+            </div>
+
+            <div class="fit-prov" data-f="prov">
+                <p>Protein PDB 1M17, docking AutoDock Vina 1.2.7, activity data ChEMBL_37 target CHEMBL203,
+                molecular dynamics OpenMM 8.6. Every number was computed before you arrived. Nothing here
+                calls a server or a language model.</p>
+            </div>
+        </div>
+
+        <div class="game" id="panel-mol" role="tabpanel" aria-labelledby="tab-mol" hidden
+             data-game data-state="loading">
         <header class="game-head">
             <h2 id="game-title" class="game-title">Name the molecule</h2>
             <p class="game-meta" data-g="meta" aria-live="polite"></p>
@@ -254,6 +314,8 @@
             </div>
             <button type="button" class="g-btn" data-g="next" hidden>Next</button>
         </div>
+        </div>
+
     </section>
 
 </main>
@@ -268,5 +330,6 @@
 
 <script src="scripts.js"></script>
 <script src="game.js" defer></script>
+<script src="fitdrug.js" defer></script>
 </body>
 </html>

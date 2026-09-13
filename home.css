@@ -122,6 +122,263 @@ main.home {
     .home-cue:hover { color: var(--accent); }
 }
 
+/* ── two games, two tabs ──────────────────────────────────────────── */
+.play-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.play-tab {
+    font-family: var(--f-ui);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 9px 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    background: transparent;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: border-color 160ms var(--ease), background-color 160ms var(--ease), color 160ms var(--ease);
+}
+.play-tab[aria-selected="true"] {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+    font-weight: 600;
+    box-shadow: inset 0 -2px 0 var(--accent);
+}
+@media (hover: hover) and (pointer: fine) {
+    .play-tab:hover { color: var(--text); border-color: var(--accent); }
+}
+
+/* ── step one to three: find a drug ───────────────────────────────── */
+.fit {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(14px, 2vw, 20px);
+    box-shadow: 0 28px 56px -38px rgba(24, 42, 82, 0.32);
+}
+.fit-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 2px 4px 10px;
+}
+.fit-title { font-size: 1.3rem; letter-spacing: -0.015em; color: var(--text); }
+.fit-meta {
+    display: flex;
+    gap: 16px;
+    font-family: var(--f-mono);
+    font-size: 0.74rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+.fit-meta strong { color: var(--text); font-weight: 600; }
+
+.fit-steps {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    padding: 0 4px 12px;
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+.fit-steps li { display: flex; align-items: center; gap: 6px; }
+.fit-steps b {
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-weight: 600;
+}
+.fit-steps li[aria-current="step"] { color: var(--text); }
+.fit-steps li[aria-current="step"] b { border-color: var(--accent); color: var(--accent); }
+.fit-steps li.done b { background: var(--accent-bg); border-color: var(--accent-bg); color: var(--accent-d); }
+
+.fit-stage {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    max-width: calc(52vh * 1.5);
+    max-width: calc(52svh * 1.5);
+    margin-inline: auto;
+    background: var(--bg);
+    border-radius: var(--radius-s);
+    overflow: hidden;
+}
+.fit-heat {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 300ms ease;
+}
+.fit-view { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fit-static {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: clamp(14px, 4vw, 34px);
+}
+.fit-static p { font-size: 0.98rem; line-height: 1.55; color: var(--text-soft); max-width: 56ch; text-wrap: pretty; }
+.fit-static b { color: var(--text); font-weight: 600; }
+
+/* the map */
+.fit-pt {
+    fill: var(--card);
+    stroke: #8d9cb8;
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: r 200ms var(--ease);
+}
+.fit-pt.on { stroke: var(--text-soft); stroke-width: 1.8; }
+.fit-pt.hit { stroke: var(--amber); stroke-width: 3; }
+.fit-pt.sel { stroke: var(--text); stroke-width: 3; }
+.fit-pt:focus { outline: none; }
+.fit-pt:focus-visible { stroke: var(--text); stroke-width: 3; }
+.fit-mark {
+    fill: none;
+    stroke: var(--amber);
+    stroke-width: 2;
+    stroke-dasharray: 4 4;
+    animation: fit-pop 420ms var(--ease) backwards;
+}
+@keyframes fit-pop { from { opacity: 0; transform: scale(0.6); transform-origin: center; } }
+
+/* the pocket */
+.slab { stroke: rgba(110, 126, 158, 0.28); stroke-width: 0.8; }
+.slab.s0 { fill: var(--bg-deep); }
+.slab.s1 { fill: #d7dfee; }
+.slab.s2 { fill: #c8d2e6; }
+.res-dot { fill: var(--card); stroke: #8d9cb8; stroke-width: 1.2; }
+.res-dot.key { stroke: var(--accent); stroke-width: 2; }
+.res-label {
+    font-family: var(--f-mono);
+    font-size: 8px;
+    fill: var(--muted);
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 2.5px;
+    stroke-linejoin: round;
+}
+.res-label.key { fill: var(--text); font-size: 10.5px; }
+.fit-ghost line { stroke: #8894ac; stroke-width: 1.6; stroke-dasharray: 3 3; opacity: 0.7; }
+.fit-ghost text { display: none; }
+.fit-lig { cursor: grab; touch-action: none; }
+.fit-lig.dragging { cursor: grabbing; }
+.fit-lig line { stroke: var(--text); stroke-width: 2.4; stroke-linecap: round; }
+.fit-lig text { font-size: 12px; }
+.fit-bench {
+    fill: var(--card);
+    stroke: var(--border);
+    stroke-width: 1;
+    transition: opacity 400ms ease;
+}
+.fit-bench.gone { opacity: 0; }
+.fit-target {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 6;
+    opacity: 0.55;
+    transition: opacity 400ms ease;
+}
+.fit-target.gone { opacity: 0; }
+.contact {
+    stroke: var(--accent);
+    stroke-width: 1.6;
+    stroke-dasharray: 3 4;
+    animation: fit-fade 320ms ease backwards;
+}
+@keyframes fit-fade { from { opacity: 0; } }
+.fit-pose line { stroke-width: 2.4; stroke-linecap: round; }
+.pose-A line { stroke: var(--accent); }
+.pose-B line { stroke: var(--amber); }
+.pose-A text { fill: var(--accent); }
+.pose-B text { fill: var(--amber); }
+.pose-tag { font-family: var(--f-mono); font-size: 11px; }
+.pose-legend .swatch { stroke-width: 3; stroke-linecap: round; }
+.pose-legend .swatch.pose-A { stroke: var(--accent); }
+.pose-legend .swatch.pose-B { stroke: var(--amber); }
+.pose-tag.pose-A { fill: var(--accent); }
+.pose-tag.pose-B { fill: var(--amber); }
+.fit-pose.drifted line { opacity: 0.55; }
+
+/* readout under the stage */
+.fit-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+    gap: clamp(12px, 2vw, 22px);
+    margin-top: 14px;
+    padding: 0 4px;
+}
+.fit-card { background: var(--bg); border-radius: var(--radius-s); align-self: start; }
+.fit-mol { display: block; width: 100%; height: auto; }
+.fit-mol .mol line {
+    stroke: var(--text);
+    stroke-width: var(--stroke, 2px);
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 280ms var(--ease);
+}
+.fit-mol .bond.on line { stroke-dashoffset: 0; }
+.fit-mol .atom {
+    font-family: var(--f-ui);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 220ms ease-out;
+}
+.fit-mol .atom.on { opacity: 1; }
+.fit-mol .atom .sub { font-size: 0.7em; }
+.fit-say { font-size: 1rem; line-height: 1.5; color: var(--text); max-width: 52ch; text-wrap: pretty; }
+.fit-note {
+    margin-top: 8px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    max-width: 54ch;
+    text-wrap: pretty;
+}
+.fit-note b, .fit-say b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.fit-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.fit-actions:empty { margin-top: 0; }
+
+/* the RMSD chart */
+.fit-chart-wrap { margin-top: 14px; padding: 0 4px; }
+.fit-chart { display: block; width: 100%; height: auto; background: var(--bg); border-radius: var(--radius-s); }
+.fit-chart text { font-family: var(--f-mono); font-size: 10px; fill: var(--muted); }
+.fit-chart .grid { stroke: var(--border); stroke-width: 1; }
+.fit-chart .bar { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
+.fit-chart .series { stroke-width: 2; fill: none; stroke-linejoin: round; }
+.fit-chart .s-A { stroke: var(--accent); }
+.fit-chart .s-B { stroke: var(--amber); }
+
+/* provenance, always under the stage */
+.fit-prov {
+    margin-top: 16px;
+    padding: 12px 4px 0;
+    border-top: 1px solid var(--border-s);
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    line-height: 1.62;
+    color: var(--muted);
+}
+.fit-prov ul { list-style: none; }
+.fit-prov li { break-inside: avoid; margin-bottom: 4px; }
+@media (min-width: 820px) {
+    .fit-prov ul { columns: 2; column-gap: 28px; }
+}
+.fit-prov p { max-width: 92ch; }
+.fit-prov li { max-width: 92ch; }
+
 /* ── the game card ────────────────────────────────────────────────── */
 .game {
     background: var(--card);
@@ -156,6 +413,10 @@ main.home {
 .game-stage {
     position: relative;
     aspect-ratio: 3 / 2;
+    width: 100%;
+    max-width: calc(52vh * 1.5);
+    max-width: calc(52svh * 1.5);
+    margin-inline: auto;
     background: var(--bg);
     border-radius: var(--radius-s);
     overflow: hidden;
@@ -368,6 +629,19 @@ main.home {
     .home-intro { min-height: calc(88vh - 92px); min-height: calc(88svh - 92px); }
     .home-lede { max-width: 34ch; }
 }
+@media (max-width: 640px) {
+    .fit-panel { grid-template-columns: 1fr; }
+    .fit-card { max-width: 280px; margin-inline: auto; }
+    .fit-head { flex-direction: column; gap: 6px; }
+    .fit-steps { gap: 12px; }
+    .res-label { display: none; }
+    .res-label.key { display: block; font-size: 16px; }
+    .fit-lig text, .fit-pose text, .fit-ghost text { font-size: 17px; }
+    .pose-legend { transform: scale(1.7); transform-origin: 0 0; }
+    .fit-lig line { stroke-width: 3.2; }
+    .fit-pose line { stroke-width: 3.2; }
+    .play-tab { flex: 1; padding: 10px 8px; text-align: center; }
+}
 @media (max-width: 520px) {
     .game-choices { grid-template-columns: 1fr; gap: 8px; }
     .g-choice { min-height: 48px; }
@@ -381,6 +655,10 @@ main.home {
 /* ── reduced motion: the reveal stays, because it is the game ─────── */
 @media (prefers-reduced-motion: reduce) {
     .home-cue-arrow { animation: none; }
+    .fit-mol .mol line { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 0; transition: opacity 200ms ease; }
+    .fit-mol .bond.on line { opacity: 1; }
+    .fit-mark, .contact { animation: none; }
+    .fit-pt { transition: none; }
     .mol line { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 0; transition: opacity 240ms ease; }
     .bond.on line { opacity: 1; }
     .atom { transform: none; transition: opacity 240ms ease; }
