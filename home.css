@@ -28,8 +28,8 @@ main.home {
     padding: 20px 0 78px;
 }
 .home-portrait {
-    width: 84px;
-    height: 84px;
+    width: clamp(120px, 13vw, 168px);
+    height: clamp(120px, 13vw, 168px);
     border-radius: var(--radius);
     object-fit: cover;
     display: block;
@@ -732,4 +732,101 @@ main.home {
     .atom { transform: none; transition: opacity 240ms ease; }
     .g-choice, .g-thumb { animation: none; }
     .game-stage.shake { animation: none; }
+}
+
+/* ── the map camera: zoom controls, the heat as an image, molecules ── */
+.fit-heat { display: none; }
+.fit-heatimg { transition: opacity 300ms ease; }
+.fit-stage.is-zoomed .fit-view[data-f="map"] { cursor: grab; }
+.fit-stage.is-zoomed .fit-view[data-f="map"]:active { cursor: grabbing; }
+.fit-view[data-f="map"] { touch-action: pan-y; }
+
+.fit-zoom {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 4px;
+    z-index: 2;
+}
+.fit-zoom button {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    line-height: 1;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 6px;
+    color: var(--text-soft);
+    background: color-mix(in srgb, var(--card) 86%, transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+}
+.fit-zoom button:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+.fit-zoom button:disabled { opacity: 0.4; cursor: default; }
+
+/* a compound drawn as itself, once it is big enough on screen to read */
+.fit-molm { fill: none; }
+.fit-molm line {
+    stroke: var(--c, var(--text-soft));
+    stroke-linecap: round;
+}
+.fit-molm text {
+    font-family: var(--f-ui);
+    font-weight: 600;
+    fill: var(--text);
+    paint-order: stroke;
+    stroke: var(--bg);
+}
+.fit-molm text.el-o { fill: #b3402f; }
+.fit-molm text.el-n { fill: var(--accent); }
+.fit-molm text.el-s { fill: #8f6a2b; }
+.fit-molm text.el-x { fill: #2f7d5b; }
+/* a compound that is drawn as a molecule does not also need its dot */
+.fit-pt.under-mol { fill-opacity: 0; stroke-opacity: 0.22; }
+.fit-pt.under-mol.on { stroke-opacity: 0.8; }
+.fit-pt.under-mol.sel, .fit-pt.under-mol.hit { stroke-opacity: 1; }
+.fit-stage.has-mols .fit-pt { fill-opacity: 0.5; }
+
+/* ── the pocket in three dimensions ───────────────────────────────── */
+.fit-three { position: absolute; inset: 0; }
+.fit-three canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+    touch-action: none;
+}
+.fit-three canvas:active { cursor: grabbing; }
+.fit-three canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.fit-3dbtn {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    z-index: 2;
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 7px 10px;
+    color: var(--text-soft);
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+}
+.fit-3dbtn:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+.fit-3dbtn:disabled { opacity: 0.45; cursor: default; }
+.fit-stage.is-3d { background: var(--bg-soft); }
+.fit-3dhint {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    color: var(--muted);
+    pointer-events: none;
+}
+@media (max-width: 560px) {
+    .fit-3dhint { display: none; }
 }

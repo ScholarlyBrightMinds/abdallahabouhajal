@@ -39,7 +39,9 @@
         pocket: $('pocket'), stat: $('static'), card: $('card'), mol: $('mol'), say: $('say'),
         note: $('note'), actions: $('actions'), chartwrap: $('chartwrap'), chart: $('chart'),
         prov: $('prov'), step1: $('step1'), step2: $('step2'), step3: $('step3'),
-        goal: $('goal'), key: $('key')
+        goal: $('goal'), key: $('key'),
+        zoomIn: $('zoomin'), zoomOut: $('zoomout'), zoomReset: $('zoomreset'),
+        zoom: $('zoom'), three: $('three'), threeBtn: $('threebtn'), threeHint: $('threehint')
     };
 
     // ── small helpers ───────────────────────────────────────────────
@@ -76,7 +78,11 @@
     var g = null;                // the run in progress
     var visible = false, rafId = 0, anims = [];
     var pointNodes = [], selected = -1, pred = null, unc = null, lastMol = -1, topPick = -1;
-    var heatCells = null, heatCtx = null;
+    var heatCells = null, heatCtx = null, heatImg = null, lodLayer = null;
+    // the camera over the map: the base viewBox is the whole world
+    var BASE = { x: -25, y: 0, w: 1050, h: 700 };
+    var view = { x: BASE.x, y: BASE.y, w: BASE.w, h: BASE.h };
+    var zoomNow = 1, lodTimer = 0, lodKey = '', dragged = false, nnDist = null;
 
     // ═══════════════════════════════════════════════════════════ tabs
     function showTab(which) {
@@ -178,6 +184,13 @@
         return o;
     }
     function rgb(c) { return 'rgb(' + c[0] + ',' + c[1] + ',' + c[2] + ')'; }
+    // the same scale, but dark enough at the weak end to draw a molecule with
+    var INK = [116, 129, 155];
+    function inkRamp(p) {
+        var t = clamp((p - 4.5) / 5.0, 0, 1), i, o = [];
+        for (i = 0; i < 3; i++) o.push(Math.round(INK[i] + (HI[i] - INK[i]) * t));
+        return o;
+    }
 
     function layoutHeat() { if (!heatCells) buildCells(); }
     // 40 by 28 cells, each one keyed to the three compounds nearest to it
@@ -218,10 +231,19 @@
                 ctx.fillRect(i, j, 1, 1);
             }
         }
+        if (heatImg) heatImg.setAttribute('href', ui.heat.toDataURL());
     }
+    function heatOpacity(v) { if (heatImg) heatImg.style.opacity = v; }
 
     function buildMap() {
         ui.map.innerHTML = '';
+        // the heat lives inside the map as an image, so panning and zooming the
+        // viewBox carries it along with the compounds
+        heatImg = el('image', {
+            x: BASE.x, y: BASE.y, width: BASE.w, height: BASE.h,
+            preserveAspectRatio: 'none', 'class': 'fit-heatimg'
+        }, ui.map);
+        lodLayer = el('g', { 'class': 'fit-mols' }, ui.map);
         var gp = el('g', { 'class': 'fit-points' }, ui.map);
         pointNodes = [];
         for (var i = 0; i < N; i++) {
@@ -235,10 +257,27 @@
         el('g', { 'class': 'fit-marks' }, ui.map);
         show(ui.map, true);
     }
+    // a dot is 8 px across whatever the zoom, so zooming spreads the map out
+    // instead of inflating everything on it
+    function pointScale() {
+        var box = ui.map.getBoundingClientRect();
+        return box.width ? view.w / box.width : 1;
+    }
+    function sizePoints() {
+        if (!pointNodes.length) return;
+        var s = pointScale();
+        for (var i = 0; i < N; i++) {
+            var on = g && g.seen[i];
+            pointNodes[i].setAttribute('r', fmt((on ? 11 : 8) * s, 2));
+            pointNodes[i].style.strokeWidth = fmt(1.6 * s, 2);
+        }
+    }
     function paintPoints() {
+        var ps = pointScale();
         for (var i = 0; i < N; i++) {
             var node = pointNodes[i], on = g && g.seen[i];
-            node.setAttribute('r', on ? 11 : 8);
+            node.setAttribute('r', fmt((on ? 11 : 8) * ps, 2));
+            node.style.strokeWidth = fmt(1.6 * ps, 2);
             node.setAttribute('class', 'fit-pt' + (on ? ' on' : '') + (on && y[i] >= 8 ? ' hit' : '') +
                                        (i === selected ? ' sel' : ''));
             // measured compounds wear their real potency, the rest wear the model's guess
@@ -247,6 +286,7 @@
                 (on ? ', measured pIC50 ' + fmt(y[i]) : ', the model expects pIC50 ' + fmt(pred[i])));
         }
         markTopPick();
+        if (lodKey) { lodKey = ''; drawLOD(); }
     }
     // the compound the picker would spend its next assay on
     function markTopPick() {
@@ -257,6 +297,140 @@
         el('circle', { cx: MX[topPick], cy: MY[topPick], r: 17 }, gm);
         var t = el('text', { x: MX[topPick], y: MY[topPick] - 24, 'text-anchor': 'middle' }, gm);
         t.textContent = 'model pick';
+    }
+
+    // ═══════════════════════════════════ the camera over the map
+    // Zooming only moves the viewBox, so the heat, the compounds, the rings
+    // and the drawn molecules all travel together with no second coordinate
+    // system to keep in step.
+    var MAX_Z = 8, LOD_Z = 2.2, LABEL_Z = 3.4, MOL_SIZE = 58;
+
+    function applyView() {
+        zoomNow = BASE.w / view.w;
+        ui.map.setAttribute('viewBox',
+            fmt(view.x, 1) + ' ' + fmt(view.y, 1) + ' ' + fmt(view.w, 1) + ' ' + fmt(view.h, 1));
+        ui.stage.classList.toggle('is-zoomed', zoomNow > 1.02);
+        if (ui.zoomOut) ui.zoomOut.disabled = zoomNow <= 1.02;
+        if (ui.zoomIn) ui.zoomIn.disabled = zoomNow >= MAX_Z - 0.01;
+        sizePoints();
+        clearTimeout(lodTimer);
+        lodTimer = setTimeout(drawLOD, 80);
+    }
+    // keep the world point (fx, fy) under the same pixel while the zoom changes
+    function setZoom(z, fx, fy) {
+        z = clamp(z, 1, MAX_Z);
+        var nw = BASE.w / z, nh = BASE.h / z;
+        if (fx === undefined) { fx = view.x + view.w / 2; fy = view.y + view.h / 2; }
+        var nx = fx - (fx - view.x) * (nw / view.w);
+        var ny = fy - (fy - view.y) * (nh / view.h);
+        view.w = nw; view.h = nh;
+        view.x = clamp(nx, BASE.x, BASE.x + BASE.w - nw);
+        view.y = clamp(ny, BASE.y, BASE.y + BASE.h - nh);
+        applyView();
+    }
+    function resetView() {
+        view.x = BASE.x; view.y = BASE.y; view.w = BASE.w; view.h = BASE.h;
+        applyView();
+    }
+    function panBy(dx, dy) {
+        view.x = clamp(view.x + dx, BASE.x, BASE.x + BASE.w - view.w);
+        view.y = clamp(view.y + dy, BASE.y, BASE.y + BASE.h - view.h);
+        applyView();
+    }
+
+    // ── the compounds as molecules, once they are big enough to read ──
+    function clearLOD() {
+        if (lodLayer && lodLayer.childNodes.length) lodLayer.textContent = '';
+        lodKey = '';
+        if (ui.stage) ui.stage.classList.remove('has-mols');
+    }
+    // how far the nearest other compound sits, so a molecule is only drawn
+    // where there is room for it. Clusters resolve as you zoom into them.
+    function buildNN() {
+        nnDist = new Float32Array(N);
+        for (var i = 0; i < N; i++) {
+            var best = 1e9;
+            for (var j = 0; j < N; j++) {
+                if (j === i) continue;
+                var dx = MX[i] - MX[j], dy = MY[i] - MY[j], d = dx * dx + dy * dy;
+                if (d < best) best = d;
+            }
+            nnDist[i] = Math.sqrt(best);
+        }
+    }
+    function drawLOD() {
+        if (!mols || !lodLayer || state !== 'screen' || zoomNow < LOD_Z) { clearLOD(); return; }
+        if (!nnDist) buildNN();
+        var box = ui.map.getBoundingClientRect();
+        if (!box.width) return;
+        // the drawing keeps the same size on screen whatever the zoom, so
+        // zooming in gives each molecule more room rather than a bigger picture
+        var perPx = view.w / box.width;
+        var size = 96 * perPx;
+        var cx = view.x + view.w / 2, cy = view.y + view.h / 2, i, j, near = [];
+        for (i = 0; i < N; i++) {
+            if (MX[i] < view.x - size || MX[i] > view.x + view.w + size) continue;
+            if (MY[i] < view.y - size || MY[i] > view.y + view.h + size) continue;
+            near.push([i, (MX[i] - cx) * (MX[i] - cx) + (MY[i] - cy) * (MY[i] - cy)]);
+        }
+        near.sort(function (a, b) { return a[1] - b[1]; });
+        // take them from the middle of the view outwards, skipping any that
+        // would land on top of one already taken. Zooming shrinks the gap they
+        // need, so a cluster opens up into its molecules as you go in.
+        var gap = size * 0.8, list = [];
+        for (i = 0; i < near.length && list.length < 60; i++) {
+            var k = near[i][0], ok = true;
+            for (j = 0; j < list.length; j++) {
+                var a = list[j][0];
+                if (Math.abs(MX[a] - MX[k]) < gap && Math.abs(MY[a] - MY[k]) < gap) { ok = false; break; }
+            }
+            if (ok) list.push(near[i]);
+        }
+        var labels = zoomNow >= LABEL_Z;
+        var key = list.map(function (r) { return r[0]; }).join(',') + '|' + (labels ? 1 : 0) +
+                  '|' + Math.round(size);
+        if (key === lodKey) return;                 // same molecules, nothing to redo
+        lodKey = key;
+        lodLayer.textContent = '';
+        ui.stage.classList.toggle('has-mols', list.length > 0);
+        var D = window.SBMDraw;
+        for (i = 0; i < N; i++) pointNodes[i].classList.remove('under-mol');
+        for (i = 0; i < list.length; i++) {
+            // the dot steps out of the way of its own molecule
+            pointNodes[list[i][0]].classList.add('under-mol');
+            drawOne(list[i][0], D, labels, size, perPx);
+        }
+    }
+    function drawOne(i, D, labels, size, perPx) {
+        var mol = molOf(i);
+        if (!mol) return;
+        var f = D.fit(mol, size, size, size * 0.07, size / 5);
+        var on = g && g.seen[i];
+        var node = el('g', {
+            'class': 'fit-molm' + (on ? ' on' : ''),
+            'stroke-width': fmt(perPx * (on ? 2 : 1.5), 2),
+            transform: 'translate(' + fmt(MX[i] - size / 2, 1) + ',' + fmt(MY[i] - size / 2, 1) + ')'
+        }, lodLayer);
+        node.style.setProperty('--c', rgb(inkRamp(on ? y[i] : pred[i])));
+        var labelled = mol.atoms.map(function (a) { return labels && a[0] !== 'C'; });
+        mol.bonds.forEach(function (b) {
+            D.bondLines(b, f.pts, f.s, labelled).forEach(function (sg) {
+                el('line', {
+                    x1: fmt(sg[0], 1), y1: fmt(sg[1], 1), x2: fmt(sg[2], 1), y2: fmt(sg[3], 1)
+                }, node);
+            });
+        });
+        if (!labels) return;
+        mol.atoms.forEach(function (a, k) {
+            if (a[0] === 'C') return;
+            var tx = el('text', {
+                x: fmt(f.pts[k][0], 1), y: fmt(f.pts[k][1], 1),
+                'font-size': fmt(perPx * 11, 2), 'stroke-width': fmt(perPx * 2.6, 2),
+                'text-anchor': 'middle', 'dominant-baseline': 'central',
+                'class': LABELLED[a[0]] || ''
+            }, node);
+            tx.textContent = a[0];
+        });
     }
 
     // ══════════════════════════════════════════════ molecule drawing
@@ -383,6 +557,8 @@
     }
 
     function newRun() {
+        resetView();
+        clearLOD();
         g = {
             seen: new Uint8Array(N), revealed: [], picks: [], budget: meta.game.assays, used: 0,
             best: -1, bestAssay: 0, hits: 0, warm: [], picker: null, compound: -1, docked: null,
@@ -394,14 +570,17 @@
             if (!chosen[i]) { chosen[i] = 1; g.warm.push(i); }
         }
         state = 'screen';
+        close3D();
+        if (ui.threeBtn) ui.threeBtn.hidden = true;
         root.setAttribute('data-state', 'screen');
         setStep(1);
         show(ui.stat, false);
         show(ui.map, true);
-        ui.heat.style.opacity = '';
+        heatOpacity('');
         show(ui.pocket, false);
         show(ui.chartwrap, false);
         show(ui.key, true);
+        if (ui.zoom) ui.zoom.hidden = false;
         ui.title.textContent = 'Screen';
         buildMap();
         g.warm.forEach(function (k) { reveal(k, true); });
@@ -509,12 +688,272 @@
         root.setAttribute('data-state', 'screendone');
     }
 
+    // ═══════════════════════════════════════════════ the pocket in 3D
+    // The flat pocket is a projection baked offline. This is the same pocket
+    // as real coordinates, turned in the browser: 675 protein atoms from 1M17
+    // and the pose Vina computed, bonded by distance and drawn back to front
+    // on a canvas. No library, and the data only loads when it is asked for.
+    var P3 = null, p3Promise = null, three = null;
+    var EL_COL = {
+        C: [26, 36, 58], N: [30, 86, 200], O: [179, 64, 47], S: [143, 106, 43],
+        F: [47, 125, 91], Cl: [47, 125, 91], Br: [47, 125, 91], P: [143, 106, 43],
+        I: [47, 125, 91], Se: [143, 106, 43]
+    };
+    function ensure3D() {
+        if (!p3Promise) {
+            p3Promise = getJSON('pocket3d.json').then(function (d) {
+                P3 = d;
+                P3.xyz = decode3(d.pocket);
+                P3.bonds = bond3(P3.xyz, d.pocket.e, d.els);
+                // which atoms belong to a residue worth naming, for colour
+                P3.keyAtom = {};
+                d.res.forEach(function (r) {
+                    if (!r.k) return;
+                    for (var k = r.i; k < r.i + r.c; k++) P3.keyAtom[k] = 1;
+                });
+                return d;
+            });
+        }
+        return p3Promise;
+    }
+    function decode3(part) {
+        var n = part.e.length, out = new Float32Array(n * 3), k;
+        for (k = 0; k < n * 3; k++) out[k] = part.p[k] / P3.scale;
+        return out;
+    }
+    // heavy atoms bond when they are close enough, with room for sulphur
+    function bond3(xyz, els, names) {
+        var n = els.length, out = [], i, j;
+        for (i = 0; i < n; i++) {
+            var si = names[els[i]];
+            for (j = i + 1; j < n; j++) {
+                var cut = 1.78 + ((si === 'S' || si === 'P' || names[els[j]] === 'S' ||
+                                   names[els[j]] === 'P') ? 0.24 : 0);
+                var dx = xyz[i * 3] - xyz[j * 3], dy = xyz[i * 3 + 1] - xyz[j * 3 + 1],
+                    dz = xyz[i * 3 + 2] - xyz[j * 3 + 2];
+                var d2 = dx * dx + dy * dy + dz * dz;
+                if (d2 < cut * cut && d2 > 0.64) out.push(i, j);
+            }
+        }
+        return out;
+    }
+    function ligand3(part) {
+        var xyz = decode3(part);
+        return { xyz: xyz, els: part.e, bonds: bond3(xyz, part.e, P3.els) };
+    }
+
+    function open3D() {
+        if (!ui.three) return;
+        show(ui.map, false);
+        show(ui.pocket, false);
+        ui.three.hidden = false;
+        if (ui.threeBtn) ui.threeBtn.textContent = 'Flat view';
+        ui.stage.classList.add('is-3d');
+        ensure3D().then(function () {
+            build3D();
+            spin3D();
+        }).catch(function () {
+            ui.three.hidden = true;
+            ui.stage.classList.remove('is-3d');
+            show(ui.pocket, true);
+            if (ui.threeBtn) { ui.threeBtn.textContent = '3D view'; ui.threeBtn.disabled = true; }
+            ui.note.textContent = 'The 3D view could not load, so this is the flat one.';
+        });
+    }
+    function close3D() {
+        if (!ui.three) return;
+        ui.three.hidden = true;
+        ui.stage.classList.remove('is-3d');
+        if (three) { cancelAnimationFrame(three.raf); three.raf = 0; }
+        if (ui.threeBtn) ui.threeBtn.textContent = '3D view';
+        show(ui.pocket, true);
+    }
+    function build3D() {
+        var canvas = ui.three.querySelector('canvas');
+        var ligs = [];
+        if (state === 'simulate') {
+            ligs.push({ part: ligand3(P3.lig.A), col: [30, 86, 200], name: 'pose A' });
+            ligs.push({ part: ligand3(P3.lig.B), col: [143, 106, 43], name: 'pose B' });
+        } else {
+            var id = g && g.compound >= 0 ? rows[g.compound][0] : null;
+            var mine = id && P3.deck[id] ? P3.deck[id] : P3.lig.A;
+            ligs.push({ part: ligand3(mine), col: null, name: 'your compound' });
+            ligs.push({ part: ligand3(P3.lig.crystal), col: [150, 160, 178], ghost: true,
+                        name: 'crystal erlotinib' });
+        }
+        three = three || { rx: -0.22, ry: 0.6, zoom: 1, raf: 0, user: false };
+        three.canvas = canvas;
+        three.ctx = canvas.getContext('2d');
+        three.ligs = ligs;
+        three.legend = ligs.map(function (l) { return l.name; }).join(' and ');
+        draw3D();
+        if (!three.wired) { wire3D(); three.wired = true; }
+    }
+    function spin3D() {
+        if (REDUCE || !three || three.user) return;
+        var last = 0;
+        var step = function (now) {
+            if (!three || ui.three.hidden || three.user) return;
+            if (last) three.ry += (now - last) * 0.00016;
+            last = now;
+            draw3D();
+            three.raf = requestAnimationFrame(step);
+        };
+        three.raf = requestAnimationFrame(step);
+    }
+    function draw3D() {
+        if (!three || !P3) return;
+        var c = three.canvas, ctx = three.ctx;
+        var dpr = Math.min(2, window.devicePixelRatio || 1);
+        var box = c.getBoundingClientRect();
+        if (!box.width) return;
+        if (c.width !== Math.round(box.width * dpr)) {
+            c.width = Math.round(box.width * dpr);
+            c.height = Math.round(box.height * dpr);
+        }
+        var W = c.width, H = c.height, cx = W / 2, cy = H / 2;
+        var s = Math.min(W, H) / 32 * three.zoom * dpr / dpr;   // about 16 Angstrom across
+        var cosx = Math.cos(three.rx), sinx = Math.sin(three.rx);
+        var cosy = Math.cos(three.ry), siny = Math.sin(three.ry);
+        function proj(x, y, z) {
+            var x1 = x * cosy + z * siny, z1 = -x * siny + z * cosy;
+            var y1 = y * cosx - z1 * sinx, z2 = y * sinx + z1 * cosx;
+            return [cx + x1 * s, cy - y1 * s, z2];
+        }
+        ctx.clearRect(0, 0, W, H);
+
+        var items = [], i, a, b, p1, p2;
+        // the pocket, as thin sticks
+        for (i = 0; i < P3.bonds.length; i += 2) {
+            a = P3.bonds[i]; b = P3.bonds[i + 1];
+            p1 = proj(P3.xyz[a * 3], P3.xyz[a * 3 + 1], P3.xyz[a * 3 + 2]);
+            p2 = proj(P3.xyz[b * 3], P3.xyz[b * 3 + 1], P3.xyz[b * 3 + 2]);
+            items.push({ z: (p1[2] + p2[2]) / 2, p1: p1, p2: p2, kind: 'pocket', a: a });
+        }
+        // the ligands, as thick sticks coloured by the atoms at each end
+        three.ligs.forEach(function (L) {
+            var P = L.part;
+            for (var k = 0; k < P.bonds.length; k += 2) {
+                var ia = P.bonds[k], ib = P.bonds[k + 1];
+                var q1 = proj(P.xyz[ia * 3], P.xyz[ia * 3 + 1], P.xyz[ia * 3 + 2]);
+                var q2 = proj(P.xyz[ib * 3], P.xyz[ib * 3 + 1], P.xyz[ib * 3 + 2]);
+                items.push({
+                    z: (q1[2] + q2[2]) / 2, p1: q1, p2: q2, kind: 'lig', ghost: L.ghost,
+                    c1: L.col || EL_COL[P3.els[P.els[ia]]] || EL_COL.C,
+                    c2: L.col || EL_COL[P3.els[P.els[ib]]] || EL_COL.C
+                });
+            }
+        });
+        items.sort(function (u, v) { return u.z - v.z; });
+
+        var zs = items.length ? items[0].z : 0, ze = items.length ? items[items.length - 1].z : 1;
+        var span = Math.max(0.001, ze - zs);
+        for (i = 0; i < items.length; i++) {
+            var it = items[i], depth = (it.z - zs) / span;          // 0 far, 1 near
+            if (it.kind === 'pocket') {
+                var key = P3.keyAtom && P3.keyAtom[it.a];
+                ctx.strokeStyle = key
+                    ? 'rgba(30,86,200,' + (0.34 + depth * 0.52).toFixed(2) + ')'
+                    : 'rgba(128,141,166,' + (0.14 + depth * 0.42).toFixed(2) + ')';
+                ctx.lineWidth = (key ? 2.2 : 1.5) * dpr * (0.6 + depth * 0.7);
+                ctx.beginPath();
+                ctx.moveTo(it.p1[0], it.p1[1]);
+                ctx.lineTo(it.p2[0], it.p2[1]);
+                ctx.stroke();
+            } else {
+                var mx = (it.p1[0] + it.p2[0]) / 2, my = (it.p1[1] + it.p2[1]) / 2;
+                var alpha = it.ghost ? (0.18 + depth * 0.22) : (0.55 + depth * 0.45);
+                ctx.lineCap = 'round';
+                ctx.lineWidth = (it.ghost ? 2 : 4.6) * dpr * (0.7 + depth * 0.6);
+                ctx.strokeStyle = 'rgba(' + it.c1.join(',') + ',' + alpha.toFixed(2) + ')';
+                ctx.beginPath(); ctx.moveTo(it.p1[0], it.p1[1]); ctx.lineTo(mx, my); ctx.stroke();
+                ctx.strokeStyle = 'rgba(' + it.c2.join(',') + ',' + alpha.toFixed(2) + ')';
+                ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(it.p2[0], it.p2[1]); ctx.stroke();
+            }
+        }
+
+        // which colour is which, when there are two of them in the pocket
+        ctx.font = (11 * dpr) + 'px ui-monospace, SFMono-Regular, Menlo, monospace';
+        ctx.textAlign = 'left';
+        three.ligs.forEach(function (L, k) {
+            if (!L.col || L.ghost) return;
+            var yy = (16 + k * 16) * dpr;
+            ctx.strokeStyle = 'rgb(' + L.col.join(',') + ')';
+            ctx.lineWidth = 3 * dpr;
+            ctx.beginPath();
+            ctx.moveTo(10 * dpr, yy); ctx.lineTo(26 * dpr, yy); ctx.stroke();
+            ctx.fillStyle = 'rgba(65,77,102,0.95)';
+            ctx.fillText(L.name, 32 * dpr, yy + 4 * dpr);
+        });
+
+        // the four residues worth naming, at the middle of their own atoms
+        ctx.textAlign = 'center';
+        ctx.lineJoin = 'round';
+        // on a small canvas four labels collide, so only the hinge is named
+        var only = W / dpr < 430 ? 'Met769' : null;
+        P3.res.forEach(function (r) {
+            if (!r.k || (only && r.n !== only)) return;
+            var sx = 0, sy = 0, sz = 0, k;
+            for (k = r.i; k < r.i + r.c; k++) { sx += P3.xyz[k * 3]; sy += P3.xyz[k * 3 + 1]; sz += P3.xyz[k * 3 + 2]; }
+            var p = proj(sx / r.c, sy / r.c, sz / r.c);
+            ctx.lineWidth = 3 * dpr;
+            ctx.strokeStyle = 'rgba(246,247,251,0.9)';
+            ctx.strokeText(r.n, p[0], p[1]);
+            ctx.fillStyle = 'rgba(30,86,200,0.95)';
+            ctx.fillText(r.n, p[0], p[1]);
+        });
+    }
+    function wire3D() {
+        var c = three.canvas, from = null;
+        c.addEventListener('pointerdown', function (e) {
+            from = { x: e.clientX, y: e.clientY, rx: three.rx, ry: three.ry };
+            three.user = true;
+            if (ui.threeHint) ui.threeHint.hidden = true;
+            cancelAnimationFrame(three.raf);
+            c.setPointerCapture(e.pointerId);
+        });
+        c.addEventListener('pointermove', function (e) {
+            if (!from) return;
+            three.ry = from.ry + (e.clientX - from.x) * 0.008;
+            three.rx = clamp(from.rx - (e.clientY - from.y) * 0.008, -1.4, 1.4);
+            draw3D();
+        });
+        function up() { from = null; }
+        c.addEventListener('pointerup', up);
+        c.addEventListener('pointercancel', up);
+        c.addEventListener('wheel', function (e) {
+            e.preventDefault();
+            three.zoom = clamp(three.zoom * Math.exp(-e.deltaY * 0.0016), 0.6, 3.2);
+            draw3D();
+        }, { passive: false });
+        c.addEventListener('keydown', function (e) {
+            var d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+            if (!d) return;
+            e.preventDefault();
+            three.user = true;
+            three.ry += d[0] * 0.18;
+            three.rx = clamp(three.rx + d[1] * 0.18, -1.4, 1.4);
+            draw3D();
+        });
+        window.addEventListener('resize', function () { if (!ui.three.hidden) draw3D(); });
+    }
+
+    if (ui.threeBtn) {
+        ui.threeBtn.addEventListener('click', function () {
+            if (ui.three.hidden) open3D(); else close3D();
+        });
+    }
+
     // ═══════════════════════════════════════════════════════ step two
     function toDock() {
         state = 'dock';
+        resetView();
+        clearLOD();
+        if (ui.threeBtn) ui.threeBtn.hidden = false;
         root.setAttribute('data-state', 'dock');
         setStep(2);
         show(ui.key, false);
+        if (ui.zoom) ui.zoom.hidden = true;
         show(ui.goal, false);
         ui.title.textContent = 'Dock';
         ui.meta.textContent = '';
@@ -595,7 +1034,7 @@
 
     function drawPocket(opts) {
         show(ui.map, false);
-        ui.heat.style.opacity = '0';
+        heatOpacity('0');
         show(ui.pocket, true);
         ui.pocket.innerHTML = '';
         var slabs = el('g', { 'class': 'fit-slabs' }, ui.pocket), k;
@@ -789,6 +1228,8 @@
     // ═════════════════════════════════════════════════════ step three
     function toSim() {
         state = 'simulate';
+        if (ui.threeBtn) ui.threeBtn.hidden = false;
+        if (three && !ui.three.hidden) { build3D(); }
         root.setAttribute('data-state', 'simulate');
         setStep(3);
         ui.title.textContent = 'Simulate';
@@ -945,11 +1386,14 @@
         poseNodes.B.node.classList.add('drifted');
         ui.meta.innerHTML = '<span>A <strong>holds</strong></span><span>B <strong>drifts</strong></span>';
         ui.say.textContent = (right ? 'You were right. ' : 'Not this time. ') +
+            'RMSD is how far the drug has slid from where docking put it, in Angstrom, so a small ' +
+            'number means it is still sitting where it started and a few Angstrom means it has left. ' +
             'Pose A held in ' + v.A.seeds_holding + ' of ' + v.A.seeds + ' seeds, median RMSD over the last ' +
             'nanosecond ' + v.A.median_rmsd_last_1ns.join(', ') + ' Angstrom. Pose B drifted in all ' +
             v.B.seeds + ', at ' + v.B.median_rmsd_last_1ns.join(', ') + ' Angstrom.';
         var hinge = mdata.runs.filter(function (r) { return r.pose === 'A'; }).map(function (r) { return r.hinge_pct; });
-        ui.note.innerHTML = 'Pose A keeps the Met769 hinge contact in ' + Math.min.apply(null, hinge) + ' to ' +
+        ui.note.innerHTML = 'Met769 is the residue a drug has to hydrogen bond to in this pocket, and ' +
+            'keeping that bond is what holding on looks like. Pose A keeps it in ' + Math.min.apply(null, hinge) + ' to ' +
             Math.max.apply(null, hinge) + ' percent of frames. Pose B never makes it.';
         actions([
             { label: 'See the run', primary: true, focus: true, go: finish },
@@ -960,6 +1404,8 @@
     // ═══════════════════════════════════════════════════════════ end
     function finish() {
         state = 'done';
+        close3D();
+        if (ui.threeBtn) ui.threeBtn.hidden = true;
         root.setAttribute('data-state', 'done');
         ui.title.textContent = 'Your run';
         ui.meta.textContent = '';
@@ -1032,12 +1478,14 @@
     // click, not pointerdown, so a finger dragging the page still scrolls
     ui.map.addEventListener('click', function (e) {
         if (state !== 'screen') return;
+        if (dragged) { dragged = false; return; }   // that was a pan, not a pick
         var p = mapPoint(e);
         if (!p) return;
-        // a generous radius, so a finger does not have to be exact
+        // a generous radius, so a finger does not have to be exact. It shrinks
+        // as you zoom in, because then the compounds are further apart on screen.
         var box = ui.map.getBoundingClientRect();
-        var unitsPerPx = 1050 / Math.max(1, box.width);
-        var i = nearest(p.x, p.y, Math.max(26, 20 * unitsPerPx));
+        var unitsPerPx = view.w / Math.max(1, box.width);
+        var i = nearest(p.x, p.y, Math.max(26 / zoomNow, 20 * unitsPerPx));
         if (i >= 0) { selectPoint(i); pointNodes[i].focus({ preventScroll: true }); }
     });
     ui.map.addEventListener('keydown', function (e) {
@@ -1063,6 +1511,88 @@
         if (best >= 0) { selectPoint(best); pointNodes[best].focus({ preventScroll: true }); }
     });
 
+    // ── dragging the map, pinching it, and the wheel ─────────────────
+    (function wireCamera() {
+        var pts = {}, pan = null, pinch = null;
+
+        function count() { var n = 0, k; for (k in pts) n++; return n; }
+        function unitsPerPx() {
+            var box = ui.map.getBoundingClientRect();
+            return view.w / Math.max(1, box.width);
+        }
+        ui.map.addEventListener('pointerdown', function (e) {
+            if (state !== 'screen') return;
+            // a fresh press starts a fresh judgement of tap against drag. Without
+            // this, a pan that ends off the map leaves the next tap swallowed.
+            dragged = false;
+            pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+            if (count() === 2) {
+                var a = [], k;
+                for (k in pts) a.push(pts[k]);
+                pinch = { d: Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y), z: zoomNow };
+                pan = null;
+            } else if (count() === 1 && zoomNow > 1.02) {
+                pan = { sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: false };
+                ui.map.setPointerCapture(e.pointerId);
+            }
+        });
+        ui.map.addEventListener('pointermove', function (e) {
+            if (!pts[e.pointerId]) return;
+            pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+            if (pinch && count() === 2) {
+                var a = [], k;
+                for (k in pts) a.push(pts[k]);
+                var d = Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y);
+                e.preventDefault();
+                dragged = true;
+                setZoom(pinch.z * (d / Math.max(1, pinch.d)));
+                return;
+            }
+            if (!pan) return;
+            var mx = e.clientX - pan.sx, my = e.clientY - pan.sy;
+            if (!pan.moved && Math.hypot(mx, my) < 6) return;   // still a tap
+            pan.moved = true;
+            dragged = true;
+            e.preventDefault();
+            var u = unitsPerPx();
+            view.x = clamp(pan.vx - mx * u, BASE.x, BASE.x + BASE.w - view.w);
+            view.y = clamp(pan.vy - my * u, BASE.y, BASE.y + BASE.h - view.h);
+            applyView();
+        });
+        function up(e) {
+            delete pts[e.pointerId];
+            if (count() < 2) pinch = null;
+            if (count() === 0) pan = null;
+        }
+        ui.map.addEventListener('pointerup', up);
+        ui.map.addEventListener('pointercancel', up);
+        ui.map.addEventListener('pointerleave', function (e) { if (!pan || !pan.moved) up(e); });
+
+        ui.map.addEventListener('wheel', function (e) {
+            if (state !== 'screen') return;
+            var p = mapPoint(e);
+            if (!p) return;
+            e.preventDefault();
+            setZoom(zoomNow * Math.exp(-e.deltaY * 0.0016), p.x, p.y);
+        }, { passive: false });
+
+        if (ui.zoomIn) ui.zoomIn.addEventListener('click', function () { setZoom(zoomNow * 1.6); });
+        if (ui.zoomOut) ui.zoomOut.addEventListener('click', function () { setZoom(zoomNow / 1.6); });
+        if (ui.zoomReset) ui.zoomReset.addEventListener('click', resetView);
+
+        ui.map.addEventListener('keydown', function (e) {
+            if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoomNow * 1.6); }
+            else if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(zoomNow / 1.6); }
+            else if (e.key === '0') { e.preventDefault(); resetView(); }
+            else if (zoomNow > 1.02 && e.shiftKey) {
+                var d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+                if (!d) return;
+                e.preventDefault();
+                panBy(d[0] * view.w * 0.2, d[1] * view.h * 0.2);
+            }
+        });
+    })();
+
     // ═══════════════════════════════════════════════════════════ boot
     function ready() {
         state = 'ready';
@@ -1071,6 +1601,7 @@
         show(ui.map, true);
         show(ui.goal, false);
         show(ui.key, false);
+        if (ui.zoom) ui.zoom.hidden = true;
         ui.title.textContent = 'Screen, dock, simulate';
         ui.say.innerHTML = '<b>' + meta.game.assays + '</b> tests to find a strong EGFR inhibitor among <b>' +
             N + '</b> real compounds. A model in this browser learns from every result.';
