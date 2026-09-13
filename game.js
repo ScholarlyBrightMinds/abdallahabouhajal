@@ -18,6 +18,10 @@
 (function () {
     'use strict';
 
+    // The only export. fitdrug.js draws molecules with the same geometry, and
+    // asks for a redraw when its tab hands the stage back.
+    window.SBMDraw = { fit: fit, bondLines: bondLines, labelFor: labelFor, redraw: redraw };
+
     var root = document.querySelector('[data-game]');
     if (!root) return;
 
@@ -302,6 +306,12 @@
     function showIdleMolecule() {
         if (!idleOrder.length || idlePos >= idleOrder.length) { idleOrder = shuffle(deck); idlePos = 0; }
         buildScene(idleOrder[idlePos++], { duration: REDUCE ? 1800 : 4200 });
+    }
+
+    // The stage was sized while its tab was hidden, so draw it again at the
+    // size it really has. Only between rounds, never over a live question.
+    function redraw() {
+        if (state === 'idle') showIdleMolecule();
     }
 
     function toIdle() {
