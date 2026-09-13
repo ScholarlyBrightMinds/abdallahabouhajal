@@ -8,7 +8,7 @@
 //    5. Mobile hamburger behaviour
 //
 //  IMPORTANT: This file must be tolerant of pages that don't have all the
-//  binding targets — skip silently if an element isn't present.
+//  binding targets, skip silently if an element isn't present.
 // ═══════════════════════════════════════════════════════════════════
 
 (function () {
@@ -16,7 +16,7 @@
 
     const C = window.SITE_CONFIG;
     if (!C) {
-        console.error('SITE_CONFIG missing — theme.config.js must load before scripts.js');
+        console.error('SITE_CONFIG missing: theme.config.js must load before scripts.js');
         return;
     }
 
@@ -33,32 +33,9 @@
         researchgate: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.2 7.5v9M9.2 7.5h3.7a2.6 2.6 0 0 1 0 5.2H9.2M12.6 12.7l3.2 3.8"/></svg>`,
         cv:           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>`,
 
-        // Award + audience glyphs (stroke style matches the icon set above)
-        medal1: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 2.5h7.2l-2.3 5.6h-2.6z"/><circle cx="12" cy="14.3" r="5.7"/><text x="12" y="17" text-anchor="middle" font-size="7.6" font-weight="700" fill="currentColor" stroke="none" font-family="inherit">1</text></svg>`,
-        medal2: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 2.5h7.2l-2.3 5.6h-2.6z"/><circle cx="12" cy="14.3" r="5.7"/><text x="12" y="17" text-anchor="middle" font-size="7.6" font-weight="700" fill="currentColor" stroke="none" font-family="inherit">2</text></svg>`,
-        grad: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5 12 5l9.5 4.5L12 14z"/><path d="M6.5 11.8V16c0 1.4 2.5 2.6 5.5 2.6s5.5-1.2 5.5-2.6v-4.2"/><path d="M21.5 9.5v5"/></svg>`,
-        rosette: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.8 13.4 7 21l5-2.6L17 21l-1.8-7.6"/></svg>`,
-        trophy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.5h8V8a4 4 0 0 1-8 0z"/><path d="M8 4.5H5a3 3 0 0 0 3.4 3.2M16 4.5h3a3 3 0 0 1-3.4 3.2"/><line x1="12" y1="12" x2="12" y2="15.2"/><path d="M8.8 19.5c0-2 1.4-3.6 3.2-3.6s3.2 1.6 3.2 3.6z"/></svg>`,
-
-        // Research pillar icons
-        molecule: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,3 21,8 21,16 12,21 3,16 3,8"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="8" x2="21" y2="16"/><line x1="21" y1="8" x2="3" y2="16"/></svg>`,
-        network:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><circle cx="12" cy="12" r="2.5"/><line x1="6.8" y1="7.2" x2="10.2" y2="10.6"/><line x1="17.2" y1="7.2" x2="13.8" y2="10.6"/><line x1="6.8" y1="16.8" x2="10.2" y2="13.4"/><line x1="17.2" y1="16.8" x2="13.8" y2="13.4"/></svg>`,
         document: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><circle cx="7.5" cy="13" r="0.5" fill="currentColor"/><line x1="10" y1="13" x2="17" y2="13"/><circle cx="7.5" cy="16" r="0.5" fill="currentColor"/><line x1="10" y1="16" x2="14" y2="16"/></svg>`,
         flask:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><line x1="7" y1="15" x2="17" y2="15"/></svg>`,
         chart:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><path d="M6 16l4-6 3 4 5-8"/></svg>`
-    };
-
-    // Legacy emoji glyphs in the config render as consistent inline stroke
-    // icons. Config data stays exactly as-is; only the presentation maps.
-    const GLYPH_ICONS = {
-        '🥇': ICONS.medal1,
-        '🥈': ICONS.medal2,
-        '🎓': ICONS.grad,
-        '🎖️': ICONS.rosette,
-        '🏅': ICONS.rosette,
-        '🤝': ICONS.network,
-        '✉️': ICONS.email,
-        '✉': ICONS.email
     };
 
     // ═══════════════════════════════════════════════════════════════
@@ -105,7 +82,7 @@
             <div class="footer-left">
                 <div>${C.identity.fullName} · ${C.identity.location} · © ${C.footer.copyrightYear}</div>
                 <div class="colophon">
-                    ${C.footer.tagline} Set in Charter and the system faces, none of them downloaded. ${C.footer.credits}
+                    ${C.footer.tagline}
                 </div>
             </div>
             <div class="footer-links">${links}</div>
@@ -162,19 +139,7 @@
         const photoEl = document.querySelector('[data-bind="photo"]');
         if (photoEl) photoEl.src = C.identity.photo;
 
-        // Research pillars on home
-        const pillars = C.about && C.about.pillars;
-        if (pillars) {
-            const html = pillars.map(p => `
-                <div class="ledger-row">
-                    <dt class="ledger-label">${p.title}</dt>
-                    <dd class="ledger-body">${p.desc}</dd>
-                </div>
-            `).join('');
-            setBind('pillars', html);
-        }
-
-        // PhD CTA block — only renders if SITE_CONFIG.phdCTA exists
+        // PhD CTA block, only renders if SITE_CONFIG.phdCTA exists
         if (C.phdCTA) {
             const cta = C.phdCTA;
             const html = `
@@ -199,7 +164,7 @@
             setBind('phdCTA', html);
         }
 
-        // Impact stats — big "By the numbers" tiles
+        // Impact stats: big "By the numbers" tiles
         if (Array.isArray(C.impactStats) && C.impactStats.length) {
             const html = C.impactStats.map(s => `
                 <div class="impact-tile${s.variant ? ' impact-tile--' + s.variant : ''}">
@@ -219,10 +184,8 @@
         if (!C.ledes) return;
         const map = {
             aboutLede:    C.ledes.about,
-            projectsLede: C.ledes.projects,
             pubsLede:     C.ledes.publications,
             blogLede:     C.ledes.blog,
-            talksLede:    C.ledes.talks,
             contactLede:  C.ledes.contact,
             researchLede: C.ledes.research
         };
@@ -257,25 +220,12 @@
             }).join('');
         }
 
-        const pEl = document.querySelector('[data-bind="aboutPillars"]');
-        if (pEl && C.about.pillars) {
-            pEl.innerHTML = C.about.pillars.map(p => `
-                <div class="ledger-row">
-                    <dt class="ledger-label">${p.title}</dt>
-                    <dd class="ledger-body">${p.desc}</dd>
-                </div>
-            `).join('');
-        }
-
         const awEl = document.querySelector('[data-bind="awards"]');
         if (awEl && C.about.awards) {
             awEl.innerHTML = C.about.awards.map(a => `
                 <li class="award-item">
-                    <div class="award-icon" aria-hidden="true">${GLYPH_ICONS[a.icon] || a.icon}</div>
-                    <div class="award-body">
-                        <p class="a-title">${a.title}</p>
-                        <p class="a-venue">${a.venue}</p>
-                    </div>
+                    <p class="a-title">${a.title}</p>
+                    <p class="a-venue">${a.venue}</p>
                 </li>
             `).join('');
         }
@@ -333,57 +283,10 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  TALKS bindings (now a section on publications.html)
-    // ═══════════════════════════════════════════════════════════════
-    function bindTalks() {
-        const el = document.querySelector('[data-bind="talkList"]');
-        if (!el || !Array.isArray(C.talks)) return;
-        const kindLabel = {
-            hackathon: 'Hackathon',
-            poster:    'Poster',
-            talk:      'Talk',
-            workshop:  'Workshop',
-            thesis:    'Thesis'
-        };
-        el.innerHTML = C.talks.map((t, i) => {
-            const k = (t.kind || 'talk').toLowerCase();
-            const awardBadge = t.award
-                ? `<span class="talk-award">${ICONS.trophy}${t.award}</span>`
-                : '';
-            return `
-                <article class="talk-card talk-card--${k} reveal reveal-d${(i % 3) + 1}">
-                    <div class="talk-date">
-                        <span class="talk-date-month">${t.date}</span>
-                        <span class="talk-date-kind">${kindLabel[k] || 'Talk'}</span>
-                    </div>
-                    <div class="talk-body">
-                        <div class="talk-meta-row">
-                            ${awardBadge}
-                        </div>
-                        <h3 class="talk-title">${t.title}</h3>
-                        <p class="talk-venue">${t.venue || ''}</p>
-                        <p class="talk-desc">${t.desc || ''}</p>
-                    </div>
-                </article>
-            `;
-        }).join('');
-        if (window.__revealObserver) {
-            el.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
-        }
-    }
-
-    // ═══════════════════════════════════════════════════════════════
     //  CONTACT page bindings (contact.html)
     // ═══════════════════════════════════════════════════════════════
     function bindContact() {
         if (!C.contact) return;
-
-        const introEl = document.querySelector('[data-bind="contactIntro"]');
-        if (introEl) {
-            introEl.innerHTML = `
-                <p class="contact-intro">${C.contact.intro}</p>
-            `;
-        }
 
         // Heading, plain: no accent word, no full stop
         const hEl = document.querySelector('[data-bind="contactH1"]');
@@ -409,21 +312,6 @@
                 </p>
                 <p class="contact-response-time">${C.contact.responseTimeNote || ''}</p>
             `;
-        }
-
-        // "For supervisors / collaborators / press" blocks
-        const bEl = document.querySelector('[data-bind="contactBlocks"]');
-        if (bEl && Array.isArray(C.contact.blocks)) {
-            bEl.innerHTML = C.contact.blocks.map((b, i) => `
-                <article class="contact-block reveal reveal-d${(i % 3) + 1}">
-                    <div class="contact-block-icon" aria-hidden="true">${GLYPH_ICONS[b.icon] || b.icon || ''}</div>
-                    <h3 class="contact-block-title">${b.title}</h3>
-                    <p class="contact-block-body">${b.body}</p>
-                </article>
-            `).join('');
-            if (window.__revealObserver) {
-                bEl.querySelectorAll('.reveal').forEach(r => window.__revealObserver.observe(r));
-            }
         }
 
         // Wire the form action + show a note if endpoint not yet configured
@@ -483,7 +371,7 @@
             });
         });
 
-        // Initial state — show All
+        // Initial state, show All
         const allBtn = bar.querySelector('.pub-filter[data-filter="all"]');
         if (allBtn) allBtn.classList.add('active');
         applyFilter('all');
@@ -519,27 +407,41 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    //  WHAT I WORK ON (research.html): in progress, then published
+    //  WHAT I WORK ON (research.html)
+    //  Three groups, keyed off the statusKind field on each project:
+    //  under review, then published, then what is active now.
     // ═══════════════════════════════════════════════════════════════
     function bindWork() {
-        const nowEl = document.querySelector('[data-bind="workNow"]');
-        const doneEl = document.querySelector('[data-bind="workDone"]');
-        if (!C.projects || (!nowEl && !doneEl)) return;
+        const reviewEl = document.querySelector('[data-bind="workReview"]');
+        const doneEl   = document.querySelector('[data-bind="workDone"]');
+        const nowEl    = document.querySelector('[data-bind="workNow"]');
+        if (!C.projects || (!reviewEl && !doneEl && !nowEl)) return;
 
-        const published = p => (p.statusKind || '').toLowerCase() === 'published';
+        const kind = p => (p.statusKind || '').toLowerCase();
         const item = p => {
+            const k = kind(p);
+            // No DOI on a manuscript still under review, so no link either.
             const title = p.doi
                 ? `<a href="https://doi.org/${p.doi}" target="_blank" rel="noopener">${p.title}</a>`
                 : p.title;
             const year = ((p.status || '').match(/\b(19|20)\d{2}\b/) || [''])[0];
-            const meta = published(p) && p.venue
-                ? `<p class="work-meta">${p.venue}${year ? ' · ' + year : ''}</p>` : '';
-            const ask = !published(p) && p.needs
+            let meta = '';
+            if (k === 'published' && p.venue) {
+                meta = `<p class="work-meta">${p.venue}${year ? ' · ' + year : ''}</p>`;
+            } else if (k === 'review' && p.status) {
+                meta = `<p class="work-meta">${p.status}</p>`;
+            }
+            const ask = k !== 'published' && p.needs
                 ? `<p class="work-ask"><strong>Looking for:</strong> ${p.needs}</p>` : '';
             return `<li class="work-item"><h3>${title}</h3><p>${p.desc}</p>${meta}${ask}</li>`;
         };
-        if (nowEl) nowEl.innerHTML = C.projects.filter(p => !published(p)).map(item).join('');
-        if (doneEl) doneEl.innerHTML = C.projects.filter(published).map(item).join('');
+        const group = (el, test) => {
+            if (!el) return;
+            el.innerHTML = C.projects.filter(test).map(item).join('');
+        };
+        group(reviewEl, p => kind(p) === 'review');
+        group(doneEl,   p => kind(p) === 'published');
+        group(nowEl,    p => kind(p) !== 'review' && kind(p) !== 'published');
     }
 
     // ═══════════════════════════════════════════════════════════════
@@ -582,7 +484,6 @@
         bindAbout();
         bindWork();
         bindBlog();
-        bindTalks();
         bindContact();
         wireFilters();
         wireMobile();
