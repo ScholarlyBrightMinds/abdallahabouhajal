@@ -1,272 +1,288 @@
 /* ═══════════════════════════════════════════════════════════════════
    journey.js · plays the About page walk
 
-   One paused GSAP timeline owns the time. Everything drawn is a pure
-   function of where the walker is, so scrubbing backwards, resizing and
-   replaying all render the same frame. Nothing here is required to read
-   the page: the markup it animates is the finished drawing plus a list
-   of dated facts, which is what you get with this file switched off.
+   One paused timeline owns the time and moves exactly one number: where
+   he is. Everything else, the camera, the scenes appearing, the logos
+   landing, the papers falling, the dust behind his feet, is a pure
+   function of that number, so scrubbing backwards, resizing and
+   replaying all render the same frame.
+
+   Nothing here is needed to read the page. With this file switched off
+   the same markup is the finished drawing as a wide strip you can scroll,
+   and the dated facts below it as a plain list.
    ═══════════════════════════════════════════════════════════════════ */
 (function () {
     const root = document.querySelector('.journey');
     if (!root || !window.gsap || !window.SM) return;
 
     const svg = root.querySelector('.journey-svg');
-    const ground = svg.querySelector('#journey-ground');
-    const progress = svg.querySelector('#journey-progress');
-    const manLayer = svg.querySelector('#journey-man');
+    const stage = root.querySelector('.journey-stage');
+    const ground = svg && svg.querySelector('#journey-ground');
+    const manLayer = svg && svg.querySelector('#journey-man');
     const facts = Array.from(root.querySelectorAll('.journey-fact'));
     const controls = root.querySelector('.journey-controls');
     const playBtn = root.querySelector('.journey-play');
     const scrub = root.querySelector('.journey-scrub');
     const timeEl = root.querySelector('.journey-time');
-    const yearEl = root.querySelector('.journey-year');
+    const capEl = root.querySelector('.journey-caption');
+    const tickEls = Array.from(root.querySelectorAll('.journey-tick'));
     if (!ground || !manLayer || !facts.length) return;
 
     const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const WORLD_W = 5240, WORLD_H = 300;
-    // The camera crops the empty band above the scenes, which makes everything
-    // about a sixth bigger on screen. Nothing is drawn above VIEW_Y.
-    const VIEW_Y = 44, VIEW_H = 242;
-    const SPEED = 205;      // world units per second of walking
-    const HOLD = 1.15;      // seconds standing at each stop
-    const START_X = 60;
+    const vb = svg.getAttribute('viewBox').split(/\s+/).map(Number);
+    const WORLD_W = vb[2], WORLD_H = vb[3];
+    const SPEED = 285;          // world units per second of walking
+    const HOLD = 1.5;           // seconds standing at each stop
+    const START_X = 90;
+    const STEP = 38;            // one stride, the stick man's own step length
+    const TAU = Math.PI * 2;
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const smooth = (k) => { k = clamp(k, 0, 1); return k * k * (3 - 2 * k); };
+    const outCubic = (k) => 1 - Math.pow(1 - clamp(k, 0, 1), 3);
 
     // ── where the walk ends today ────────────────────────────────────
-    // He is still walking, so the last leg is measured from the date, not
-    // written down: a little further every month, stopping short of the door.
+    // He is still walking, so the last leg is measured from the date: a little
+    // further every month, and always short of the door.
     const now = new Date();
-    const monthsSince2026 = (now.getFullYear() - 2026) * 12 + now.getMonth();
-    const LAST_X = Math.min(5074, 5010 + Math.max(0, monthsSince2026) * 8);
+    const monthsIn2026 = (now.getFullYear() - 2026) * 12 + now.getMonth();
+    const lastFact = facts[facts.length - 1];
+    const LAST_X = Math.min(WORLD_W - 420, +lastFact.dataset.x + Math.max(0, monthsIn2026) * 7);
 
     const stations = facts.map((li, i) => ({
         el: li,
         index: i,
         x: i === facts.length - 1 ? LAST_X : +li.dataset.x,
-        hand: li.dataset.hand,
+        carry: li.dataset.carry || '',
         date: li.querySelector('time').getAttribute('datetime'),
+        label: li.querySelector('time').textContent,
+        title: li.querySelector('h3').textContent,
+        sign: null,
+        time: 0,
     }));
 
-    // ── ground: a table from x to length, so the line can grow with him ──
+    // ── ground: a table from x to length, so heights are cheap ───────
     const groundLen = ground.getTotalLength();
     const table = [];
-    for (let i = 0; i <= 400; i++) {
-        const l = (groundLen * i) / 400;
-        table.push([ground.getPointAtLength(l).x, l]);
+    for (let i = 0; i <= 420; i++) {
+        const p = ground.getPointAtLength((groundLen * i) / 420);
+        table.push([p.x, p.y]);
     }
-    function lengthAtX(x) {
-        if (x <= table[0][0]) return 0;
-        if (x >= table[table.length - 1][0]) return groundLen;
+    function groundY(x) {
+        if (x <= table[0][0]) return table[0][1];
+        if (x >= table[table.length - 1][0]) return table[table.length - 1][1];
         let lo = 0, hi = table.length - 1;
         while (hi - lo > 1) {
             const mid = (lo + hi) >> 1;
             if (table[mid][0] <= x) lo = mid; else hi = mid;
         }
-        const [x0, l0] = table[lo], [x1, l1] = table[hi];
-        const k = x1 === x0 ? 0 : (x - x0) / (x1 - x0);
-        return l0 + (l1 - l0) * k;
-    }
-    function pointAtX(x) {
-        return ground.getPointAtLength(lengthAtX(x));
+        const [x0, y0] = table[lo], [x1, y1] = table[hi];
+        return x1 === x0 ? y0 : y0 + (y1 - y0) * ((x - x0) / (x1 - x0));
     }
 
-    // ── things that get drawn as he arrives ──────────────────────────
+    // ── the pieces the walk reveals ──────────────────────────────────
     const scenes = Array.from(svg.querySelectorAll('.jscene')).map((g) => {
-        const strokes = [], fades = [];
-        g.querySelectorAll('*').forEach((el) => {
-            if (el.closest('.jdoor')) { fades.push(el); return; }
-            if (el.tagName === 'text' || el.closest('.jknot')) {
-                if (el.tagName === 'text' || el.classList.contains('jknot')) fades.push(el);
-                return;
-            }
-            if (typeof el.getTotalLength === 'function') {
-                let len = 0;
-                try { len = el.getTotalLength(); } catch (e) { len = 0; }
-                if (len > 0) {
-                    el.style.strokeDasharray = len;
-                    el.style.strokeDashoffset = len;
-                    strokes.push({ el, len });
-                }
-            }
-        });
-        g.querySelectorAll('.jknot').forEach((k) => fades.push(k));
-        fades.forEach((el) => { el.style.opacity = 0; });
-        return { g, strokes, fades };
+        const sign = g.querySelector('.jsign');
+        const st = stations[+g.dataset.station - 1];
+        if (st && sign) st.sign = { x: +sign.dataset.cx, y: +sign.dataset.cy };
+        return { g, x: +g.dataset.x, w: +g.dataset.w, sign, station: +g.dataset.station };
+    });
+    const sheets = Array.from(svg.querySelectorAll('.jsheet')).map((el) => ({
+        el, x: +el.dataset.x, i: +el.dataset.i, y: +el.getAttribute('y'),
+    }));
+
+    // dust: two puffs, placed from the last two footfalls, so they are a
+    // function of distance walked and survive scrubbing
+    const NS = 'http://www.w3.org/2000/svg';
+    const dust = [0, 1].map(() => {
+        const c = document.createElementNS(NS, 'circle');
+        c.setAttribute('class', 'jdust');
+        c.setAttribute('r', 5);
+        manLayer.parentNode.insertBefore(c, manLayer);
+        return c;
     });
 
-    // ── what he is carrying ──────────────────────────────────────────
-    const NS = 'http://www.w3.org/2000/svg';
-    const HANDS = {
-        // a mortar and pestle, a round bottom flask, a laptop, a small network
-        mortar: 'M -9 0 a 9 6 0 0 0 18 0 M -11 0 h 22 M 4 -3 l 8 -12 M 12 -15 l 3 -4',
-        flask: 'M -4 -14 v 6 l -7 12 a 2 2 0 0 0 2 3 h 12 a 2 2 0 0 0 2 -3 l -7 -12 v -6 z M -6 -14 h 8',
-        laptop: 'M -11 -7 h 22 v 12 h -22 z M -14 5 h 28 l -2 3 h -24 z',
-        graph: 'M -10 2 l 6 -9 l 8 4 l 6 -8 M -10 2 m -3 0 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0 '
-            + 'M -4 -7 m -3 0 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0 M 4 -3 m -3 0 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0 '
-            + 'M 10 -11 m -3 0 a 3 3 0 1 0 6 0 a 3 3 0 1 0 -6 0',
-    };
-    const handLayer = document.createElementNS(NS, 'g');
-    handLayer.setAttribute('class', 'jhand');
-    manLayer.parentNode.insertBefore(handLayer, manLayer.nextSibling);
-    const handPath = document.createElementNS(NS, 'path');
-    handPath.setAttribute('class', 'jl');
-    handPath.setAttribute('stroke-width', '2.2');
-    handLayer.appendChild(handPath);
-    let handKey = '';
-
-    // the figure drawn for the no JavaScript version steps aside
     const staticMan = svg.querySelector('.jman-static');
     if (staticMan) staticMan.remove();
+    const man = window.SM.create(manLayer);
 
-    const man = window.SM.create(manLayer, { stroke: 6, scale: 0.66 });
-
-    // ── the timeline ─────────────────────────────────────────────────
-    const state = { x: START_X, t: 0 };
+    // ── the timeline: it moves one number ────────────────────────────
+    const state = { x: START_X };
     let lastX = START_X, phase = 0, face = 1;
 
     const tl = gsap.timeline({ paused: true, onUpdate: render });
-    let at = 0;
-    let prevX = START_X;
+    let at = 0, prevX = START_X;
     stations.forEach((st, i) => {
         const dist = Math.max(1, st.x - prevX);
         const walk = dist / SPEED;
-        tl.to(state, { x: st.x, duration: walk, ease: 'none' }, at);
-        const scene = scenes[i];
-        if (scene) {
-            const draw = Math.min(1.5, walk * 0.7);
-            const startDraw = at + Math.max(0, walk - draw - 0.15);
-            if (scene.strokes.length) {
-                tl.to(scene.strokes.map((s) => s.el), {
-                    strokeDashoffset: 0,
-                    duration: draw,
-                    stagger: draw / Math.max(6, scene.strokes.length),
-                    ease: 'none',
-                }, startDraw);
-            }
-            if (scene.fades.length) {
-                tl.to(scene.fades, { opacity: 1, duration: 0.45, ease: 'power2.out' }, startDraw + draw * 0.6);
-            }
-        }
+        tl.to(state, {
+            x: st.x,
+            duration: walk,
+            ease: i === 0 ? 'power1.out' : 'power1.inOut',
+        }, at);
         at += walk;
+        st.time = at;
         tl.addLabel('s' + (i + 1), at);
         at += HOLD;
-        tl.to(state, { t: 0, duration: HOLD }, at - HOLD);   // he stands still
         prevX = st.x;
     });
+    tl.to(state, { x: LAST_X, duration: 0.01 }, at);   // hold the last frame
     const TOTAL = tl.duration();
 
-    // ── rendering, a pure function of state.x ────────────────────────
-    function viewWidth() {
-        const r = svg.getBoundingClientRect();
-        if (!r.height) return 1000;
-        return VIEW_H * (r.width / r.height);
+    // ── rendering ────────────────────────────────────────────────────
+    // How much of the world the camera shows. Tied to the stage's own width so
+    // the figure comes out about the same size on a laptop and on a phone,
+    // never wider than the world is tall once the aspect is applied.
+    let aspect = 2.2, baseH = WORLD_H;
+    function measure() {
+        const r = stage.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        aspect = r.width / r.height;
+        const wantW = clamp(r.width * 1.02, 760, 1520);
+        baseH = Math.min(WORLD_H, wantW / aspect);
     }
 
     function activeIndex(x) {
-        // Before the first stop the caption already shows where he is headed,
-        // so the space under the stage is never empty.
         let idx = 0;
-        stations.forEach((st, i) => { if (x >= st.x - 12) idx = i; });
+        stations.forEach((st, i) => { if (x >= st.x - 130) idx = i; });
         return idx;
-    }
-
-    function setCaption(idx) {
-        facts.forEach((li, i) => li.classList.toggle('is-active', i === idx));
-    }
-
-    function yearAt(x) {
-        // Reads the dates off the list, so the label can never drift from it.
-        const toYear = (d) => {
-            const [y, m] = d.split('-');
-            return +y + (m ? (+m - 1) / 12 : 0);
-        };
-        if (x <= stations[0].x) return toYear(stations[0].date);
-        for (let i = 1; i < stations.length; i++) {
-            if (x <= stations[i].x) {
-                const a = stations[i - 1], b = stations[i];
-                const k = (x - a.x) / Math.max(1, b.x - a.x);
-                return toYear(a.date) + (toYear(b.date) - toYear(a.date)) * k;
-            }
-        }
-        return now.getFullYear() + now.getMonth() / 12;
     }
 
     function render() {
         const x = state.x;
+        const t = tl.time();
         const dx = x - lastX;
         lastX = x;
-        if (Math.abs(dx) > 0.4) {
-            phase += dx * 0.055;
+        const moving = Math.abs(dx) > 0.35;
+        if (moving) {
+            phase += (dx / STEP) * TAU;
             face = dx > 0 ? 1 : -1;
         }
-        const moving = Math.abs(dx) > 0.4;
-        const p = pointAtX(x);
-        const t = tl.time();
-        const hand = man.set(p.x, p.y, moving ? 'walk' : 'idle', phase, t, face, 1);
 
-        // the ground appears just ahead of his feet, and the ruler fills behind
-        ground.style.strokeDashoffset = Math.max(0, groundLen - lengthAtX(x + 54));
-        if (progress) {
-            progress.style.strokeDasharray = WORLD_W;
-            progress.style.strokeDashoffset = Math.max(0, WORLD_W - x);
-        }
-
-        // what he is carrying
         const idx = activeIndex(x);
-        const key = idx >= 0 ? stations[idx].hand : stations[0].hand;
-        if (key !== handKey) {
-            handKey = key;
-            handPath.setAttribute('d', HANDS[key] || HANDS.mortar);
+        const st = stations[idx];
+
+        // is he pointing at a logo he just walked up to
+        let mode = moving ? 'walk' : 'idle';
+        let target = null;
+        if (!moving && st.sign) {
+            const since = t - st.time;
+            if (since > 0.3 && since < 1.45) { mode = 'point'; target = st.sign; }
         }
-        handLayer.setAttribute('transform',
-            `translate(${hand.x.toFixed(1)},${hand.y.toFixed(1)}) scale(${(hand.face * 1.4).toFixed(2)},1.4)`);
-        handLayer.style.opacity = x > START_X + 20 ? 1 : 0;
 
-        // camera
-        const vw = viewWidth();
-        const cx = Math.max(0, Math.min(WORLD_W - vw, x - vw * 0.36));
-        svg.setAttribute('viewBox', `${cx.toFixed(1)} ${VIEW_Y} ${vw.toFixed(1)} ${VIEW_H}`);
+        const gy = groundY(x);
+        man.set(x, gy, mode, phase, t, face, st.carry, target);
 
-        setCaption(idx);
+        // dust, from the last two footfalls
+        const dist = x - START_X;
+        dust.forEach((c, k) => {
+            const i = Math.floor(dist / (STEP / 2)) - k;
+            const d0 = i * (STEP / 2);
+            const age = dist - d0;
+            const a = moving && i > 0 ? clamp(1 - age / 26, 0, 1) : 0;
+            c.setAttribute('opacity', (a * 0.5).toFixed(2));
+            if (a > 0) {
+                const px = START_X + d0;
+                c.setAttribute('cx', px.toFixed(1));
+                c.setAttribute('cy', (groundY(px) - 2).toFixed(1));
+                c.setAttribute('r', (4 + (1 - a) * 9).toFixed(1));
+            }
+        });
 
-        // readouts
+        // scenes rise into place as he gets near, and the real logos land
+        // once he is standing in front of them
+        for (const sc of scenes) {
+            const k = smooth((x - (sc.x - 880)) / 420);
+            sc.g.setAttribute('opacity', k.toFixed(3));
+            sc.g.setAttribute('transform', `translate(0,${((1 - k) * 34).toFixed(1)})`);
+            if (!sc.sign) continue;
+            const stop = stations[sc.station - 1].x;
+            const p = clamp((x - (stop - 150)) / 190, 0, 1);
+            const s = p >= 1 ? 1 : 1 + 2.2 * Math.pow(p - 1, 3) + 1.4 * Math.pow(p - 1, 2);
+            const cx = +sc.sign.dataset.cx, cy = +sc.sign.dataset.cy;
+            sc.sign.setAttribute('opacity', clamp(p * 1.8, 0, 1).toFixed(2));
+            sc.sign.setAttribute('transform',
+                `translate(${cx},${cy}) scale(${s.toFixed(3)}) translate(${-cx},${-cy})`);
+        }
+
+        // papers fall on their year, one after another, and stack into the
+        // riser he then walks up
+        for (const sh of sheets) {
+            const k = outCubic((x - (sh.x - 560 + sh.i * 70)) / 240);
+            const drop = (1 - k) * 300 - Math.sin(Math.PI * k) * 7;
+            sh.el.setAttribute('opacity', clamp(k * 2.2, 0, 1).toFixed(2));
+            sh.el.setAttribute('transform', `translate(0,${(-drop).toFixed(1)})`);
+        }
+
+        // camera: it pushes in a little at every stop, keeping the ground still
+        const bump = smooth(1 - Math.abs(x - st.x) / 240);
+        const viewH = baseH * (1 - 0.055 * bump);
+        const viewW = viewH * aspect;
+        const camX = clamp(x - viewW * 0.42, 0, Math.max(0, WORLD_W - viewW));
+        svg.setAttribute('viewBox',
+            `${camX.toFixed(1)} ${(WORLD_H - viewH).toFixed(1)} ${viewW.toFixed(1)} ${viewH.toFixed(1)}`);
+        svg.querySelectorAll('.jlayer').forEach((layer) => {
+            const par = +layer.dataset.par;
+            if (par === 1) return;
+            layer.setAttribute('transform', `translate(${(camX * (1 - par)).toFixed(1)},0)`);
+        });
+
+        // captions and readouts
+        facts.forEach((li, i) => li.classList.toggle('is-active', i === idx));
+        if (capEl) {
+            capEl.hidden = false;
+            capEl.querySelector('.jc-date').textContent = st.label;
+            capEl.querySelector('.jc-title').textContent = st.title;
+        }
         if (timeEl) {
-            const s = Math.round(t);
-            timeEl.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')} / `
-                + `${Math.floor(TOTAL / 60)}:${String(Math.round(TOTAL % 60)).padStart(2, '0')}`;
+            const clock = (secs) => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}`;
+            const total = Math.round(TOTAL);
+            timeEl.textContent = `${clock(Math.min(total, Math.round(t)))} / ${clock(total)}`;
         }
-        if (yearEl) yearEl.textContent = yearAt(x).toFixed(1);
         if (scrub && document.activeElement !== scrub) {
             scrub.value = Math.round(tl.progress() * 1000);
         }
+        tickEls.forEach((b, i) => b.classList.toggle('is-done', i <= idx));
     }
 
     // ── controls ─────────────────────────────────────────────────────
     root.classList.add('is-live');
     if (controls) controls.hidden = false;
+    measure();
+    // the ticks sit where their station falls in time, not in space
+    tickEls.forEach((b, i) => {
+        const st = stations[i];
+        if (st) b.style.left = `${(st.time / TOTAL) * 100}%`;
+        b.addEventListener('click', () => {
+            userPaused = false;
+            finished = false;
+            tl.tweenTo('s' + (i + 1), { duration: 0.85, ease: 'power2.inOut', onComplete: label });
+            label();
+        });
+    });
 
-    let finished = false;
+    let finished = false, userPaused = false;
     function label() {
         if (!playBtn) return;
-        if (finished) { playBtn.textContent = 'Replay'; playBtn.setAttribute('aria-label', 'Replay the walk'); return; }
         const playing = tl.isActive();
-        playBtn.textContent = playing ? 'Pause' : 'Play';
-        playBtn.setAttribute('aria-label', playing ? 'Pause the walk' : 'Play the walk');
+        playBtn.textContent = finished ? 'Replay' : playing ? 'Pause' : 'Play';
+        playBtn.setAttribute('aria-label',
+            finished ? 'Replay the walk' : playing ? 'Pause the walk' : 'Play the walk');
     }
     tl.eventCallback('onComplete', () => { finished = true; label(); });
 
     if (playBtn) {
         playBtn.addEventListener('click', () => {
-            if (finished || tl.progress() === 1) { finished = false; tl.restart(); }
-            else if (tl.isActive()) tl.pause();
-            else tl.play();
+            if (finished || tl.progress() === 1) { finished = false; userPaused = false; tl.restart(); }
+            else if (tl.isActive()) { userPaused = true; tl.pause(); }
+            else { userPaused = false; tl.play(); }
             label();
         });
     }
     if (scrub) {
         const seek = () => {
-            tl.pause();
+            userPaused = true;
             finished = false;
+            tl.pause();
             tl.progress(+scrub.value / 1000);
             label();
         };
@@ -274,35 +290,11 @@
         scrub.addEventListener('change', seek);
     }
 
-    // A way back to the plain list, for anyone who would rather just read.
-    if (controls) {
-        const toggle = document.createElement('button');
-        toggle.type = 'button';
-        toggle.className = 'journey-list-toggle';
-        toggle.textContent = 'Show all as a list';
-        toggle.addEventListener('click', () => {
-            const open = root.classList.toggle('list-open');
-            toggle.textContent = open ? 'Show one at a time' : 'Show all as a list';
-        });
-        controls.appendChild(toggle);
-    }
-
     // ── when it plays ────────────────────────────────────────────────
-    // It starts itself once the drawing is on screen, stops when it is not,
-    // and never restarts anything the reader paused or scrubbed by hand.
-    let userPaused = false;
-    if (playBtn) {
-        playBtn.addEventListener('click', () => { userPaused = !tl.isActive(); });
-    }
-    if (scrub) {
-        scrub.addEventListener('input', () => { userPaused = true; });
-    }
     if (REDUCE) {
         tl.progress(1);
         finished = true;
-        label();
     } else if ('IntersectionObserver' in window) {
-        const stage = root.querySelector('.journey-stage') || root;
         const io = new IntersectionObserver((entries) => {
             entries.forEach((e) => {
                 const onScreen = e.isIntersecting && e.intersectionRatio >= 0.45;
@@ -322,7 +314,7 @@
     let resizeRaf = 0;
     window.addEventListener('resize', () => {
         if (resizeRaf) return;
-        resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; render(); });
+        resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; measure(); render(); });
     });
 
     render();
