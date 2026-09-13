@@ -201,6 +201,13 @@ main.home {
 .fit-steps li[aria-current="step"] b { border-color: var(--accent); color: var(--accent); }
 .fit-steps li.done b { background: var(--accent-bg); border-color: var(--accent-bg); color: var(--accent-d); }
 
+.fit-goal {
+    padding: 0 4px 12px;
+    font-size: 0.94rem;
+    color: var(--text-soft);
+}
+.fit-goal b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+
 .fit-stage {
     position: relative;
     aspect-ratio: 3 / 2;
@@ -243,6 +250,21 @@ main.home {
 .fit-pt.sel { stroke: var(--text); stroke-width: 3; }
 .fit-pt:focus { outline: none; }
 .fit-pt:focus-visible { stroke: var(--text); stroke-width: 3; }
+.fit-top circle {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-dasharray: 3 3;
+}
+.fit-top text {
+    font-family: var(--f-mono);
+    font-size: 15px;
+    fill: var(--accent);
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+}
 .fit-mark {
     fill: none;
     stroke: var(--amber);
@@ -311,6 +333,29 @@ main.home {
 .pose-tag.pose-B { fill: var(--amber); }
 .fit-pose.drifted line { opacity: 0.55; }
 
+/* what the colours mean */
+.fit-key {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px auto 0;
+    width: 100%;
+    max-width: calc(52vh * 1.5);
+    max-width: calc(52svh * 1.5);
+    padding: 0 2px;
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+}
+.fit-ramp {
+    flex: none;
+    width: 96px;
+    height: 8px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #d6ddeb, #1e56c8);
+}
+.fit-key-note { margin-left: auto; }
+
 /* readout under the stage */
 .fit-panel {
     display: grid;
@@ -319,6 +364,7 @@ main.home {
     margin-top: 14px;
     padding: 0 4px;
 }
+.fit-panel.no-card { grid-template-columns: 1fr; }
 .fit-card { background: var(--bg); border-radius: var(--radius-s); align-self: start; }
 .fit-mol { display: block; width: 100%; height: auto; }
 .fit-mol .mol line {
@@ -361,7 +407,7 @@ main.home {
 .fit-chart .s-A { stroke: var(--accent); }
 .fit-chart .s-B { stroke: var(--amber); }
 
-/* provenance, always under the stage */
+/* provenance, one line unless you open it */
 .fit-prov {
     margin-top: 16px;
     padding: 12px 4px 0;
@@ -371,8 +417,28 @@ main.home {
     line-height: 1.62;
     color: var(--muted);
 }
-.fit-prov ul { list-style: none; }
-.fit-prov li { break-inside: avoid; margin-bottom: 4px; }
+.fit-prov summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    transition: color 160ms var(--ease);
+}
+.fit-prov summary::-webkit-details-marker { display: none; }
+.fit-prov summary::before {
+    content: "+";
+    flex: none;
+    width: 13px;
+    text-align: center;
+    color: var(--accent);
+}
+.fit-prov[open] summary::before { content: "\2212"; }
+.fit-prov ul { list-style: none; margin-top: 10px; padding-left: 21px; }
+.fit-prov li { break-inside: avoid; margin-bottom: 5px; }
+@media (hover: hover) and (pointer: fine) {
+    .fit-prov summary:hover { color: var(--text-soft); }
+}
 @media (min-width: 820px) {
     .fit-prov ul { columns: 2; column-gap: 28px; }
 }
@@ -634,10 +700,12 @@ main.home {
     .fit-card { max-width: 280px; margin-inline: auto; }
     .fit-head { flex-direction: column; gap: 6px; }
     .fit-steps { gap: 12px; }
-    .res-label { display: none; }
-    .res-label.key { display: block; font-size: 16px; }
+    .res-label.key { font-size: 16px; }
     .fit-lig text, .fit-pose text, .fit-ghost text { font-size: 17px; }
     .pose-legend { transform: scale(1.7); transform-origin: 0 0; }
+    .fit-top text { font-size: 26px; }
+    .fit-key { font-size: 0.64rem; gap: 6px; }
+    .fit-ramp { width: 64px; }
     .fit-lig line { stroke-width: 3.2; }
     .fit-pose line { stroke-width: 3.2; }
     .play-tab { flex: 1; padding: 10px 8px; text-align: center; }

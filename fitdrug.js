@@ -31,14 +31,15 @@
     var SITE = 'https://scholarlybrightminds.github.io/abdallahabouhajal/';
     var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var LABELLED = { O: 'el-o', N: 'el-n', S: 'el-s', F: 'el-x', Cl: 'el-x', Br: 'el-x', P: 'el-s', Se: 'el-s' };
-    var KEY_RES = { Met769: 1, Thr766: 1, Lys721: 1, Asp831: 1, Cys773: 1, Leu694: 1 };
+    var KEY_RES = { Met769: 1, Thr766: 1, Lys721: 1, Asp831: 1 };
 
     function $(name) { return root.querySelector('[data-f="' + name + '"]'); }
     var ui = {
         title: $('title'), meta: $('meta'), stage: $('stage'), heat: $('heat'), map: $('map'),
         pocket: $('pocket'), stat: $('static'), card: $('card'), mol: $('mol'), say: $('say'),
         note: $('note'), actions: $('actions'), chartwrap: $('chartwrap'), chart: $('chart'),
-        prov: $('prov'), step1: $('step1'), step2: $('step2'), step3: $('step3')
+        prov: $('prov'), step1: $('step1'), step2: $('step2'), step3: $('step3'),
+        goal: $('goal'), key: $('key')
     };
 
     // ── small helpers ───────────────────────────────────────────────
@@ -74,7 +75,7 @@
     var state = 'boot';          // boot | ready | screen | dock | simulate | done
     var g = null;                // the run in progress
     var visible = false, rafId = 0, anims = [];
-    var pointNodes = [], selected = -1, pred = null, unc = null, lastMol = -1;
+    var pointNodes = [], selected = -1, pred = null, unc = null, lastMol = -1, topPick = -1;
     var heatCells = null, heatCtx = null;
 
     // ═══════════════════════════════════════════════════════════ tabs
@@ -240,9 +241,22 @@
             node.setAttribute('r', on ? 11 : 8);
             node.setAttribute('class', 'fit-pt' + (on ? ' on' : '') + (on && y[i] >= 8 ? ' hit' : '') +
                                        (i === selected ? ' sel' : ''));
-            node.style.fill = on ? rgb(ramp(y[i])) : '';
-            if (on) node.setAttribute('aria-label', (names[i] || rows[i][0]) + ', measured pIC50 ' + fmt(y[i]));
+            // measured compounds wear their real potency, the rest wear the model's guess
+            node.style.fill = rgb(ramp(on ? y[i] : pred[i]));
+            node.setAttribute('aria-label', (names[i] || rows[i][0]) +
+                (on ? ', measured pIC50 ' + fmt(y[i]) : ', the model expects pIC50 ' + fmt(pred[i])));
         }
+        markTopPick();
+    }
+    // the compound the picker would spend its next assay on
+    function markTopPick() {
+        var old = ui.map.querySelector('.fit-top');
+        if (old) old.parentNode.removeChild(old);
+        if (topPick < 0 || state !== 'screen') return;
+        var gm = el('g', { 'class': 'fit-top' }, ui.map);
+        el('circle', { cx: MX[topPick], cy: MY[topPick], r: 17 }, gm);
+        var t = el('text', { x: MX[topPick], y: MY[topPick] - 24, 'text-anchor': 'middle' }, gm);
+        t.textContent = 'model pick';
     }
 
     // ══════════════════════════════════════════════ molecule drawing
@@ -257,10 +271,15 @@
         return { atoms: atoms, bonds: bonds, order: m.o };
     }
     function showMol(i, ms) { lastMol = i; drawMol(ui.mol, molOf(i), ms); }
+    // with no molecule to show, the text takes the whole width
+    function setCard(on) {
+        ui.card.hidden = !on;
+        ui.card.parentNode.classList.toggle('no-card', !on);
+    }
     // draws itself atom by atom, with the geometry game.js uses
     function drawMol(svg, mol, ms) {
         svg.innerHTML = '';
-        ui.card.hidden = !mol;
+        setCard(!!mol);
         if (!mol) return;
         var D = window.SBMDraw;
         var f = D.fit(mol, 300, 200, 26, 30);
@@ -328,11 +347,13 @@
     }
 
     // ═══════════════════════════════════════════════════ the provenance
+    // the summary line stays in the HTML, so the block reads the same with no JavaScript
     function fillProvenance() {
-        var out = '<ul>';
+        var list = ui.prov.querySelector('ul');
+        if (!list) return;
+        var out = '';
         meta.provenance.forEach(function (line) { out += '<li>' + esc(line) + '</li>'; });
-        out += '</ul>';
-        ui.prov.innerHTML = out;
+        list.innerHTML = out;
     }
 
     // ═══════════════════════════════════════════════════════ step one
@@ -358,8 +379,7 @@
     function meterLine() {
         if (!g) { ui.meta.textContent = ''; return; }
         var best = g.best >= 0 ? fmt(y[g.best]) : 'nothing yet';
-        ui.meta.innerHTML = '<span>assays left <strong>' + (g.budget - g.used) + '</strong></span>' +
-                            '<span>best pIC50 <strong>' + best + '</strong></span>';
+        ui.meta.innerHTML = '<span>best so far <strong>' + best + '</strong></span>';
     }
 
     function newRun() {
@@ -381,13 +401,14 @@
         ui.heat.style.opacity = '';
         show(ui.pocket, false);
         show(ui.chartwrap, false);
+        show(ui.key, true);
         ui.title.textContent = 'Screen';
         buildMap();
         g.warm.forEach(function (k) { reveal(k, true); });
         selected = -1;
         refreshModel();
-        ui.say.textContent = 'Three compounds came already measured. Tap the map to pick one, tap it again to ' +
-                             'spend an assay on it. The colour under the map is what the model expects.';
+        ui.say.textContent = 'Three came already measured. Colour is what the model expects, so brighter is a ' +
+                             'better guess. Tap a compound to look at it.';
         ui.note.innerHTML = '';
         actions([]);
         meterLine();
@@ -409,29 +430,35 @@
     function refreshModel() {
         var q = predict(g.revealed);
         pred = q.pred; unc = q.unc;
+        var taken = new Uint8Array(N), i;
+        for (i = 0; i < g.revealed.length; i++) taken[g.revealed[i]] = 1;
+        topPick = g.used < g.budget ? pickUCB(g.revealed, taken, meta.game.beta) : -1;
         paintHeat();
         paintPoints();
+        goalLine();
+    }
+    function goalLine() {
+        if (!g || state !== 'screen') { show(ui.goal, false); return; }
+        show(ui.goal, true);
+        ui.goal.innerHTML = 'Find pIC50 <b>8</b> or better, which is 10 nanomolar or less. <b>' +
+            (g.budget - g.used) + '</b> ' + (g.budget - g.used === 1 ? 'assay' : 'assays') + ' left.';
     }
 
     function selectPoint(i) {
         if (state !== 'screen' || i < 0) return;
-        if (selected === i && !g.seen[i]) { assay(i); return; }
+        if (selected === i && !g.seen[i]) { assay(i); return; }   // a second tap spends the assay
         selected = i;
         paintPoints();
-        var line;
+        showMol(i, 1200);
         if (g.seen[i]) {
-            line = esc(rows[i][0]) + (names[i] ? ' · ' + esc(names[i]) : '') +
-                   ' · measured pIC50 <b>' + fmt(y[i]) + '</b>';
-        } else {
-            line = esc(rows[i][0]) + ' · the model expects pIC50 <b>' + fmt(pred[i]) + '</b> · ' +
-                   (unc[i] < 0.35 ? 'it has close neighbours here' : 'it has nothing similar to go on');
-        }
-        ui.note.innerHTML = line;
-        if (!g.seen[i]) {
-            actions([{ label: 'Measure it', primary: true, go: function () { assay(i); } }]);
-        } else {
+            ui.say.innerHTML = esc(rows[i][0]) + ' measured pIC50 <b>' + fmt(y[i]) + '</b>.';
+            ui.note.innerHTML = names[i] ? 'ChEMBL calls it ' + esc(names[i]) + '.' : '';
             actions([]);
-            showMol(i, 1400);
+        } else {
+            ui.say.innerHTML = 'The model expects pIC50 <b>' + fmt(pred[i]) + '</b> for this one, ' +
+                (unc[i] < 0.35 ? 'and it has close neighbours to go on.' : 'with nothing similar to go on.');
+            ui.note.innerHTML = esc(rows[i][0]) + (i === topPick ? ' · the model would pick this one' : '');
+            actions([{ label: 'Run the assay', primary: true, go: function () { assay(i); } }]);
         }
     }
 
@@ -444,13 +471,10 @@
         meterLine();
         showMol(i, 1800);
         var drug = meta.deck.pinned[rows[i][0]];
-        var s = (drug ? drug.charAt(0).toUpperCase() + drug.slice(1) : rows[i][0]) +
-                ' measures pIC50 ' + fmt(y[i]) + '. The model had guessed ' + fmt(guess) + '.';
-        if (drug) s += ' That one is an approved EGFR drug.';
-        else if (names[i]) s += ' ChEMBL calls it ' + names[i] + '.';
-        ui.say.textContent = s;
-        ui.note.innerHTML = y[i] >= 8 ? 'A hit. pIC50 8 or better means it works at 10 nanomolar or less.'
-                                      : 'Not a hit. The bar is pIC50 8.';
+        ui.say.innerHTML = 'Measured pIC50 <b>' + fmt(y[i]) + '</b>. The model had guessed ' + fmt(guess) + '.' +
+            (y[i] >= 8 ? ' That is a hit.' : '');
+        ui.note.innerHTML = drug ? 'That one is ' + esc(drug) + ', an approved EGFR drug.'
+                                 : esc(rows[i][0]) + (names[i] ? ' · ' + esc(names[i]) : '');
         actions([]);
         if (g.used >= g.budget) setTimeout(runPicker, 900);
     }
@@ -474,15 +498,12 @@
             if (!REDUCE) c.style.animationDelay = (k * 70) + 'ms';
         });
         ui.title.textContent = 'Screen, done';
-        ui.say.textContent = 'Your best is pIC50 ' + fmt(y[g.best]) +
-            (g.bestAssay ? ', found on assay ' + g.bestAssay + '. ' : ', one of the three that came measured. ') +
-            'The picker, the same model choosing for itself, reached ' + fmt(y[g.picker.best]) + '. ' +
-            'In eight assays you hit pIC50 8 or better ' + g.hits + (g.hits === 1 ? ' time' : ' times') +
-            ', the picker ' + g.picker.hits + '. Its picks are the hollow rings.';
-        ui.note.innerHTML = 'Over ' + meta.model.n_games + ' simulated games the picker averages ' +
-            fmt(meta.model.picker_mean_hits) + ' hits against ' + fmt(meta.model.random_mean_hits) +
-            ' for random picking, a margin of ' + fmt(meta.model.margin_hits) + ' plus or minus ' +
-            fmt(meta.model.margin_se) + '.';
+        show(ui.goal, false);
+        ui.say.innerHTML = 'You reached pIC50 <b>' + fmt(y[g.best]) + '</b>, the model playing on its own reached <b>' +
+            fmt(y[g.picker.best]) + '</b>. Hits at pIC50 8 or better: you ' + g.hits + ', the model ' +
+            g.picker.hits + '. Its picks are the hollow rings.';
+        ui.note.innerHTML = 'Over ' + meta.model.n_games + ' simulated games that model beats random picking by ' +
+            fmt(meta.model.margin_hits) + ' hits.';
         actions([{ label: 'Take your best to the pocket', primary: true, focus: true, go: toDock }]);
         state = 'screendone';
         root.setAttribute('data-state', 'screendone');
@@ -493,6 +514,8 @@
         state = 'dock';
         root.setAttribute('data-state', 'dock');
         setStep(2);
+        show(ui.key, false);
+        show(ui.goal, false);
         ui.title.textContent = 'Dock';
         ui.meta.textContent = '';
         ui.say.textContent = 'Loading the pocket.';
@@ -516,18 +539,18 @@
             var alt = -1, k;
             for (k = 0; k < N; k++) if (rows[k][0] === 'CHEMBL553') alt = k;
             g.compound = alt;
-            ui.say.innerHTML = esc(id) + ' has no pose. AutoDock has no atom type for one of its atoms, so ' +
-                'nothing was computed for it and nothing is faked here. Erlotinib takes its place.';
+            ui.say.innerHTML = esc(id) + ' has no pose, and nothing is faked here, so erlotinib takes its place. ' +
+                'This is the ATP pocket of EGFR, the hole a drug has to sit in. Drag it in.';
         } else {
             g.compound = i;
-            ui.say.textContent = 'Your best compound is here, outside the pocket. Drag it in, or press Enter on it.';
+            ui.say.textContent = 'This is the ATP pocket of EGFR, the hole the drug has to sit in. ' +
+                'Drag your compound in, or press Enter on it.';
         }
         drawPocket({ ghost: true });
         placeLigand();
         ensureMD().catch(function () {});             // wanted at step 3, fetched now
         showMol(g.compound, 1600);
-        ui.note.innerHTML = 'The grey shapes are three depth slabs of the pocket wall. The pale outline is ' +
-            'erlotinib where the crystal structure puts it.';
+        ui.note.innerHTML = 'The pale outline is erlotinib, where the crystal structure puts it.';
         actions([{ label: 'Drop it in', primary: true, go: dropIn }]);
         meterLine();
         ui.meta.innerHTML = '<span>compound <strong>' + esc(rows[g.compound][0]) + '</strong></span>' +
@@ -578,14 +601,15 @@
         var slabs = el('g', { 'class': 'fit-slabs' }, ui.pocket), k;
         for (k = 0; k < pocket.slabs.length; k++) el('path', { d: pocket.slabs[k], 'class': 'slab s' + k }, slabs);
         var res = el('g', { 'class': 'fit-res' }, ui.pocket);
-        pocket.residues.forEach(function (r, i) {
+        // only the four residues worth naming carry a label, the rest are dots you can hover
+        pocket.residues.forEach(function (r) {
             var x = r[1] / 10, yy = r[2] / 10, key = !!KEY_RES[r[0]];
-            el('circle', { cx: x, cy: yy, r: key ? 5 : 4, 'class': 'res-dot' + (key ? ' key' : '') }, res);
-            var above = key || i % 2 === 0;
-            var tn = el('text', {
-                x: x.toFixed(1), y: (yy + (above ? -8 : 15)).toFixed(1), 'text-anchor': 'middle',
-                'class': 'res-label' + (key ? ' key' : '')
-            }, res);
+            var dot = el('circle', { cx: x, cy: yy, r: key ? 5 : 4, 'class': 'res-dot' + (key ? ' key' : '') }, res);
+            var ttl = el('title', {}, dot);
+            ttl.textContent = r[0];
+            if (!key) return;
+            var tn = el('text', { x: x.toFixed(1), y: (yy - 9).toFixed(1), 'text-anchor': 'middle',
+                                  'class': 'res-label key' }, res);
             tn.textContent = r[0];
         });
         if (opts.ghost) {
@@ -749,14 +773,13 @@
             }, cg);
             if (!REDUCE) ln.style.animationDelay = (200 + k * 90) + 'ms';
         });
-        ui.say.textContent = score === null
-            ? 'That is the crystal pose from 1M17, an experiment rather than a docking run, so there is no Vina ' +
-              'score to print for it.'
-            : 'Vina scores this pose at ' + fmt(score) + ' kcal/mol. Scores only compare inside this box and this ' +
-              'protein, so the number means nothing on its own.';
+        ui.say.innerHTML = score === null
+            ? 'That is the crystal pose from 1M17, measured rather than docked, so there is no Vina score for it.'
+            : 'Vina placed it and scored it <b>' + fmt(score) + '</b> kcal/mol. Lower is better, and the number ' +
+              'only means something inside this pocket.';
         var list = hb.map(function (c) { return c[0]; });
         ui.note.innerHTML = list.length
-            ? 'Hydrogen bonds in this pose, drawn as dashes: ' + esc(list.join(', ')) + '. Met769 is the hinge.'
+            ? 'Dashes are hydrogen bonds: ' + esc(list.join(', ')) + '.'
             : 'This pose makes no hydrogen bond to a pocket residue.';
         actions([{ label: 'Now the hard part', primary: true, focus: true, go: toSim }]);
         state = 'dockdone';
@@ -796,11 +819,10 @@
         ui.pocket.appendChild(legend);
         ui.meta.innerHTML = '<span>pose A <strong>' + fmt(meta.poses.A.score) + '</strong></span>' +
                             '<span>pose B <strong>' + fmt(meta.poses.B.score) + '</strong></span>';
-        ui.say.textContent = 'Two erlotinib poses from the same docking run. ' + fmt(meta.poses.A.score) +
-            ' and ' + fmt(meta.poses.B.score) + ' kcal/mol, a gap of five hundredths. Docking cannot tell ' +
-            'these apart. Which one holds?';
-        ui.note.innerHTML = 'One of them sits ' + fmt(meta.poses.A.rmsd_to_crystal, 2) + ' Angstrom from the ' +
-            'crystal pose, the other ' + fmt(meta.poses.B.rmsd_to_crystal, 2) + ', but the scores do not say which.';
+        ui.say.innerHTML = 'Two erlotinib poses, <b>' + fmt(meta.poses.A.score) + '</b> and <b>' +
+            fmt(meta.poses.B.score) + '</b> kcal/mol. Docking cannot tell these apart. Which one holds?';
+        ui.note.innerHTML = 'One sits ' + fmt(meta.poses.A.rmsd_to_crystal, 2) + ' Angstrom from the crystal pose, ' +
+            'the other ' + fmt(meta.poses.B.rmsd_to_crystal, 2) + '. The scores do not say which.';
         showMol(erlotinibIndex(), 1600);
         actions([
             { label: 'Pose A holds', primary: true, focus: true, go: function () { bet('A'); } },
@@ -814,10 +836,9 @@
     function bet(which) {
         g.bet = which;
         actions([]);
-        ui.say.textContent = 'You backed pose ' + which + '. Two nanoseconds of molecular dynamics, seed 1 of ' +
-            'each pose, playing now.';
-        ui.note.innerHTML = 'The lines are the ligand heavy atom RMSD from where each pose started. The ' +
-            'dashed rule is the 2.5 Angstrom bar, written down before the runs.';
+        ui.say.textContent = 'You backed pose ' + which + '. Two nanoseconds of molecular dynamics, playing now.';
+        ui.note.innerHTML = 'The lines are how far each pose has moved from where it started. The dashed rule ' +
+            'is the 2.5 Angstrom bar, written down before the runs.';
         show(ui.chartwrap, true);
         playMD();
     }
@@ -929,9 +950,7 @@
             v.B.seeds + ', at ' + v.B.median_rmsd_last_1ns.join(', ') + ' Angstrom.';
         var hinge = mdata.runs.filter(function (r) { return r.pose === 'A'; }).map(function (r) { return r.hinge_pct; });
         ui.note.innerHTML = 'Pose A keeps the Met769 hinge contact in ' + Math.min.apply(null, hinge) + ' to ' +
-            Math.max.apply(null, hinge) + ' percent of frames. Pose B never makes it. ' +
-            'The rule, written before the runs: a pose holds if the median stays under 2.5 Angstrom in at ' +
-            'least 2 of 3 seeds.';
+            Math.max.apply(null, hinge) + ' percent of frames. Pose B never makes it.';
         actions([
             { label: 'See the run', primary: true, focus: true, go: finish },
             { label: 'Play again', go: newRun }
@@ -950,8 +969,8 @@
             ', one of the three that came measured. ') +
             (d ? esc(d.id) + ' docked at <b>' + fmt(d.score) + '</b> kcal/mol. ' : '') +
             'You backed pose ' + g.bet + ', which ' + (g.bet === 'A' ? 'held.' : 'drifted.');
-        ui.note.innerHTML = 'The model is the only thing here that ran in your browser. The poses and the ' +
-            'trajectories were computed on a laptop before you arrived.';
+        ui.note.innerHTML = 'The model is the only part that ran in your browser. Everything else was computed ' +
+            'on a laptop before you arrived.';
         actions([
             { label: 'Play again', primary: true, focus: true, go: newRun },
             { label: 'Copy the run', go: copyRun }
@@ -1050,14 +1069,14 @@
         root.setAttribute('data-state', 'ready');
         show(ui.stat, false);
         show(ui.map, true);
+        show(ui.goal, false);
+        show(ui.key, false);
         ui.title.textContent = 'Screen, dock, simulate';
-        ui.say.innerHTML = 'Three steps, about ninety seconds. <b>' + N + '</b> real EGFR compounds from ChEMBL ' +
-            'sit on the map, similar molecules near each other. Three come measured, you get ' +
-            meta.game.assays + ' assays, and a model in this browser learns from every result.';
-        ui.note.innerHTML = 'Then your best compound goes into the pocket of a real crystal structure, and ' +
-            'molecular dynamics settles a question docking cannot answer.';
+        ui.say.innerHTML = '<b>' + meta.game.assays + '</b> tests to find a strong EGFR inhibitor among <b>' +
+            N + '</b> real compounds. A model in this browser learns from every result.';
+        ui.note.innerHTML = '';
         actions([{ label: 'Play', primary: true, go: newRun }]);
-        ui.card.hidden = true;
+        setCard(false);
         buildMap();
         pred = new Float32Array(N); unc = new Float32Array(N);
         for (var i = 0; i < N; i++) { pred[i] = 6; unc[i] = 1; }
@@ -1082,7 +1101,7 @@
                 ready();
                 getJSON('mols.json').then(function (d) {                        // wanted by the first reveal
                     mols = d.mols;
-                    if (lastMol >= 0 && ui.card.hidden) showMol(lastMol, 1200);
+                    if (lastMol >= 0 && ui.card.hidden) showMol(lastMol, 1200);   // the card was waiting for this
                 });
                 return null;
             })

@@ -238,6 +238,8 @@
                 <li data-f="step3"><b>3</b> Simulate</li>
             </ol>
 
+            <p class="fit-goal" data-f="goal" hidden></p>
+
             <div class="fit-stage" data-f="stage">
                 <canvas class="fit-heat" data-f="heat" width="210" height="140" aria-hidden="true"></canvas>
                 <svg class="fit-view" data-f="map" viewBox="-25 0 1050 700" hidden tabindex="0"
@@ -252,6 +254,13 @@
                     2 ns of OpenMM molecular dynamics decides which one holds.</p>
                 </div>
             </div>
+
+            <p class="fit-key" data-f="key" hidden>
+                <span>weaker</span>
+                <span class="fit-ramp" aria-hidden="true"></span>
+                <span>stronger</span>
+                <span class="fit-key-note">the model's guess</span>
+            </p>
 
             <div class="fit-panel">
                 <div class="fit-card" data-f="card" hidden>
@@ -269,11 +278,15 @@
                      aria-label="Ligand RMSD against time for both poses"></svg>
             </div>
 
-            <div class="fit-prov" data-f="prov">
-                <p>Protein PDB 1M17, docking AutoDock Vina 1.2.7, activity data ChEMBL_37 target CHEMBL203,
-                molecular dynamics OpenMM 8.6. Every number was computed before you arrived. Nothing here
-                calls a server or a language model.</p>
-            </div>
+            <details class="fit-prov" data-f="prov">
+                <summary>Real structure, real measurements, all computed before you arrived. How it was done.</summary>
+                <ul>
+                    <li>Protein: PDB 1M17, the EGFR kinase domain with erlotinib bound.</li>
+                    <li>Compounds: ChEMBL_37, target CHEMBL203, docking with AutoDock Vina, molecular dynamics
+                    with OpenMM.</li>
+                    <li>Nothing here calls a server or a language model.</li>
+                </ul>
+            </details>
         </div>
 
         <div class="game" id="panel-mol" role="tabpanel" aria-labelledby="tab-mol" hidden
