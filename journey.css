@@ -49,6 +49,7 @@ body { overflow-x: clip; }
     opacity: 0.85;
 }
 .journey-svg .jearth { fill: #f0ece1; stroke: none; }
+.journey-svg .jwall { fill: #e7ebf3; stroke: none; }
 .journey-svg .jskyline { fill: #e2e7f1; stroke: none; }
 .journey-svg .jsun { fill: #eceff7; stroke: none; }
 .journey-svg .jpebble { fill: #e3e0d6; stroke: none; }

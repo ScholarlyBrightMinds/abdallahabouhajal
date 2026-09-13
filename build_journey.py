@@ -42,8 +42,8 @@ SCENES = {
     "s1_campus":   (190, 634, 330),
     "s2_lab":      (1480, 498, 235),
     "s3_office":   (2330, 569, 296),
-    "s4_journals": (3300, 433, 215),
-    "s5_desk":     (4080, 407, 195),
+    "s5_desk":     (3300, 407, 195),
+    "s4_journals": (4080, 433, 215),
     "s6_gate":     (5240, 263, 265),
 }
 
@@ -74,15 +74,16 @@ STATIONS = [
      "Editorial operations across 5+ STEM journals in Abu Dhabi, first contact for "
      "authors, reviewers and editors. The papers kept coming while the job ran.",
      "s3_office", "laptop"),
-    (4, 3620, "2024-06", "2024", "First author in JCIM",
-     "Boosting the accuracy and chemical space coverage of the detection of small "
-     "colloidal aggregating molecules, the BAD Molecule Filter, in Journal of "
-     "Chemical Information and Modeling.",
-     "s4_journals", "laptop"),
-    (5, 4380, "2025-05", "May 2025", "Data Analyst and AI Automation Lead, Scifiniti",
+    (4, 3620, "2025-05", "May 2025", "Data Analyst and AI Automation Lead, Scifiniti",
      "LLM based agents for editorial workflows, Python tooling for publishing "
      "operations, dashboards for journal performance.",
      "s5_desk", "laptop"),
+    (5, 4380, "2024", "2024 to today", "Publishing articles",
+     "Boosting the accuracy and chemical space coverage of the detection of small "
+     "colloidal aggregating molecules, the BAD Molecule Filter, in Journal of "
+     "Chemical Information and Modeling, and papers every year since on AutoML, "
+     "language models and adverse outcome pathways.",
+     "s4_journals", "laptop"),
     (6, 5120, "2026", "2026 to today", "Applying for PhD positions",
      "Three papers published this year and two more under review. Looking for a "
      "group working on machine learning for drug discovery.",
@@ -184,13 +185,35 @@ def foreground() -> str:
 
 
 # ── scenes and signs ─────────────────────────────────────────────────────
+# The desk is inside the same building as the office scene, so it gets a plain
+# wall behind it carrying the Scifiniti wordmark. Without it the second Scifiniti
+# station has nothing that says whose desk this is.
+WALLS = {"s5_desk": ("scifiniti-logo.svg", 1277.43 / 490.34, "Scifiniti Publishing")}
+
+
 def scene_group(sid: int, key: str) -> str:
     x, w, h = SCENES[key]
     y = ground_y(x + w * 0.5) - h
-    parts = [
+    parts = []
+    if key in WALLS:
+        logo, aspect, name = WALLS[key]
+        wx, ww = x - 34, w + 68
+        wh = h + 96
+        wy = ground_y(x + w * 0.5) - wh
+        parts.append(f'<rect class="jwall" x="{wx}" y="{wy:.0f}" width="{ww}" '
+                     f'height="{wh:.0f}" rx="3"/>')
+        lw = ww * 0.30
+        lh = lw / aspect
+        parts.append(
+            f'<image class="jsign" href="images/journey/{logo}" '
+            f'x="{wx + ww * 0.06:.1f}" y="{wy + 26:.1f}" width="{lw:.1f}" height="{lh:.1f}" '
+            f'data-cx="{wx + ww * 0.06 + lw / 2:.1f}" data-cy="{wy + 26 + lh / 2:.1f}">'
+            f'<title>{name}</title></image>'
+        )
+    parts.append(
         f'<image href="images/journey/{key}.webp" x="{x}" y="{y:.0f}" '
         f'width="{w}" height="{h}" preserveAspectRatio="none"/>'
-    ]
+    )
     for skey, logo, (fx0, fx1, fy0, fy1), aspect, name in SIGNS:
         if skey != key:
             continue
@@ -274,13 +297,18 @@ def svg() -> str:
     )
 
 
+# The scrubber ticks are named, not dated: he takes the job before the run of
+# papers that follows it, so a row of years would read as going backwards.
+TICK_NAMES = {1: "BSc", 2: "MSc", 3: "Editor", 4: "Analyst", 5: "Papers", 6: "PhD"}
+
+
 def ticks() -> str:
     out = []
     for sid, x, dt, tick, heading, _b, _s, _c in STATIONS:
         out.append(
             f'<button type="button" class="journey-tick" data-station="{sid}" '
             f'style="left:{x / W * 100:.2f}%" aria-label="Go to {tick}, {heading}">'
-            f'<span>{dt[:4]}</span></button>'
+            f'<span>{TICK_NAMES.get(sid, dt[:4])}</span></button>'
         )
     return "".join(out)
 
