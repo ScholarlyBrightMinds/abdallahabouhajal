@@ -101,7 +101,7 @@ window.SITE_CONFIG = {
     ledes: {
         about:        "MSc Pharmaceutical Sciences, Al Ain University. Data Analyst and AI Automation Lead at Scifiniti Publishing in Abu Dhabi. Machine learning and language models for drug discovery.",
         publications: "Peer-reviewed papers on machine learning, cheminformatics and drug discovery.",
-        blog:         "Research notes, PhD-hunt reflections, event write-ups, and the occasional rant about a paper.",
+        blog:         "A hackathon, reading other people's code, and the PhD search.",
         contact:      "Use the form, or email me directly.",
         research:     "Machine learning and language models for drug discovery and toxicology."
     },
