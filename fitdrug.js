@@ -42,7 +42,7 @@
         goal: $('goal'), key: $('key'),
         zoomIn: $('zoomin'), zoomOut: $('zoomout'), zoomReset: $('zoomreset'),
         zoom: $('zoom'), three: $('three'), threeHint: $('threehint'),
-        inset: $('inset')
+        inset: $('inset'), playBtn: $('playbtn')
     };
 
     // ── small helpers ───────────────────────────────────────────────
@@ -558,6 +558,7 @@
     }
 
     function newRun() {
+        if (ui.playBtn) ui.playBtn.hidden = true;
         resetView();
         clearLOD();
         g = {
@@ -1037,6 +1038,8 @@
         });
         window.addEventListener('resize', function () { if (!ui.three.hidden) draw3D(); });
     }
+
+    if (ui.playBtn) ui.playBtn.addEventListener('click', function () { newRun(); });
 
     // ═══════════════════════════════════════════════════════ step two
     function toDock() {
@@ -1711,7 +1714,8 @@
         ui.say.innerHTML = '<b>' + meta.game.assays + '</b> tests to find a strong EGFR inhibitor among <b>' +
             N + '</b> real compounds. A model in this browser learns from every result.';
         ui.note.innerHTML = '';
-        actions([{ label: 'Play', primary: true, go: newRun }]);
+        actions([]);
+        if (ui.playBtn) ui.playBtn.hidden = false;
         setCard(false);
         buildMap();
         pred = new Float32Array(N); unc = new Float32Array(N);

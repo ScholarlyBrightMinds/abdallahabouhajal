@@ -171,17 +171,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     color: var(--text);
     text-decoration: none;
 }
-.brand-meta {
-    font-family: var(--mono);
-    font-size: 0.64rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-left: 0.7rem;
-    margin-left: 0.35rem;
-    border-left: 1px solid var(--border);
-}
 
 .nav-right {
     display: flex;
@@ -499,8 +488,7 @@ html.js .reveal.vis {
         padding-right: 1.25rem;
     }
     .nav { flex-wrap: wrap; gap: 1rem; z-index: 100; }
-    .brand-meta { display: none; }
-    .nav-right { gap: 1rem; }
+        .nav-right { gap: 1rem; }
     .hamburger { display: flex; }
     .nav-menu {
         display: none;
