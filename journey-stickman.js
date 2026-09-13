@@ -1,100 +1,175 @@
 /* ═══════════════════════════════════════════════════════════════════
    journey-stickman.js · the walking figure on the About page
 
-   Lifted from my own video pipeline (Quick Money Project/tools/stickman.js)
-   with one addition: set() returns where the leading hand ended up, so the
-   thing he is carrying can be drawn there.
+   He is 120 units tall, which is the scale everything else in the walk is
+   measured in. Limbs have joints: the knee and the elbow are solved from
+   the hip and the foot, so the gait plants a foot instead of sliding it.
 
-   His pose is a pure function of the numbers passed to set(), so any frame
-   renders the same no matter which order the scrubber asks for frames.
+   Every pose is a pure function of the numbers passed to set(), so any
+   frame renders the same no matter which order the scrubber asks for
+   frames, and dragging backwards is just the same maths with a negative
+   step.
    ═══════════════════════════════════════════════════════════════════ */
 window.SM = (() => {
     const NS = 'http://www.w3.org/2000/svg';
-    const clamp = (k) => Math.min(1, Math.max(0, k));
+    const TAU = Math.PI * 2;
+    const clamp = (k, a = 0, b = 1) => Math.min(b, Math.max(a, k));
     const smooth = (k) => { k = clamp(k); return k * k * (3 - 2 * k); };
 
-    function create(parent, opts = {}) {
-        const col = opts.color || 'currentColor';
-        const sw = opts.stroke || 4;
-        const sc = opts.scale || 1;
-        const g = document.createElementNS(NS, 'g');
-        const line = () => {
-            const l = document.createElementNS(NS, 'line');
-            l.setAttribute('stroke', col);
-            l.setAttribute('stroke-width', sw);
-            l.setAttribute('stroke-linecap', 'round');
-            g.appendChild(l);
-            return l;
+    // proportions, in the figure's own units (feet at 0, up is negative)
+    const HIP = -50, SHO = -95, HEAD_Y = -113, HEAD_R = 10;
+    const THIGH = 26, SHIN = 26, UPPER = 23, FORE = 21;
+    const STRIDE = 36, LIFT = 10;
+
+    // Where the joint between two bones ends up, given both ends.
+    function joint(ax, ay, bx, by, l1, l2, sign) {
+        let dx = bx - ax, dy = by - ay;
+        let d = Math.hypot(dx, dy);
+        const min = Math.abs(l1 - l2) + 0.01, max = l1 + l2 - 0.01;
+        if (d > max) { const k = max / d; dx *= k; dy *= k; d = max; }
+        if (d < min) { const k = min / Math.max(0.001, d); dx *= k; dy *= k; d = min; }
+        const a = (l1 * l1 - l2 * l2 + d * d) / (2 * d);
+        const h = Math.sqrt(Math.max(0, l1 * l1 - a * a));
+        return {
+            x: ax + (dx * a) / d + (-dy / d) * h * sign,
+            y: ay + (dy * a) / d + (dx / d) * h * sign,
         };
-        const legL = line(), legR = line(), body = line(), armL = line(), armR = line();
-        const head = document.createElementNS(NS, 'circle');
-        head.setAttribute('r', 15);
-        head.setAttribute('fill', opts.fill || 'none');
-        head.setAttribute('stroke', col);
-        head.setAttribute('stroke-width', sw);
-        g.appendChild(head);
+    }
+
+    // One foot through the walk cycle. u is where it is in its own cycle.
+    function foot(u) {
+        u = u - Math.floor(u);
+        if (u < 0.55) {                       // planted, the ground passes under
+            return { x: STRIDE / 2 - STRIDE * (u / 0.55), y: 0 };
+        }
+        const k = (u - 0.55) / 0.45;          // swung forward, and lifted
+        return { x: -STRIDE / 2 + STRIDE * smooth(k), y: -LIFT * Math.sin(Math.PI * k) };
+    }
+
+    function create(parent, opts = {}) {
+        const g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'jman-fig');
+        const make = (tag, cls) => {
+            const el = document.createElementNS(NS, tag);
+            if (cls) el.setAttribute('class', cls);
+            g.appendChild(el);
+            return el;
+        };
+        // drawn back to front, so the near arm and leg overlap the body
+        const legFar = make('path', 'jl jlimb jfar');
+        const armFar = make('path', 'jl jlimb jfar');
+        const bag = make('path', 'jl jcarry');
+        const torso = make('path', 'jl jlimb');
+        const head = make('circle', 'jl jhead');
+        const legNear = make('path', 'jl jlimb');
+        const armNear = make('path', 'jl jlimb');
+        const slab = make('rect', 'jl jcarry jslab');
+        head.setAttribute('r', HEAD_R);
         parent.appendChild(g);
 
-        const HIP = 38, SHO = 74, LEG = 40, ARM = 32;
-        const limb = (el, ox, oy, ang, len) => {
-            el.setAttribute('x1', ox);
-            el.setAttribute('y1', oy);
-            el.setAttribute('x2', ox + Math.sin(ang) * len);
-            el.setAttribute('y2', oy + Math.cos(ang) * len);
-        };
+        const path3 = (el, a, b, c) =>
+            el.setAttribute('d', `M ${a.x.toFixed(1)} ${a.y.toFixed(1)} `
+                + `L ${b.x.toFixed(1)} ${b.y.toFixed(1)} `
+                + `L ${c.x.toFixed(1)} ${c.y.toFixed(1)}`);
 
         return {
             el: g,
-            // x, y: where his feet touch, in the parent's coordinates.
-            // mode: 'walk' | 'idle' | 'climb' | 'cheer'; phase: walk cycle in radians.
-            // Returns the leading hand position in the same coordinates.
-            set(x, y, mode, phase, t, face = 1, opacity = 1) {
-                let lA = 0, rA = 0, alA = 0, arA = 0, dy = 0;
-                if (mode === 'walk') {
-                    const th = 0.5 * Math.sin(phase);
-                    lA = th; rA = -th; alA = -0.8 * th; arA = 0.8 * th;
-                    dy = -3 * Math.abs(Math.sin(phase));
-                } else if (mode === 'climb') {
-                    const th = Math.sin(phase);
-                    lA = 0.35 * th; rA = -0.35 * th;
-                    alA = Math.PI - 0.45 + 0.35 * th; arA = Math.PI + 0.45 + 0.35 * th;
-                    dy = -2 * Math.abs(th);
-                } else if (mode === 'cheer') {
-                    lA = 0.18; rA = -0.18;
-                    alA = Math.PI - 0.55; arA = Math.PI + 0.55;
-                    dy = -26 * Math.abs(Math.sin(t * 6));
+            /**
+             * x, y     where his feet touch, in the parent's units
+             * mode     'walk' | 'idle' | 'point'
+             * phase    the walk cycle, in radians, from distance travelled
+             * t        seconds, for breathing
+             * face     1 walking right, -1 walking left
+             * carry    'bag' | 'laptop' | none
+             * point    {x, y} in the parent's units, when mode is 'point'
+             */
+            set(x, y, mode, phase, t, face = 1, carry = '', target = null) {
+                const walking = mode === 'walk';
+                const u = (phase / TAU) % 1;
+                const bob = walking ? -2.6 * Math.abs(Math.sin(u * TAU))
+                    : 0.8 * Math.sin(t * 2.1);
+                const hipY = HIP + bob, shoY = SHO + bob;
+                const lean = walking ? 3.2 : 0;          // he leans into the walk
+
+                // legs
+                let fNear, fFar;
+                if (walking) {
+                    fNear = foot(u);
+                    fFar = foot(u + 0.5);
                 } else {
-                    const b = Math.sin(t * 2.2);
-                    lA = 0.28; rA = -0.28;
-                    alA = -0.5 - 0.04 * b; arA = 0.5 + 0.04 * b;
-                    dy = 1.2 * b;
+                    fNear = { x: 7, y: 0 };
+                    fFar = { x: -8, y: 0 };
                 }
-                limb(legL, 0, -HIP, lA, LEG);
-                limb(legR, 0, -HIP, rA, LEG);
-                body.setAttribute('x1', 0); body.setAttribute('y1', -HIP);
-                body.setAttribute('x2', 0); body.setAttribute('y2', -SHO + 4);
-                limb(armL, 0, -SHO + 8, alA, ARM);
-                limb(armR, 0, -SHO + 8, arA, ARM);
-                head.setAttribute('cx', 0);
-                head.setAttribute('cy', -SHO - 16);
-                g.setAttribute('transform', `translate(${x},${y + dy}) scale(${sc * face},${sc})`);
-                g.setAttribute('opacity', opacity);
-                // The forward arm carries whatever he is holding.
-                const hx = Math.sin(arA) * ARM;
-                const hy = -SHO + 8 + Math.cos(arA) * ARM;
-                return { x: x + hx * sc * face, y: y + dy + hy * sc, scale: sc, face };
+                const hipX = lean * 0.4;
+                for (const [el, f] of [[legFar, fFar], [legNear, fNear]]) {
+                    const kn = joint(hipX, hipY, f.x, f.y, THIGH, SHIN, -1);
+                    // hip, knee, ankle, then a short foot so the step lands flat
+                    el.setAttribute('d', `M ${hipX.toFixed(1)} ${hipY.toFixed(1)} `
+                        + `L ${kn.x.toFixed(1)} ${kn.y.toFixed(1)} `
+                        + `L ${f.x.toFixed(1)} ${f.y.toFixed(1)} `
+                        + `L ${(f.x + 7).toFixed(1)} ${(f.y - 1.5).toFixed(1)}`);
+                }
+
+                // torso
+                torso.setAttribute('d', `M ${hipX.toFixed(1)} ${hipY.toFixed(1)} `
+                    + `L ${(hipX + lean).toFixed(1)} ${shoY.toFixed(1)}`);
+                const shoX = hipX + lean;
+                head.setAttribute('cx', (shoX + lean * 0.6).toFixed(1));
+                head.setAttribute('cy', (HEAD_Y + bob).toFixed(1));
+
+                // arms
+                const reach = (UPPER + FORE) * 0.95;   // nearly straight, so no chicken wing
+                let hNear, hFar;
+                if (mode === 'point' && target) {
+                    // the near arm goes up towards whatever he is looking at
+                    const tx = (target.x - x) * face, ty = target.y - y;
+                    const d = Math.max(1, Math.hypot(tx - shoX, ty - shoY));
+                    hNear = { x: shoX + ((tx - shoX) / d) * reach, y: shoY + ((ty - shoY) / d) * reach };
+                    hFar = { x: shoX - 4, y: shoY + reach * 0.95 };
+                } else if (walking) {
+                    const aNear = 0.5 * Math.sin(u * TAU + Math.PI);
+                    const aFar = 0.5 * Math.sin(u * TAU);
+                    hNear = { x: shoX + Math.sin(aNear) * reach, y: shoY + Math.cos(aNear) * reach };
+                    hFar = { x: shoX + Math.sin(aFar) * reach, y: shoY + Math.cos(aFar) * reach };
+                } else {
+                    const sway = 0.06 * Math.sin(t * 1.7);
+                    hNear = { x: shoX + Math.sin(0.16 + sway) * reach, y: shoY + Math.cos(0.16 + sway) * reach };
+                    hFar = { x: shoX + Math.sin(-0.14 - sway) * reach, y: shoY + Math.cos(-0.14 - sway) * reach };
+                }
+                for (const [el, h, sign] of [[armFar, hFar, 1], [armNear, hNear, 1]]) {
+                    const el2 = joint(shoX, shoY, h.x, h.y, UPPER, FORE, sign);
+                    path3(el, { x: shoX, y: shoY }, el2, h);
+                }
+
+                // what he is carrying
+                const hasBag = carry === 'bag', hasSlab = carry === 'laptop';
+                bag.style.display = hasBag ? '' : 'none';
+                slab.style.display = hasSlab ? '' : 'none';
+                if (hasBag) {
+                    const top = shoY + 6, bot = hipY - 4;
+                    bag.setAttribute('d',
+                        `M ${(shoX - 6).toFixed(1)} ${top.toFixed(1)} `
+                        + `h -9 a 5 5 0 0 0 -5 5 V ${(bot - 5).toFixed(1)} `
+                        + `a 5 5 0 0 0 5 5 h 9 `
+                        + `M ${(shoX - 5).toFixed(1)} ${(top + 2).toFixed(1)} `
+                        + `l -2 ${(bot - top - 4).toFixed(1)}`);
+                }
+                if (hasSlab) {                       // a laptop, carried at his side
+                    slab.setAttribute('x', (shoX - 23).toFixed(1));
+                    slab.setAttribute('y', (shoY + 40).toFixed(1));
+                    slab.setAttribute('width', 24);
+                    slab.setAttribute('height', 6);
+                    slab.setAttribute('rx', 1.5);
+                }
+
+                g.setAttribute('transform', `translate(${x.toFixed(1)},${y.toFixed(1)}) scale(${face},1)`);
+                return {
+                    hand: { x: x + hNear.x * face, y: y + hNear.y },
+                    head: { x: x + shoX * face, y: y + HEAD_Y + bob },
+                };
             },
         };
     }
 
-    // Position along an SVG path between two lengths over a time window.
-    function along(path, l0, l1, t0, t1, t) {
-        const k = smooth((t - t0) / Math.max(0.001, t1 - t0));
-        const l = l0 + (l1 - l0) * k;
-        const p = path.getPointAtLength(l);
-        const q = path.getPointAtLength(Math.min(path.getTotalLength(), l + 3));
-        return { x: p.x, y: p.y, dist: Math.abs(l - l0), moving: t > t0 && t < t1, dx: q.x - p.x };
-    }
-
-    return { create, along, smooth, clamp };
+    return { create, smooth, clamp, foot };
 })();
