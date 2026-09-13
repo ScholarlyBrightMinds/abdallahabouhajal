@@ -211,7 +211,7 @@ def draft(idea):
     return json.loads(text)
 
 
-def render_html(post, date_label):
+def render_html(post, date_label, iso_date, n):
     # Visible element text keeps apostrophes raw (quote=False), matching the
     # hand-written posts; attribute values stay quote-safe.
     title = html.escape(post["title"], quote=False)
@@ -234,15 +234,47 @@ def render_html(post, date_label):
             blocks.append(f"        <p> {t} </p>")
     body_html = "\n".join(blocks)
 
+    # Search engines key on these: a canonical URL, the name in the title,
+    # and a BlogPosting tied to the homepage Person by @id.
+    url = f"{BASE_URL}/blog-post-{n}.html"
+    person = {"@type": "Person", "@id": f"{BASE_URL}/#person", "name": "Abdallah Abou Hajal"}
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post["title"],
+        "description": post["excerpt"],
+        "datePublished": iso_date,
+        "url": url,
+        "mainEntityOfPage": url,
+        "image": f"{BASE_URL}/images/profile.png",
+        "inLanguage": "en",
+        "author": {**person, "url": f"{BASE_URL}/"},
+        "publisher": person,
+    }, indent=2, ensure_ascii=False).replace("</", "<\\/")
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="theme-color" content="#f6f7fb">
 <meta name="description" content="{title_attr}. {desc_attr} A blog post by Abdallah Abou Hajal.">
-<title>{title} · Blog</title>
+<title>{title} · Abdallah Abou Hajal</title>
+<link rel="canonical" href="{url}">
+<meta name="author" content="Abdallah Abou Hajal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{title_attr}">
+<meta property="og:description" content="{desc_attr}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{BASE_URL}/images/profile.png">
+<meta property="og:site_name" content="Abdallah Abou Hajal">
+<meta property="article:published_time" content="{iso_date}">
+<meta property="article:author" content="{BASE_URL}/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{ld}
+</script>
 
 <link rel="icon" href="images/profile.png" type="image/png">
 <link rel="apple-touch-icon" href="images/profile.png">
@@ -355,7 +387,7 @@ def main():
     post = draft(idea)
 
     out_path = os.path.join(REPO, f"blog-post-{n}.html")
-    open(out_path, "w", encoding="utf-8").write(render_html(post, date_label))
+    open(out_path, "w", encoding="utf-8").write(render_html(post, date_label, iso_date, n))
     patch_files(post, n, date_label, iso_date)
     # Consume + refill the bank only when the topic came from it (bank or menu
     # pick). Own-idea drafts (source "issue") leave the bank untouched.
