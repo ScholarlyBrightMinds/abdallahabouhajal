@@ -146,18 +146,20 @@ window.SM = (() => {
                 bag.style.display = hasBag ? '' : 'none';
                 slab.style.display = hasSlab ? '' : 'none';
                 if (hasBag) {
-                    const top = shoY + 6, bot = hipY - 4;
+                    // a small square pack high on the back, with one strap over
+                    // the shoulder. Anything longer reads as a shape, not a bag.
+                    const top = shoY + 5, bot = shoY + 30;
                     bag.setAttribute('d',
-                        `M ${(shoX - 6).toFixed(1)} ${top.toFixed(1)} `
-                        + `h -9 a 5 5 0 0 0 -5 5 V ${(bot - 5).toFixed(1)} `
-                        + `a 5 5 0 0 0 5 5 h 9 `
-                        + `M ${(shoX - 5).toFixed(1)} ${(top + 2).toFixed(1)} `
-                        + `l -2 ${(bot - top - 4).toFixed(1)}`);
+                        `M ${(shoX - 5).toFixed(1)} ${top.toFixed(1)} `
+                        + `h -8 a 3 3 0 0 0 -3 3 V ${(bot - 3).toFixed(1)} `
+                        + `a 3 3 0 0 0 3 3 h 8 `
+                        + `M ${(shoX - 4).toFixed(1)} ${(shoY + 1).toFixed(1)} `
+                        + `l -3 ${(top - shoY + 3).toFixed(1)}`);
                 }
-                if (hasSlab) {                       // a laptop, carried at his side
-                    slab.setAttribute('x', (shoX - 23).toFixed(1));
-                    slab.setAttribute('y', (shoY + 40).toFixed(1));
-                    slab.setAttribute('width', 24);
+                if (hasSlab) {                       // a laptop, held against his chest
+                    slab.setAttribute('x', (shoX - 13).toFixed(1));
+                    slab.setAttribute('y', (shoY + 19).toFixed(1));
+                    slab.setAttribute('width', 22);
                     slab.setAttribute('height', 6);
                     slab.setAttribute('rx', 1.5);
                 }
