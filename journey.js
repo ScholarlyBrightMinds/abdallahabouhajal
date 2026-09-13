@@ -298,21 +298,30 @@
         tl.progress(1);
         finished = true;
     } else if ('IntersectionObserver' in window) {
+        // It walks when the stage is on screen and the tab is in front. Both
+        // go through the same check, so coming back to the tab picks the walk
+        // up again rather than leaving him standing.
+        let onScreen = false;
+        const settle = () => {
+            const want = onScreen && !document.hidden;
+            if (want && !finished && !userPaused && !tl.isActive()) tl.play();
+            else if (!want && tl.isActive()) tl.pause();
+            label();
+        };
         const io = new IntersectionObserver((entries) => {
             entries.forEach((e) => {
-                const onScreen = e.isIntersecting && e.intersectionRatio >= 0.45;
-                if (onScreen && !finished && !userPaused && !tl.isActive()) tl.play();
-                else if (!onScreen && tl.isActive()) tl.pause();
-                label();
+                onScreen = e.isIntersecting && e.intersectionRatio >= 0.45;
+                settle();
             });
         }, { threshold: [0, 0.45, 0.9] });
         io.observe(stage);
+        document.addEventListener('visibilitychange', settle);
     } else {
         tl.play();
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && tl.isActive()) { tl.pause(); label(); }
+        });
     }
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden && tl.isActive()) { tl.pause(); label(); }
-    });
 
     let resizeRaf = 0;
     window.addEventListener('resize', () => {

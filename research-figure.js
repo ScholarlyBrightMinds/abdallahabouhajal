@@ -184,17 +184,30 @@
             panel.hidden = false;
             build(deck[0]);
             if (REDUCE) return;
+            // It runs when it is both on screen and in the front tab. Both
+            // conditions go through the same check, so coming back to the tab
+            // starts it again instead of leaving a half drawn molecule.
+            let onScreen = false;
+            const settle = () => {
+                const want = onScreen && !document.hidden;
+                if (want && !playing) {
+                    playing = true;
+                    started = performance.now();
+                    phase = 'draw';
+                    tick();
+                } else if (!want && playing) {
+                    playing = false;
+                    cancelAnimationFrame(raf);
+                }
+            };
             const io = new IntersectionObserver((entries) => {
                 entries.forEach((e) => {
-                    const on = e.isIntersecting && e.intersectionRatio > 0.3;
-                    if (on && !playing) { playing = true; started = performance.now(); phase = 'draw'; tick(); }
-                    else if (!on && playing) { playing = false; cancelAnimationFrame(raf); }
+                    onScreen = e.isIntersecting && e.intersectionRatio > 0.3;
+                    settle();
                 });
             }, { threshold: [0, 0.3, 0.8] });
             io.observe(panel);
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) { playing = false; cancelAnimationFrame(raf); }
-            });
+            document.addEventListener('visibilitychange', settle);
         })
         .catch(() => { /* the list is the page, the panel is extra */ });
 })();
