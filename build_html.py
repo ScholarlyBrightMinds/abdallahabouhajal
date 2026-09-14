@@ -395,7 +395,7 @@ def render_article(
 
     if cites:
         stats_parts.append(
-            f'<span class="pub-stat pub-stat-cites" title="Citations: the highest count any open index reports for this paper">'
+            f'<span class="pub-stat pub-stat-cites" title="Citations: the highest count Google Scholar or an open index reports for this paper">'
             f'<span class="pub-stat-icon" aria-hidden="true">&#9733;</span>'
             f'<span class="pub-stat-num">{cites}</span>'
             f'<span class="pub-stat-label">citation{"s" if cites != 1 else ""}</span>'

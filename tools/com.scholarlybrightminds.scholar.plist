@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reads Google Scholar once a week and pushes the new numbers.
+
+     Install:
+       cp tools/com.scholarlybrightminds.scholar.plist ~/Library/LaunchAgents/
+       launchctl load ~/Library/LaunchAgents/com.scholarlybrightminds.scholar.plist
+
+     Remove:
+       launchctl unload ~/Library/LaunchAgents/com.scholarlybrightminds.scholar.plist
+       rm ~/Library/LaunchAgents/com.scholarlybrightminds.scholar.plist
+
+     Run it now, without waiting for Monday:
+       launchctl start com.scholarlybrightminds.scholar
+
+     If the Mac is asleep at the appointed time, launchd runs it at the next
+     wake instead of skipping the week. What it did is in tools/scholar.log.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.scholarlybrightminds.scholar</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>/Users/abdallahabouhajal/Desktop/Current Projects/scholarly_brightminds/repos/abdallahabouhajal/tools/weekly_scholar.sh</string>
+    </array>
+
+    <!-- Mondays at 09:12, a few minutes off the hour on purpose -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key><integer>1</integer>
+        <key>Hour</key><integer>9</integer>
+        <key>Minute</key><integer>12</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/abdallahabouhajal/Desktop/Current Projects/scholarly_brightminds/repos/abdallahabouhajal/tools/scholar.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/abdallahabouhajal/Desktop/Current Projects/scholarly_brightminds/repos/abdallahabouhajal/tools/scholar.out.log</string>
+</dict>
+</plist>

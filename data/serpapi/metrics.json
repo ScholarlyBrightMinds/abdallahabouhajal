@@ -1,9 +1,9 @@
 {
   "total_documents": 14,
-  "total_citations": 94,
+  "total_citations": 124,
   "h_index": 8,
   "author_id": "1I8SvsQAAAAJ",
-  "source": "open_indexes",
+  "source": "google_scholar totals, open indexes per paper",
   "last_updated": "2026-09-12T20:56:07Z",
   "sources": {
     "openalex": {
@@ -19,6 +19,13 @@
       "citations": 74
     },
     "carried_forward": 0,
-    "excluded_non_papers": 0
+    "excluded_non_papers": 0,
+    "google_scholar": {
+      "citations": 124,
+      "h_index": 8,
+      "i10_index": 6,
+      "articles": 15,
+      "fetched_at": "2026-09-14T08:30:45Z"
+    }
   }
 }
