@@ -55,6 +55,7 @@ from __future__ import annotations
 import datetime
 import hashlib
 import json
+from pathlib import Path
 import os
 import re
 import sys
@@ -493,6 +494,17 @@ def main() -> None:
     json.dump(pubs, open(pubs_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     json.dump(metrics, open(metrics_path, "w", encoding="utf-8"), indent=2)
     json.dump(dois_out, open(dois_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+
+    # Google Scholar counts what the open indexes miss, and it cannot be read
+    # from a GitHub runner, so scholar_fetch.py leaves its answer in
+    # data/scholar/scholar.json from his own machine. Fold it back in here, or
+    # this weekly run would drop his real numbers every Monday.
+    try:
+        import scholar_merge
+        scholar_merge.apply(Path(__file__).resolve().parent)
+        metrics = json.load(open(metrics_path, encoding="utf-8"))
+    except Exception as e:
+        print(f"  Google Scholar numbers not applied: {e}")
 
     print("=== Done ===")
     print(f"  Publications : {metrics['total_documents']}")
