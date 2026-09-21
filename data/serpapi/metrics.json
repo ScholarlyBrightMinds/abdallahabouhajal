@@ -4,19 +4,19 @@
   "h_index": 8,
   "author_id": "1I8SvsQAAAAJ",
   "source": "google_scholar totals, open indexes per paper",
-  "last_updated": "2026-09-14T10:23:46Z",
+  "last_updated": "2026-09-21T10:29:07Z",
   "sources": {
     "openalex": {
       "papers": 15,
-      "citations": 91
+      "citations": 92
     },
     "crossref": {
       "papers": 15,
-      "citations": 85
+      "citations": 86
     },
     "semantic_scholar": {
       "papers": 14,
-      "citations": 74
+      "citations": 75
     },
     "carried_forward": 0,
     "excluded_non_papers": 0,
