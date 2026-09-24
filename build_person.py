@@ -12,7 +12,9 @@ and writes it into both pages between markers:
 Every fact here must also be visible somewhere on the site (About shows the
 degrees and awards), because search engines ignore markup that the page
 does not back up. Identifiers were checked against their registries on
-2026-09-24: ORCID, OpenAlex (three records, one person), Semantic Scholar,
+2026-09-24: ORCID (which lists Scopus 58094444100), OpenAlex (three
+records, one person), Semantic Scholar, the AbdallahHajal GitHub account
+(profile name Abdallah Abou Hajal, owner of the BAD Molecule Filter code),
 ROR 023abrt21 and Wikidata Q4703454 for Al Ain University, and the Wikidata
 ids in knowsAbout.
 
@@ -40,6 +42,8 @@ PERSON = {
     "@id": f"{SITE}/#person",
     "name": "Abdallah Abou Hajal",
     # Every spelling found on his papers and profiles, plus the Arabic form.
+    # "A. A. Hajal" is how several citing papers and the Manchester record
+    # print him (they read Abou as a middle name).
     "alternateName": [
         "Abdallah F. Abou Hajal",
         "Abdallah Abouhajal",
@@ -47,6 +51,7 @@ PERSON = {
         "Abdallah Abu Hajal",
         "Abdallah F. Abu Hajal",
         "Abou Hajal A",
+        "A. A. Hajal",
         "عبدالله أبو حجل",
     ],
     "givenName": "Abdallah",
@@ -115,6 +120,8 @@ PERSON = {
          "value": "A5102914480", "url": "https://openalex.org/A5102914480"},
         {"@type": "PropertyValue", "propertyID": "Semantic Scholar",
          "value": "2203865831", "url": "https://www.semanticscholar.org/author/2203865831"},
+        {"@type": "PropertyValue", "propertyID": "Scopus Author ID",
+         "value": "58094444100", "url": "https://www.scopus.com/authid/detail.uri?authorId=58094444100"},
     ],
     # His own accounts only. The ScholarlyBrightMinds GitHub is the group's,
     # so it lives in memberOf, not here.
@@ -124,10 +131,12 @@ PERSON = {
         "https://www.linkedin.com/in/abdallah-abou-hajal/",
         "https://www.researchgate.net/profile/Abdallah-Abou-Hajal-2",
         "https://github.com/AbdallahAbouHajal",
+        "https://github.com/AbdallahHajal",
         "https://openalex.org/A5102914480",
         "https://openalex.org/A5092110406",
         "https://openalex.org/A5108811528",
         "https://www.semanticscholar.org/author/2203865831",
+        "https://www.scopus.com/authid/detail.uri?authorId=58094444100",
         "https://www.instagram.com/abdallah_abouhajal/",
     ],
     "knowsAbout": [

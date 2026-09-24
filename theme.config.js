@@ -115,13 +115,13 @@ window.SITE_CONFIG = {
         { num: "127", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
         { num: "5×",  label: "Corresponding",    sub: "first or corresponding author" },
         { num: "1st", label: "BindHack",         sub: "First place · Insilico Medicine 2025", variant: "gold" },
-        { num: "1",   label: "Live ML tool",     sub: "BAD Molecule Filter web server" }
+        { num: "1",   label: "Open ML tool",     sub: "BAD Molecule Filter, free to download" }
     ],
 
     // ── About page: research narrative ───────────────────────────
     about: {
         paragraphs: [
-            "<strong>MSc Pharmaceutical Sciences</strong>, Al Ain University, GPA 3.94, on a postgraduate scholarship that came with research and lab assistant duties and undergraduate lab teaching. My thesis built a machine learning tool for predicting promiscuous aggregate-based inhibitors, supervised by Prof. Mohammad Ghattas and Prof. Boulbaba Ben Amor. It was published first author in the <em>Journal of Chemical Information and Modeling</em> and runs as a public web server.",
+            "<strong>MSc Pharmaceutical Sciences</strong>, Al Ain University, GPA 3.94, on a postgraduate scholarship that came with research and lab assistant duties and undergraduate lab teaching. My thesis built a machine learning tool for predicting promiscuous aggregate-based inhibitors, supervised by Prof. Mohammad Ghattas and Prof. Boulbaba Ben Amor. It was published first author in the <em>Journal of Chemical Information and Modeling</em>, and the tool is free to download as the <a href='bad-molecule-filter.html'>BAD Molecule Filter</a>.",
             "Since February 2023 I have been at <strong>Scifiniti Publishing</strong>, first as Managing Editor across 5+ STEM journals, and since May 2025 as Data Analyst and AI Automation Lead: LLM agents for editorial workflows, Python tooling, journal performance dashboards. Two years of running peer review is the best view of how science actually gets published that I could have asked for.",
             "Fourteen papers so far, five as corresponding author. The recent ones: an <em>AutoML framework for drug-drug interaction prediction</em>, <em>large language models in drug delivery</em>, <em>machine learning reliability in tumor-progression prediction</em>, <em>GitHub for AI-driven drug discovery</em>, and <em>computational approaches to adverse outcome pathway networks</em>.",
             "I am <strong>looking for a PhD</strong> in machine learning for drug discovery: virtual and high-throughput screening, predictive modeling, model interpretability. If that fits your group, email me."
@@ -252,7 +252,7 @@ window.SITE_CONFIG = {
             n: "08",
             label: "MSc Thesis · JCIM",
             title: "BAD Molecule Filter",
-            desc: "My MSc work. A model that flags molecules that look like real hits in a drug screen but are actually clumping together and causing false positives. It runs as a free public web server.",
+            desc: "My MSc work. A model that flags molecules that look like real hits in a drug screen but are actually clumping together and causing false positives. It is free to download: <a href='bad-molecule-filter.html'>how to run and cite it</a>.",
             tech:  ["Cheminformatics", "Mordred", "Morgan FP", "Ensemble ML", "Public Web Server", "RDKit"],
             status: "Published · J. Chem. Inf. Model. · 2024",
             statusKind: "published",
