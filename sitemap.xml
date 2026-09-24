@@ -3,50 +3,44 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-      <image:image>
+    <lastmod>2026-09-24</lastmod>
+    <image:image>
       <image:loc>https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-      <image:image>
+    <lastmod>2026-09-24</lastmod>
+    <image:image>
       <image:loc>https://scholarlybrightminds.github.io/abdallahabouhajal/images/profile.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/research.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/bad-molecule-filter.html</loc>
+    <lastmod>2026-09-24</lastmod>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/publications.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-24</lastmod>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/contact.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-14</lastmod>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-5.html</loc>
     <lastmod>2026-09-13</lastmod>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-4.html</loc>
     <lastmod>2026-09-13</lastmod>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://scholarlybrightminds.github.io/abdallahabouhajal/blog-post-3.html</loc>
     <lastmod>2026-09-13</lastmod>
-    <priority>0.6</priority>
   </url>
 </urlset>
