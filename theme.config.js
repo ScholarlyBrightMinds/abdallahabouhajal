@@ -90,7 +90,7 @@ window.SITE_CONFIG = {
     // (e.g., "14 Publications · 105 Citations") right before each commit, so
     // the static HTML that Google indexes always shows current stats.
     chips: [
-        { label: "14 Publications · 124 Citations" },
+        { label: "14 Publications · 127 Citations" },
         { label: "h-index 8" },
         { label: "5× Corresponding Author" },
         { label: "BindHack 1st Place · Insilico Medicine", variant: "gold" },
@@ -112,7 +112,7 @@ window.SITE_CONFIG = {
     // via build_html.py from the weekly SerpApi pull (see numLiveSource).
     impactStats: [
         { num: "14",  label: "Publications",     sub: "peer-reviewed",                      numLiveSource: "total_documents" },
-        { num: "124", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
+        { num: "127", label: "Citations",        sub: "across all work",                    numLiveSource: "total_citations" },
         { num: "5×",  label: "Corresponding",    sub: "first or corresponding author" },
         { num: "1st", label: "BindHack",         sub: "First place · Insilico Medicine 2025", variant: "gold" },
         { num: "1",   label: "Live ML tool",     sub: "BAD Molecule Filter web server" }
