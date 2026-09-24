@@ -130,6 +130,51 @@ body::before {
     body::before { display: none; }
 }
 
+/* The same molecules, moving. bg-motion.js lays them out as separate
+   elements from images/bg-molecules.json, starting exactly where the tile
+   has them, and adds .bg-live so the still tile steps aside. Each one turns
+   and drifts on its own tempo, set per molecule as custom properties. Spin
+   and drift use the separate rotate and translate properties, so the two
+   animations combine and the compositor runs them without the main thread.
+   Reduced motion, print and no JavaScript keep the still tile above. */
+.bg-mols {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.055;
+    contain: strict;
+}
+@media (max-width: 640px) {
+    .bg-mols { opacity: 0.05; }
+}
+html.bg-live body::before { visibility: hidden; }
+.bg-mol {
+    position: absolute;
+    overflow: visible;
+    animation:
+        bg-spin var(--spin, 80s) linear infinite,
+        bg-drift var(--drift, 12s) ease-in-out infinite alternate;
+    animation-play-state: var(--sbm-anim, running), var(--sbm-anim, running);
+}
+.bg-mol path {
+    fill: none;
+    stroke: #121a2c;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+@keyframes bg-spin { to { rotate: var(--turn, 360deg); } }
+@keyframes bg-drift { to { translate: var(--dx, 0px) var(--dy, 0px); } }
+@media (prefers-reduced-motion: reduce) {
+    .bg-mols { display: none; }
+    html.bg-live body::before { visibility: visible; }
+}
+@media print {
+    .bg-mols { display: none; }
+}
+
 ::selection { background: var(--accent); color: var(--bg); }
 
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible,

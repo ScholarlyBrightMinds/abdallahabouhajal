@@ -439,6 +439,20 @@
         bindBlog();
         bindContact();
         wireMobile();
+        loadBgMotion();
+    }
+
+    // The background molecules move on their own (bg-motion.js). Loaded last,
+    // and only for readers who have not asked for less motion or less data;
+    // everyone else keeps the still tile that styles.css paints.
+    function loadBgMotion() {
+        const quiet = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const saving = navigator.connection && navigator.connection.saveData;
+        if (quiet || saving || document.querySelector('script[src="bg-motion.js"]')) return;
+        const s = document.createElement('script');
+        s.src = 'bg-motion.js';
+        s.defer = true;
+        document.head.appendChild(s);
     }
 
     if (document.readyState === 'loading') {
