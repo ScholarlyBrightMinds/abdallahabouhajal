@@ -81,20 +81,6 @@ jobs:
           set -euo pipefail
           python build_html.py
 
-      - name: Bake ORCID-verified panel into about.html
-        # Reads data/orcid/orcid.json (just fetched) and patches the
-        # idempotent ORCID-PANEL marker block in about.html with the latest
-        # works/peer-review/employment counts and "last synced" date.
-        run: |
-          set -euo pipefail
-          python build_orcid_html.py
-
-      - name: Bake OpenAlex research-topics panel into about.html
-        # Reads data/openalex/openalex.json and patches the OPENALEX-PANEL
-        # marker block with topic chips, OA percentage, and i10-index.
-        run: |
-          set -euo pipefail
-          python build_openalex_html.py
 
       - name: Generate per-paper OG share cards
         # Pillow-based renderer that emits 1200x630 PNGs into images/og/
@@ -106,13 +92,18 @@ jobs:
           python og_card_generator.py
 
       - name: Update sitemap.xml lastmod for publications page
-        # Bump the <lastmod> on the publications page so search engines know
-        # the publication list changed this week.
+        # Bump the <lastmod> on the publications page when this run changed it,
+        # so search engines see a real date rather than every Monday.
         run: |
           python - <<'PYEOF'
           import re
           from datetime import datetime, timezone
           from pathlib import Path
+          import subprocess
+          # Only when this run actually changed the page, so lastmod stays honest.
+          if subprocess.run(["git", "diff", "--quiet", "--", "publications.html"]).returncode == 0:
+              print("sitemap.xml: publications.html unchanged, lastmod kept")
+              raise SystemExit(0)
           today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
           p = Path("sitemap.xml")
           if not p.exists():
@@ -150,14 +141,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'docs: weekly Scholar + ORCID + OpenAlex sync + SEO rebuild'
-          file_pattern: |
-            data/serpapi/*.json
-            data/serpapi/*.csv
-            data/orcid/*.json
-            data/openalex/*.json
-            publications.html
-            about.html
-            research.html
-            theme.config.js
-            sitemap.xml
-            images/og/*.png
+          # One line, space separated: the action reads only the first line of a
+          # block, which is why only data/serpapi/*.json was committed from May to
+          # September 2026. Every pattern must match a tracked file or git add fails.
+          file_pattern: 'data/serpapi/*.json data/orcid/*.json data/openalex/*.json publications.html index.html theme.config.js sitemap.xml images/og/*.png'
