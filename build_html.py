@@ -340,7 +340,41 @@ def _journal_name_from_venue(venue: str) -> str:
     # First numeric token (volume) — drop it and everything after
     m = re.split(r'\s+\d+\s*[(,]', venue, maxsplit=1)
     name = m[0].strip().rstrip(",")
+    # Scholar often gives only "Journal, 2024": no volume to split on, so the
+    # year would stay in the journal's name.
+    name = re.sub(r",?\s*(?:19|20)\d{2}\s*$", "", name).strip().rstrip(",")
     return name or venue.strip()
+
+
+# Scholar truncates author lists with "et al"; that is not a person.
+_NOT_AN_AUTHOR = re.compile(r"^(?:et\.?\s*al\.?|\.\.\.|…)$", re.I)
+
+
+def _is_site_owner(name: str) -> bool:
+    """Abou Hajal, Abu Hajal, Abouhajal: every spelling on his papers."""
+    squashed = re.sub(r"[^a-z]", "", name.lower())
+    return "abouhajal" in squashed or "abuhajal" in squashed
+
+
+def _jsonld_authors(raw: str, site_base: str, full_name: str) -> list[dict]:
+    """Authors as Person nodes. His own entry points at the site's Person
+    @id, so every paper links to one entity. When Scholar's "et al" hides
+    him, he is added: every paper on this list is his."""
+    me = {"@type": "Person", "@id": f"{site_base}/#person", "name": full_name}
+    out, found = [], False
+    for a in (raw or "").split(","):
+        a = a.strip()
+        if not a or _NOT_AN_AUTHOR.match(a):
+            continue
+        if _is_site_owner(a):
+            if not found:
+                out.append(me)
+            found = True
+        else:
+            out.append({"@type": "Person", "name": a})
+    if not found:
+        out.append(me)
+    return out
 
 
 def render_article(
@@ -489,9 +523,7 @@ def render_jsonld(pubs: list[dict], dois: dict, ident: dict) -> str:
             "name": p.get("title", "").strip(),
             "headline": p.get("title", "").strip(),
             "datePublished": str(p.get("year") or ""),
-            "author": [{"@type": "Person", "name": a.strip()}
-                          for a in (p.get("authors") or "").split(",")
-                          if a.strip()],
+            "author": _jsonld_authors(p.get("authors") or "", site_base, full_name),
         }
         if journal:
             article["isPartOf"] = {"@type": "Periodical", "name": journal}
@@ -710,6 +742,10 @@ def patch_index_static_numbers(pubs: list[dict], metrics: dict) -> None:
         text = re.sub(r"(>)h-index \d+(<)", rf"\g<1>h-index {hidx}\g<2>", text)
         text = re.sub(r"(h-index <strong>)\d+(</strong>)", rf"\g<1>{hidx}\g<2>", text)
     if text != orig:
+        # The page changed, so the ProfilePage's dateModified moves with it.
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        text = re.sub(r'("@type": "ProfilePage",[^<]*?"dateModified": ")\d{4}-\d{2}-\d{2}(")',
+                      rf"\g<1>{today}\g<2>", text, count=1)
         INDEX_HTML.write_text(text, encoding="utf-8")
         print("[OK] index.html: static numbers refreshed")
     else:
