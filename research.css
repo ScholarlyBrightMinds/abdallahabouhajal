@@ -71,6 +71,7 @@ main.work {
     color: var(--muted);
     font-variant-numeric: tabular-nums;
 }
+.work-item .work-meta a { color: var(--accent); text-underline-offset: 2px; }
 .work-item .work-ask { font-family: var(--f-ui); font-size: 0.9rem; color: var(--text-soft); }
 .work-item .work-ask strong { color: var(--text); font-weight: 600; }
 
