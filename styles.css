@@ -87,7 +87,7 @@ h1, h2, h3, h4,
     letter-spacing: var(--track-kicker);
 }
 .impact-num, .metric-num, .pub-stat-num, .proj-num, .blog-cover-num,
-.oa-badge strong, .orcid-pill strong, td, th {
+td, th {
     font-variant-numeric: tabular-nums;
 }
 html { scroll-behavior: smooth; }
