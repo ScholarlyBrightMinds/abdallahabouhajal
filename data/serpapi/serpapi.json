@@ -9,21 +9,21 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
-    "title": "Overcoming barriers to machine learning applications in toxicity prediction",
-    "authors": "A Abou Hajal, A Z. Al Meslamani",
-    "venue": "Expert Opinion on Drug Metabolism & Toxicology, 2023",
-    "year": "2023",
-    "cited_by": 17,
-    "link": "https://doi.org/10.1080/17425255.2023.2294939",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
     "title": "Exploring the pharmacy students’ perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
     "authors": "A Ahmed Elnour, A Abou Hajal, R Goaddar, et al",
     "venue": "Saudi Pharmaceutical Journal, 2023",
     "year": "2023",
     "cited_by": 18,
     "link": "https://doi.org/10.1016/j.jsps.2023.05.024",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
+    "title": "Overcoming barriers to machine learning applications in toxicity prediction",
+    "authors": "A Abou Hajal, A Z. Al Meslamani",
+    "venue": "Expert Opinion on Drug Metabolism & Toxicology, 2023",
+    "year": "2023",
+    "cited_by": 17,
+    "link": "https://doi.org/10.1080/17425255.2023.2294939",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -37,7 +37,7 @@
   },
   {
     "title": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
-    "authors": "Z Kharaba, M M. AlAhmad, A Ahmed Elnour, et al",
+    "authors": "Z Jaber Kharaba, M M. AlAhmad, A Ahmed Elnour, et al",
     "venue": "Saudi Pharmaceutical Journal, 2023",
     "year": "2023",
     "cited_by": 12,
@@ -105,6 +105,15 @@
     "year": "2025",
     "cited_by": 2,
     "link": "https://doi.org/10.1016/j.xphs.2025.104147",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
+    "title": "AI Without Misconduct: Responsible GenAI Use, Disclosure, and Verification",
+    "authors": "J Owango, Q Malik, I Williams, et al",
+    "venue": "TCC Africa",
+    "year": "2026",
+    "cited_by": 0,
+    "link": "https://doi.org/10.21428/359fb1d2.ce7a6914",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
