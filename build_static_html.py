@@ -105,6 +105,13 @@ def blocks(cfg: dict) -> dict[str, dict[str, str]]:
                 f'<p class="a-venue">{a["venue"]}</p></li>'
                 for a in about.get("awards", [])
             ),
+            "talks": "".join(
+                '<li class="award-item"><p class="a-title">'
+                + (f'<a href="{t["url"]}" target="_blank" rel="noopener">{t["title"]}</a>'
+                   if t.get("url") else t["title"])
+                + f'</p><p class="a-venue">{t["venue"]}</p></li>'
+                for t in about.get("talks", [])
+            ),
             "blogLede": ledes.get("blog", ""),
             "blogList": "".join(blog_card(p, i) for i, p in enumerate(cfg.get("blog") or [])),
         },

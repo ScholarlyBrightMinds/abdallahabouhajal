@@ -144,6 +144,13 @@ window.SITE_CONFIG = {
             { title: "First place, BindHack",             venue: "Insilico Medicine, Masdar City, 2025" },
             { title: "Three Minute Thesis, second place", venue: "2nd AAU Health and Biomedical Postgraduate Symposium, 2024" },
             { title: "Best Quality Poster, first place",  venue: "1st International Conference on Pharmacy and Biomedical Sciences, Al Ain University, 2023" }
+        ],
+
+        // Talks section on about.html, after Awards. url opens the recording page.
+        talks: [
+            { title: "AI Without Misconduct: Responsible GenAI Use, Disclosure, and Verification",
+              venue: "Webinar with Scifiniti Publishing and TCC Africa, 15 July 2026",
+              url:   "https://tccafrica.pubpub.org/pub/0xohtar4" }
         ]
     },
 

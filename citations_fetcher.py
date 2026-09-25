@@ -391,6 +391,12 @@ def main() -> None:
     prev_known = {norm_doi(v.get("doi")) for v in prev_dois_file.values()}
     prev_known.discard(None)
 
+    # DOIs that carry his name but are not papers for this list, set in the
+    # workflow as EXCLUDE_DOIS (comma separated). A decision, not a filter:
+    # each one is listed there with the reason.
+    excluded = {norm_doi(x.strip()) for x in os.environ.get("EXCLUDE_DOIS", "").split(",") if x.strip()}
+    excluded.discard(None)
+
     print("=== Citations from open indexes ===")
     print(f"  OpenAlex authors      : {', '.join(OPENALEX_IDS)}")
 
@@ -424,8 +430,11 @@ def main() -> None:
               f"citation count. Nothing changed.", file=sys.stderr)
         sys.exit(1)
 
-    pubs, dois_out, carried, not_papers = [], {}, 0, 0
+    pubs, dois_out, carried, not_papers, left_out = [], {}, 0, 0, 0
     for d in dois:
+        if d in excluded:
+            left_out += 1
+            continue
         candidates = [c for c in (oa_c.get(d), cr_c.get(d), s2_c.get(d)) if c is not None]
         if candidates:
             cited = max(candidates)
@@ -488,6 +497,7 @@ def main() -> None:
             "semantic_scholar": {"papers": len(s2_c), "citations": sum(s2_c.values())},
             "carried_forward": carried,
             "excluded_non_papers": not_papers,
+            "excluded_by_list": left_out,
         },
     }
 
@@ -513,6 +523,8 @@ def main() -> None:
     print(f"  DOIs mapped  : {len(dois_out)}")
     if not_papers:
         print(f"  Left out {not_papers} DOI(s) that are peer reviews or notices, not papers")
+    if left_out:
+        print(f"  Left out {left_out} DOI(s) listed in EXCLUDE_DOIS")
     if carried:
         print(f"  Carried counts for {carried} paper(s) no source answered for this run")
 

@@ -228,6 +228,17 @@
                 </li>
             `).join('');
         }
+
+        // Talks: same rows as the awards, the title links to the recording
+        const tkEl = document.querySelector('[data-bind="talks"]');
+        if (tkEl && C.about.talks) {
+            tkEl.innerHTML = C.about.talks.map(t => `
+                <li class="award-item">
+                    <p class="a-title">${t.url ? `<a href="${t.url}" target="_blank" rel="noopener">${t.title}</a>` : t.title}</p>
+                    <p class="a-venue">${t.venue}</p>
+                </li>
+            `).join('');
+        }
     }
 
     // ═══════════════════════════════════════════════════════════════
