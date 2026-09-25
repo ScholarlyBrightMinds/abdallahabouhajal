@@ -98,6 +98,23 @@ PERSON = {
         "Three Minute Thesis, second place, 2nd AAU Health and Biomedical Postgraduate Symposium, 2024",
         "Best Quality Poster, first place, 1st International Conference on Pharmacy and Biomedical Sciences, Al Ain University, 2023",
     ],
+    # Talks shown on About. 10:00 to 12:00 EAT (UTC+3), on Zoom; the DOI is
+    # TCC Africa's record of the webinar, which holds the recording.
+    "performerIn": [{
+        "@type": "Event",
+        "name": "AI Without Misconduct: Responsible GenAI Use, Disclosure, and Verification",
+        "startDate": "2026-07-15T10:00:00+03:00",
+        "endDate": "2026-07-15T12:00:00+03:00",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "location": {"@type": "VirtualLocation", "url": "https://tccafrica.pubpub.org/pub/0xohtar4"},
+        "organizer": [
+            {"@type": "Organization", "name": "Scifiniti Publishing", "url": "https://scifiniti.com"},
+            {"@type": "Organization", "name": "Training Centre in Communication (TCC Africa)",
+             "url": "https://www.tcc-africa.org/"},
+        ],
+        "url": "https://tccafrica.pubpub.org/pub/0xohtar4",
+        "sameAs": "https://doi.org/10.21428/359fb1d2.ce7a6914",
+    }],
     "address": {"@type": "PostalAddress", "addressLocality": "Abu Dhabi",
                 "addressCountry": "AE"},
     "email": "abdallah.abouhajal@gmail.com",

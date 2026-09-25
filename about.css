@@ -115,6 +115,19 @@
     line-height: 1.35;
     letter-spacing: -0.01em;
 }
+/* Talks sit right under Awards; give the second list its own gap */
+.about-talks { margin-top: clamp(2.5rem, 6vh, 4rem); }
+.award-item .a-title a { color: inherit; text-decoration: none; }
+.award-item .a-title a::after {
+    content: " \2197";
+    font-family: var(--f-ui);
+    font-size: 0.8em;
+    color: var(--muted);
+}
+@media (hover: hover) and (pointer: fine) {
+    .award-item .a-title a:hover,
+    .award-item .a-title a:hover::after { color: var(--accent); }
+}
 .award-item .a-venue {
     margin-top: 0.2rem;
     font-size: 0.85rem;
