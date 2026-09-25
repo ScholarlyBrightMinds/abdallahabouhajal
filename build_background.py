@@ -9,6 +9,12 @@ page is chemistry this site is actually about, not a stock pattern.
 A molecule is placed only where it fits whole inside the tile with room to
 spare, and the tile repeats, so there is no seam and no clipped ring.
 
+The same run writes `images/bg-molecules.json`: each placement's centre and its
+bonds as a path around that centre. bg-motion.js uses it to lay the same
+molecules out as separate elements that turn and drift on their own. Both
+files come from one seed, so the moving layer starts exactly where the still
+tile is and the hand-over is invisible.
+
     python3 build_background.py
 """
 
@@ -20,6 +26,8 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent
 OUT = REPO / "images" / "bg-molecules.svg"
+OUT_JSON = REPO / "images" / "bg-molecules.json"
+STROKE, STROKE_W = "#121a2c", 2.6
 DECK = REPO / "data" / "molecules.json"
 MINE = REPO / "data" / "research-mols.json"
 
@@ -98,7 +106,7 @@ def main() -> int:
         rnd = (1103515245 * rnd + 12345) % (1 << 31)
         return rnd % n
 
-    placed, parts = [], []
+    placed, parts, layout = [], [], []
     for name, scale in WANTED:
         mol = have[name]
         best = None
@@ -122,20 +130,29 @@ def main() -> int:
             continue
         cx, cy, rx, ry, pts, bonds = best
         placed.append((cx, cy, rx, ry))
-        d = []
+        d, rel = [], []
         for x1, y1, x2, y2 in segments(pts, bonds):
             d.append(f"M{x1 + cx:.1f} {y1 + cy:.1f}L{x2 + cx:.1f} {y2 + cy:.1f}")
+            rel.append(f"M{x1:.1f} {y1:.1f}L{x2:.1f} {y2:.1f}")
         parts.append(f'<path d="{"".join(d)}"/>')
+        # radius of the circle the molecule sweeps as it turns, plus the stroke
+        reach = max(math.hypot(x, y) for x, y in pts) + STROKE_W
+        layout.append({"name": name, "cx": round(cx, 1), "cy": round(cy, 1),
+                       "r": round(reach, 1), "d": "".join(rel)})
         print(f"  {name:14} at {cx:4.0f},{cy:4.0f}  {len(bonds)} bonds")
 
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">'
-        f'<g fill="none" stroke="#121a2c" stroke-width="2.6" stroke-linecap="round" '
+        f'<g fill="none" stroke="{STROKE}" stroke-width="{STROKE_W}" stroke-linecap="round" '
         f'stroke-linejoin="round">{"".join(parts)}</g></svg>'
     )
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(svg, encoding="utf-8")
     print(f"wrote {OUT.relative_to(REPO)}  {len(placed)} molecules  {len(svg) / 1024:.1f} KB")
+    doc = json.dumps({"tile": [W, H], "stroke": STROKE, "strokeWidth": STROKE_W,
+                      "molecules": layout}, separators=(",", ":"))
+    OUT_JSON.write_text(doc + "\n", encoding="utf-8")
+    print(f"wrote {OUT_JSON.relative_to(REPO)}  {len(layout)} placements  {len(doc) / 1024:.1f} KB")
     return 0
 
 
