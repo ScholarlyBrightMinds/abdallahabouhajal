@@ -144,10 +144,15 @@ body::before {
     overflow: hidden;
     pointer-events: none;
     opacity: 0.055;
+    transition: opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1);
     contain: strict;
 }
+/* Starts at the still tile's strength, so the hand-over shows nothing, then
+   fades up so the motion is visible. */
+.bg-mols.bg-on { opacity: 0.1; }
 @media (max-width: 640px) {
     .bg-mols { opacity: 0.05; }
+    .bg-mols.bg-on { opacity: 0.085; }
 }
 html.bg-live body::before { visibility: hidden; }
 .bg-mol {

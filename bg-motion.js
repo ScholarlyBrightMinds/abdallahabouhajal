@@ -7,9 +7,10 @@
 //  in the same run as the tile), and hands over from the tile to them.
 //
 //  Every molecule starts exactly where the tile has it, so the hand-over
-//  shows nothing. Then each one turns once every 70 to 150 seconds, some
-//  clockwise and some not, and drifts a few pixels on a slow loop of its
-//  own. The motion is CSS (the separate rotate and translate properties),
+//  shows nothing. Then each one turns once every 28 to 56 seconds, some
+//  clockwise and some not, and drifts 10 to 22 pixels on a loop of its own,
+//  while the layer fades from the tile's 5.5% to 10% so the motion reads.
+//  (At the tile's strength and a turn every two minutes, nobody saw it move.) The motion is CSS (the separate rotate and translate properties),
 //  so the browser runs it off the main thread and the game above it is not
 //  slowed.
 //
@@ -53,10 +54,10 @@
         el.style.top = `${(j * TH + (m.cy - R) * s).toFixed(1)}px`;
         el.style.width = el.style.height = `${(2 * R * s).toFixed(1)}px`;
         const angle = r() * Math.PI * 2;
-        const reach = 4 + r() * 5;
-        el.style.setProperty('--spin', `${(70 + r() * 80).toFixed(1)}s`);
+        const reach = 10 + r() * 12;
+        el.style.setProperty('--spin', `${(28 + r() * 28).toFixed(1)}s`);
         el.style.setProperty('--turn', r() < 0.5 ? '360deg' : '-360deg');
-        el.style.setProperty('--drift', `${(8 + r() * 8).toFixed(1)}s`);
+        el.style.setProperty('--drift', `${(6 + r() * 5).toFixed(1)}s`);
         el.style.setProperty('--dx', `${(Math.cos(angle) * reach).toFixed(1)}px`);
         el.style.setProperty('--dy', `${(Math.sin(angle) * reach).toFixed(1)}px`);
         const path = document.createElementNS(NS, 'path');
@@ -96,6 +97,8 @@
         else document.body.prepend(next);
         layer = next;
         root.classList.add('bg-live');
+        // one frame at the tile's strength, then fade up (see .bg-mols.bg-on)
+        requestAnimationFrame(() => requestAnimationFrame(() => next.classList.add('bg-on')));
     }
 
     function start() {
