@@ -1,23 +1,23 @@
 {
   "orcid_id": "0009-0006-1807-2178",
-  "last_fetched": "2026-09-25T05:47:46.739523+00:00",
+  "last_fetched": "2026-09-28T11:31:51.055310+00:00",
   "summary": {
     "openalex_id": "https://openalex.org/A5102914480",
     "display_name": "Abdallah Abou Hajal",
-    "works_count": 11,
-    "cited_by_count": 74,
+    "works_count": 14,
+    "cited_by_count": 88,
     "h_index": 7,
-    "i10_index": 3,
-    "mean_citedness": 5.75,
+    "i10_index": 4,
+    "mean_citedness": 5.111111111111111,
     "recent_year_works": 1,
     "recent_year_cites": 8,
-    "oa_works": 6,
-    "works_in_pull": 12,
-    "works_with_doi": 12,
+    "oa_works": 9,
+    "works_in_pull": 16,
+    "works_with_doi": 16,
     "top_concepts": [
       {
         "name": "Medicine",
-        "score": 0.806831955909729,
+        "score": 0.8548039197921753,
         "level": null,
         "id": "71924100"
       },
@@ -41,7 +41,7 @@
       },
       {
         "name": "Internal medicine",
-        "score": 0.18160781264305115,
+        "score": 0.24424293637275696,
         "level": null,
         "id": "126322002"
       }
@@ -56,15 +56,16 @@
     ],
     "display_name": "Abdallah Abou Hajal",
     "raw_author_names": [
+      "Abdalla Abou Hajal",
       "Abdallah Abou Hajal"
     ],
     "full_name": "Abdallah Abou Hajal",
-    "works_count": 11,
-    "cited_by_count": 74,
+    "works_count": 14,
+    "cited_by_count": 88,
     "summary_stats": {
-      "2yr_mean_citedness": 5.75,
+      "2yr_mean_citedness": 5.111111111111111,
       "h_index": 7,
-      "i10_index": 3
+      "i10_index": 4
     },
     "ids": {
       "openalex": "https://openalex.org/A5102914480",
@@ -126,6 +127,23 @@
         }
       },
       {
+        "id": "https://openalex.org/T11636",
+        "display_name": "Artificial Intelligence in Healthcare and Education",
+        "count": 3,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2718",
+          "display_name": "Health Informatics"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
+        }
+      },
+      {
         "id": "https://openalex.org/T11948",
         "display_name": "Machine Learning in Materials Science",
         "count": 3,
@@ -143,20 +161,20 @@
         }
       },
       {
-        "id": "https://openalex.org/T11636",
-        "display_name": "Artificial Intelligence in Healthcare and Education",
+        "id": "https://openalex.org/T10168",
+        "display_name": "COVID-19 and Mental Health",
         "count": 2,
         "subfield": {
-          "id": "https://openalex.org/subfields/2718",
-          "display_name": "Health Informatics"
+          "id": "https://openalex.org/subfields/3203",
+          "display_name": "Clinical Psychology"
         },
         "field": {
-          "id": "https://openalex.org/fields/27",
-          "display_name": "Medicine"
+          "id": "https://openalex.org/fields/32",
+          "display_name": "Psychology"
         },
         "domain": {
-          "id": "https://openalex.org/domains/4",
-          "display_name": "Health Sciences"
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
         }
       },
       {
@@ -175,30 +193,30 @@
           "id": "https://openalex.org/domains/1",
           "display_name": "Life Sciences"
         }
-      },
-      {
-        "id": "https://openalex.org/T10028",
-        "display_name": "Topic Modeling",
-        "count": 1,
-        "subfield": {
-          "id": "https://openalex.org/subfields/1702",
-          "display_name": "Artificial Intelligence"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/17",
-          "display_name": "Computer Science"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
-        }
       }
     ],
     "topic_share": [
       {
+        "id": "https://openalex.org/T14240",
+        "display_name": "E-Learning and COVID-19",
+        "value": 2.28e-05,
+        "subfield": {
+          "id": "https://openalex.org/subfields/3304",
+          "display_name": "Education"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/33",
+          "display_name": "Social Sciences"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      {
         "id": "https://openalex.org/T10211",
         "display_name": "Computational Drug Discovery Methods",
-        "value": 1.75e-05,
+        "value": 1.76e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/1703",
           "display_name": "Computational Theory and Mathematics"
@@ -215,7 +233,7 @@
       {
         "id": "https://openalex.org/T11948",
         "display_name": "Machine Learning in Materials Science",
-        "value": 1.7e-05,
+        "value": 1.73e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/2505",
           "display_name": "Materials Chemistry"
@@ -230,50 +248,33 @@
         }
       },
       {
-        "id": "https://openalex.org/T11710",
-        "display_name": "Biomedical Text Mining and Ontologies",
-        "value": 1.22e-05,
+        "id": "https://openalex.org/T11636",
+        "display_name": "Artificial Intelligence in Healthcare and Education",
+        "value": 1.38e-05,
         "subfield": {
-          "id": "https://openalex.org/subfields/1312",
-          "display_name": "Molecular Biology"
+          "id": "https://openalex.org/subfields/2718",
+          "display_name": "Health Informatics"
         },
         "field": {
-          "id": "https://openalex.org/fields/13",
-          "display_name": "Biochemistry, Genetics and Molecular Biology"
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
         },
         "domain": {
-          "id": "https://openalex.org/domains/1",
-          "display_name": "Life Sciences"
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
         }
       },
       {
-        "id": "https://openalex.org/T12255",
-        "display_name": "Biosimilars and Bioanalytical Methods",
-        "value": 1.21e-05,
+        "id": "https://openalex.org/T10990",
+        "display_name": "Infection Control and Ventilation",
+        "value": 1.31e-05,
         "subfield": {
-          "id": "https://openalex.org/subfields/2403",
-          "display_name": "Immunology"
+          "id": "https://openalex.org/subfields/2740",
+          "display_name": "Pulmonary and Respiratory Medicine"
         },
         "field": {
-          "id": "https://openalex.org/fields/24",
-          "display_name": "Immunology and Microbiology"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/1",
-          "display_name": "Life Sciences"
-        }
-      },
-      {
-        "id": "https://openalex.org/T12281",
-        "display_name": "Animal testing and alternatives",
-        "value": 9.8e-06,
-        "subfield": {
-          "id": "https://openalex.org/subfields/3404",
-          "display_name": "Small Animals"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/34",
-          "display_name": "Veterinary"
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
         },
         "domain": {
           "id": "https://openalex.org/domains/4",
@@ -286,7 +287,7 @@
         "id": "71924100",
         "wikidata": "https://www.wikidata.org/wiki/Q11190",
         "display_name": "Medicine",
-        "score": 0.806831955909729
+        "score": 0.8548039197921753
       },
       {
         "id": "41008148",
@@ -310,7 +311,7 @@
         "id": "126322002",
         "wikidata": "https://www.wikidata.org/wiki/Q11180",
         "display_name": "Internal medicine",
-        "score": 0.18160781264305115
+        "score": 0.24424293637275696
       }
     ],
     "counts_by_year": [
@@ -322,9 +323,9 @@
       },
       {
         "year": 2023,
-        "works_count": 2,
-        "oa_works_count": 2,
-        "cited_by_count": 20
+        "works_count": 4,
+        "oa_works_count": 4,
+        "cited_by_count": 34
       },
       {
         "year": 2024,
@@ -340,20 +341,1797 @@
       },
       {
         "year": 2026,
-        "works_count": 3,
-        "oa_works_count": 0,
+        "works_count": 4,
+        "oa_works_count": 1,
         "cited_by_count": 2
       }
     ],
     "display_name_alternatives": [
+      "Abdalla Abou Hajal",
       "Abdallah Abou Hajal"
     ],
-    "block_key": "a hajal",
+    "block_key": "a abou hajal",
     "works_api_url": "https://api.openalex.org/works?filter=author.id:A5102914480",
-    "updated_date": "2026-09-23T12:19:55",
+    "updated_date": "2026-09-25T12:19:18",
     "created_date": "2025-10-10T00:00:00"
   },
   "works": [
+    {
+      "id": "https://openalex.org/W4379768553",
+      "doi": "https://doi.org/10.1016/j.jsps.2023.05.024",
+      "title": "Exploring the pharmacy students\u2019 perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
+      "display_name": "Exploring the pharmacy students\u2019 perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
+      "publication_year": 2023,
+      "publication_date": "2023-06-01",
+      "ids": {
+        "openalex": "https://openalex.org/W4379768553",
+        "doi": "https://doi.org/10.1016/j.jsps.2023.05.024",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/37287508"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1016/j.jsps.2023.05.024",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1016/j.jsps.2023.05.024",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S34003737",
+          "display_name": "Saudi Pharmaceutical Journal",
+          "issn_l": "1319-0164",
+          "issn": [
+            "1319-0164",
+            "2213-7475"
+          ],
+          "is_oa": false,
+          "is_in_doaj": true,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "doaj"
+          ],
+          "host_organization": "https://openalex.org/P4310320990",
+          "host_organization_name": "Elsevier BV",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320990"
+          ],
+          "host_organization_lineage_names": [
+            "Elsevier BV"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Saudi Pharmaceutical Journal",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "doaj",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "hybrid",
+        "oa_url": "https://doi.org/10.1016/j.jsps.2023.05.024",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5068630017",
+            "display_name": "Asim Ahmed Elnour",
+            "orcid": "https://orcid.org/0000-0002-4143-7810",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-4143-7810"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Asim Ahmed Elnour",
+          "raw_affiliation_strings": [
+            "AAU Health and Biomedical Research Centre, Al Ain University, Abu Dhabi, United Arab Emirates",
+            "Program of Clinical Pharmacy, College of Pharmacy, Al Ain University (AAU), Abu Dhabi campus, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AAU Health and Biomedical Research Centre, Al Ain University, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Program of Clinical Pharmacy, College of Pharmacy, Al Ain University (AAU), Abu Dhabi campus, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102914480",
+            "display_name": "Abdallah Abou Hajal",
+            "orcid": "https://orcid.org/0009-0006-1807-2178",
+            "observed_orcids": [
+              "https://orcid.org/0009-0006-1807-2178",
+              "https://orcid.org/0000-0003-4655-1193"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdalla Abou Hajal",
+          "raw_affiliation_strings": [
+            "AAU Health and Biomedical Research Centre, Al Ain University, Abu Dhabi, United Arab Emirates",
+            "Department of Pharmaceutical Sciences, College of Pharmacy, Al Ain University (AAU), Abu Dhabi Campus, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "AAU Health and Biomedical Research Centre, Al Ain University, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Pharmaceutical Sciences, College of Pharmacy, Al Ain University (AAU), Abu Dhabi Campus, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5092110407",
+            "display_name": "Rola Goaddar",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Rola Goaddar",
+          "raw_affiliation_strings": [
+            "Pharmacist, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pharmacist, Abu Dhabi, United Arab Emirates",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5092110408",
+            "display_name": "Nada Elsharkawy",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Nada Elsharkawy",
+          "raw_affiliation_strings": [
+            "Pharmacist, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pharmacist, Abu Dhabi, United Arab Emirates",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102520839",
+            "display_name": "Samar Mousa",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Samar Mousa",
+          "raw_affiliation_strings": [
+            "Pharmacist, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pharmacist, Abu Dhabi, United Arab Emirates",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5062223519",
+            "display_name": "Nour Dabbagh",
+            "orcid": "https://orcid.org/0000-0001-7644-6736",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-7644-6736"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Nour Dabbagh",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5092110409",
+            "display_name": "Mariam Mohamad Al Qahtani",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mariam Mohamad Al Qahtani",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5033710790",
+            "display_name": "Sara Al Balooshi",
+            "orcid": "https://orcid.org/0000-0001-8713-6725",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-8713-6725"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Sara Al Balooshi",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5090483015",
+            "display_name": "Nosayba Al-Damook",
+            "orcid": "https://orcid.org/0000-0002-1149-4208",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-1149-4208"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Nosayba Othman Al Damook",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5033380427",
+            "display_name": "Adel Shaban Sadeq",
+            "orcid": "https://orcid.org/0000-0001-9529-8898",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-9529-8898"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Adel Sadeq",
+          "raw_affiliation_strings": [
+            "Program of Clinical Pharmacy, College of Pharmacy, Al Ain University, Al Ain, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Program of Clinical Pharmacy, College of Pharmacy, Al Ain University, Al Ain, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5068630017"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I161913731"
+      ],
+      "apc_list": {
+        "value": 1450,
+        "currency": "USD",
+        "value_usd": 1450
+      },
+      "apc_paid": {
+        "value": 1450,
+        "currency": "USD",
+        "value_usd": 1450
+      },
+      "fwci": 3.1435,
+      "has_fulltext": true,
+      "cited_by_count": 12,
+      "citation_normalized_percentile": {
+        "value": 0.9135795,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 89,
+        "max": 99
+      },
+      "biblio": {
+        "volume": "31",
+        "issue": "7",
+        "first_page": "1339",
+        "last_page": "1350"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10168",
+        "display_name": "COVID-19 and Mental Health",
+        "score": 0.4453999996185303,
+        "subfield": {
+          "id": "https://openalex.org/subfields/3203",
+          "display_name": "Clinical Psychology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/32",
+          "display_name": "Psychology"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10168",
+          "display_name": "COVID-19 and Mental Health",
+          "score": 0.4453999996185303,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3203",
+            "display_name": "Clinical Psychology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/32",
+            "display_name": "Psychology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T14240",
+          "display_name": "E-Learning and COVID-19",
+          "score": 0.051100000739097595,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3304",
+            "display_name": "Education"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T14064",
+          "display_name": "Organizational and Employee Performance",
+          "score": 0.026599999517202377,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1702",
+            "display_name": "Artificial Intelligence"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/17",
+            "display_name": "Computer Science"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/coronavirus-disease-2019",
+          "display_name": "Coronavirus disease 2019 (COVID-19)",
+          "score": 0.8379160165786743
+        },
+        {
+          "id": "https://openalex.org/keywords/pharmacy",
+          "display_name": "Pharmacy",
+          "score": 0.7171689867973328
+        },
+        {
+          "id": "https://openalex.org/keywords/2019-20-coronavirus-outbreak",
+          "display_name": "2019-20 coronavirus outbreak",
+          "score": 0.6282706260681152
+        },
+        {
+          "id": "https://openalex.org/keywords/severe-acute-respiratory-syndrome-coronavirus-2",
+          "display_name": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)",
+          "score": 0.6191666126251221
+        },
+        {
+          "id": "https://openalex.org/keywords/cross-sectional-study",
+          "display_name": "Cross-sectional study",
+          "score": 0.5929946303367615
+        },
+        {
+          "id": "https://openalex.org/keywords/online-learning",
+          "display_name": "Online learning",
+          "score": 0.5350711345672607
+        },
+        {
+          "id": "https://openalex.org/keywords/pandemic",
+          "display_name": "Pandemic",
+          "score": 0.43733346462249756
+        },
+        {
+          "id": "https://openalex.org/keywords/medical-education",
+          "display_name": "Medical education",
+          "score": 0.41324174404144287
+        },
+        {
+          "id": "https://openalex.org/keywords/psychology",
+          "display_name": "Psychology",
+          "score": 0.3774382770061493
+        },
+        {
+          "id": "https://openalex.org/keywords/medicine",
+          "display_name": "Medicine",
+          "score": 0.3100026249885559
+        },
+        {
+          "id": "https://openalex.org/keywords/virology",
+          "display_name": "Virology",
+          "score": 0.25762152671813965
+        },
+        {
+          "id": "https://openalex.org/keywords/family-medicine",
+          "display_name": "Family medicine",
+          "score": 0.2331133782863617
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.1455705165863037
+        },
+        {
+          "id": "https://openalex.org/keywords/world-wide-web",
+          "display_name": "World Wide Web",
+          "score": 0.10969150066375732
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C3008058167",
+          "wikidata": "https://www.wikidata.org/wiki/Q84263196",
+          "display_name": "Coronavirus disease 2019 (COVID-19)",
+          "level": 4,
+          "score": 0.8379160165786743
+        },
+        {
+          "id": "https://openalex.org/C104863432",
+          "wikidata": "https://www.wikidata.org/wiki/Q614304",
+          "display_name": "Pharmacy",
+          "level": 2,
+          "score": 0.7171689867973328
+        },
+        {
+          "id": "https://openalex.org/C3006700255",
+          "wikidata": "https://www.wikidata.org/wiki/Q81068910",
+          "display_name": "2019-20 coronavirus outbreak",
+          "level": 3,
+          "score": 0.6282706260681152
+        },
+        {
+          "id": "https://openalex.org/C3007834351",
+          "wikidata": "https://www.wikidata.org/wiki/Q82069695",
+          "display_name": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)",
+          "level": 5,
+          "score": 0.6191666126251221
+        },
+        {
+          "id": "https://openalex.org/C142052008",
+          "wikidata": "https://www.wikidata.org/wiki/Q954027",
+          "display_name": "Cross-sectional study",
+          "level": 2,
+          "score": 0.5929946303367615
+        },
+        {
+          "id": "https://openalex.org/C2986087404",
+          "wikidata": "https://www.wikidata.org/wiki/Q15946010",
+          "display_name": "Online learning",
+          "level": 2,
+          "score": 0.5350711345672607
+        },
+        {
+          "id": "https://openalex.org/C89623803",
+          "wikidata": "https://www.wikidata.org/wiki/Q12184",
+          "display_name": "Pandemic",
+          "level": 5,
+          "score": 0.43733346462249756
+        },
+        {
+          "id": "https://openalex.org/C509550671",
+          "wikidata": "https://www.wikidata.org/wiki/Q126945",
+          "display_name": "Medical education",
+          "level": 1,
+          "score": 0.41324174404144287
+        },
+        {
+          "id": "https://openalex.org/C15744967",
+          "wikidata": "https://www.wikidata.org/wiki/Q9418",
+          "display_name": "Psychology",
+          "level": 0,
+          "score": 0.3774382770061493
+        },
+        {
+          "id": "https://openalex.org/C71924100",
+          "wikidata": "https://www.wikidata.org/wiki/Q11190",
+          "display_name": "Medicine",
+          "level": 0,
+          "score": 0.3100026249885559
+        },
+        {
+          "id": "https://openalex.org/C159047783",
+          "wikidata": "https://www.wikidata.org/wiki/Q7215",
+          "display_name": "Virology",
+          "level": 1,
+          "score": 0.25762152671813965
+        },
+        {
+          "id": "https://openalex.org/C512399662",
+          "wikidata": "https://www.wikidata.org/wiki/Q3505712",
+          "display_name": "Family medicine",
+          "level": 1,
+          "score": 0.2331133782863617
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.1455705165863037
+        },
+        {
+          "id": "https://openalex.org/C136764020",
+          "wikidata": "https://www.wikidata.org/wiki/Q466",
+          "display_name": "World Wide Web",
+          "level": 1,
+          "score": 0.10969150066375732
+        },
+        {
+          "id": "https://openalex.org/C116675565",
+          "wikidata": "https://www.wikidata.org/wiki/Q3241045",
+          "display_name": "Outbreak",
+          "level": 2,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C142724271",
+          "wikidata": "https://www.wikidata.org/wiki/Q7208",
+          "display_name": "Pathology",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C2779134260",
+          "wikidata": "https://www.wikidata.org/wiki/Q12136",
+          "display_name": "Disease",
+          "level": 2,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C524204448",
+          "wikidata": "https://www.wikidata.org/wiki/Q788926",
+          "display_name": "Infectious disease (medical specialty)",
+          "level": 3,
+          "score": 0.0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 4,
+      "locations": [
+        {
+          "id": "doi:10.1016/j.jsps.2023.05.024",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.1016/j.jsps.2023.05.024",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S34003737",
+            "display_name": "Saudi Pharmaceutical Journal",
+            "issn_l": "1319-0164",
+            "issn": [
+              "1319-0164",
+              "2213-7475"
+            ],
+            "is_oa": false,
+            "is_in_doaj": true,
+            "is_core": true,
+            "listed_in": [
+              "cwts-core",
+              "doaj"
+            ],
+            "host_organization": "https://openalex.org/P4310320990",
+            "host_organization_name": "Elsevier BV",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320990"
+            ],
+            "host_organization_lineage_names": [
+              "Elsevier BV"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Saudi Pharmaceutical Journal",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:37287508",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/37287508",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Saudi pharmaceutical journal : SPJ : the official publication of the Saudi Pharmaceutical Society",
+          "raw_type": "Journal Article"
+        },
+        {
+          "id": "pmh:oai:pubmedcentral.nih.gov:10232921",
+          "is_oa": true,
+          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10232921",
+          "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10232921/pdf/main.pdf",
+          "source": {
+            "id": "https://openalex.org/S2764455111",
+            "display_name": "PubMed Central",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Saudi Pharm J",
+          "raw_type": "Text"
+        },
+        {
+          "id": "pmh:oai:doaj.org/article:8aef50cd78e24ddc838f3b9914c03da7",
+          "is_oa": true,
+          "landing_page_url": "https://doaj.org/article/8aef50cd78e24ddc838f3b9914c03da7",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306401280",
+            "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-sa",
+          "license_id": "https://openalex.org/licenses/cc-by-sa",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Saudi Pharmaceutical Journal, Vol 31, Iss 7, Pp 1339-1350 (2023)",
+          "raw_type": "article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.1016/j.jsps.2023.05.024",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1016/j.jsps.2023.05.024",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S34003737",
+          "display_name": "Saudi Pharmaceutical Journal",
+          "issn_l": "1319-0164",
+          "issn": [
+            "1319-0164",
+            "2213-7475"
+          ],
+          "is_oa": false,
+          "is_in_doaj": true,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "doaj"
+          ],
+          "host_organization": "https://openalex.org/P4310320990",
+          "host_organization_name": "Elsevier BV",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320990"
+          ],
+          "host_organization_lineage_names": [
+            "Elsevier BV"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Saudi Pharmaceutical Journal",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/3",
+          "score": 0.8100000023841858,
+          "display_name": "Good health and well-being"
+        }
+      ],
+      "x_sdgs": [],
+      "study_designs": [
+        {
+          "id": "https://openalex.org/study-designs/observational-study",
+          "display_name": "Observational Study"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 47,
+      "referenced_works": [
+        "https://openalex.org/W1893523113",
+        "https://openalex.org/W2005075389",
+        "https://openalex.org/W2056238099",
+        "https://openalex.org/W2057704107",
+        "https://openalex.org/W2065621851",
+        "https://openalex.org/W2080396626",
+        "https://openalex.org/W2145239266",
+        "https://openalex.org/W2809749437",
+        "https://openalex.org/W2887961069",
+        "https://openalex.org/W2890620940",
+        "https://openalex.org/W2935241266",
+        "https://openalex.org/W2944064659",
+        "https://openalex.org/W2977355190",
+        "https://openalex.org/W3006713758",
+        "https://openalex.org/W3016930539",
+        "https://openalex.org/W3020844156",
+        "https://openalex.org/W3021413232",
+        "https://openalex.org/W3023192946",
+        "https://openalex.org/W3025117165",
+        "https://openalex.org/W3026910628",
+        "https://openalex.org/W3029229439",
+        "https://openalex.org/W3032818295",
+        "https://openalex.org/W3032989051",
+        "https://openalex.org/W3034671333",
+        "https://openalex.org/W3092103327",
+        "https://openalex.org/W3097243657",
+        "https://openalex.org/W3104163885",
+        "https://openalex.org/W3108215075",
+        "https://openalex.org/W3114003408",
+        "https://openalex.org/W3116229068",
+        "https://openalex.org/W3119855425",
+        "https://openalex.org/W3123483860",
+        "https://openalex.org/W3123493827",
+        "https://openalex.org/W3132837052",
+        "https://openalex.org/W3162080957",
+        "https://openalex.org/W3171605496",
+        "https://openalex.org/W3177938779",
+        "https://openalex.org/W3185339227",
+        "https://openalex.org/W3186122681",
+        "https://openalex.org/W3186172230",
+        "https://openalex.org/W3195712189",
+        "https://openalex.org/W3203336518",
+        "https://openalex.org/W3205576900",
+        "https://openalex.org/W4200078071",
+        "https://openalex.org/W4285012026",
+        "https://openalex.org/W6664753650",
+        "https://openalex.org/W6784229330"
+      ],
+      "related_works": [
+        "https://openalex.org/W3127156785",
+        "https://openalex.org/W4205754011",
+        "https://openalex.org/W3009669391",
+        "https://openalex.org/W4200329650",
+        "https://openalex.org/W4205215807",
+        "https://openalex.org/W3005417802",
+        "https://openalex.org/W4226296940",
+        "https://openalex.org/W3028835529",
+        "https://openalex.org/W3036314732",
+        "https://openalex.org/W3134376730"
+      ],
+      "abstract_inverted_index": {
+        "The": [
+          0,
+          59,
+          73,
+          106,
+          127,
+          156,
+          203,
+          220,
+          333
+        ],
+        "pandemic": [
+          1
+        ],
+        "of": [
+          2,
+          21,
+          28,
+          79,
+          131,
+          163,
+          165,
+          173,
+          193,
+          243,
+          318,
+          335
+        ],
+        "COVID-19": [
+          3,
+          57
+        ],
+        "has": [
+          4,
+          88
+        ],
+        "placed": [
+          5
+        ],
+        "many": [
+          6
+        ],
+        "challenges": [
+          7
+        ],
+        "for": [
+          8,
+          97,
+          224,
+          234,
+          270,
+          281,
+          326
+        ],
+        "pharmacy": [
+          9,
+          51,
+          99,
+          125,
+          313,
+          321
+        ],
+        "students\u2019": [
+          10,
+          52,
+          100,
+          355
+        ],
+        "learning": [
+          11
+        ],
+        "experiences": [
+          12,
+          94,
+          272
+        ],
+        "via": [
+          13
+        ],
+        "the": [
+          14,
+          38,
+          50,
+          56,
+          91,
+          98,
+          116,
+          124,
+          146,
+          151,
+          160,
+          174,
+          187,
+          235,
+          271,
+          282,
+          316,
+          327
+        ],
+        "online": [
+          15
+        ],
+        "e-": [
+          16
+        ],
+        "system.": [
+          17
+        ],
+        "There": [
+          18
+        ],
+        "is": [
+          19
+        ],
+        "paucity": [
+          20
+        ],
+        "studies": [
+          22
+        ],
+        "that": [
+          23,
+          47,
+          68,
+          87,
+          351
+        ],
+        "addresses": [
+          24
+        ],
+        "this": [
+          25
+        ],
+        "in": [
+          26,
+          30,
+          139,
+          142,
+          145,
+          150,
+          186,
+          320,
+          331
+        ],
+        "colleges": [
+          27,
+          334
+        ],
+        "pharmacies": [
+          29,
+          336
+        ],
+        "United": [
+          31
+        ],
+        "Arab": [
+          32
+        ],
+        "Emirates": [
+          33
+        ],
+        "(UAE).": [
+          34
+        ],
+        "We": [
+          35
+        ],
+        "have": [
+          36
+        ],
+        "explored": [
+          37
+        ],
+        "preparedness,": [
+          39,
+          92,
+          140
+        ],
+        "attitudes,": [
+          40,
+          93
+        ],
+        "experiences,": [
+          41,
+          147,
+          178
+        ],
+        "and": [
+          42,
+          44,
+          64,
+          95,
+          104,
+          111,
+          119,
+          148,
+          168,
+          179,
+          215,
+          233,
+          280,
+          302,
+          323
+        ],
+        "barriers/facilitators,": [
+          43
+        ],
+        "delineated": [
+          45
+        ],
+        "factors": [
+          46
+        ],
+        "may": [
+          48
+        ],
+        "affect": [
+          49
+        ],
+        "e-learning": [
+          53,
+          101,
+          319
+        ],
+        "process": [
+          54
+        ],
+        "amid": [
+          55
+        ],
+        "crises.": [
+          58
+        ],
+        "current": [
+          60
+        ],
+        "study": [
+          61
+        ],
+        "was": [
+          62,
+          77,
+          129,
+          159,
+          207
+        ],
+        "cross-sectional,": [
+          63
+        ],
+        "survey-based": [
+          65
+        ],
+        "(anonymously": [
+          66
+        ],
+        "self-administered)": [
+          67
+        ],
+        "utilized": [
+          69
+        ],
+        "theoretical": [
+          70,
+          84
+        ],
+        "domains": [
+          71,
+          81,
+          133,
+          154
+        ],
+        "framework.": [
+          72
+        ],
+        "survey": [
+          74,
+          113,
+          128,
+          188
+        ],
+        "(multiple": [
+          75
+        ],
+        "statements)": [
+          76
+        ],
+        "comprised": [
+          78,
+          130
+        ],
+        "four": [
+          80,
+          132,
+          171
+        ],
+        "(based": [
+          82
+        ],
+        "on": [
+          83,
+          90,
+          342
+        ],
+        "domain": [
+          85,
+          172
+        ],
+        "framework)": [
+          86
+        ],
+        "elaborated": [
+          89
+        ],
+        "barriers": [
+          96
+        ],
+        "(all": [
+          102
+        ],
+        "years": [
+          103
+        ],
+        "interns).": [
+          105
+        ],
+        "validated": [
+          107
+        ],
+        "(Cronbach": [
+          108
+        ],
+        "Alfa": [
+          109
+        ],
+        "0.821)": [
+          110
+        ],
+        "piloted": [
+          112
+        ],
+        "posted": [
+          114
+        ],
+        "to": [
+          115,
+          123,
+          227,
+          238,
+          274,
+          285,
+          338
+        ],
+        "Google": [
+          117
+        ],
+        "form": [
+          118
+        ],
+        "a": [
+          120
+        ],
+        "link": [
+          121
+        ],
+        "distributed": [
+          122,
+          136
+        ],
+        "students.": [
+          126
+        ],
+        "(34": [
+          134
+        ],
+        "statements),": [
+          135
+        ],
+        "as": [
+          137,
+          347
+        ],
+        "five": [
+          138
+        ],
+        "eleven": [
+          141,
+          144
+        ],
+        "attitude,": [
+          143,
+          177
+        ],
+        "seven": [
+          149
+        ],
+        "barriers/facilitators": [
+          152,
+          283
+        ],
+        "(theoretical": [
+          153
+        ],
+        "framework).": [
+          155
+        ],
+        "primary": [
+          157
+        ],
+        "outcome": [
+          158
+        ],
+        "total": [
+          161,
+          222
+        ],
+        "sum": [
+          162
+        ],
+        "scores": [
+          164
+        ],
+        "individual": [
+          166,
+          170
+        ],
+        "statements": [
+          167
+        ],
+        "each": [
+          169
+        ],
+        "questionnaire": [
+          175
+        ],
+        "(preparedness,": [
+          176
+        ],
+        "barriers/facilitators).": [
+          180
+        ],
+        "Two": [
+          181
+        ],
+        "hundred": [
+          182
+        ],
+        "thirty": [
+          183
+        ],
+        "respondents": [
+          184
+        ],
+        "participated": [
+          185
+        ],
+        "(230/400,": [
+          189
+        ],
+        "response": [
+          190
+        ],
+        "rate": [
+          191
+        ],
+        "57.5%),": [
+          192
+        ],
+        "which": [
+          194
+        ],
+        "193": [
+          195
+        ],
+        "were": [
+          196,
+          245
+        ],
+        "females": [
+          197,
+          216
+        ],
+        "(83.9%)": [
+          198
+        ],
+        "versus": [
+          199
+        ],
+        "37": [
+          200
+        ],
+        "males": [
+          201
+        ],
+        "(16.1%).": [
+          202
+        ],
+        "mean": [
+          204,
+          221
+        ],
+        "age": [
+          205
+        ],
+        "(years)": [
+          206
+        ],
+        "19.9": [
+          208
+        ],
+        "\u00b1": [
+          209,
+          213,
+          218,
+          247,
+          258,
+          292,
+          304
+        ],
+        "1.9": [
+          210
+        ],
+        "(males": [
+          211
+        ],
+        "19.8": [
+          212
+        ],
+        "1.6": [
+          214
+        ],
+        "20.0": [
+          217
+        ],
+        "1.9).": [
+          219
+        ],
+        "score": [
+          223,
+          231,
+          242,
+          278,
+          289
+        ],
+        "preparedness": [
+          225
+        ],
+        "Q1": [
+          226
+        ],
+        "Q5": [
+          228
+        ],
+        "(domain": [
+          229,
+          240,
+          276,
+          287
+        ],
+        "maximum": [
+          230,
+          241,
+          277,
+          288
+        ],
+        "25);": [
+          232
+        ],
+        "attitude": [
+          236
+        ],
+        "Q6": [
+          237
+        ],
+        "Q16": [
+          239
+        ],
+        "60)": [
+          244
+        ],
+        "14.9": [
+          246
+        ],
+        "3.8": [
+          248
+        ],
+        "(95%": [
+          249,
+          260,
+          294,
+          306
+        ],
+        "CI": [
+          250,
+          261,
+          295,
+          307
+        ],
+        "14.4": [
+          251
+        ],
+        "\u2013": [
+          252,
+          263,
+          297
+        ],
+        "15.4;": [
+          253
+        ],
+        "P": [
+          254,
+          265,
+          299
+        ],
+        "<": [
+          255,
+          266,
+          300,
+          309
+        ],
+        "0.05),": [
+          256
+        ],
+        "29.5": [
+          257
+        ],
+        "7.4": [
+          259
+        ],
+        "28.6": [
+          262
+        ],
+        "30.5;": [
+          264
+        ],
+        "0.05)": [
+          267,
+          310
+        ],
+        "respectively.": [
+          268,
+          311
+        ],
+        "While": [
+          269
+        ],
+        "Q17": [
+          273
+        ],
+        "Q27": [
+          275
+        ],
+        "55);": [
+          279
+        ],
+        "Q28": [
+          284
+        ],
+        "Q34": [
+          286
+        ],
+        "30)": [
+          290
+        ],
+        "40.1": [
+          291
+        ],
+        "8.0": [
+          293
+        ],
+        "39.1": [
+          296
+        ],
+        "41.1;": [
+          298
+        ],
+        "0.0001),": [
+          301
+        ],
+        "20.9": [
+          303
+        ],
+        "4.9": [
+          305
+        ],
+        "20.3\u201321.5;P": [
+          308
+        ],
+        "Our": [
+          312
+        ],
+        "students": [
+          314
+        ],
+        "support": [
+          315
+        ],
+        "use": [
+          317
+        ],
+        "education,": [
+          322
+        ],
+        "seems": [
+          324
+        ],
+        "prepared": [
+          325
+        ],
+        "future": [
+          328
+        ],
+        "technology": [
+          329
+        ],
+        "moves": [
+          330
+        ],
+        "education.": [
+          332
+        ],
+        "need": [
+          337
+        ],
+        "conduct": [
+          339
+        ],
+        "further": [
+          340
+        ],
+        "research": [
+          341
+        ],
+        "versatile": [
+          343
+        ],
+        "innovative": [
+          344
+        ],
+        "models": [
+          345
+        ],
+        "such": [
+          346
+        ],
+        "virtual": [
+          348
+        ],
+        "learning/artificial": [
+          349
+        ],
+        "intelligence": [
+          350
+        ],
+        "fits": [
+          352
+        ],
+        "with": [
+          353
+        ],
+        "their": [
+          354
+        ],
+        "perspectives.": [
+          356
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2026-09-26T08:19:03.415552",
+      "created_date": "2025-10-10T00:00:00"
+    },
     {
       "id": "https://openalex.org/W4413440773",
       "doi": "https://doi.org/10.1080/17425255.2025.2551724",
@@ -544,11 +2322,11 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 9.4137,
+      "fwci": 9.2748,
       "has_fulltext": false,
       "cited_by_count": 10,
       "citation_normalized_percentile": {
-        "value": 0.97745576,
+        "value": 0.97707374,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -910,6 +2688,7 @@
       "best_oa_location": null,
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -917,7 +2696,7 @@
         "pdf": false
       },
       "content_urls": null,
-      "referenced_works_count": 114,
+      "referenced_works_count": 113,
       "referenced_works": [
         "https://openalex.org/W1586065247",
         "https://openalex.org/W1986657538",
@@ -935,7 +2714,6 @@
         "https://openalex.org/W2950860419",
         "https://openalex.org/W2952902362",
         "https://openalex.org/W2962784628",
-        "https://openalex.org/W2963979492",
         "https://openalex.org/W2991546386",
         "https://openalex.org/W2997923706",
         "https://openalex.org/W2999886378",
@@ -1557,7 +3335,7 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-09-26T08:19:03.415552",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -2100,12 +3878,13 @@
       },
       "sustainable_development_goals": [
         {
-          "score": 0.49000000953674316,
           "id": "https://metadata.un.org/sdg/2",
+          "score": 0.49000000953674316,
           "display_name": "Zero hunger"
         }
       ],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -2401,9 +4180,9 @@
           "author": {
             "id": "https://openalex.org/A5106483464",
             "display_name": "Fatemeh Abdi",
-            "orcid": "https://orcid.org/0000-0003-0210-7867",
+            "orcid": "https://orcid.org/0000-0002-0280-2969",
             "observed_orcids": [
-              "https://orcid.org/0000-0003-0210-7867"
+              "https://orcid.org/0000-0002-0280-2969"
             ]
           },
           "institutions": [
@@ -2519,11 +4298,11 @@
         {
           "author_position": "middle",
           "author": {
-            "id": "https://openalex.org/A5103586737",
-            "display_name": "Alaa Mohsen Khalil",
-            "orcid": "https://orcid.org/0000-0001-9637-5605",
+            "id": "https://openalex.org/A5003216339",
+            "display_name": "Alaa M. Khalil",
+            "orcid": "https://orcid.org/0000-0002-8756-0486",
             "observed_orcids": [
-              "https://orcid.org/0000-0001-9637-5605"
+              "https://orcid.org/0000-0002-8756-0486"
             ]
           },
           "institutions": [
@@ -2568,16 +4347,6 @@
           },
           "institutions": [
             {
-              "id": "https://openalex.org/I117222138",
-              "display_name": "Abu Dhabi University",
-              "ror": "https://ror.org/01r3kjq03",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I117222138"
-              ]
-            },
-            {
               "id": "https://openalex.org/I161913731",
               "display_name": "Al Ain University",
               "ror": "https://ror.org/023abrt21",
@@ -2601,7 +4370,6 @@
             {
               "raw_affiliation_string": "Fourth year student, College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi-United Arab Emirates. k.a.research@outlook.com",
               "institution_ids": [
-                "https://openalex.org/I117222138",
                 "https://openalex.org/I161913731"
               ]
             }
@@ -2618,16 +4386,6 @@
             ]
           },
           "institutions": [
-            {
-              "id": "https://openalex.org/I117222138",
-              "display_name": "Abu Dhabi University",
-              "ror": "https://ror.org/01r3kjq03",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I117222138"
-              ]
-            },
             {
               "id": "https://openalex.org/I161913731",
               "display_name": "Al Ain University",
@@ -2652,7 +4410,6 @@
             {
               "raw_affiliation_string": "Intern student, College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi-United Arab Emirates. meme_wbas@hotmail.com",
               "institution_ids": [
-                "https://openalex.org/I117222138",
                 "https://openalex.org/I161913731"
               ]
             }
@@ -2748,16 +4505,6 @@
           },
           "institutions": [
             {
-              "id": "https://openalex.org/I117222138",
-              "display_name": "Abu Dhabi University",
-              "ror": "https://ror.org/01r3kjq03",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I117222138"
-              ]
-            },
-            {
               "id": "https://openalex.org/I161913731",
               "display_name": "Al Ain University",
               "ror": "https://ror.org/023abrt21",
@@ -2781,7 +4528,6 @@
             {
               "raw_affiliation_string": "Fourth year student, College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi-United Arab Emirates. danahalbek@gmail.com",
               "institution_ids": [
-                "https://openalex.org/I117222138",
                 "https://openalex.org/I161913731"
               ]
             }
@@ -3114,16 +4860,6 @@
           },
           "institutions": [
             {
-              "id": "https://openalex.org/I117222138",
-              "display_name": "Abu Dhabi University",
-              "ror": "https://ror.org/01r3kjq03",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I117222138"
-              ]
-            },
-            {
               "id": "https://openalex.org/I161913731",
               "display_name": "Al Ain University",
               "ror": "https://ror.org/023abrt21",
@@ -3147,7 +4883,6 @@
             {
               "raw_affiliation_string": "Intern student, College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi-United Arab Emirates. hamdajm417@gmail.com",
               "institution_ids": [
-                "https://openalex.org/I117222138",
                 "https://openalex.org/I161913731"
               ]
             }
@@ -3163,16 +4898,6 @@
           },
           "institutions": [
             {
-              "id": "https://openalex.org/I117222138",
-              "display_name": "Abu Dhabi University",
-              "ror": "https://ror.org/01r3kjq03",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I117222138"
-              ]
-            },
-            {
               "id": "https://openalex.org/I161913731",
               "display_name": "Al Ain University",
               "ror": "https://ror.org/023abrt21",
@@ -3180,20 +4905,6 @@
               "type": "education",
               "lineage": [
                 "https://openalex.org/I161913731"
-              ]
-            },
-            {
-              "id": "https://openalex.org/I4210099383",
-              "display_name": "Abu Dhabi Health Services",
-              "ror": "https://ror.org/016bjqk65",
-              "country_code": "AE",
-              "type": "company",
-              "lineage": [
-                "https://openalex.org/I2801466683",
-                "https://openalex.org/I4210087867",
-                "https://openalex.org/I4210091532",
-                "https://openalex.org/I4210099383",
-                "https://openalex.org/I4210121446"
               ]
             }
           ],
@@ -3210,9 +4921,7 @@
             {
               "raw_affiliation_string": "Intern student, College of Pharmacy, Al Ain University, Abu Dhabi campus, Abu Dhabi-United Arab Emirates. rahafaly2018@gmail.com",
               "institution_ids": [
-                "https://openalex.org/I117222138",
-                "https://openalex.org/I161913731",
-                "https://openalex.org/I4210099383"
+                "https://openalex.org/I161913731"
               ]
             }
           ]
@@ -3220,16 +4929,18 @@
       ],
       "institutions": [],
       "countries_distinct_count": 1,
-      "institutions_distinct_count": 3,
+      "institutions_distinct_count": 1,
       "corresponding_author_ids": [],
-      "corresponding_institution_ids": [],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I161913731"
+      ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.6598,
+      "fwci": 0.6583,
       "has_fulltext": true,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.72592593,
+        "value": 0.72511144,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -3730,6 +5441,12 @@
       },
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [
+        {
+          "id": "https://openalex.org/study-designs/study-protocol",
+          "display_name": "Study Protocol"
+        }
+      ],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -4340,7 +6057,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-09-26T08:19:03.415552",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -4507,11 +6224,11 @@
         "value_usd": 3080
       },
       "apc_paid": null,
-      "fwci": 7.531,
+      "fwci": 7.4198,
       "has_fulltext": false,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.96788845,
+        "value": 0.96732041,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -4836,6 +6553,12 @@
       "best_oa_location": null,
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [
+        {
+          "id": "https://openalex.org/study-designs/systematic-review",
+          "display_name": "Systematic Review"
+        }
+      ],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -4984,7 +6707,7 @@
           "cited_by_count": 5
         }
       ],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-09-26T08:19:03.415552",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -5839,6 +7562,7 @@
       },
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -7354,6 +9078,7 @@
       "best_oa_location": null,
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -8254,11 +9979,11 @@
         "currency": "USD",
         "value_usd": 1450
       },
-      "fwci": 6.3899,
+      "fwci": 6.3612,
       "has_fulltext": true,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.96320063,
+        "value": 0.96307912,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -8627,12 +10352,22 @@
       },
       "sustainable_development_goals": [
         {
-          "score": 0.5099999904632568,
           "id": "https://metadata.un.org/sdg/3",
+          "score": 0.5099999904632568,
           "display_name": "Good health and well-being"
         }
       ],
       "x_sdgs": [],
+      "study_designs": [
+        {
+          "id": "https://openalex.org/study-designs/randomized-controlled-trial",
+          "display_name": "Randomized Controlled Trial"
+        },
+        {
+          "id": "https://openalex.org/study-designs/clinical-trial",
+          "display_name": "Clinical Trial"
+        }
+      ],
       "awards": [],
       "funders": [
         {
@@ -9344,7 +11079,948 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-09-27T08:07:27.782135",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4280603817",
+      "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
+      "title": "Chemical Composition of the Volatile Oil from Aerial Parts ofRosmarinus officinalisL. Growing in UAE",
+      "display_name": "Chemical Composition of the Volatile Oil from Aerial Parts ofRosmarinus officinalisL. Growing in UAE",
+      "publication_year": 2022,
+      "publication_date": "2022-03-04",
+      "ids": {
+        "openalex": "https://openalex.org/W4280603817",
+        "doi": "https://doi.org/10.1080/0972060x.2022.2072177"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1080/0972060x.2022.2072177",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1080/0972060x.2022.2072177",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S999813893",
+          "display_name": "Journal of Essential Oil Bearing Plants",
+          "issn_l": "0972-060X",
+          "issn": [
+            "0972-060X",
+            "0976-5026"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "jufo-1",
+            "norway-1"
+          ],
+          "host_organization": "https://openalex.org/P4310320547",
+          "host_organization_name": "Taylor & Francis",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320547",
+            "https://openalex.org/P4310320449"
+          ],
+          "host_organization_lineage_names": [
+            "Taylor & Francis",
+            "Informa"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Journal of Essential Oil Bearing Plants",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5016367473",
+            "display_name": "Mohammad Hudaib",
+            "orcid": "https://orcid.org/0000-0003-1400-462X",
+            "observed_orcids": [
+              "https://orcid.org/0000-0003-1400-462X"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I114972647",
+              "display_name": "University of Jordan",
+              "ror": "https://ror.org/05k89ew48",
+              "country_code": "JO",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I114972647"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE",
+            "JO"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Mohammad M. Hudaib",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+            "School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
+            "2 School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
+              "institution_ids": [
+                "https://openalex.org/I114972647"
+              ]
+            },
+            {
+              "raw_affiliation_string": "2 School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
+              "institution_ids": [
+                "https://openalex.org/I114972647"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102914480",
+            "display_name": "Abdallah Abou Hajal",
+            "orcid": "https://orcid.org/0009-0006-1807-2178",
+            "observed_orcids": [
+              "https://orcid.org/0009-0006-1807-2178",
+              "https://orcid.org/0000-0003-4655-1193"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdallah F. Abu Hajal",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5072660555",
+            "display_name": "Molham Sakkal",
+            "orcid": "https://orcid.org/0000-0001-6081-1284",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-6081-1284"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mohammad M. Sakkal",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 2,
+      "institutions_distinct_count": 2,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5016367473"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I114972647",
+        "https://openalex.org/I161913731"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.6913,
+      "has_fulltext": false,
+      "cited_by_count": 5,
+      "citation_normalized_percentile": {
+        "value": 0.6906472,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 89,
+        "max": 96
+      },
+      "biblio": {
+        "volume": "25",
+        "issue": "2",
+        "first_page": "282",
+        "last_page": "289"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10225",
+        "display_name": "Essential Oils and Antimicrobial Activity",
+        "score": 1.0,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1106",
+          "display_name": "Food Science"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/11",
+          "display_name": "Agricultural and Biological Sciences"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/1",
+          "display_name": "Life Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10225",
+          "display_name": "Essential Oils and Antimicrobial Activity",
+          "score": 1.0,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1106",
+            "display_name": "Food Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/11",
+            "display_name": "Agricultural and Biological Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11613",
+          "display_name": "Phytochemistry and Biological Activities",
+          "score": 0.9993000030517578,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1110",
+            "display_name": "Plant Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/11",
+            "display_name": "Agricultural and Biological Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11882",
+          "display_name": "Plant biochemistry and biosynthesis",
+          "score": 0.9976999759674072,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/rosmarinus",
+          "display_name": "Rosmarinus",
+          "score": 0.9328308701515198
+        },
+        {
+          "id": "https://openalex.org/keywords/camphor",
+          "display_name": "Camphor",
+          "score": 0.8935710787773132
+        },
+        {
+          "id": "https://openalex.org/keywords/camphene",
+          "display_name": "Camphene",
+          "score": 0.8723474740982056
+        },
+        {
+          "id": "https://openalex.org/keywords/officinalis",
+          "display_name": "Officinalis",
+          "score": 0.8203428387641907
+        },
+        {
+          "id": "https://openalex.org/keywords/essential-oil",
+          "display_name": "Essential oil",
+          "score": 0.7342269420623779
+        },
+        {
+          "id": "https://openalex.org/keywords/chemotype",
+          "display_name": "Chemotype",
+          "score": 0.6946747303009033
+        },
+        {
+          "id": "https://openalex.org/keywords/chemistry",
+          "display_name": "Chemistry",
+          "score": 0.6156383752822876
+        },
+        {
+          "id": "https://openalex.org/keywords/alpha-pinene",
+          "display_name": "alpha-Pinene",
+          "score": 0.578530490398407
+        },
+        {
+          "id": "https://openalex.org/keywords/composition",
+          "display_name": "Composition (language)",
+          "score": 0.4900447130203247
+        },
+        {
+          "id": "https://openalex.org/keywords/chemical-composition",
+          "display_name": "Chemical composition",
+          "score": 0.4691295325756073
+        },
+        {
+          "id": "https://openalex.org/keywords/botany",
+          "display_name": "Botany",
+          "score": 0.4629076421260834
+        },
+        {
+          "id": "https://openalex.org/keywords/limonene",
+          "display_name": "Limonene",
+          "score": 0.4416666626930237
+        },
+        {
+          "id": "https://openalex.org/keywords/chromatography",
+          "display_name": "Chromatography",
+          "score": 0.2459501028060913
+        },
+        {
+          "id": "https://openalex.org/keywords/organic-chemistry",
+          "display_name": "Organic chemistry",
+          "score": 0.18019315600395203
+        },
+        {
+          "id": "https://openalex.org/keywords/biology",
+          "display_name": "Biology",
+          "score": 0.1645430624485016
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2777152263",
+          "wikidata": "https://www.wikidata.org/wiki/Q1865680",
+          "display_name": "Rosmarinus",
+          "level": 3,
+          "score": 0.9328308701515198
+        },
+        {
+          "id": "https://openalex.org/C2780697445",
+          "wikidata": "https://www.wikidata.org/wiki/Q181559",
+          "display_name": "Camphor",
+          "level": 2,
+          "score": 0.8935710787773132
+        },
+        {
+          "id": "https://openalex.org/C2780977547",
+          "wikidata": "https://www.wikidata.org/wiki/Q416775",
+          "display_name": "Camphene",
+          "level": 3,
+          "score": 0.8723474740982056
+        },
+        {
+          "id": "https://openalex.org/C2780886089",
+          "wikidata": "https://www.wikidata.org/wiki/Q7079617",
+          "display_name": "Officinalis",
+          "level": 2,
+          "score": 0.8203428387641907
+        },
+        {
+          "id": "https://openalex.org/C2777278459",
+          "wikidata": "https://www.wikidata.org/wiki/Q170885",
+          "display_name": "Essential oil",
+          "level": 2,
+          "score": 0.7342269420623779
+        },
+        {
+          "id": "https://openalex.org/C153784791",
+          "wikidata": "https://www.wikidata.org/wiki/Q2212766",
+          "display_name": "Chemotype",
+          "level": 3,
+          "score": 0.6946747303009033
+        },
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.6156383752822876
+        },
+        {
+          "id": "https://openalex.org/C2776961690",
+          "wikidata": "https://www.wikidata.org/wiki/Q300852",
+          "display_name": "alpha-Pinene",
+          "level": 4,
+          "score": 0.578530490398407
+        },
+        {
+          "id": "https://openalex.org/C40231798",
+          "wikidata": "https://www.wikidata.org/wiki/Q1333743",
+          "display_name": "Composition (language)",
+          "level": 2,
+          "score": 0.4900447130203247
+        },
+        {
+          "id": "https://openalex.org/C149849071",
+          "wikidata": "https://www.wikidata.org/wiki/Q1263816",
+          "display_name": "Chemical composition",
+          "level": 2,
+          "score": 0.4691295325756073
+        },
+        {
+          "id": "https://openalex.org/C59822182",
+          "wikidata": "https://www.wikidata.org/wiki/Q441",
+          "display_name": "Botany",
+          "level": 1,
+          "score": 0.4629076421260834
+        },
+        {
+          "id": "https://openalex.org/C2776134268",
+          "wikidata": "https://www.wikidata.org/wiki/Q278809",
+          "display_name": "Limonene",
+          "level": 3,
+          "score": 0.4416666626930237
+        },
+        {
+          "id": "https://openalex.org/C43617362",
+          "wikidata": "https://www.wikidata.org/wiki/Q170050",
+          "display_name": "Chromatography",
+          "level": 1,
+          "score": 0.2459501028060913
+        },
+        {
+          "id": "https://openalex.org/C178790620",
+          "wikidata": "https://www.wikidata.org/wiki/Q11351",
+          "display_name": "Organic chemistry",
+          "level": 1,
+          "score": 0.18019315600395203
+        },
+        {
+          "id": "https://openalex.org/C86803240",
+          "wikidata": "https://www.wikidata.org/wiki/Q420",
+          "display_name": "Biology",
+          "level": 0,
+          "score": 0.1645430624485016
+        },
+        {
+          "id": "https://openalex.org/C138885662",
+          "wikidata": "https://www.wikidata.org/wiki/Q5891",
+          "display_name": "Philosophy",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C41895202",
+          "wikidata": "https://www.wikidata.org/wiki/Q8162",
+          "display_name": "Linguistics",
+          "level": 1,
+          "score": 0.0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.1080/0972060x.2022.2072177",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1080/0972060x.2022.2072177",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S999813893",
+            "display_name": "Journal of Essential Oil Bearing Plants",
+            "issn_l": "0972-060X",
+            "issn": [
+              "0972-060X",
+              "0976-5026"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "listed_in": [
+              "cwts-core",
+              "jufo-1",
+              "norway-1"
+            ],
+            "host_organization": "https://openalex.org/P4310320547",
+            "host_organization_name": "Taylor & Francis",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320547",
+              "https://openalex.org/P4310320449"
+            ],
+            "host_organization_lineage_names": [
+              "Taylor & Francis",
+              "Informa"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Journal of Essential Oil Bearing Plants",
+          "raw_type": "journal-article"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [],
+      "x_sdgs": [],
+      "study_designs": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 22,
+      "referenced_works": [
+        "https://openalex.org/W1532088222",
+        "https://openalex.org/W1551117872",
+        "https://openalex.org/W1969281051",
+        "https://openalex.org/W1984601608",
+        "https://openalex.org/W1987370786",
+        "https://openalex.org/W1993851201",
+        "https://openalex.org/W2009672785",
+        "https://openalex.org/W2040435198",
+        "https://openalex.org/W2046766720",
+        "https://openalex.org/W2054151437",
+        "https://openalex.org/W2084826641",
+        "https://openalex.org/W2120166207",
+        "https://openalex.org/W2268288619",
+        "https://openalex.org/W2312825057",
+        "https://openalex.org/W2330078229",
+        "https://openalex.org/W2331225135",
+        "https://openalex.org/W2795985192",
+        "https://openalex.org/W2920944064",
+        "https://openalex.org/W3013599347",
+        "https://openalex.org/W3036572785",
+        "https://openalex.org/W3046112161",
+        "https://openalex.org/W4294328079"
+      ],
+      "related_works": [
+        "https://openalex.org/W2390466732",
+        "https://openalex.org/W2032326710",
+        "https://openalex.org/W2351236344",
+        "https://openalex.org/W2358690992",
+        "https://openalex.org/W2370422584",
+        "https://openalex.org/W2380962461",
+        "https://openalex.org/W2166022810",
+        "https://openalex.org/W2963453160",
+        "https://openalex.org/W2026083704",
+        "https://openalex.org/W2359417841"
+      ],
+      "abstract_inverted_index": {
+        "In": [
+          0
+        ],
+        "the": [
+          1,
+          4,
+          8,
+          42,
+          59,
+          78,
+          89,
+          98,
+          110,
+          122,
+          126
+        ],
+        "present": [
+          2
+        ],
+        "study,": [
+          3
+        ],
+        "chemical": [
+          5
+        ],
+        "composition": [
+          6
+        ],
+        "of": [
+          7,
+          15,
+          26,
+          38,
+          86,
+          121,
+          125
+        ],
+        "volatile": [
+          9,
+          123
+        ],
+        "oil": [
+          10,
+          32,
+          81,
+          91,
+          124
+        ],
+        "hydrodistilled": [
+          11
+        ],
+        "from": [
+          12
+        ],
+        "aerial": [
+          13
+        ],
+        "parts": [
+          14
+        ],
+        "Rosmarinus": [
+          16
+        ],
+        "officinalis": [
+          17
+        ],
+        "L.,": [
+          18
+        ],
+        "growing": [
+          19,
+          106
+        ],
+        "in": [
+          20,
+          88,
+          107
+        ],
+        "UAE,": [
+          21
+        ],
+        "was": [
+          22,
+          33
+        ],
+        "determined": [
+          23
+        ],
+        "by": [
+          24,
+          35
+        ],
+        "means": [
+          25
+        ],
+        "GC/FID": [
+          27
+        ],
+        "and": [
+          28,
+          55,
+          71
+        ],
+        "GC/MS": [
+          29
+        ],
+        "analyses.": [
+          30
+        ],
+        "The": [
+          31,
+          83
+        ],
+        "characterised": [
+          34
+        ],
+        "dominant": [
+          36
+        ],
+        "concentration": [
+          37
+        ],
+        "monoterpenes": [
+          39
+        ],
+        "(91.7%),": [
+          40
+        ],
+        "particularly": [
+          41
+        ],
+        "oxygenated": [
+          43
+        ],
+        "fraction": [
+          44
+        ],
+        "(64.4%),": [
+          45
+        ],
+        "with": [
+          46,
+          104
+        ],
+        "1,8-cineole": [
+          47,
+          87,
+          95
+        ],
+        "(25.5%),": [
+          48
+        ],
+        "a": [
+          49,
+          94,
+          114
+        ],
+        "well-known": [
+          50
+        ],
+        "compound": [
+          51
+        ],
+        "for": [
+          52
+        ],
+        "its": [
+          53
+        ],
+        "medicinal": [
+          54
+        ],
+        "pharmaceutical": [
+          56
+        ],
+        "values,": [
+          57
+        ],
+        "as": [
+          58
+        ],
+        "principal": [
+          60
+        ],
+        "component.": [
+          61
+        ],
+        "Isobornyl": [
+          62
+        ],
+        "acetate": [
+          63
+        ],
+        "(15.7%),": [
+          64
+        ],
+        "camphor": [
+          65
+        ],
+        "(12.2%),": [
+          66
+        ],
+        "\u03b1-pinene": [
+          67
+        ],
+        "(11.7%),": [
+          68
+        ],
+        "camphene": [
+          69
+        ],
+        "(9.0%),": [
+          70
+        ],
+        "\u03b2-caryophyllene": [
+          72
+        ],
+        "(4.9%)": [
+          73
+        ],
+        "were": [
+          74
+        ],
+        "also": [
+          75
+        ],
+        "identified": [
+          76
+        ],
+        "among": [
+          77
+        ],
+        "other": [
+          79,
+          108
+        ],
+        "major": [
+          80
+        ],
+        "constituents.": [
+          82
+        ],
+        "predominant": [
+          84
+        ],
+        "level": [
+          85
+        ],
+        "analysed": [
+          90
+        ],
+        "could": [
+          92
+        ],
+        "assign": [
+          93
+        ],
+        "chemotype": [
+          96
+        ],
+        "to": [
+          97
+        ],
+        "studied": [
+          99
+        ],
+        "Emirati": [
+          100
+        ],
+        "rosemary": [
+          101
+        ],
+        "species.": [
+          102,
+          128
+        ],
+        "Compared": [
+          103
+        ],
+        "plants": [
+          105
+        ],
+        "countries,": [
+          109
+        ],
+        "obtained": [
+          111
+        ],
+        "results": [
+          112
+        ],
+        "revealed": [
+          113
+        ],
+        "characteristic": [
+          115
+        ],
+        "-": [
+          116,
+          119
+        ],
+        "mainly": [
+          117
+        ],
+        "quantitative": [
+          118
+        ],
+        "profile": [
+          120
+        ],
+        "investigated": [
+          127
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 2
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2026-09-03T10:48:47.769340",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -9949,6 +12625,7 @@
       "best_oa_location": null,
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -10006,6 +12683,1969 @@
       ],
       "updated_date": "2026-09-24T07:57:37.273135",
       "created_date": "2025-12-24T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4387366257",
+      "doi": "https://doi.org/10.18549/pharmpract.2023.3.2850",
+      "title": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
+      "display_name": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
+      "publication_year": 2023,
+      "publication_date": "2023-10-05",
+      "ids": {
+        "openalex": "https://openalex.org/W4387366257",
+        "doi": "https://doi.org/10.18549/pharmpract.2023.3.2850"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.18549/pharmpract.2023.3.2850",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.18549/pharmpract.2023.3.2850",
+        "pdf_url": "https://www.pharmacypractice.org/index.php/pp/article/download/2850/1113",
+        "source": {
+          "id": "https://openalex.org/S45690524",
+          "display_name": "Pharmacy Practice",
+          "issn_l": "1885-642X",
+          "issn": [
+            "1885-642X",
+            "1886-3655"
+          ],
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "erih-plus",
+            "jufo-1",
+            "ki-jl-1",
+            "norway-1"
+          ],
+          "host_organization": "https://openalex.org/P4310321943",
+          "host_organization_name": "Centro de Investigaciones y Publicaciones Farmaceuticas",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310321943"
+          ],
+          "host_organization_lineage_names": [
+            "Centro de Investigaciones y Publicaciones Farmaceuticas"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Pharmacy Practice",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "diamond",
+        "oa_url": "https://www.pharmacypractice.org/index.php/pp/article/download/2850/1113",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5000225779",
+            "display_name": "Nadia Al Mazrouei",
+            "orcid": "https://orcid.org/0000-0002-1339-9730",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-1339-9730"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I29891158",
+              "display_name": "University of Sharjah",
+              "ror": "https://ror.org/00engpz63",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I29891158"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Nadia Al Mazrouei",
+          "raw_affiliation_strings": [
+            "Department of Pharmacy Practice and  Pharmacotherapeutics, Faculty of Pharmacy, University of  Sharjah, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Pharmacy Practice and  Pharmacotherapeutics, Faculty of Pharmacy, University of  Sharjah, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I29891158"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5068630017",
+            "display_name": "Asim Ahmed Elnour",
+            "orcid": "https://orcid.org/0000-0002-4143-7810",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-4143-7810"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Asim Ahmed Elnour",
+          "raw_affiliation_strings": [
+            "PhD, MSc. Program of Clinical  Pharmacy, College of Pharmacy, Al Ain University (AAU),  Abu Dhabi campus, Abu Dhabi-United Arab Emirates. AAU  Health and Biomedical Research Centre, Al Ain University,  Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "PhD, MSc. Program of Clinical  Pharmacy, College of Pharmacy, Al Ain University (AAU),  Abu Dhabi campus, Abu Dhabi-United Arab Emirates. AAU  Health and Biomedical Research Centre, Al Ain University,  Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102914480",
+            "display_name": "Abdallah Abou Hajal",
+            "orcid": "https://orcid.org/0009-0006-1807-2178",
+            "observed_orcids": [
+              "https://orcid.org/0009-0006-1807-2178",
+              "https://orcid.org/0000-0003-4655-1193"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdalla Abou Hajal",
+          "raw_affiliation_strings": [
+            "Pharmacist (Post-graduate MSc  student, BSc), Pharmaceutical Sciences, College of  Pharmacy, Al Ain University (AAU), Abu Dhabi Campus, Abu  Dhabi-United Arab Emirates. AAU Health and Biomedical  Research Centre, Al Ain University, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pharmacist (Post-graduate MSc  student, BSc), Pharmaceutical Sciences, College of  Pharmacy, Al Ain University (AAU), Abu Dhabi Campus, Abu  Dhabi-United Arab Emirates. AAU Health and Biomedical  Research Centre, Al Ain University, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5033380427",
+            "display_name": "Adel Shaban Sadeq",
+            "orcid": "https://orcid.org/0000-0001-9529-8898",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-9529-8898"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Adel Sadeq",
+          "raw_affiliation_strings": [
+            "PhD, MSc. Associate Professor, Program of  Clinical Pharmacy, College of Pharmacy, Al Ain University, Al  Ain-UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "PhD, MSc. Associate Professor, Program of  Clinical Pharmacy, College of Pharmacy, Al Ain University, Al  Ain-UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5104178898",
+            "display_name": "Al Kubaisi Khalid Awad",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I29891158",
+              "display_name": "University of Sharjah",
+              "ror": "https://ror.org/00engpz63",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I29891158"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Al Kubaisi Khalid Awad",
+          "raw_affiliation_strings": [
+            "Department of Pharmacy Practice  and Pharmacotherapeutics, College of Pharmacy-University  of Sharjah, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Pharmacy Practice  and Pharmacotherapeutics, College of Pharmacy-University  of Sharjah, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I29891158"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5093008247",
+            "display_name": "Raneem Hammouri",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Raneem Hammouri",
+          "raw_affiliation_strings": [
+            "Pharmacist, Abu Dhabi-UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pharmacist, Abu Dhabi-UAE",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5093008248",
+            "display_name": "Ola Ishbair",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Ola Ishbair",
+          "raw_affiliation_strings": [
+            "Pharmacist, Abu Dhabi-UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pharmacist, Abu Dhabi-UAE",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5062223519",
+            "display_name": "Nour Dabbagh",
+            "orcid": "https://orcid.org/0000-0001-7644-6736",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-7644-6736"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Nour Dabbagh",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, Abu  Dhabi campus, Abu Dhabi-UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu  Dhabi campus, Abu Dhabi-UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5093008249",
+            "display_name": "Alin Alkwarit",
+            "orcid": "https://orcid.org/0000-0001-6991-3228",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-6991-3228"
+            ]
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Alin Alkwarit",
+          "raw_affiliation_strings": [
+            "Intern pharmacist, Abu Dhabi-UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Intern pharmacist, Abu Dhabi-UAE",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5004153535",
+            "display_name": "Maisoun Alkaabi",
+            "orcid": "https://orcid.org/0009-0009-0013-4221",
+            "observed_orcids": [
+              "https://orcid.org/0009-0009-0013-4221"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210099383",
+              "display_name": "Abu Dhabi Health Services",
+              "ror": "https://ror.org/016bjqk65",
+              "country_code": "AE",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I2801466683",
+                "https://openalex.org/I4210087867",
+                "https://openalex.org/I4210091532",
+                "https://openalex.org/I4210099383",
+                "https://openalex.org/I4210121446"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Maisoun Alkaabi",
+          "raw_affiliation_strings": [
+            "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
+            "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I4210099383"
+              ]
+            },
+            {
+              "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I4210099383"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5043174913",
+            "display_name": "Vineetha Bharathan Menon",
+            "orcid": "https://orcid.org/0000-0002-2030-0962",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-2030-0962"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210099383",
+              "display_name": "Abu Dhabi Health Services",
+              "ror": "https://ror.org/016bjqk65",
+              "country_code": "AE",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I2801466683",
+                "https://openalex.org/I4210087867",
+                "https://openalex.org/I4210091532",
+                "https://openalex.org/I4210099383",
+                "https://openalex.org/I4210121446"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Vineetha Menon",
+          "raw_affiliation_strings": [
+            "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
+            "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I4210099383"
+              ]
+            },
+            {
+              "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I4210099383"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5056388759",
+            "display_name": "Semira Abdi Beshir",
+            "orcid": "https://orcid.org/0000-0003-4990-4783",
+            "observed_orcids": [
+              "https://orcid.org/0000-0003-4990-4783"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I885602679",
+              "display_name": "Dubai Pharmacy College",
+              "ror": "https://ror.org/013aq5m10",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I885602679"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Semira Abdi Beshir",
+          "raw_affiliation_strings": [
+            "Associate professor, Department  of Clinical Pharmacy and Pharmacotherapeutics, Dubai  Pharmacy College for Girls, Dubai-United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Associate professor, Department  of Clinical Pharmacy and Pharmacotherapeutics, Dubai  Pharmacy College for Girls, Dubai-United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I885602679"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5001793388",
+            "display_name": "Mohamed A. Baraka",
+            "orcid": "https://orcid.org/0000-0002-7645-2420",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-7645-2420"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I184834183",
+              "display_name": "Al-Azhar University",
+              "ror": "https://ror.org/05fnp1145",
+              "country_code": "EG",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I184834183"
+              ]
+            }
+          ],
+          "countries": [
+            "EG"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mohamed A. Baraka",
+          "raw_affiliation_strings": [
+            "Health Sciences, Abu Dhabi, United Arab Emirates; Clinical  Pharmacy department, College of Pharmacy, Al-Azhar  University, Cairo, Egypt",
+            "Clinical  Pharmacy department, College of Pharmacy, Al-Azhar  University, Cairo, Egypt",
+            "Health Sciences, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Health Sciences, Abu Dhabi, United Arab Emirates; Clinical  Pharmacy department, College of Pharmacy, Al-Azhar  University, Cairo, Egypt",
+              "institution_ids": [
+                "https://openalex.org/I184834183"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Clinical  Pharmacy department, College of Pharmacy, Al-Azhar  University, Cairo, Egypt",
+              "institution_ids": [
+                "https://openalex.org/I184834183"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Health Sciences, Abu Dhabi, United Arab Emirates",
+              "institution_ids": []
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5083097862",
+            "display_name": "Israa Yousif Khidir",
+            "orcid": "https://orcid.org/0000-0001-8674-3603",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-8674-3603"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I47164929",
+              "display_name": "Najran University",
+              "ror": "https://ror.org/05edw4a90",
+              "country_code": "SA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I47164929"
+              ]
+            }
+          ],
+          "countries": [
+            "SA"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Israa Yousif Khidir",
+          "raw_affiliation_strings": [
+            "Assistant Professor, Department  of Clinical Pharmacy & Pharmacy Practice, (Ph.D., MSc, B  Pharm), College of Pharmacy, University of Najran, Saudi  Arabia"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Assistant Professor, Department  of Clinical Pharmacy & Pharmacy Practice, (Ph.D., MSc, B  Pharm), College of Pharmacy, University of Najran, Saudi  Arabia",
+              "institution_ids": [
+                "https://openalex.org/I47164929"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5066432567",
+            "display_name": "Samah Mohammed Hussein",
+            "orcid": "https://orcid.org/0000-0003-3802-8714",
+            "observed_orcids": [
+              "https://orcid.org/0000-0003-3802-8714"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I156216236",
+              "display_name": "Qassim University",
+              "ror": "https://ror.org/01wsfe280",
+              "country_code": "SA",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I156216236"
+              ]
+            }
+          ],
+          "countries": [
+            "SA"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Samah Mohammed Hussein",
+          "raw_affiliation_strings": [
+            "MSc, BCPS. Department of  Pharmacy Practice, Unaizah College of Pharmacy, Qassim  University, Buraydah, 52571, Saudi Arabia"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "MSc, BCPS. Department of  Pharmacy Practice, Unaizah College of Pharmacy, Qassim  University, Buraydah, 52571, Saudi Arabia",
+              "institution_ids": [
+                "https://openalex.org/I156216236"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5064407523",
+            "display_name": "Abdulla Al Amoodi",
+            "orcid": "https://orcid.org/0000-0001-5248-9598",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-5248-9598"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210099383",
+              "display_name": "Abu Dhabi Health Services",
+              "ror": "https://ror.org/016bjqk65",
+              "country_code": "AE",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I2801466683",
+                "https://openalex.org/I4210087867",
+                "https://openalex.org/I4210091532",
+                "https://openalex.org/I4210099383",
+                "https://openalex.org/I4210121446"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdulla Al Amoodi",
+          "raw_affiliation_strings": [
+            "Ambulatory Healthcare Services,  Academic Affairs, Abu Dhabi Health Services (SEHA), UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Ambulatory Healthcare Services,  Academic Affairs, Abu Dhabi Health Services (SEHA), UAE",
+              "institution_ids": [
+                "https://openalex.org/I4210099383"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5078603862",
+            "display_name": "Sami Fatehi Abdalla",
+            "orcid": "https://orcid.org/0000-0002-7396-8376",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-7396-8376"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4391767729",
+              "display_name": "Almaarefa University",
+              "ror": "https://ror.org/00s3s5518",
+              "country_code": null,
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4391767729"
+              ]
+            }
+          ],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Sami Fatehi Abdalla",
+          "raw_affiliation_strings": [
+            "Associate Professor (Clinical  Dermatology and Medical Physiology) Clinical Department,  College of Medicine, University of Almmarefa, Riyadh, Saudi  Arabia"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Associate Professor (Clinical  Dermatology and Medical Physiology) Clinical Department,  College of Medicine, University of Almmarefa, Riyadh, Saudi  Arabia",
+              "institution_ids": [
+                "https://openalex.org/I4391767729"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 3,
+      "institutions_distinct_count": 8,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.3183,
+      "has_fulltext": true,
+      "cited_by_count": 2,
+      "citation_normalized_percentile": {
+        "value": 0.59139395,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 89,
+        "max": 94
+      },
+      "biblio": {
+        "volume": "21",
+        "issue": "3",
+        "first_page": "01",
+        "last_page": "10"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10990",
+        "display_name": "Infection Control and Ventilation",
+        "score": 0.9391000270843506,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2740",
+          "display_name": "Pulmonary and Respiratory Medicine"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10990",
+          "display_name": "Infection Control and Ventilation",
+          "score": 0.9391000270843506,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2740",
+            "display_name": "Pulmonary and Respiratory Medicine"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10877",
+          "display_name": "Allergic Rhinitis and Sensitization",
+          "score": 0.9387000203132629,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2723",
+            "display_name": "Immunology and Allergy"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12663",
+          "display_name": "Body Image and Dysmorphia Studies",
+          "score": 0.9266999959945679,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3203",
+            "display_name": "Clinical Psychology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/32",
+            "display_name": "Psychology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/medicine",
+          "display_name": "Medicine",
+          "score": 0.8548039197921753
+        },
+        {
+          "id": "https://openalex.org/keywords/pandemic",
+          "display_name": "Pandemic",
+          "score": 0.7479089498519897
+        },
+        {
+          "id": "https://openalex.org/keywords/coronavirus-disease-2019",
+          "display_name": "Coronavirus disease 2019 (COVID-19)",
+          "score": 0.5354338884353638
+        },
+        {
+          "id": "https://openalex.org/keywords/cronbachs-alpha",
+          "display_name": "Cronbach's alpha",
+          "score": 0.5341775417327881
+        },
+        {
+          "id": "https://openalex.org/keywords/likert-scale",
+          "display_name": "Likert scale",
+          "score": 0.5011637210845947
+        },
+        {
+          "id": "https://openalex.org/keywords/cross-sectional-study",
+          "display_name": "Cross-sectional study",
+          "score": 0.49827027320861816
+        },
+        {
+          "id": "https://openalex.org/keywords/severe-acute-respiratory-syndrome-coronavirus-2",
+          "display_name": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)",
+          "score": 0.41226625442504883
+        },
+        {
+          "id": "https://openalex.org/keywords/physical-therapy",
+          "display_name": "Physical therapy",
+          "score": 0.372952938079834
+        },
+        {
+          "id": "https://openalex.org/keywords/family-medicine",
+          "display_name": "Family medicine",
+          "score": 0.3683260381221771
+        },
+        {
+          "id": "https://openalex.org/keywords/disease",
+          "display_name": "Disease",
+          "score": 0.282112181186676
+        },
+        {
+          "id": "https://openalex.org/keywords/internal-medicine",
+          "display_name": "Internal medicine",
+          "score": 0.24424293637275696
+        },
+        {
+          "id": "https://openalex.org/keywords/psychology",
+          "display_name": "Psychology",
+          "score": 0.08672839403152466
+        },
+        {
+          "id": "https://openalex.org/keywords/pathology",
+          "display_name": "Pathology",
+          "score": 0.07637351751327515
+        },
+        {
+          "id": "https://openalex.org/keywords/infectious-disease",
+          "display_name": "Infectious disease (medical specialty)",
+          "score": 0.07474112510681152
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C71924100",
+          "wikidata": "https://www.wikidata.org/wiki/Q11190",
+          "display_name": "Medicine",
+          "level": 0,
+          "score": 0.8548039197921753
+        },
+        {
+          "id": "https://openalex.org/C89623803",
+          "wikidata": "https://www.wikidata.org/wiki/Q12184",
+          "display_name": "Pandemic",
+          "level": 5,
+          "score": 0.7479089498519897
+        },
+        {
+          "id": "https://openalex.org/C3008058167",
+          "wikidata": "https://www.wikidata.org/wiki/Q84263196",
+          "display_name": "Coronavirus disease 2019 (COVID-19)",
+          "level": 4,
+          "score": 0.5354338884353638
+        },
+        {
+          "id": "https://openalex.org/C106906290",
+          "wikidata": "https://www.wikidata.org/wiki/Q1140909",
+          "display_name": "Cronbach's alpha",
+          "level": 3,
+          "score": 0.5341775417327881
+        },
+        {
+          "id": "https://openalex.org/C105776082",
+          "wikidata": "https://www.wikidata.org/wiki/Q617473",
+          "display_name": "Likert scale",
+          "level": 2,
+          "score": 0.5011637210845947
+        },
+        {
+          "id": "https://openalex.org/C142052008",
+          "wikidata": "https://www.wikidata.org/wiki/Q954027",
+          "display_name": "Cross-sectional study",
+          "level": 2,
+          "score": 0.49827027320861816
+        },
+        {
+          "id": "https://openalex.org/C3007834351",
+          "wikidata": "https://www.wikidata.org/wiki/Q82069695",
+          "display_name": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)",
+          "level": 5,
+          "score": 0.41226625442504883
+        },
+        {
+          "id": "https://openalex.org/C1862650",
+          "wikidata": "https://www.wikidata.org/wiki/Q186005",
+          "display_name": "Physical therapy",
+          "level": 1,
+          "score": 0.372952938079834
+        },
+        {
+          "id": "https://openalex.org/C512399662",
+          "wikidata": "https://www.wikidata.org/wiki/Q3505712",
+          "display_name": "Family medicine",
+          "level": 1,
+          "score": 0.3683260381221771
+        },
+        {
+          "id": "https://openalex.org/C2779134260",
+          "wikidata": "https://www.wikidata.org/wiki/Q12136",
+          "display_name": "Disease",
+          "level": 2,
+          "score": 0.282112181186676
+        },
+        {
+          "id": "https://openalex.org/C126322002",
+          "wikidata": "https://www.wikidata.org/wiki/Q11180",
+          "display_name": "Internal medicine",
+          "level": 1,
+          "score": 0.24424293637275696
+        },
+        {
+          "id": "https://openalex.org/C15744967",
+          "wikidata": "https://www.wikidata.org/wiki/Q9418",
+          "display_name": "Psychology",
+          "level": 0,
+          "score": 0.08672839403152466
+        },
+        {
+          "id": "https://openalex.org/C142724271",
+          "wikidata": "https://www.wikidata.org/wiki/Q7208",
+          "display_name": "Pathology",
+          "level": 1,
+          "score": 0.07637351751327515
+        },
+        {
+          "id": "https://openalex.org/C524204448",
+          "wikidata": "https://www.wikidata.org/wiki/Q788926",
+          "display_name": "Infectious disease (medical specialty)",
+          "level": 3,
+          "score": 0.07474112510681152
+        },
+        {
+          "id": "https://openalex.org/C70410870",
+          "wikidata": "https://www.wikidata.org/wiki/Q199906",
+          "display_name": "Clinical psychology",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C171606756",
+          "wikidata": "https://www.wikidata.org/wiki/Q506132",
+          "display_name": "Psychometrics",
+          "level": 2,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C138496976",
+          "wikidata": "https://www.wikidata.org/wiki/Q175002",
+          "display_name": "Developmental psychology",
+          "level": 1,
+          "score": 0.0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "doi:10.18549/pharmpract.2023.3.2850",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.18549/pharmpract.2023.3.2850",
+          "pdf_url": "https://www.pharmacypractice.org/index.php/pp/article/download/2850/1113",
+          "source": {
+            "id": "https://openalex.org/S45690524",
+            "display_name": "Pharmacy Practice",
+            "issn_l": "1885-642X",
+            "issn": [
+              "1885-642X",
+              "1886-3655"
+            ],
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": true,
+            "listed_in": [
+              "cwts-core",
+              "erih-plus",
+              "jufo-1",
+              "ki-jl-1",
+              "norway-1"
+            ],
+            "host_organization": "https://openalex.org/P4310321943",
+            "host_organization_name": "Centro de Investigaciones y Publicaciones Farmaceuticas",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310321943"
+            ],
+            "host_organization_lineage_names": [
+              "Centro de Investigaciones y Publicaciones Farmaceuticas"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Pharmacy Practice",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:oai:dialnet.unirioja.es:ART0001629686",
+          "is_oa": true,
+          "landing_page_url": "https://dialnet.unirioja.es/servlet/oaiart?codigo=9131069",
+          "pdf_url": "https://dialnet.unirioja.es/descarga/articulo/9131069.pdf",
+          "source": {
+            "id": "https://openalex.org/S4306401293",
+            "display_name": "Dialnet (Universidad de la Rioja)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I3032752892",
+            "host_organization_name": "Universidad Internacional de La Rioja",
+            "host_organization_lineage": [
+              "https://openalex.org/I3032752892"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Pharmacy Practice (Granada), ISSN 1886-3655, Vol. 21, N\u00ba. 3, 2023 (Ejemplar dedicado a: jul-sep)",
+          "raw_type": "text (article)"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.18549/pharmpract.2023.3.2850",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.18549/pharmpract.2023.3.2850",
+        "pdf_url": "https://www.pharmacypractice.org/index.php/pp/article/download/2850/1113",
+        "source": {
+          "id": "https://openalex.org/S45690524",
+          "display_name": "Pharmacy Practice",
+          "issn_l": "1885-642X",
+          "issn": [
+            "1885-642X",
+            "1886-3655"
+          ],
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "erih-plus",
+            "jufo-1",
+            "ki-jl-1",
+            "norway-1"
+          ],
+          "host_organization": "https://openalex.org/P4310321943",
+          "host_organization_name": "Centro de Investigaciones y Publicaciones Farmaceuticas",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310321943"
+          ],
+          "host_organization_lineage_names": [
+            "Centro de Investigaciones y Publicaciones Farmaceuticas"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Pharmacy Practice",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/3",
+          "score": 0.8700000047683716,
+          "display_name": "Good health and well-being"
+        }
+      ],
+      "x_sdgs": [],
+      "study_designs": [
+        {
+          "id": "https://openalex.org/study-designs/observational-study",
+          "display_name": "Observational Study"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4387366257.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W4387366257.grobid-xml"
+      },
+      "referenced_works_count": 39,
+      "referenced_works": [
+        "https://openalex.org/W96312118",
+        "https://openalex.org/W1968397091",
+        "https://openalex.org/W1972061866",
+        "https://openalex.org/W1981110022",
+        "https://openalex.org/W1994338141",
+        "https://openalex.org/W2000166065",
+        "https://openalex.org/W2007422312",
+        "https://openalex.org/W2035538568",
+        "https://openalex.org/W2043151270",
+        "https://openalex.org/W2059642220",
+        "https://openalex.org/W2063390971",
+        "https://openalex.org/W2070933011",
+        "https://openalex.org/W2218337334",
+        "https://openalex.org/W2417319771",
+        "https://openalex.org/W2487135296",
+        "https://openalex.org/W2564506601",
+        "https://openalex.org/W2758606128",
+        "https://openalex.org/W2783347509",
+        "https://openalex.org/W2886495094",
+        "https://openalex.org/W3035751115",
+        "https://openalex.org/W3045897912",
+        "https://openalex.org/W3048291928",
+        "https://openalex.org/W3082032613",
+        "https://openalex.org/W3084648907",
+        "https://openalex.org/W3093818992",
+        "https://openalex.org/W3157165718",
+        "https://openalex.org/W3164307397",
+        "https://openalex.org/W3178366697",
+        "https://openalex.org/W3186575079",
+        "https://openalex.org/W3187857874",
+        "https://openalex.org/W3201630753",
+        "https://openalex.org/W3202429975",
+        "https://openalex.org/W4200367965",
+        "https://openalex.org/W4214686569",
+        "https://openalex.org/W4285810881",
+        "https://openalex.org/W4286586448",
+        "https://openalex.org/W4288400169",
+        "https://openalex.org/W4387366257",
+        "https://openalex.org/W6666224621"
+      ],
+      "related_works": [
+        "https://openalex.org/W4293793418",
+        "https://openalex.org/W3162248051",
+        "https://openalex.org/W2005199226",
+        "https://openalex.org/W4316086319",
+        "https://openalex.org/W2065502591",
+        "https://openalex.org/W2617619553",
+        "https://openalex.org/W3122187488",
+        "https://openalex.org/W4385403451",
+        "https://openalex.org/W139087018",
+        "https://openalex.org/W4376107631"
+      ],
+      "abstract_inverted_index": {
+        "Background:": [
+          0
+        ],
+        "Since": [
+          1
+        ],
+        "outbreak": [
+          2
+        ],
+        "of": [
+          3,
+          26,
+          43,
+          61,
+          66,
+          95,
+          101,
+          113,
+          139,
+          162,
+          183,
+          199,
+          229
+        ],
+        "COVID-19": [
+          4,
+          79
+        ],
+        "pandemic,": [
+          5
+        ],
+        "almost": [
+          6
+        ],
+        "whole": [
+          7
+        ],
+        "world": [
+          8
+        ],
+        "asked": [
+          9
+        ],
+        "to": [
+          10,
+          22,
+          39,
+          57,
+          77,
+          97,
+          122,
+          135,
+          225
+        ],
+        "wear": [
+          11
+        ],
+        "the": [
+          12,
+          16,
+          24,
+          27,
+          31,
+          41,
+          44,
+          59,
+          64,
+          78,
+          99,
+          103,
+          120,
+          123,
+          137,
+          145,
+          160,
+          176,
+          189,
+          197,
+          227,
+          230,
+          242,
+          291,
+          341
+        ],
+        "facemask": [
+          13,
+          45,
+          75,
+          178,
+          323,
+          344
+        ],
+        "especially": [
+          14
+        ],
+        "in": [
+          15,
+          46,
+          69,
+          111,
+          181,
+          196,
+          206,
+          233,
+          236,
+          265,
+          314,
+          331
+        ],
+        "public": [
+          17
+        ],
+        "areas": [
+          18
+        ],
+        "as": [
+          19
+        ],
+        "a": [
+          20,
+          203
+        ],
+        "precaution": [
+          21
+        ],
+        "avoid": [
+          23
+        ],
+        "transmission": [
+          25
+        ],
+        "disease,": [
+          28
+        ],
+        "and": [
+          29,
+          105,
+          129,
+          167,
+          212
+        ],
+        "curbs": [
+          30
+        ],
+        "pandemic.": [
+          32,
+          80,
+          148
+        ],
+        "Looking": [
+          33
+        ],
+        "from": [
+          34
+        ],
+        "another": [
+          35
+        ],
+        "perspective,": [
+          36
+        ],
+        "we": [
+          37
+        ],
+        "need": [
+          38
+        ],
+        "consider": [
+          40
+        ],
+        "effect": [
+          42
+        ],
+        "reducing": [
+          47
+        ],
+        "allergic": [
+          48,
+          67,
+          114,
+          142,
+          266,
+          315,
+          327,
+          348
+        ],
+        "rhinitis": [
+          49,
+          68,
+          143,
+          328
+        ],
+        "symptoms.": [
+          50,
+          184,
+          200
+        ],
+        "Objective:": [
+          51
+        ],
+        "The": [
+          52,
+          82,
+          116,
+          271,
+          338
+        ],
+        "current": [
+          53,
+          83
+        ],
+        "study": [
+          54,
+          84,
+          339
+        ],
+        "objective": [
+          55
+        ],
+        "was": [
+          56,
+          85,
+          108,
+          119,
+          154,
+          202,
+          274
+        ],
+        "assess": [
+          58,
+          98,
+          136
+        ],
+        "impact": [
+          60,
+          100
+        ],
+        "facemasks": [
+          62
+        ],
+        "on": [
+          63,
+          132
+        ],
+        "symptoms": [
+          65,
+          112,
+          253,
+          267,
+          302,
+          316
+        ],
+        "subjects": [
+          70,
+          140
+        ],
+        "who": [
+          71,
+          247,
+          261,
+          296,
+          310
+        ],
+        "were": [
+          72,
+          279
+        ],
+        "obligatory": [
+          73
+        ],
+        "using": [
+          74
+        ],
+        "due": [
+          76
+        ],
+        "Methods:": [
+          81
+        ],
+        "ethically": [
+          86
+        ],
+        "approved": [
+          87
+        ],
+        "self-administered": [
+          88
+        ],
+        "validated": [
+          89
+        ],
+        "survey": [
+          90
+        ],
+        "(Cronbach": [
+          91
+        ],
+        "Alfa": [
+          92
+        ],
+        "0.81)": [
+          93
+        ],
+        "comprised": [
+          94
+        ],
+        "28-items": [
+          96
+        ],
+        "wearing": [
+          102
+        ],
+        "facemask,": [
+          104
+        ],
+        "whether": [
+          106
+        ],
+        "there": [
+          107
+        ],
+        "an": [
+          109
+        ],
+        "improvement": [
+          110
+        ],
+        "rhinitis.": [
+          115
+        ],
+        "outcome": [
+          117
+        ],
+        "measure": [
+          118
+        ],
+        "responses": [
+          121,
+          138,
+          216,
+          349
+        ],
+        "four": [
+          124
+        ],
+        "domains": [
+          125
+        ],
+        "(knowledge,": [
+          126
+        ],
+        "attitude,": [
+          127
+        ],
+        "symptoms,": [
+          128,
+          241,
+          290
+        ],
+        "help/advice)": [
+          130
+        ],
+        "measured": [
+          131
+        ],
+        "Likert": [
+          133
+        ],
+        "scale": [
+          134
+        ],
+        "with": [
+          141,
+          276,
+          335
+        ],
+        "during": [
+          144
+        ],
+        "COVID": [
+          146
+        ],
+        "-19": [
+          147
+        ],
+        "Results:": [
+          149
+        ],
+        "82": [
+          150
+        ],
+        "respondents": [
+          151,
+          246,
+          277,
+          295
+        ],
+        "(mean": [
+          152,
+          268,
+          285
+        ],
+        "age": [
+          153
+        ],
+        "22.59": [
+          155
+        ],
+        "\u00b12.77": [
+          156
+        ],
+        "years)": [
+          157
+        ],
+        "have": [
+          158
+        ],
+        "completed": [
+          159
+        ],
+        "survey,": [
+          161
+        ],
+        "which": [
+          163
+        ],
+        "73": [
+          164
+        ],
+        "females": [
+          165
+        ],
+        "(89%)": [
+          166
+        ],
+        "(52/82,": [
+          168
+        ],
+        "63.4%)": [
+          169
+        ],
+        "university": [
+          170
+        ],
+        "students.": [
+          171
+        ],
+        "29": [
+          172
+        ],
+        "(35.4%),": [
+          173
+        ],
+        "stated": [
+          174
+        ],
+        "that": [
+          175,
+          188,
+          245,
+          249,
+          278,
+          294,
+          298,
+          322,
+          343
+        ],
+        "fabric": [
+          177
+        ],
+        "is": [
+          179,
+          193
+        ],
+        "useful": [
+          180
+        ],
+        "reduction": [
+          182,
+          198,
+          215,
+          264,
+          313
+        ],
+        "44": [
+          185
+        ],
+        "(53.7%)": [
+          186
+        ],
+        "believe": [
+          187
+        ],
+        "surgical": [
+          190
+        ],
+        "mask": [
+          191
+        ],
+        "N95": [
+          192
+        ],
+        "very": [
+          194
+        ],
+        "beneficial": [
+          195
+        ],
+        "There": [
+          201
+        ],
+        "significant": [
+          204,
+          222
+        ],
+        "difference": [
+          205
+        ],
+        "knowledge": [
+          207,
+          256,
+          305
+        ],
+        "levels": [
+          208
+        ],
+        "for": [
+          209
+        ],
+        "both": [
+          210
+        ],
+        "eye": [
+          211,
+          240
+        ],
+        "nasal": [
+          213,
+          289
+        ],
+        "symptoms\u2019": [
+          214
+        ],
+        "(P": [
+          217
+        ],
+        "<0.001).": [
+          218
+        ],
+        "Tukey\u2019s": [
+          219
+        ],
+        "HSD": [
+          220
+        ],
+        "(honestly": [
+          221
+        ],
+        "difference)": [
+          223
+        ],
+        "used": [
+          224
+        ],
+        "determine": [
+          226
+        ],
+        "specifics": [
+          228
+        ],
+        "variances": [
+          231
+        ],
+        "(differences": [
+          232
+        ],
+        "multiple": [
+          234
+        ],
+        "means)": [
+          235
+        ],
+        "symptom": [
+          237,
+          283,
+          329
+        ],
+        "reduction.": [
+          238
+        ],
+        "For": [
+          239,
+          288
+        ],
+        "analysis": [
+          243,
+          292
+        ],
+        "revealed": [
+          244,
+          293
+        ],
+        "reported": [
+          248,
+          262,
+          297,
+          311
+        ],
+        "they": [
+          250,
+          299
+        ],
+        "had": [
+          251,
+          254,
+          300,
+          303
+        ],
+        "reduced": [
+          252,
+          301
+        ],
+        "higher": [
+          255,
+          304
+        ],
+        "scores": [
+          257,
+          306
+        ],
+        "(6.74\u00b12.7)": [
+          258
+        ],
+        "than": [
+          259,
+          308
+        ],
+        "those": [
+          260,
+          309
+        ],
+        "no": [
+          263,
+          312
+        ],
+        "\u00b1SD:": [
+          269,
+          286
+        ],
+        "4.96\u00b13.2).": [
+          270
+        ],
+        "lowest": [
+          272
+        ],
+        "score": [
+          273
+        ],
+        "associated": [
+          275
+        ],
+        "uncertain": [
+          280
+        ],
+        "regarding": [
+          281
+        ],
+        "their": [
+          282
+        ],
+        "alleviation": [
+          284
+        ],
+        "4.53\u00b13.1).": [
+          287
+        ],
+        "(7.03\u00b12.7)": [
+          307
+        ],
+        "(3.94\u00b12.5).": [
+          317
+        ],
+        "Conclusion:": [
+          318
+        ],
+        "Our": [
+          319
+        ],
+        "results": [
+          320
+        ],
+        "reveal": [
+          321
+        ],
+        "usage": [
+          324
+        ],
+        "may": [
+          325,
+          345
+        ],
+        "reduce": [
+          326,
+          346
+        ],
+        "severity": [
+          330
+        ],
+        "chronically": [
+          332
+        ],
+        "affected": [
+          333
+        ],
+        "individuals": [
+          334
+        ],
+        "intermittent": [
+          336
+        ],
+        "disease.": [
+          337
+        ],
+        "supports": [
+          340
+        ],
+        "hypothesis": [
+          342
+        ],
+        "atopic": [
+          347
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2024,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2026-09-26T08:19:03.415552",
+      "created_date": "2025-10-10T00:00:00"
     },
     {
       "id": "https://openalex.org/W4392081340",
@@ -10563,6 +15203,7 @@
       },
       "sustainable_development_goals": [],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -10713,6 +15354,1235 @@
         }
       ],
       "updated_date": "2026-09-24T07:57:37.273135",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4289260705",
+      "doi": "https://doi.org/10.21203/rs.3.rs-1893972/v1",
+      "title": "Are we ready yet for digital transformation? Virtual versus On-Campus Objective Structured Clinical Examination (OSCE) as an assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
+      "display_name": "Are we ready yet for digital transformation? Virtual versus On-Campus Objective Structured Clinical Examination (OSCE) as an assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
+      "publication_year": 2022,
+      "publication_date": "2022-08-01",
+      "ids": {
+        "openalex": "https://openalex.org/W4289260705",
+        "doi": "https://doi.org/10.21203/rs.3.rs-1893972/v1"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.21203/rs.3.rs-1893972/v1",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.21203/rs.3.rs-1893972/v1",
+        "pdf_url": "https://www.researchsquare.com/article/rs-1893972/latest.pdf",
+        "source": {
+          "id": "https://openalex.org/S4306525896",
+          "display_name": "Research Square",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "listed_in": [],
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "acceptedVersion",
+        "is_accepted": true,
+        "is_published": false,
+        "raw_source_name": "Research Square",
+        "raw_type": "posted-content"
+      },
+      "type": "preprint",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://www.researchsquare.com/article/rs-1893972/latest.pdf",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5081995751",
+            "display_name": "Zelal Jaber Kharaba",
+            "orcid": "https://orcid.org/0000-0001-8012-684X",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-8012-684X"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Zelal Kharaba",
+          "raw_affiliation_strings": [
+            "Al Ain University"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5015196992",
+            "display_name": "Mohammad Al Ahmed",
+            "orcid": null,
+            "observed_orcids": []
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mohammad Al Ahmed",
+          "raw_affiliation_strings": [
+            "Al Ain University"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5068630017",
+            "display_name": "Asim Ahmed Elnour",
+            "orcid": "https://orcid.org/0000-0002-4143-7810",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-4143-7810"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Asim Ahmed Elnour",
+          "raw_affiliation_strings": [
+            "Al Ain University"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102914480",
+            "display_name": "Abdallah Abou Hajal",
+            "orcid": "https://orcid.org/0009-0006-1807-2178",
+            "observed_orcids": [
+              "https://orcid.org/0009-0006-1807-2178",
+              "https://orcid.org/0000-0003-4655-1193"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdallah AbouHajal",
+          "raw_affiliation_strings": [
+            "Al Ain University"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5060051574",
+            "display_name": "Suhad Sameer AbuMweis",
+            "orcid": "https://orcid.org/0000-0001-7541-9357",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-7541-9357"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Suhad Abumweis",
+          "raw_affiliation_strings": [
+            "Al Ain University"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5035841002",
+            "display_name": "Mohammad A. Ghattas",
+            "orcid": "https://orcid.org/0000-0002-2240-8037",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-2240-8037"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mohammad A. Ghattas",
+          "raw_affiliation_strings": [
+            "Al Ain University"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I161913731"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": null,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": null,
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10254",
+        "display_name": "Innovations in Medical Education",
+        "score": 0.9620000123977661,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2739",
+          "display_name": "Public Health, Environmental and Occupational Health"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10254",
+          "display_name": "Innovations in Medical Education",
+          "score": 0.9620000123977661,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2739",
+            "display_name": "Public Health, Environmental and Occupational Health"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/objective-structured-clinical-examination",
+          "display_name": "Objective structured clinical examination",
+          "score": 0.7361499071121216
+        },
+        {
+          "id": "https://openalex.org/keywords/pharmacy",
+          "display_name": "Pharmacy",
+          "score": 0.6894804239273071
+        },
+        {
+          "id": "https://openalex.org/keywords/medical-education",
+          "display_name": "Medical education",
+          "score": 0.6228922009468079
+        },
+        {
+          "id": "https://openalex.org/keywords/interactivity",
+          "display_name": "Interactivity",
+          "score": 0.45978596806526184
+        },
+        {
+          "id": "https://openalex.org/keywords/psychology",
+          "display_name": "Psychology",
+          "score": 0.3938022553920746
+        },
+        {
+          "id": "https://openalex.org/keywords/medicine",
+          "display_name": "Medicine",
+          "score": 0.3108524978160858
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.30813878774642944
+        },
+        {
+          "id": "https://openalex.org/keywords/multimedia",
+          "display_name": "Multimedia",
+          "score": 0.2718004584312439
+        },
+        {
+          "id": "https://openalex.org/keywords/nursing",
+          "display_name": "Nursing",
+          "score": 0.18492227792739868
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2778000598",
+          "wikidata": "https://www.wikidata.org/wiki/Q11237593",
+          "display_name": "Objective structured clinical examination",
+          "level": 2,
+          "score": 0.7361499071121216
+        },
+        {
+          "id": "https://openalex.org/C104863432",
+          "wikidata": "https://www.wikidata.org/wiki/Q614304",
+          "display_name": "Pharmacy",
+          "level": 2,
+          "score": 0.6894804239273071
+        },
+        {
+          "id": "https://openalex.org/C509550671",
+          "wikidata": "https://www.wikidata.org/wiki/Q126945",
+          "display_name": "Medical education",
+          "level": 1,
+          "score": 0.6228922009468079
+        },
+        {
+          "id": "https://openalex.org/C144430266",
+          "wikidata": "https://www.wikidata.org/wiki/Q839721",
+          "display_name": "Interactivity",
+          "level": 2,
+          "score": 0.45978596806526184
+        },
+        {
+          "id": "https://openalex.org/C15744967",
+          "wikidata": "https://www.wikidata.org/wiki/Q9418",
+          "display_name": "Psychology",
+          "level": 0,
+          "score": 0.3938022553920746
+        },
+        {
+          "id": "https://openalex.org/C71924100",
+          "wikidata": "https://www.wikidata.org/wiki/Q11190",
+          "display_name": "Medicine",
+          "level": 0,
+          "score": 0.3108524978160858
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.30813878774642944
+        },
+        {
+          "id": "https://openalex.org/C49774154",
+          "wikidata": "https://www.wikidata.org/wiki/Q131765",
+          "display_name": "Multimedia",
+          "level": 1,
+          "score": 0.2718004584312439
+        },
+        {
+          "id": "https://openalex.org/C159110408",
+          "wikidata": "https://www.wikidata.org/wiki/Q121176",
+          "display_name": "Nursing",
+          "level": 1,
+          "score": 0.18492227792739868
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.21203/rs.3.rs-1893972/v1",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.21203/rs.3.rs-1893972/v1",
+          "pdf_url": "https://www.researchsquare.com/article/rs-1893972/latest.pdf",
+          "source": {
+            "id": "https://openalex.org/S4306525896",
+            "display_name": "Research Square",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "acceptedVersion",
+          "is_accepted": true,
+          "is_published": false,
+          "raw_source_name": "Research Square",
+          "raw_type": "posted-content"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.21203/rs.3.rs-1893972/v1",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.21203/rs.3.rs-1893972/v1",
+        "pdf_url": "https://www.researchsquare.com/article/rs-1893972/latest.pdf",
+        "source": {
+          "id": "https://openalex.org/S4306525896",
+          "display_name": "Research Square",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "listed_in": [],
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "acceptedVersion",
+        "is_accepted": true,
+        "is_published": false,
+        "raw_source_name": "Research Square",
+        "raw_type": "posted-content"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/3",
+          "score": 0.4399999976158142,
+          "display_name": "Good health and well-being"
+        }
+      ],
+      "x_sdgs": [],
+      "study_designs": [
+        {
+          "id": "https://openalex.org/study-designs/randomized-controlled-trial",
+          "display_name": "Randomized Controlled Trial"
+        },
+        {
+          "id": "https://openalex.org/study-designs/clinical-trial",
+          "display_name": "Clinical Trial"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4289260705.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W4289260705.grobid-xml"
+      },
+      "referenced_works_count": 23,
+      "referenced_works": [
+        "https://openalex.org/W851963319",
+        "https://openalex.org/W1661886986",
+        "https://openalex.org/W1986680406",
+        "https://openalex.org/W2001277066",
+        "https://openalex.org/W2011545713",
+        "https://openalex.org/W2013488675",
+        "https://openalex.org/W2023397747",
+        "https://openalex.org/W2061520049",
+        "https://openalex.org/W2081535881",
+        "https://openalex.org/W2086604571",
+        "https://openalex.org/W2209153775",
+        "https://openalex.org/W2618579413",
+        "https://openalex.org/W2884664992",
+        "https://openalex.org/W2887141079",
+        "https://openalex.org/W3046514316",
+        "https://openalex.org/W3095379573",
+        "https://openalex.org/W3122058547",
+        "https://openalex.org/W3149845000",
+        "https://openalex.org/W3154634248",
+        "https://openalex.org/W3189577372",
+        "https://openalex.org/W3193791499",
+        "https://openalex.org/W4211215605",
+        "https://openalex.org/W4220756444"
+      ],
+      "related_works": [
+        "https://openalex.org/W2899084033",
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W2184713230",
+        "https://openalex.org/W3186170442",
+        "https://openalex.org/W170529584",
+        "https://openalex.org/W2585837778",
+        "https://openalex.org/W2369402333",
+        "https://openalex.org/W3156283237",
+        "https://openalex.org/W328583965",
+        "https://openalex.org/W2897241057"
+      ],
+      "abstract_inverted_index": {
+        "Abstract": [
+          0
+        ],
+        "Background:": [
+          1
+        ],
+        "The": [
+          2,
+          32,
+          55,
+          111
+        ],
+        "global": [
+          3
+        ],
+        "COVID-19": [
+          4
+        ],
+        "pandemic": [
+          5
+        ],
+        "has": [
+          6
+        ],
+        "influenced": [
+          7
+        ],
+        "pharmacy": [
+          8,
+          18,
+          102
+        ],
+        "education": [
+          9
+        ],
+        "including": [
+          10
+        ],
+        "learning,": [
+          11
+        ],
+        "assessment,": [
+          12
+        ],
+        "and": [
+          13,
+          51,
+          63,
+          70,
+          74,
+          91,
+          99,
+          104,
+          122,
+          152,
+          180,
+          194,
+          198,
+          200,
+          261
+        ],
+        "exams.": [
+          14
+        ],
+        "In": [
+          15
+        ],
+        "the": [
+          16,
+          67,
+          89,
+          107,
+          119,
+          123,
+          133,
+          165,
+          172,
+          174,
+          177,
+          181,
+          185,
+          188,
+          201,
+          204,
+          208,
+          213,
+          222,
+          225,
+          233,
+          243,
+          247,
+          282,
+          292,
+          297
+        ],
+        "UAE,": [
+          17
+        ],
+        "instructors": [
+          19
+        ],
+        "have": [
+          20
+        ],
+        "adapted": [
+          21
+        ],
+        "several": [
+          22
+        ],
+        "innovative": [
+          23
+        ],
+        "teaching": [
+          24
+        ],
+        "methods": [
+          25
+        ],
+        "to": [
+          26,
+          59,
+          96,
+          190,
+          207,
+          246,
+          280,
+          287
+        ],
+        "strive": [
+          27
+        ],
+        "for": [
+          28,
+          157,
+          164,
+          212,
+          218
+        ],
+        "quality": [
+          29
+        ],
+        "learning": [
+          30
+        ],
+        "outcomes.": [
+          31
+        ],
+        "current": [
+          33,
+          298
+        ],
+        "trial": [
+          34
+        ],
+        "presented": [
+          35
+        ],
+        "a": [
+          36,
+          128,
+          138,
+          148,
+          259,
+          274,
+          277
+        ],
+        "head-to-head": [
+          37,
+          85
+        ],
+        "comparative": [
+          38,
+          86
+        ],
+        "assessment": [
+          39,
+          87,
+          167,
+          265
+        ],
+        "between": [
+          40,
+          76,
+          88
+        ],
+        "on-campus": [
+          41,
+          77,
+          120,
+          134,
+          166,
+          234,
+          244,
+          267
+        ],
+        "versus": [
+          42,
+          78
+        ],
+        "virtual": [
+          43,
+          79,
+          92,
+          112,
+          139,
+          149,
+          214,
+          248,
+          255,
+          283
+        ],
+        "Objective": [
+          44
+        ],
+        "Subjective": [
+          45
+        ],
+        "Clinical": [
+          46
+        ],
+        "Examination": [
+          47
+        ],
+        "(OSCE)": [
+          48
+        ],
+        "with": [
+          49,
+          132,
+          171,
+          224,
+          229
+        ],
+        "examiners\u2019": [
+          50,
+          64
+        ],
+        "students\u2019": [
+          52,
+          62
+        ],
+        "perspectives.": [
+          53
+        ],
+        "Aim:": [
+          54
+        ],
+        "main": [
+          56
+        ],
+        "aim": [
+          57
+        ],
+        "was": [
+          58,
+          94,
+          114,
+          125,
+          145,
+          236
+        ],
+        "compare": [
+          60
+        ],
+        "fourth-year": [
+          61
+        ],
+        "perceptions": [
+          65,
+          217
+        ],
+        "of": [
+          66,
+          101,
+          187,
+          203,
+          227,
+          264,
+          276,
+          294
+        ],
+        "feasibility": [
+          68
+        ],
+        "(time": [
+          69
+        ],
+        "logistics),": [
+          71
+        ],
+        "stress,": [
+          72
+        ],
+        "performance,": [
+          73
+        ],
+        "satisfaction": [
+          75,
+          100
+        ],
+        "OSCE.": [
+          80
+        ],
+        "Method": [
+          81
+        ],
+        "A": [
+          82,
+          286
+        ],
+        "randomized": [
+          83
+        ],
+        "controlled": [
+          84
+        ],
+        "On-campus": [
+          90
+        ],
+        "OSCE": [
+          93,
+          109,
+          113,
+          135,
+          235,
+          245,
+          249,
+          256,
+          268,
+          284
+        ],
+        "conducted": [
+          95
+        ],
+        "explore": [
+          97
+        ],
+        "performance": [
+          98
+        ],
+        "students": [
+          103,
+          209,
+          230
+        ],
+        "examiners": [
+          105
+        ],
+        "towards": [
+          106
+        ],
+        "two": [
+          108
+        ],
+        "settings.": [
+          110
+        ],
+        "carried": [
+          115
+        ],
+        "out": [
+          116
+        ],
+        "directly": [
+          117
+        ],
+        "after": [
+          118
+        ],
+        "-OSCE": [
+          121
+        ],
+        "setting": [
+          124
+        ],
+        "designed": [
+          126
+        ],
+        "in": [
+          127,
+          137,
+          251,
+          296
+        ],
+        "way": [
+          129
+        ],
+        "that": [
+          130
+        ],
+        "aligned": [
+          131
+        ],
+        "but": [
+          136
+        ],
+        "way.": [
+          140
+        ],
+        "Microsoft": [
+          141
+        ],
+        "Teams\u00ae": [
+          142
+        ],
+        "breakout": [
+          143
+        ],
+        "room": [
+          144
+        ],
+        "used": [
+          146,
+          156
+        ],
+        "as": [
+          147,
+          232
+        ],
+        "stations.": [
+          150
+        ],
+        "Respondus-lockdown-browse": [
+          151
+        ],
+        "Google": [
+          153
+        ],
+        "Meet\u00ae": [
+          154
+        ],
+        "were": [
+          155,
+          168,
+          221
+        ],
+        "proctoring": [
+          158
+        ],
+        "purposes.": [
+          159
+        ],
+        "Results:": [
+          160
+        ],
+        "Students": [
+          161,
+          240
+        ],
+        "who": [
+          162,
+          210
+        ],
+        "sat": [
+          163,
+          211
+        ],
+        "more": [
+          169,
+          237
+        ],
+        "satisfied": [
+          170
+        ],
+        "instructions,": [
+          173
+        ],
+        "orientation": [
+          175
+        ],
+        "session,": [
+          176
+        ],
+        "time": [
+          178
+        ],
+        "management,": [
+          179
+        ],
+        "overall": [
+          182
+        ],
+        "exam": [
+          183,
+          189,
+          205
+        ],
+        "setting,": [
+          184
+        ],
+        "ability": [
+          186
+        ],
+        "assess": [
+          191
+        ],
+        "their": [
+          192
+        ],
+        "communication": [
+          193
+        ],
+        "clinical": [
+          195
+        ],
+        "skills,": [
+          196
+        ],
+        "professionalism": [
+          197
+        ],
+        "attitude,": [
+          199
+        ],
+        "interactivity": [
+          202
+        ],
+        "compared": [
+          206
+        ],
+        "assessment.": [
+          215
+        ],
+        "Examiners\u2019": [
+          216
+        ],
+        "both": [
+          219
+        ],
+        "settings": [
+          220
+        ],
+        "same": [
+          223
+        ],
+        "exception": [
+          226
+        ],
+        "interaction": [
+          228
+        ],
+        "(p<0.05)": [
+          231
+        ],
+        "interactive.": [
+          238
+        ],
+        "Conclusion:": [
+          239
+        ],
+        "still": [
+          241,
+          258
+        ],
+        "prefer": [
+          242
+        ],
+        "format": [
+          250
+        ],
+        "many": [
+          252
+        ],
+        "aspects.": [
+          253
+        ],
+        "Nevertheless,": [
+          254
+        ],
+        "is": [
+          257,
+          269,
+          273
+        ],
+        "feasible": [
+          260
+        ],
+        "satisfactory": [
+          262
+        ],
+        "method": [
+          263
+        ],
+        "when": [
+          266
+        ],
+        "not": [
+          270
+        ],
+        "possible.": [
+          271
+        ],
+        "There": [
+          272
+        ],
+        "need": [
+          275
+        ],
+        "specialized": [
+          278
+        ],
+        "platform": [
+          279
+        ],
+        "conduct": [
+          281
+        ],
+        "from": [
+          285
+        ],
+        "Z": [
+          288
+        ],
+        "rather": [
+          289
+        ],
+        "than": [
+          290
+        ],
+        "maximizing": [
+          291
+        ],
+        "use": [
+          293
+        ],
+        "options": [
+          295
+        ],
+        "digital": [
+          299
+        ],
+        "platforms.": [
+          300
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-09-27T08:07:27.782135",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -10894,7 +16764,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.1366887,
+        "value": 0.13220944,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -11137,14 +17007,14 @@
           "descriptor_name": "Predictive Learning Models",
           "qualifier_ui": null,
           "qualifier_name": null,
-          "is_major_topic": false
+          "is_major_topic": true
         },
         {
           "descriptor_ui": "D000098412",
           "descriptor_name": "Predictive Learning Models",
           "qualifier_ui": null,
           "qualifier_name": null,
-          "is_major_topic": true
+          "is_major_topic": false
         },
         {
           "descriptor_ui": "D000098412",
@@ -11200,28 +17070,28 @@
           "descriptor_name": "Drug Interactions",
           "qualifier_ui": null,
           "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
           "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
         },
         {
           "descriptor_ui": "D004347",
@@ -11387,12 +17257,13 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "score": 0.41566163301467896,
           "id": "https://metadata.un.org/sdg/3",
+          "score": 0.41566163301467896,
           "display_name": "Good health and well-being"
         }
       ],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -11904,7 +17775,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-09-27T08:07:27.782135",
       "created_date": "2026-02-09T00:00:00"
     },
     {
@@ -12320,12 +18191,13 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "score": 0.6003750562667847,
           "id": "https://metadata.un.org/sdg/16",
+          "score": 0.6003750562667847,
           "display_name": "Peace, Justice and strong institutions"
         }
       ],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -12487,10 +18359,12 @@
         {
           "author_position": "first",
           "author": {
-            "id": "https://openalex.org/A5140763334",
+            "id": "https://openalex.org/A5036665415",
             "display_name": "Joy Owango",
-            "orcid": null,
-            "observed_orcids": []
+            "orcid": "https://orcid.org/0000-0002-3910-2691",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-3910-2691"
+            ]
           },
           "institutions": [],
           "countries": [],
@@ -12503,7 +18377,7 @@
         {
           "author_position": "middle",
           "author": {
-            "id": "https://openalex.org/A5140918891",
+            "id": "https://openalex.org/A5120841937",
             "display_name": "Qasit Malik",
             "orcid": null,
             "observed_orcids": []
@@ -12535,10 +18409,12 @@
         {
           "author_position": "middle",
           "author": {
-            "id": "https://openalex.org/A5123930974",
+            "id": "https://openalex.org/A5049836899",
             "display_name": "Mahmoud Elsabahy",
-            "orcid": null,
-            "observed_orcids": []
+            "orcid": "https://orcid.org/0000-0003-3341-1829",
+            "observed_orcids": [
+              "https://orcid.org/0000-0003-3341-1829"
+            ]
           },
           "institutions": [],
           "countries": [],
@@ -12579,7 +18455,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.63965084,
+        "value": 0.63107366,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -12796,12 +18672,13 @@
       },
       "sustainable_development_goals": [
         {
-          "score": 0.6279879212379456,
           "id": "https://metadata.un.org/sdg/16",
+          "score": 0.6279879212379456,
           "display_name": "Peace, Justice and strong institutions"
         }
       ],
       "x_sdgs": [],
+      "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
@@ -12907,7 +18784,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-09-26T08:19:03.415552",
       "created_date": "2026-07-16T00:00:00"
     }
   ]
