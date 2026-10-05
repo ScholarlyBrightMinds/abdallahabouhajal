@@ -75,6 +75,10 @@ AUTHOR_ID_FIELD = os.getenv("SCHOLAR_AUTHOR_ID", "").strip() or (OPENALEX_IDS[0]
 
 UA = f"ScholarlyBrightMinds-citations/1.0 (mailto:{MAILTO})"
 MIN_RETAINED_FRACTION = 0.8
+# OpenAlex meters use per IP, and GitHub's runners share IPs, so without a key a
+# run can find the day's budget already spent. A free key (repo secret
+# OPENALEX_API_KEY) gives the run its own budget; without one, nothing changes.
+OPENALEX_KEY = os.getenv("OPENALEX_API_KEY", "").strip()
 
 
 def utc_now() -> str:
@@ -102,6 +106,8 @@ def pub_key(pub: dict) -> str:
 def http_json(url: str, data: bytes | None = None, headers: dict | None = None,
               retries: int = 3, backoff: float = 2.0):
     h = {"User-Agent": UA}
+    if OPENALEX_KEY and url.startswith("https://api.openalex.org"):
+        url += ("&" if "?" in url else "?") + "api_key=" + urllib.parse.quote(OPENALEX_KEY)
     if data is not None:
         h["Content-Type"] = "application/json"
     h.update(headers or {})
@@ -403,6 +409,15 @@ def main() -> None:
     meta: dict = {}
     dois = set()
     oa_author, oa_meta = dois_from_openalex_author()
+    if OPENALEX_IDS and not oa_author and prev_known:
+        # OpenAlex knew these papers last week and answered nothing now: that is
+        # an outage or a spent rate limit, not a change. Writing now would drop
+        # papers only OpenAlex knows and let duplicates through, so stop here and
+        # leave last week's data up. (Seen on 2026-10-05: one run got 17 DOIs,
+        # the next, a minute later, 0.)
+        print(f"[FAIL] OpenAlex returned no works although the last run knew "
+              f"{len(prev_known)} DOIs; nothing written.", file=sys.stderr)
+        sys.exit(1)
     meta.update(oa_meta)
     dois |= oa_author
     dois |= dois_from_crossref_orcid()

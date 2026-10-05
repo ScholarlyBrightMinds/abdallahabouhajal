@@ -51,6 +51,9 @@ def _get_json(url: str, mailto: str) -> dict | None:
     `mailto=` query parameter. We use both for maximum politeness."""
     sep = "&" if "?" in url else "?"
     url = f"{url}{sep}mailto={urllib.parse.quote(mailto)}"
+    key = os.environ.get("OPENALEX_API_KEY", "").strip()
+    if key:   # optional repo secret: its own rate budget instead of the shared runner IP's
+        url += f"&api_key={urllib.parse.quote(key)}"
     req = urllib.request.Request(
         url,
         headers={
@@ -210,6 +213,17 @@ def main() -> int:
 
     works = fetch_works(author_id, mailto)
     print(f"  fetched {len(works)} works")
+    if not works and OUTPUT_FILE.exists():
+        try:
+            kept = len(json.loads(OUTPUT_FILE.read_text(encoding="utf-8")).get("works") or [])
+        except Exception:
+            kept = 0
+        if kept:
+            # no works now but some last time: an outage or a rate limit, so keep
+            # the old file rather than writing an empty one over it
+            print(f"  OpenAlex returned no works; keeping the previous file ({kept} works)",
+                  file=sys.stderr)
+            return 0
 
     summary = build_summary(author, works)
 
