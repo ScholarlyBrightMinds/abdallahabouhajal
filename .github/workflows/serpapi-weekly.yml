@@ -53,6 +53,7 @@ jobs:
           SCHOLAR_AUTHOR_ID:   '1I8SvsQAAAAJ'
           CROSSREF_MAILTO:     'editorial@scifiniti.com'
           S2_API_KEY:          ${{ secrets.S2_API_KEY }}
+          OPENALEX_API_KEY:    ${{ secrets.OPENALEX_API_KEY }}
           # Not papers for this list (his call): the TCC Africa webinar
           # write-up "AI Without Misconduct" (2026), decided 25 Sep 2026.
           EXCLUDE_DOIS:        '10.21428/359fb1d2.ce7a6914'
@@ -61,7 +62,8 @@ jobs:
           python citations_fetcher.py
 
       - name: Fetch OpenAlex author + works
-        # OpenAlex Public API, no key needed, polite-pool by mailto.
+        # OpenAlex Public API, polite-pool by mailto; uses the OPENALEX_API_KEY
+        # secret when it is set, and keeps last week's file if OpenAlex is down.
         # Pulls verified citations, h/i10-index, OA percentage, top
         # research concepts, and the full works list into
         # data/openalex/openalex.json.
@@ -70,6 +72,7 @@ jobs:
           OPENALEX_AUTHOR_ID:     'A5102914480'
           OPENALEX_DISPLAY_NAME:  'Abdallah Abou Hajal'
           OPENALEX_MAILTO:        'abdallah.abouhajal@gmail.com'
+          OPENALEX_API_KEY:       ${{ secrets.OPENALEX_API_KEY }}
         run: |
           set -euo pipefail
           python openalex_fetcher.py
