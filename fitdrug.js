@@ -178,7 +178,7 @@
     }
 
     // ═════════════════════════════════════════════════════════ the map
-    var FOG = [238, 241, 248], LOW = [214, 221, 235], HI = [30, 86, 200];
+    var FOG = [241, 243, 239], LOW = [214, 222, 207], HI = [46, 125, 0];
     function ramp(p) {                       // pIC50 to colour, 4.5 pale, 9.5 cobalt
         var t = clamp((p - 4.5) / 5.0, 0, 1), i, o = [];
         for (i = 0; i < 3; i++) o.push(Math.round(LOW[i] + (HI[i] - LOW[i]) * t));
@@ -759,7 +759,7 @@
         ctx.lineJoin = 'round';
         for (i = 1; i < n; i++) {
             var key = TR.k[i] && TR.k[i - 1];
-            ctx.strokeStyle = key ? 'rgba(30,86,200,0.95)' : 'rgba(126,139,164,0.42)';
+            ctx.strokeStyle = key ? 'rgba(46,125,0,0.95)' : 'rgba(118,126,114,0.42)';
             ctx.lineWidth = (key ? 2.6 : 1.5) * dpr;
             ctx.beginPath();
             ctx.moveTo(pts[i - 1][0], pts[i - 1][1]);
@@ -775,7 +775,7 @@
     // on a canvas. No library, and the data only loads when it is asked for.
     var P3 = null, p3Promise = null, three = null;
     var EL_COL = {
-        C: [26, 36, 58], N: [30, 86, 200], O: [179, 64, 47], S: [143, 106, 43],
+        C: [38, 41, 37], N: [30, 86, 200], O: [179, 64, 47], S: [143, 106, 43],
         F: [47, 125, 91], Cl: [47, 125, 91], Br: [47, 125, 91], P: [143, 106, 43],
         I: [47, 125, 91], Se: [143, 106, 43]
     };
@@ -849,7 +849,7 @@
         var canvas = ui.three.querySelector('canvas');
         var ligs = [];
         if (state === 'simulate') {
-            ligs.push({ part: ligand3(P3.lig.A), col: [30, 86, 200], name: 'pose A' });
+            ligs.push({ part: ligand3(P3.lig.A), col: [46, 125, 0], name: 'pose A' });
             ligs.push({ part: ligand3(P3.lig.B), col: [143, 106, 43], name: 'pose B' });
         } else {
             var id = g && g.compound >= 0 ? rows[g.compound][0] : null;
@@ -877,7 +877,7 @@
             three.ligs = ['A', 'B'].map(function (k) {
                 var src = { e: P3.md[k].e, p: P3.md[k].f[0] };
                 return {
-                    part: ligand3(src), col: k === 'A' ? [30, 86, 200] : [143, 106, 43],
+                    part: ligand3(src), col: k === 'A' ? [46, 125, 0] : [143, 106, 43],
                     name: 'pose ' + k, pose: k
                 };
             });
@@ -954,8 +954,8 @@
             if (it.kind === 'pocket') {
                 var key = P3.keyAtom && P3.keyAtom[it.a];
                 ctx.strokeStyle = key
-                    ? 'rgba(30,86,200,' + (0.34 + depth * 0.52).toFixed(2) + ')'
-                    : 'rgba(128,141,166,' + (0.14 + depth * 0.42).toFixed(2) + ')';
+                    ? 'rgba(46,125,0,' + (0.34 + depth * 0.52).toFixed(2) + ')'
+                    : 'rgba(124,132,120,' + (0.14 + depth * 0.42).toFixed(2) + ')';
                 ctx.lineWidth = (key ? 2.2 : 1.5) * dpr * (0.6 + depth * 0.7);
                 ctx.beginPath();
                 ctx.moveTo(it.p1[0], it.p1[1]);
@@ -983,7 +983,7 @@
             ctx.lineWidth = 3 * dpr;
             ctx.beginPath();
             ctx.moveTo(10 * dpr, yy); ctx.lineTo(26 * dpr, yy); ctx.stroke();
-            ctx.fillStyle = 'rgba(65,77,102,0.95)';
+            ctx.fillStyle = 'rgba(67,71,65,0.95)';
             ctx.fillText(L.name, 32 * dpr, yy + 4 * dpr);
         });
 
@@ -1000,7 +1000,7 @@
             ctx.lineWidth = 3 * dpr;
             ctx.strokeStyle = 'rgba(246,247,251,0.9)';
             ctx.strokeText(r.n, p[0], p[1]);
-            ctx.fillStyle = 'rgba(30,86,200,0.95)';
+            ctx.fillStyle = 'rgba(46,125,0,0.95)';
             ctx.fillText(r.n, p[0], p[1]);
         });
     }

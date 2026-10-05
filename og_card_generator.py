@@ -52,14 +52,15 @@ OUT_DIR       = REPO_ROOT / "images" / "og"
 # 1200x630 is the Facebook / LinkedIn / Twitter recommended OG card size
 CARD_W, CARD_H = 1200, 630
 
-# Brand palette — matches styles.css :root
-BG          = (13, 20, 17)        # var(--bg)
+# Card palette. The cards stay dark so they stand out in a white social feed;
+# the accent is the site's green (--accent-light #6dca2e, bright enough on dark).
+BG          = (13, 20, 17)        # near-black with a green cast
 BG_PANEL    = (22, 32, 28)        # subtle inset
-ACCENT      = (255, 184, 77)      # var(--accent) — warm orange
-ACCENT_SOFT = (255, 184, 77, 40)  # for hairlines and tints
-TEXT        = (228, 235, 230)     # var(--text)
-TEXT_SOFT   = (160, 175, 168)     # var(--text-soft)
-INK_TEAL    = (120, 200, 180)     # secondary accent (sparkline color)
+ACCENT      = (109, 202, 46)      # #6dca2e, the site's light green
+ACCENT_SOFT = (109, 202, 46, 40)  # for hairlines and tints
+TEXT        = (228, 235, 230)
+TEXT_SOFT   = (160, 175, 168)
+INK_TEAL    = (177, 232, 130)     # #b1e882, secondary accent (sparkline color)
 
 
 # ─────────────────────────────────────────────────────────────────────────
@@ -92,6 +93,8 @@ def _font_paths() -> dict[str, list[str]]:
             "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf",
             "/usr/share/fonts/liberation/LiberationMono-Bold.ttf",
             r"C:\Windows\Fonts\consolab.ttf",
+            # macOS: Courier New is metric compatible with Liberation Mono
+            "/System/Library/Fonts/Supplemental/Courier New Bold.ttf",
             "/System/Library/Fonts/Monaco.ttf",
         ],
     }

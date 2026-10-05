@@ -505,13 +505,13 @@
 }
 .pub-spark-line {
     fill: none;
-    stroke: var(--accent, #5e9eff);
+    stroke: var(--accent, #2e7d00);
     stroke-width: 1.4;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 .pub-spark-area {
-    fill: var(--accent, #5e9eff);
+    fill: var(--accent, #2e7d00);
     fill-opacity: 0.14;
     stroke: none;
 }

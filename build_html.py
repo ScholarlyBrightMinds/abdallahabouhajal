@@ -16,14 +16,18 @@ What it touches (idempotent — safe to re-run):
       * Replaces the entire <script id="publications-jsonld"> block with the
         full Schema.org CollectionPage + ItemList of ScholarlyArticle JSON-LD.
   - index.html
-      * Updates the first chip in the hero (the one with the publication +
-        citation count) so the static HTML shows current metrics.
+      * Updates the homepage numbers (papers, citations, h-index, journals)
+        and the "Published in" journal list, so the static HTML shows current
+        metrics without JavaScript.
 
 Markers / IDs the script looks for (do not rename without updating here):
   - <section id="list-articles" …>…</section>
   - <span id="m-total">, <span id="m-cites">, <span id="m-h">
   - <script type="application/ld+json" id="publications-jsonld">…</script>
-  - In index.html: chips: [ { label: "<N> Publications · <M> Citations" }, …
+  - In theme.config.js: chips: [ { label: "<N> Publications · <M> Citations" }, …
+  - In index.html: <strong>N</strong> papers, <strong>N</strong> citations,
+    <strong>N</strong> h-index, <strong>N</strong> journals, and the list
+    between <!-- JOURNALS:BEGIN --> and <!-- JOURNALS:END -->.
 
 Run locally:  python build_html.py
 """
@@ -719,6 +723,45 @@ def patch_index_chips(pubs: list[dict], metrics: dict) -> None:
 
 
 # ─────────────────────────────────────────────────────────────────────────
+# The journals strip on the homepage
+# ─────────────────────────────────────────────────────────────────────────
+JOURNALS_BEGIN = "<!-- JOURNALS:BEGIN -->"
+JOURNALS_END   = "<!-- JOURNALS:END -->"
+_PREPRINT = re.compile(r"\b(?:arxiv|biorxiv|medrxiv|chemrxiv|research square|ssrn|preprints)\b", re.I)
+
+
+def journals_of(pubs: list[dict]) -> list[str]:
+    """Distinct journals he has published in: the most recent first, then by
+    name, so the order does not change from week to week. Preprint servers are
+    not journals and are left out."""
+    seen: dict[str, tuple[int, str]] = {}
+    for p in pubs:
+        name = _journal_name_from_venue((p.get("venue") or p.get("publication") or "").strip())
+        if not name or _PREPRINT.search(name):
+            continue
+        key = re.sub(r"[^a-z0-9]+", " ", name.casefold()).strip()
+        year = int(p.get("year") or 0)
+        if key not in seen or year > seen[key][0]:
+            seen[key] = (year, seen.get(key, (0, name))[1])
+    ordered = sorted(seen.values(), key=lambda yn: (-yn[0], yn[1].casefold()))
+    return [name for _, name in ordered]
+
+
+def _write_journal_list(text: str, journals: list[str]) -> str:
+    """Rewrite the <li> items between the JOURNALS markers. A missing marker is
+    a warning, not a failure, so the Monday run never stops over it."""
+    pat = re.compile(re.escape(JOURNALS_BEGIN) + r"(.*?)" + re.escape(JOURNALS_END), re.S)
+    m = pat.search(text)
+    if not m:
+        print("[WARN] index.html: JOURNALS markers missing, journal list not written")
+        return text
+    line_start = text.rfind("\n", 0, m.start()) + 1
+    indent = text[line_start:m.start()]
+    items = "".join(f"\n{indent}<li>{escape(j)}</li>" for j in journals)
+    return text[:m.start()] + JOURNALS_BEGIN + items + "\n" + indent + JOURNALS_END + text[m.end():]
+
+
+# ─────────────────────────────────────────────────────────────────────────
 # Patch: the numbers written into index.html itself
 # ─────────────────────────────────────────────────────────────────────────
 def patch_index_static_numbers(pubs: list[dict], metrics: dict) -> None:
@@ -741,6 +784,12 @@ def patch_index_static_numbers(pubs: list[dict], metrics: dict) -> None:
     if hidx:
         text = re.sub(r"(>)h-index \d+(<)", rf"\g<1>h-index {hidx}\g<2>", text)
         text = re.sub(r"(h-index <strong>)\d+(</strong>)", rf"\g<1>{hidx}\g<2>", text)
+        # the homepage stats card puts the number first
+        text = re.sub(r"(<strong>)\d+(</strong> h-index)", rf"\g<1>{hidx}\g<2>", text)
+    journals = journals_of(pubs)
+    if journals:
+        text = re.sub(r"(<strong>)\d+(</strong> journals)", rf"\g<1>{len(journals)}\g<2>", text)
+        text = _write_journal_list(text, journals)
     if text != orig:
         # The page changed, so the ProfilePage's dateModified moves with it.
         today = datetime.now(timezone.utc).strftime("%Y-%m-%d")

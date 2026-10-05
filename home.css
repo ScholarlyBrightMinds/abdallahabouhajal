@@ -1,7 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   home.css · the homepage: a short introduction, and a game
-
-   The game is the page's one moving thing. Everything else holds still.
+   home.css · the homepage: the hero, and a game
    ═══════════════════════════════════════════════════════════════════ */
 
 /* hidden means hidden, whatever display a component asks for */
@@ -14,112 +12,387 @@ main.home {
     padding-bottom: clamp(40px, 8vh, 96px);
 }
 
-/* ── introduction: the first screen, centred ──────────────────────── */
-.home-intro {
+/* ── the hero: the first screen ───────────────────────────────────────
+   Laid out after the GenAI Academy homepage: what he does on the left, a
+   cut-out of him on the right with the tools he works with floating round
+   him, and the paper numbers on a card across the panel's bottom edge.
+   Colours come from the palette, so a palette change carries over. */
+.hero {
+    --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --hero-btn: var(--accent-soft);
+    --hero-btn-hover: #a2eb73;
+    --hero-600: var(--accent-display);
+    --hero-800: var(--accent-d);
+    --hero-900: var(--accent-ink);
+    --hero-ghost: color-mix(in srgb, var(--text) 5.5%, transparent);
+    --hero-mark-lead: .9s;
+    --hero-mark-step: .16s;
+    --hero-mark-enter: .95s;
+    --hero-mark-lift: 12px;
+    --hero-belt-dur: 90s;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* the nav sits above this, and the game has to peek over the fold */
-    min-height: calc(88vh - 72px);
-    min-height: calc(88svh - 72px);
-    padding: 20px 0 78px;
 }
-.home-portrait {
-    width: clamp(120px, 13vw, 168px);
-    height: clamp(120px, 13vw, 168px);
-    border-radius: var(--radius);
-    object-fit: cover;
-    display: block;
-    background: var(--bg-deep);
+.hero-panel {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 470px) minmax(0, 1fr);
+    column-gap: 40px;
+    align-items: start;
+    padding: 64px 0 104px;
+    /* the bottom edge cuts him at the waist; his sides may spill */
+    overflow-x: visible;
+    overflow-y: clip;
 }
-.home-intro h1 {
-    font-size: clamp(2.5rem, 6.2vw, 4.4rem);
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-    margin: 20px 0 16px;
-    color: var(--text);
+@supports not (overflow-y: clip) {
+    .hero-panel { clip-path: inset(0 -100vw); }
 }
-.home-lede {
-    font-size: clamp(1.04rem, 1.5vw, 1.2rem);
-    line-height: 1.55;
-    color: var(--text-soft);
-    max-width: 42ch;
-    margin-inline: auto;
-    text-wrap: pretty;
+/* the wash runs the full window width while the content stays on the
+   nav's grid; it is translucent, so the molecules behind still show */
+.hero-panel::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    right: calc(50% - 50vw);
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--bg-soft) 0%, transparent) 0%,
+        color-mix(in srgb, var(--bg-deep) 72%, transparent) 100%);
 }
-.home-stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 22px;
-    margin-top: 26px;
-    font-family: var(--f-mono);
-    font-size: 0.78rem;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-}
-.home-stats strong {
-    font-size: 1.02rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-right: 2px;
-}
-.home-stats a { color: inherit; text-decoration: none; }
-.home-stats a:hover strong { color: var(--accent); }
 
-.home-links {
+.hero-text { min-width: 0; padding-top: 28px; }
+.hero-name {
+    margin: 0;
+    font-family: var(--f-text);
+    font-size: clamp(1.9rem, 1.15rem + 1.7vw, 2.55rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--hero-600);
+}
+.hero-number {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 28px;
+    align-items: baseline;
+    gap: 0 12px;
+    margin: 18px 0 0;
+    font-family: var(--f-text);
+    font-size: clamp(1.15rem, 0.95rem + 0.6vw, 1.42rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--hero-800);
 }
-.home-links a {
+.hero-number strong {
+    font-size: clamp(3.1rem, 2.3rem + 2.6vw, 4.35rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    font-variant-numeric: lining-nums tabular-nums;
+    color: var(--hero-900);
+}
+.hero-pitch {
+    max-width: 46ch;
+    margin: 24px 0 0;
     font-family: var(--f-ui);
-    font-size: 0.9rem;
+    font-size: 1.02rem;
+    line-height: 1.45;
+    color: var(--text-soft);
+}
+.hero-pitch span, .hero-pitch strong { display: block; }
+.hero-pitch strong { margin-top: 2px; font-weight: 600; color: var(--text); }
+
+.hero-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.hero-links a {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    padding: 0 16px;
+    font-family: var(--f-ui);
+    font-size: 0.92rem;
     font-weight: 500;
-    padding: 9px 15px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s);
-    background: var(--card);
     color: var(--text);
     text-decoration: none;
-    transition: border-color 160ms cubic-bezier(.23, 1, .32, 1), transform 120ms cubic-bezier(.23, 1, .32, 1);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    transition: background-color 160ms var(--hero-ease), border-color 160ms var(--hero-ease),
+                transform 120ms var(--hero-ease);
 }
-.home-links a.primary { background: var(--text); border-color: var(--text); color: var(--card); }
-.home-links a:active { transform: scale(0.97); }
+.hero-links a.primary { background: var(--hero-btn); border-color: var(--hero-btn); color: var(--hero-900); }
+.hero-links a:active { transform: scale(0.97); }
 @media (hover: hover) and (pointer: fine) {
-    .home-links a:hover { border-color: var(--accent); }
-    .home-links a.primary:hover { background: var(--accent); border-color: var(--accent); }
+    .hero-links a:hover { border-color: var(--hero-600); }
+    .hero-links a.primary:hover { background: var(--hero-btn-hover); border-color: var(--hero-btn-hover); }
 }
+
+/* "Published in": one line that can be swiped sideways; with motion
+   allowed, hero.js turns it into a strip that scrolls on its own */
+.hero-pub { margin-top: 34px; }
+.hero-pub-lead { margin: 0 0 6px; font-family: var(--f-ui); font-size: 0.8rem; color: var(--muted); }
+.hero-journals {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent 100%);
+            mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent 100%);
+}
+.hero-journals::-webkit-scrollbar { display: none; }
+.hero-journals-belt { display: flex; width: max-content; }
+.hero-journals-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+    margin: 0;
+    padding: 0 40px 0 0;
+    list-style: none;
+}
+.hero-journals-track li {
+    font-family: var(--f-text);
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 28px;
+    color: var(--text-soft);
+    white-space: nowrap;
+}
+
+/* the figure keeps GenAI's proportions: a 525 by 360 box, and a square
+   stage a little wider than it that rises above its top edge */
+.hero-figure {
+    position: relative;
+    width: 100%;
+    max-width: 525px;
+    aspect-ratio: 525 / 360;
+    justify-self: end;
+    /* sit on the panel's bottom edge, however tall the text column gets */
+    align-self: end;
+}
+.hero-stage { position: absolute; left: -8.571%; top: -12.222%; width: 117.333%; aspect-ratio: 1; }
+.hero-ghosts, .hero-portrait, .hero-marks { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-ghosts { color: var(--hero-ghost); }
+.hero-portrait { object-fit: contain; }
+
+.hero-mark { position: absolute; width: 8.6%; aspect-ratio: 1; }
+.hero-mark--md { width: 15.8%; }
+.hero-mark-float {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--text);
+    background: var(--card);
+    border-radius: 24%;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--text) 6%, transparent),
+                0 2px 4px color-mix(in srgb, var(--text) 5%, transparent),
+                0 10px 22px -10px color-mix(in srgb, var(--text) 22%, transparent);
+}
+.hero-mark--round .hero-mark-float { border-radius: 50%; }
+.hero-mark--md .hero-mark-float { border-radius: var(--radius); }
+.hero-mark-float > svg, .hero-mark-float > img { display: block; width: 58%; height: 58%; }
+.hero-mark-float > img { width: 76%; height: 76%; object-fit: contain; }
+.hero-md-still { fill: none; stroke: var(--text); stroke-width: 9; stroke-linecap: round; opacity: 0.8; }
+.hero-mark--md .hero-mark-float > .hero-md-still { width: 80%; height: 80%; }
+.hero-mark-float canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.hero-mark--md.is-live canvas { opacity: 1; }
+.hero-mark--md.is-live .hero-md-still { display: none; }
+
+/* the numbers card across the panel's bottom edge */
+.hero-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    max-width: 780px;
+    margin: -48px auto 0;
+    padding: 22px 12px;
+    list-style: none;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 1px var(--border-s),
+                0 1px 2px color-mix(in srgb, var(--text) 4%, transparent),
+                0 2px 4px color-mix(in srgb, var(--text) 4%, transparent),
+                0 8px 18px -6px color-mix(in srgb, var(--text) 9%, transparent),
+                inset 0 -1px 1px color-mix(in srgb, var(--text) 5%, transparent);
+}
+.hero-stat { position: relative; flex: 1 1 0; display: flex; justify-content: center; min-width: 0; }
+.hero-stat + .hero-stat::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 44px;
+    margin-top: -22px;
+    background: var(--border);
+}
+.hero-stat-in {
+    /* the number spans two rows, the label and its second line sit beside it */
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 12px;
+    align-items: center;
+    font-family: var(--f-ui);
+    font-size: 1.02rem;
+    line-height: 1.25;
+    color: var(--text);
+    text-decoration: none;
+}
+.hero-stat-in strong {
+    grid-row: 1 / span 2;
+    font-family: var(--f-text);
+    font-size: 2.65rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    font-variant-numeric: lining-nums tabular-nums;
+    color: var(--hero-800);
+}
+.hero-stat-sub { display: block; align-self: start; font-size: 0.86rem; color: var(--muted); }
+@media (hover: hover) and (pointer: fine) {
+    a.hero-stat-in:hover strong { color: var(--hero-600); }
+}
+
+/* under the card: the line to the game, and the notes */
+.home-band {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px 32px;
+    margin: 22px 0 6px;
+}
+html.js .home-band { min-height: 112px; }
 
 /* the line that sends you to the game */
 .home-cue {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 4px;
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 8px 12px;
+    gap: 8px;
+    padding: 8px 0;
     font-family: var(--f-ui);
     font-size: 0.88rem;
     color: var(--muted);
     text-decoration: none;
     transition: color 160ms var(--ease);
 }
-.home-cue-arrow { display: block; animation: home-bob 2s ease-in-out infinite; }
+.home-cue-arrow { display: block; }
+html.js .home-cue-arrow {
+    animation: home-bob 2s ease-in-out infinite;
+    animation-play-state: var(--sbm-anim, running);
+}
 @keyframes home-bob {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(6px); }
 }
 @media (hover: hover) and (pointer: fine) {
     .home-cue:hover { color: var(--accent); }
+}
+
+/* ── hero motion ──────────────────────────────────────────────────────
+   One entrance on load, then the marks float, the Claude mark hops, the
+   number pulses and the journal strip scrolls. Every loop carries the
+   site's switch (--sbm-anim) and stops while the hero is off screen.
+   The entrances are one-shot and are left off the switch on purpose:
+   paused at their first frame they would hold the hero invisible. With
+   JavaScript off nothing here runs and everything sits in place. */
+@keyframes hero-rise    { from { opacity: 0; transform: translateY(24px) scale(.98); } }
+@keyframes hero-section { from { opacity: 0; transform: translateY(28px) scale(.99); } }
+@keyframes hero-mark-in { from { opacity: 0; transform: translateY(8px) scale(.94); } }
+@keyframes hero-fade    { from { opacity: 0; } }
+@keyframes hero-float   { to { transform: translate3d(0, calc(var(--hero-mark-lift) * -1), 0); } }
+@keyframes hero-pulse   { 0%, 100% { color: var(--hero-900); } 50% { color: var(--hero-600); } }
+@keyframes hero-belt    { to { transform: translate3d(-50%, 0, 0); } }
+/* a hop: crouch, rise stretched, top, land squashed, small rebound, rest */
+@keyframes hero-hop {
+    0%       { transform: none; animation-timing-function: cubic-bezier(.3, 0, .5, 1); }
+    8%       { transform: scale(1.12, .86); animation-timing-function: cubic-bezier(.2, .7, .3, 1); }
+    26%      { transform: translateY(calc(var(--hero-mark-lift) * -2)) scale(.94, 1.08); animation-timing-function: cubic-bezier(.4, 0, .6, 1); }
+    32%      { transform: translateY(calc(var(--hero-mark-lift) * -2.2)); animation-timing-function: cubic-bezier(.5, 0, .9, .5); }
+    46%      { transform: scale(1.14, .84); animation-timing-function: cubic-bezier(.2, .8, .3, 1); }
+    54%      { transform: translateY(-5px) scale(.97, 1.04); }
+    60%, 100% { transform: none; }
+}
+
+html.js .hero-item {
+    animation: hero-rise .9s var(--hero-ease) both;
+    animation-delay: calc((var(--i, 0) + 1) * .13s);
+}
+html.js .hero-stage { animation: hero-section 1.4s var(--hero-ease) both; }
+html.js .hero-stats { animation: hero-section 1.4s var(--hero-ease) .2s both; }
+html.js .hero-mark {
+    animation: hero-mark-in var(--hero-mark-enter) var(--hero-ease) both;
+    animation-delay: calc(var(--hero-mark-lead) + var(--i, 0) * var(--hero-mark-step));
+}
+html.js .hero-mark-float {
+    will-change: transform;
+    animation: hero-float var(--dur, 2.5s) ease-in-out infinite alternate;
+    animation-delay: calc(var(--hero-mark-lead) + var(--i, 0) * var(--hero-mark-step) + var(--hero-mark-enter));
+    animation-play-state: var(--sbm-anim, running);
+}
+html.js .hero-mark--hop .hero-mark-float {
+    transform-origin: 50% 100%;
+    animation: hero-hop 2.4s linear infinite;
+    animation-delay: calc(var(--hero-mark-lead) + var(--hero-mark-enter));
+    animation-play-state: var(--sbm-anim, running);
+}
+html.js .hero-number strong {
+    animation: hero-pulse 3s ease-in-out infinite;
+    animation-play-state: var(--sbm-anim, running);
+}
+@media (prefers-reduced-motion: no-preference) {
+    html.js .hero-journals.is-looping {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%);
+    }
+}
+html.js .hero-journals.is-looping .hero-journals-belt {
+    will-change: transform;
+    animation: hero-belt var(--hero-belt-dur) linear infinite;
+    animation-play-state: var(--sbm-anim, running);
+}
+html.js .hero-journals:hover .hero-journals-belt,
+html.js .hero-journals:focus-within .hero-journals-belt,
+html.js .hero.is-off .hero-journals-belt,
+html.js .hero.is-off .hero-mark-float,
+html.js .hero.is-off .hero-number strong { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+    html.js .hero-item, html.js .hero-stage, html.js .hero-stats, html.js .hero-mark {
+        animation: hero-fade .6s linear both;
+        animation-delay: calc(var(--i, 0) * 60ms);
+    }
+    html.js .hero-mark-float, html.js .hero-mark--hop .hero-mark-float,
+    html.js .hero-number strong, html.js .hero-journals-belt { animation: none; will-change: auto; }
+}
+
+/* ── hero on smaller screens ───────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .hero-panel { grid-template-columns: minmax(0, 430px) minmax(0, 1fr); column-gap: 28px; }
+}
+@media (max-width: 1023px) {
+    .hero { --hero-mark-lift: 10px; }
+}
+@media (max-width: 900px) {
+    .hero-panel { grid-template-columns: minmax(0, 1fr); padding: 36px 0 72px; }
+    .hero-text { padding-top: 0; }
+    .hero-figure { justify-self: center; align-self: start; margin-top: 64px; }
+    .hero-stats { margin-top: -36px; }
+}
+@media (max-width: 639px) {
+    .hero { --hero-mark-lift: 8px; }
+}
+@media (max-width: 560px) {
+    .hero-links a { height: 42px; }
+    .hero-stats { padding: 16px 4px; }
+    .hero-stat-in { grid-template-columns: auto; justify-items: center; text-align: center; font-size: 0.92rem; }
+    .hero-stat-in strong { grid-row: auto; margin-bottom: 4px; font-size: 2.05rem; }
+    .hero-stat-sub { font-size: 0.76rem; }
+    .home-band { justify-content: center; text-align: center; }
+}
+@media (max-width: 390px) {
+    .hero-stat-in strong { font-size: 1.8rem; }
 }
 
 /* ── two games, two tabs ──────────────────────────────────────────── */
@@ -157,7 +430,7 @@ main.home {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: clamp(14px, 2vw, 20px);
-    box-shadow: 0 28px 56px -38px rgba(24, 42, 82, 0.32);
+    box-shadow: 0 28px 56px -38px rgba(28, 33, 26, 0.30);
 }
 .fit-head {
     display: flex;
@@ -240,7 +513,7 @@ main.home {
 /* the map */
 .fit-pt {
     fill: var(--card);
-    stroke: #8d9cb8;
+    stroke: #8e9888;
     stroke-width: 1.5;
     cursor: pointer;
     transition: r 200ms var(--ease);
@@ -275,11 +548,11 @@ main.home {
 @keyframes fit-pop { from { opacity: 0; transform: scale(0.6); transform-origin: center; } }
 
 /* the pocket */
-.slab { stroke: rgba(110, 126, 158, 0.28); stroke-width: 0.8; }
+.slab { stroke: rgba(112, 122, 106, 0.28); stroke-width: 0.8; }
 .slab.s0 { fill: var(--bg-deep); }
-.slab.s1 { fill: #d7dfee; }
-.slab.s2 { fill: #c8d2e6; }
-.res-dot { fill: var(--card); stroke: #8d9cb8; stroke-width: 1.2; }
+.slab.s1 { fill: #dbe1d4; }
+.slab.s2 { fill: #ccd5c4; }
+.res-dot { fill: var(--card); stroke: #8e9888; stroke-width: 1.2; }
 .res-dot.key { stroke: var(--accent); stroke-width: 2; }
 .res-label {
     font-family: var(--f-mono);
@@ -291,7 +564,7 @@ main.home {
     stroke-linejoin: round;
 }
 .res-label.key { fill: var(--text); font-size: 10.5px; }
-.fit-ghost line { stroke: #8894ac; stroke-width: 1.6; stroke-dasharray: 3 3; opacity: 0.7; }
+.fit-ghost line { stroke: #8b9586; stroke-width: 1.6; stroke-dasharray: 3 3; opacity: 0.7; }
 .fit-ghost text { display: none; }
 .fit-lig { cursor: grab; touch-action: none; }
 .fit-lig.dragging { cursor: grabbing; }
@@ -352,7 +625,7 @@ main.home {
     width: 96px;
     height: 8px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #d6ddeb, #1e56c8);
+    background: linear-gradient(90deg, #dbe3d3, #2e7d00);
 }
 .fit-key-note { margin-left: auto; }
 
@@ -451,7 +724,7 @@ main.home {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: clamp(14px, 2vw, 20px);
-    box-shadow: 0 28px 56px -38px rgba(24, 42, 82, 0.32);
+    box-shadow: 0 28px 56px -38px rgba(28, 33, 26, 0.30);
 }
 .game-head {
     display: flex;
@@ -691,10 +964,6 @@ main.home {
 .g-thumb.miss { opacity: 0.5; }
 
 /* ── small screens ────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-    .home-intro { min-height: calc(88vh - 92px); min-height: calc(88svh - 92px); }
-    .home-lede { max-width: 34ch; }
-}
 @media (max-width: 640px) {
     .fit-panel { grid-template-columns: 1fr; }
     .fit-card { max-width: 280px; margin-inline: auto; }
@@ -722,7 +991,7 @@ main.home {
 
 /* ── reduced motion: the reveal stays, because it is the game ─────── */
 @media (prefers-reduced-motion: reduce) {
-    .home-cue-arrow { animation: none; }
+    html.js .home-cue-arrow { animation: none; }
     .fit-mol .mol line { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 0; transition: opacity 200ms ease; }
     .fit-mol .bond.on line { opacity: 1; }
     .fit-mark, .contact { animation: none; }
@@ -882,7 +1151,7 @@ main.home {
     border: 0;
     border-radius: 999px;
     cursor: pointer;
-    box-shadow: 0 14px 30px -12px rgba(30, 86, 200, 0.55);
+    box-shadow: 0 14px 30px -12px rgba(46, 125, 0, 0.5);
     transition: transform 160ms var(--ease), background-color 160ms var(--ease);
 }
 .fit-tri {
@@ -914,18 +1183,22 @@ main.home {
     .fit-playbtn:hover { transform: translate(-50%, -50%); }
 }
 
-/* ── the wall of notes around the introduction ────────────────────────
-   Wide screens scatter the notes into the space either side of him.
-   Narrower ones lay them out in a row under the links, because there is
-   no side space left to stick anything to. */
-.wall { position: absolute; inset: 0; pointer-events: none; }
-.wall-notes { list-style: none; margin: 0; padding: 0; }
+/* ── the wall of notes ────────────────────────────────────────────────
+   The notes sit in a row under the numbers card, beside the line to the
+   game. The portrait fills the space either side of the introduction that
+   they used to be scattered over. */
+.wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 14px;
+}
+.wall-notes { display: contents; list-style: none; margin: 0; padding: 0; }
 
 .note {
-    position: absolute;
-    left: var(--x, 4%);
-    top: var(--y, 20%);
-    width: clamp(140px, 12vw, 178px);
+    position: relative;
+    width: 150px;
     min-height: 104px;
     padding: 18px 14px 12px;
     background: #f7e9a0;
@@ -933,8 +1206,7 @@ main.home {
     border-radius: 2px;
     text-align: left;
     transform: rotate(var(--r, 0deg));
-    box-shadow: 0 10px 20px -12px rgba(24, 42, 82, 0.45), 0 1px 0 rgba(0, 0, 0, 0.04);
-    pointer-events: auto;
+    box-shadow: 0 10px 20px -12px rgba(28, 33, 26, 0.42), 0 1px 0 rgba(0, 0, 0, 0.04);
 }
 /* the tape that holds it up */
 .note-tape {
@@ -986,12 +1258,9 @@ main.home {
 .note-add .note-tape { opacity: 0.5; }
 .note-add:hover { background: rgba(247, 233, 160, 0.5); border-color: #a8912f; }
 .wall-said {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -6px;
+    flex-basis: 100%;
     margin: 0;
-    text-align: center;
+    text-align: right;
     font-family: var(--f-mono);
     font-size: 0.66rem;
     color: var(--muted);
@@ -1007,10 +1276,10 @@ main.home {
     border: 0;
     border-radius: 3px;
     background: #f7e9a0;
-    box-shadow: 0 40px 80px -30px rgba(24, 42, 82, 0.5);
+    box-shadow: 0 40px 80px -30px rgba(28, 33, 26, 0.48);
     color: #4a3f13;
 }
-.wall-dialog::backdrop { background: rgba(18, 26, 44, 0.34); }
+.wall-dialog::backdrop { background: rgba(24, 28, 22, 0.34); }
 .wall-form { position: relative; padding: 24px 20px 18px; display: grid; gap: 6px; }
 .wall-lab {
     font-family: var(--f-mono);
@@ -1054,22 +1323,6 @@ main.home {
 .wall-cancel { background: transparent; border: 1px solid rgba(74, 63, 19, 0.35); color: #4a3f13; }
 .wall-fine { margin: 8px 0 0; font-family: var(--f-mono); font-size: 0.58rem; line-height: 1.5; color: #8a7526; }
 
-/* under 1180px there is no room beside him, so the notes queue up below */
-@media (max-width: 1180px) {
-    .wall {
-        position: static;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 14px;
-        margin-top: 30px;
-        pointer-events: auto;
-    }
-    .wall-notes { display: contents; }
-    .note { position: static; transform: rotate(var(--r, 0deg)); width: 150px; }
-    .wall-said { position: static; flex-basis: 100%; margin-top: 6px; }
-}
 @media (max-width: 560px) {
     .note { width: 132px; min-height: 92px; padding: 16px 11px 10px; }
 }
