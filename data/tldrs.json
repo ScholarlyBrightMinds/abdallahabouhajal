@@ -1,6 +1,14 @@
 {
   "_about": "Plain-language summaries + topic tags per publication, keyed by DOI. Picked up by build_html.py and rendered into publications.html. Topics drive the filter buttons; recognised values: ml, llms, review, pharm, thesis. A pub can carry multiple space-separated topics.",
-  "_updated": "2026-05-20",
+  "_updated": "2026-10-05",
+  "10.1007/s10822-026-00946-8": {
+    "tldr": "Chemical language models in virtual screening, property prediction and de novo design. They already screen billion-compound libraries and have produced designs confirmed in assays, but on ADMET prediction they do not consistently beat well-tuned descriptor and graph models.",
+    "topics": "llms ml review"
+  },
+  "10.1016/j.comtox.2026.100429": {
+    "tldr": "How machine learning, NLP and knowledge graphs build and quantify adverse outcome pathway networks. For regulators they suit screening and prioritisation today; wider use needs uncertainty estimates, clear applicability domains and toxicokinetic links.",
+    "topics": "ml review"
+  },
   "10.1080/17460441.2026.2641511": {
     "tldr": "Why open-source platforms like GitHub matter for reproducibility in computational drug discovery, with practical guidance for researchers new to version control.",
     "topics": "review"
@@ -47,6 +55,10 @@
   },
   "10.1080/0972060x.2022.2072177": {
     "tldr": "GC-MS characterisation of UAE-grown rosemary essential oil, with major-constituent profile and a comparison to other regional sources.",
+    "topics": "pharm"
+  },
+  "10.18549/pharmpract.2023.3.2850": {
+    "tldr": "A survey of 82 people with allergic rhinitis during COVID-19 mask mandates. Just over half found surgical or N95 masks very helpful, and those who reported fewer eye and nasal symptoms scored higher on the survey's knowledge questions.",
     "topics": "pharm"
   },
   "_no_doi_pubs": {

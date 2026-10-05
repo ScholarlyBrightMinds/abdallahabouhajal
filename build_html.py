@@ -152,6 +152,30 @@ def load_tldrs() -> dict:
     return {k: v for k, v in raw.items() if not k.startswith("_")}
 
 
+def load_pub_dates() -> dict[str, str]:
+    """DOI -> publication date (YYYY-MM-DD) from the OpenAlex works pull, so the
+    list can run newest first inside a year rather than in fetch order."""
+    try:
+        works = json.loads(DATA_OPENALX.read_text(encoding="utf-8")).get("works") or []
+    except Exception:
+        return {}
+    out: dict[str, str] = {}
+    for w in works:
+        doi = (w.get("doi") or "").lower().replace("https://doi.org/", "")
+        if doi and w.get("publication_date"):
+            out[doi] = w["publication_date"]
+    return out
+
+
+def sort_newest_first(pubs: list[dict], dois: dict, dates: dict[str, str]) -> None:
+    """Year first, as the cards show it; inside a year, the publication date.
+    A paper OpenAlex has no date for keeps its place at the end of its year."""
+    def key(p: dict) -> tuple[int, str]:
+        doi = ((dois.get(_pub_doi_key(p)) or {}).get("doi") or "").lower()
+        return (int(p.get("year") or 0), dates.get(doi, ""))
+    pubs.sort(key=key, reverse=True)
+
+
 def load_openalex_cites() -> dict:
     """Return DOI -> list of {year, cited_by_count} from data/openalex/openalex.json.
     DOIs are normalised (lower-case, leading https://doi.org/ stripped) so the
@@ -813,6 +837,7 @@ def main() -> int:
     dois = load_dois()
     tldrs = load_tldrs()
     oa_cites = load_openalex_cites()
+    sort_newest_first(pubs, dois, load_pub_dates())
     resolved_dois = sum(1 for v in dois.values() if v.get("doi"))
     print(f"[build_html] loaded {len(pubs)} publications, "
           f"{resolved_dois} DOIs, {len(tldrs)} TLDRs, "
