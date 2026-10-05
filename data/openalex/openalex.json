@@ -1,6 +1,6 @@
 {
   "orcid_id": "0009-0006-1807-2178",
-  "last_fetched": "2026-10-05T10:18:00.517048+00:00",
+  "last_fetched": "2026-10-05T12:07:10.382403+00:00",
   "summary": {
     "openalex_id": "https://openalex.org/A5102914480",
     "display_name": "Abdallah Abou Hajal",
@@ -944,23 +944,23 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.6240000128746033
+          "score": 0.6240000128746033,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/2",
-          "display_name": "Zero hunger",
-          "score": 0.49000000953674316
+          "score": 0.49000000953674316,
+          "display_name": "Zero hunger"
         }
       ],
       "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4389680309.pdf",
@@ -2013,20 +2013,20 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/4",
-          "display_name": "Quality education",
-          "score": 0.8278999924659729
+          "score": 0.8278999924659729,
+          "display_name": "Quality education"
         },
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.8048999905586243
+          "score": 0.8048999905586243,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.8100000023841858
+          "score": 0.8100000023841858,
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
@@ -2038,8 +2038,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 47,
@@ -3474,8 +3474,8 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.8048999905586243
+          "score": 0.8048999905586243,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -3483,8 +3483,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 113,
@@ -4945,8 +4945,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 63,
@@ -6202,8 +6202,8 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.9391000270843506
+          "score": 0.9391000270843506,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -6216,8 +6216,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 115,
@@ -7747,8 +7747,8 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.9391000270843506
+          "score": 0.9391000270843506,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -7761,8 +7761,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4297184549.pdf",
@@ -9149,20 +9149,20 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/4",
-          "display_name": "Quality education",
-          "score": 0.975600004196167
+          "score": 0.975600004196167,
+          "display_name": "Quality education"
         },
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.5683000087738037
+          "score": 0.5683000087738037,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.5099999904632568
+          "score": 0.5099999904632568,
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
@@ -9180,8 +9180,8 @@
         }
       ],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 28,
@@ -10688,8 +10688,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 23,
@@ -11730,8 +11730,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 22,
@@ -12735,8 +12735,8 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.4000000059604645
+          "score": 0.4000000059604645,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -12744,8 +12744,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 37,
@@ -13933,15 +13933,15 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.9940000176429749
+          "score": 0.9940000176429749,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.8700000047683716
+          "score": 0.8700000047683716,
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
@@ -13953,8 +13953,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4387366257.pdf",
@@ -15308,8 +15308,8 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.5683000087738037
+          "score": 0.5683000087738037,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -15317,8 +15317,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4392081340.pdf",
@@ -15996,20 +15996,20 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/4",
-          "display_name": "Quality education",
-          "score": 0.9235000014305115
+          "score": 0.9235000014305115,
+          "display_name": "Quality education"
         },
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.5683000087738037
+          "score": 0.5683000087738037,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.4399999976158142
+          "score": 0.4399999976158142,
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
@@ -16021,8 +16021,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4289260705.pdf",
@@ -16886,7 +16886,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.12867633,
+        "value": 0.12028668,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -16903,7 +16903,7 @@
       "primary_topic": {
         "id": "https://openalex.org/T10211",
         "display_name": "Computational Drug Discovery Methods",
-        "score": 0.9593999981880188,
+        "score": 0.9955999851226807,
         "subfield": {
           "id": "https://openalex.org/subfields/1703",
           "display_name": "Computational Theory and Mathematics"
@@ -16921,7 +16921,7 @@
         {
           "id": "https://openalex.org/T10211",
           "display_name": "Computational Drug Discovery Methods",
-          "score": 0.9593999981880188,
+          "score": 0.9955999851226807,
           "subfield": {
             "id": "https://openalex.org/subfields/1703",
             "display_name": "Computational Theory and Mathematics"
@@ -16936,9 +16936,26 @@
           }
         },
         {
+          "id": "https://openalex.org/T13702",
+          "display_name": "Machine Learning in Healthcare",
+          "score": 0.00039999998989515007,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1702",
+            "display_name": "Artificial Intelligence"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/17",
+            "display_name": "Computer Science"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
           "id": "https://openalex.org/T11948",
           "display_name": "Machine Learning in Materials Science",
-          "score": 0.02459999918937683,
+          "score": 0.00039999998989515007,
           "subfield": {
             "id": "https://openalex.org/subfields/2505",
             "display_name": "Materials Chemistry"
@@ -16950,23 +16967,6 @@
           "domain": {
             "id": "https://openalex.org/domains/3",
             "display_name": "Physical Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T12254",
-          "display_name": "Machine Learning in Bioinformatics",
-          "score": 0.0024999999441206455,
-          "subfield": {
-            "id": "https://openalex.org/subfields/1312",
-            "display_name": "Molecular Biology"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/13",
-            "display_name": "Biochemistry, Genetics and Molecular Biology"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/1",
-            "display_name": "Life Sciences"
           }
         }
       ],
@@ -17159,21 +17159,21 @@
           "descriptor_name": "Predictive Learning Models",
           "qualifier_ui": null,
           "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000098412",
-          "descriptor_name": "Predictive Learning Models",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000098412",
-          "descriptor_name": "Predictive Learning Models",
-          "qualifier_ui": null,
-          "qualifier_name": null,
           "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D000098412",
+          "descriptor_name": "Predictive Learning Models",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000098412",
+          "descriptor_name": "Predictive Learning Models",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
         },
         {
           "descriptor_ui": "D000098437",
@@ -17222,35 +17222,35 @@
           "descriptor_name": "Drug Interactions",
           "qualifier_ui": null,
           "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
           "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
         },
         {
           "descriptor_ui": "D004364",
@@ -17410,23 +17410,23 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.8371999859809875
+          "score": 0.8371999859809875,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.41566163301467896
+          "score": 0.41566163301467896,
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 21,
@@ -17933,7 +17933,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-03T13:16:28.481748",
+      "updated_date": "2026-10-05T09:50:58.205359",
       "created_date": "2026-02-09T00:00:00"
     },
     {
@@ -18405,23 +18405,23 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.8560000061988831
+          "score": 0.8560000061988831,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/16",
-          "display_name": "Peace, justice, and strong institutions",
-          "score": 0.6003750562667847
+          "score": 0.6003750562667847,
+          "display_name": "Peace, justice, and strong institutions"
         }
       ],
       "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 105,
@@ -18901,16 +18901,16 @@
       "sustainable_development_goals_aurora": [
         {
           "id": "https://metadata.un.org/sdg/16",
-          "display_name": "Peace, justice, and strong institutions",
-          "score": 0.6279879212379456
+          "score": 0.6279879212379456,
+          "display_name": "Peace, justice, and strong institutions"
         }
       ],
       "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -19652,8 +19652,8 @@
       "sustainable_development_goals": [
         {
           "id": "https://metadata.un.org/sdg/3",
-          "display_name": "Good health and well-being",
-          "score": 0.4043000042438507
+          "score": 0.4043000042438507,
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -19661,8 +19661,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 138,
