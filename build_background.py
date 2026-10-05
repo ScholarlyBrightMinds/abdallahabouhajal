@@ -27,7 +27,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent
 OUT = REPO / "images" / "bg-molecules.svg"
 OUT_JSON = REPO / "images" / "bg-molecules.json"
-STROKE, STROKE_W = "#121a2c", 2.6
+STROKE, STROKE_W = "#1e1f1e", 2.6
 DECK = REPO / "data" / "molecules.json"
 MINE = REPO / "data" / "research-mols.json"
 

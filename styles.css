@@ -55,19 +55,21 @@
 
     /* One palette. Light only. theme.config.js restates these at runtime
        so a config edit is still the single source of truth. */
-    --bg: #f6f7fb; --bg-soft: #eef1f8; --bg-deep: #e4e9f3;
-    --card: #ffffff; --card-soft: #fafbfe;
-    --text: #121a2c; --text-soft: #414d66; --muted: #6d7990;
-    --border: #dde3ee; --border-s: #e8ecf5;
-    --accent: #1e56c8; --accent-d: #17439f;
-    --accent-bg: #e8eefb; --accent-glow: rgba(30,86,200,0.16);
+    --bg: #f8f9f7; --bg-soft: #f1f3ef; --bg-deep: #e6e9e3;
+    --card: #ffffff; --card-soft: #fbfcfa;
+    --text: #1e1f1e; --text-soft: #434741; --muted: #5f665c;
+    --border: #dfe3db; --border-s: #ebeee8;
+    --accent: #2e7d00; --accent-d: #236400;
+    --accent-bg: #edf8e1; --accent-glow: rgba(65,158,0,0.16);
+    --accent-display: #419e00; --accent-soft: #b1e882;
+    --accent-ink: #113b00; --accent-light: #6dca2e;
     --amber: #8f6a2b; --amber-bg: #f6efdf; --amber-glow: rgba(143,106,43,0.15);
 
     /* Cards sit one small step off the ground, paper on a desk rather
        than a floating panel. No heavy drop shadows. */
-    --shadow-card:  0 16px 38px -22px rgba(24, 42, 82, 0.16);
-    --shadow-modal: 0 30px 80px -24px rgba(24, 42, 82, 0.22);
-    --overlay:      rgba(28, 36, 56, 0.4);
+    --shadow-card:  0 16px 38px -22px rgba(28, 33, 26, 0.16);
+    --shadow-modal: 0 30px 80px -24px rgba(28, 33, 26, 0.22);
+    --overlay:      rgba(24, 28, 22, 0.4);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -165,7 +167,7 @@ html.bg-live body::before { visibility: hidden; }
 }
 .bg-mol path {
     fill: none;
-    stroke: #121a2c;
+    stroke: #1e1f1e;
     stroke-width: 2.6;
     stroke-linecap: round;
     stroke-linejoin: round;

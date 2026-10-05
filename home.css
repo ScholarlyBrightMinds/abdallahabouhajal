@@ -157,7 +157,7 @@ main.home {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: clamp(14px, 2vw, 20px);
-    box-shadow: 0 28px 56px -38px rgba(24, 42, 82, 0.32);
+    box-shadow: 0 28px 56px -38px rgba(28, 33, 26, 0.30);
 }
 .fit-head {
     display: flex;
@@ -240,7 +240,7 @@ main.home {
 /* the map */
 .fit-pt {
     fill: var(--card);
-    stroke: #8d9cb8;
+    stroke: #8e9888;
     stroke-width: 1.5;
     cursor: pointer;
     transition: r 200ms var(--ease);
@@ -275,11 +275,11 @@ main.home {
 @keyframes fit-pop { from { opacity: 0; transform: scale(0.6); transform-origin: center; } }
 
 /* the pocket */
-.slab { stroke: rgba(110, 126, 158, 0.28); stroke-width: 0.8; }
+.slab { stroke: rgba(112, 122, 106, 0.28); stroke-width: 0.8; }
 .slab.s0 { fill: var(--bg-deep); }
-.slab.s1 { fill: #d7dfee; }
-.slab.s2 { fill: #c8d2e6; }
-.res-dot { fill: var(--card); stroke: #8d9cb8; stroke-width: 1.2; }
+.slab.s1 { fill: #dbe1d4; }
+.slab.s2 { fill: #ccd5c4; }
+.res-dot { fill: var(--card); stroke: #8e9888; stroke-width: 1.2; }
 .res-dot.key { stroke: var(--accent); stroke-width: 2; }
 .res-label {
     font-family: var(--f-mono);
@@ -291,7 +291,7 @@ main.home {
     stroke-linejoin: round;
 }
 .res-label.key { fill: var(--text); font-size: 10.5px; }
-.fit-ghost line { stroke: #8894ac; stroke-width: 1.6; stroke-dasharray: 3 3; opacity: 0.7; }
+.fit-ghost line { stroke: #8b9586; stroke-width: 1.6; stroke-dasharray: 3 3; opacity: 0.7; }
 .fit-ghost text { display: none; }
 .fit-lig { cursor: grab; touch-action: none; }
 .fit-lig.dragging { cursor: grabbing; }
@@ -352,7 +352,7 @@ main.home {
     width: 96px;
     height: 8px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #d6ddeb, #1e56c8);
+    background: linear-gradient(90deg, #dbe3d3, #2e7d00);
 }
 .fit-key-note { margin-left: auto; }
 
@@ -451,7 +451,7 @@ main.home {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: clamp(14px, 2vw, 20px);
-    box-shadow: 0 28px 56px -38px rgba(24, 42, 82, 0.32);
+    box-shadow: 0 28px 56px -38px rgba(28, 33, 26, 0.30);
 }
 .game-head {
     display: flex;
@@ -882,7 +882,7 @@ main.home {
     border: 0;
     border-radius: 999px;
     cursor: pointer;
-    box-shadow: 0 14px 30px -12px rgba(30, 86, 200, 0.55);
+    box-shadow: 0 14px 30px -12px rgba(46, 125, 0, 0.5);
     transition: transform 160ms var(--ease), background-color 160ms var(--ease);
 }
 .fit-tri {
@@ -933,7 +933,7 @@ main.home {
     border-radius: 2px;
     text-align: left;
     transform: rotate(var(--r, 0deg));
-    box-shadow: 0 10px 20px -12px rgba(24, 42, 82, 0.45), 0 1px 0 rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 20px -12px rgba(28, 33, 26, 0.42), 0 1px 0 rgba(0, 0, 0, 0.04);
     pointer-events: auto;
 }
 /* the tape that holds it up */
@@ -1007,10 +1007,10 @@ main.home {
     border: 0;
     border-radius: 3px;
     background: #f7e9a0;
-    box-shadow: 0 40px 80px -30px rgba(24, 42, 82, 0.5);
+    box-shadow: 0 40px 80px -30px rgba(28, 33, 26, 0.48);
     color: #4a3f13;
 }
-.wall-dialog::backdrop { background: rgba(18, 26, 44, 0.34); }
+.wall-dialog::backdrop { background: rgba(24, 28, 22, 0.34); }
 .wall-form { position: relative; padding: 24px 20px 18px; display: grid; gap: 6px; }
 .wall-lab {
     font-family: var(--f-mono);

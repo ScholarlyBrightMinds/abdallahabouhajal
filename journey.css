@@ -49,9 +49,9 @@ body { overflow-x: clip; }
     opacity: 0.85;
 }
 .journey-svg .jearth { fill: #f0ece1; stroke: none; }
-.journey-svg .jwall { fill: #e7ebf3; stroke: none; }
-.journey-svg .jskyline { fill: #e2e7f1; stroke: none; }
-.journey-svg .jsun { fill: #eceff7; stroke: none; }
+.journey-svg .jwall { fill: #e9ebe6; stroke: none; }
+.journey-svg .jskyline { fill: #e3e7df; stroke: none; }
+.journey-svg .jsun { fill: #eef0eb; stroke: none; }
 .journey-svg .jpebble { fill: #e3e0d6; stroke: none; }
 .journey-svg .jtuft { fill: none; stroke: #cfcbbd; stroke-width: 2.4; stroke-linecap: round; }
 .journey-svg .jdust { fill: #cdc8b8; stroke: none; }

@@ -98,13 +98,13 @@
     z-index: 2;
 }
 /* Duotones: ink navy family + one gold + one rose. No purple, no teal. */
-.blog-cover--phd      { background: linear-gradient(135deg, #14305e 0%, #8ab8ff 100%); }
-.blog-cover--git      { background: linear-gradient(135deg, #1c2634 0%, #8296b4 100%); }
+.blog-cover--phd      { background: linear-gradient(135deg, #1f3d10 0%, #a2eb73 100%); }
+.blog-cover--git      { background: linear-gradient(135deg, #1e231c 0%, #8a9584 100%); }
 .blog-cover--hack     { background: linear-gradient(135deg, #3a2a10 0%, #d7aa66 100%); }
-.blog-cover--ai       { background: linear-gradient(135deg, #0f2140 0%, #5e9eff 100%); }
+.blog-cover--ai       { background: linear-gradient(135deg, #113b00 0%, #6dca2e 100%); }
 .blog-cover--distance { background: linear-gradient(135deg, #33250f 0%, #c19154 100%); }
 .blog-cover--culture  { background: linear-gradient(135deg, #421f2e 0%, #c98aa8 100%); }
-.blog-cover--default  { background: linear-gradient(135deg, #10233f 0%, #5e9eff 100%); }
+.blog-cover--default  { background: linear-gradient(135deg, #1a2e12 0%, #6dca2e 100%); }
 
 .blog-body {
     padding: 1.3rem 1.5rem 1.4rem;

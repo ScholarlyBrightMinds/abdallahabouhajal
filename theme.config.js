@@ -29,26 +29,32 @@ window.SITE_CONFIG = {
     // ── Palette ──────────────────────────────────────────────────
     // Hub-assigned color for this researcher. Applied to CSS vars at runtime.
     palette: {
-        name: "cobalt",
+        name: "green",
         // One palette. The site is light only: no dark mode, no toggle.
+        // Green since 2026-10-05, after the GenAI Academy homepage. Neutrals
+        // carry no blue cast so the green sits on plain paper.
         colors: {
-            bg:          "#f6f7fb",
-            bgSoft:      "#eef1f8",
-            bgDeep:      "#e4e9f3",
-            card:        "#ffffff",
-            cardSoft:    "#fafbfe",
-            text:        "#121a2c",
-            textSoft:    "#414d66",
-            muted:       "#6d7990",
-            border:      "#dde3ee",
-            borderS:     "#e8ecf5",
-            accent:      "#1e56c8",      /* cobalt: deep */
-            accentD:     "#17439f",
-            accentBg:    "#e8eefb",
-            accentGlow:  "rgba(30,86,200,0.16)",
-            amber:       "#8f6a2b",
-            amberBg:     "#f6efdf",
-            amberGlow:   "rgba(143,106,43,0.15)"
+            bg:            "#f8f9f7",
+            bgSoft:        "#f1f3ef",
+            bgDeep:        "#e6e9e3",
+            card:          "#ffffff",
+            cardSoft:      "#fbfcfa",
+            text:          "#1e1f1e",
+            textSoft:      "#434741",
+            muted:         "#5f665c",
+            border:        "#dfe3db",
+            borderS:       "#ebeee8",
+            accent:        "#2e7d00",    /* links and small text: 5.2 to 1 on white */
+            accentD:       "#236400",
+            accentBg:      "#edf8e1",
+            accentGlow:    "rgba(65,158,0,0.16)",
+            accentDisplay: "#419e00",    /* 24px and larger only: 3.4 to 1 on white */
+            accentSoft:    "#b1e882",    /* soft button fill, with accentInk text */
+            accentInk:     "#113b00",
+            accentLight:   "#6dca2e",
+            amber:         "#8f6a2b",
+            amberBg:       "#f6efdf",
+            amberGlow:     "rgba(143,106,43,0.15)"
         }
     },
 
