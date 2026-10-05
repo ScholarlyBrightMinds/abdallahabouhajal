@@ -1,13 +1,18 @@
 {
   "name": "Abdallah Abouhajal",
   "author_id": "1I8SvsQAAAAJ",
-  "citations": 127,
+  "citations": 132,
   "h_index": 8,
   "i10_index": 6,
   "articles": [
     {
       "title": "Insights into artificial intelligence utilisation in drug discovery",
-      "cited_by": 22,
+      "cited_by": 24,
+      "year": "2024"
+    },
+    {
+      "title": "Overcoming barriers to machine learning applications in toxicity prediction",
+      "cited_by": 18,
       "year": "2024"
     },
     {
@@ -16,13 +21,8 @@
       "year": "2023"
     },
     {
-      "title": "Overcoming barriers to machine learning applications in toxicity prediction",
-      "cited_by": 17,
-      "year": "2024"
-    },
-    {
       "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
-      "cited_by": 12,
+      "cited_by": 13,
       "year": "2025"
     },
     {
@@ -36,14 +36,14 @@
       "year": "2023"
     },
     {
+      "title": "Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD molecule filter",
+      "cited_by": 9,
+      "year": "2024"
+    },
+    {
       "title": "Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted time-series interventions on pharmacist’s prescribing",
       "cited_by": 9,
       "year": "2022"
-    },
-    {
-      "title": "Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD molecule filter",
-      "cited_by": 8,
-      "year": "2024"
     },
     {
       "title": "A cross-sectional survey on the experience of people with allergic rhinitis amidst COVID-19 pandemic: The impact of the facemask: A pilot study",
@@ -66,6 +66,11 @@
       "year": "2026"
     },
     {
+      "title": "Chemical language models for early-stage drug discovery: applications, pitfalls, and future directions",
+      "cited_by": 0,
+      "year": "2026"
+    },
+    {
       "title": "Computational approaches to adverse outcome pathway networks: advances in construction, quantification, and regulatory decision support",
       "cited_by": 0,
       "year": "2026"
@@ -81,6 +86,6 @@
       "year": "2022"
     }
   ],
-  "fetched_at": "2026-09-24T12:17:11Z",
+  "fetched_at": "2026-10-05T09:46:56Z",
   "source": "https://scholar.google.com/citations?user=1I8SvsQAAAAJ"
 }
