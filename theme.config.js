@@ -172,8 +172,9 @@ window.SITE_CONFIG = {
             title: "Chemical Language Models for Early-Stage Drug Discovery: Applications, Pitfalls, and Future Directions",
             desc: "A review of what chemical language models are used for in early drug discovery and where they break down.",
             tech:  ["Chemical Language Models", "Drug Discovery", "Review"],
-            status: "Under review · Journal of Computer-Aided Molecular Design",
-            statusKind: "review",
+            status: "Published · Journal of Computer-Aided Molecular Design · 2026",
+            statusKind: "published",
+            doi:   "10.1007/s10822-026-00946-8",
             venue: "Journal of Computer-Aided Molecular Design"
         },
         {

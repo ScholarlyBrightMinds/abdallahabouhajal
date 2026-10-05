@@ -72,6 +72,9 @@ DEFAULT_CROP = (0.04, 0.96, 0.00, 0.58)
 
 # Keys are lower-case DOIs. Comment says what the band ends on.
 CROPS: dict[str, tuple[float, float, float, float]] = {
+    # Springer, J Comput Aided Mol Des (closed access, his own PDF): header,
+    # title, dates, abstract to the line gap above its last word
+    "10.1007/s10822-026-00946-8":      (0.040, 0.960, 0.000, 0.5874),
     # Elsevier, Computational Toxicology: whole abstract and its closing rule
     "10.1016/j.comtox.2026.100429":    (0.050, 0.950, 0.000, 0.574),
     # T&F cover sheet skipped. Grey abstract box, then the first intro lines
