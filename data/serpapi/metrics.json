@@ -4,23 +4,23 @@
   "h_index": 8,
   "author_id": "1I8SvsQAAAAJ",
   "source": "google_scholar totals, open indexes per paper",
-  "last_updated": "2026-10-05T10:15:21Z",
+  "last_updated": "2026-10-05T10:17:59Z",
   "sources": {
     "openalex": {
-      "papers": 0,
-      "citations": 0
+      "papers": 17,
+      "citations": 96
     },
     "crossref": {
-      "papers": 15,
+      "papers": 17,
       "citations": 89
     },
     "semantic_scholar": {
-      "papers": 14,
+      "papers": 16,
       "citations": 79
     },
     "carried_forward": 0,
     "excluded_non_papers": 0,
-    "excluded_by_list": 0,
+    "excluded_by_list": 1,
     "google_scholar": {
       "citations": 132,
       "h_index": 8,
