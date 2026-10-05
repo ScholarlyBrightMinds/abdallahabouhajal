@@ -51,6 +51,7 @@ def _get_json(url: str, mailto: str) -> dict | None:
     `mailto=` query parameter. We use both for maximum politeness."""
     sep = "&" if "?" in url else "?"
     url = f"{url}{sep}mailto={urllib.parse.quote(mailto)}"
+    shown = url   # the only form of the URL that may appear in a log: never the key
     key = os.environ.get("OPENALEX_API_KEY", "").strip()
     if key:   # optional repo secret: its own rate budget instead of the shared runner IP's
         url += f"&api_key={urllib.parse.quote(key)}"
@@ -65,7 +66,8 @@ def _get_json(url: str, mailto: str) -> dict | None:
         with urllib.request.urlopen(req, timeout=20) as r:
             return json.loads(r.read())
     except Exception as e:
-        print(f"    fetch failed: {url} ({e})", file=sys.stderr)
+        why = str(e).replace(key, "***") if key else str(e)
+        print(f"    fetch failed: {shown} ({why})", file=sys.stderr)
         return None
 
 
