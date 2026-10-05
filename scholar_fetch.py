@@ -13,7 +13,9 @@ found no articles. When it refuses, last week's numbers stay up.
 
     python3 scholar_fetch.py              read, merge, rebuild
     python3 scholar_fetch.py --dry-run    read and print, write nothing
-    python3 scholar_fetch.py --from FILE  parse a saved page, for testing
+    python3 scholar_fetch.py --from FILE  parse a saved page instead of fetching
+    python3 scholar_fetch.py --save FILE  also keep the page it read, so a retry
+                                          can rebuild without asking Scholar again
 """
 
 from __future__ import annotations
@@ -95,6 +97,9 @@ def main() -> int:
     saved = None
     if "--from" in args:
         saved = Path(args[args.index("--from") + 1])
+    keep = None
+    if "--save" in args:
+        keep = Path(args[args.index("--save") + 1])
 
     try:
         page = saved.read_text(encoding="utf-8", errors="replace") if saved else fetch(AUTHOR)
@@ -103,6 +108,9 @@ def main() -> int:
         print(f"[FAIL] {e}")
         print("       nothing written, the numbers already on the site stay up")
         return 1
+    if keep and not saved:
+        keep.parent.mkdir(parents=True, exist_ok=True)
+        keep.write_text(page, encoding="utf-8")
 
     if EXPECT_NAME not in data["name"].lower():
         print(f"[FAIL] the profile is called {data['name']!r}, which is not his")
