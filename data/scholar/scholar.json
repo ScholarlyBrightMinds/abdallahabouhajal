@@ -1,7 +1,7 @@
 {
   "name": "Abdallah Abouhajal",
   "author_id": "1I8SvsQAAAAJ",
-  "citations": 132,
+  "citations": 133,
   "h_index": 8,
   "i10_index": 6,
   "articles": [
@@ -26,14 +26,14 @@
       "year": "2025"
     },
     {
+      "title": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
+      "cited_by": 13,
+      "year": "2023"
+    },
+    {
       "title": "Machine learning predictions of tumor progression: How reliable are we?",
       "cited_by": 12,
       "year": "2025"
-    },
-    {
-      "title": "Are we ready yet for digital transformation? Virtual versus on-campus OSCE as assessment tools in pharmacy education. A randomized controlled head-to-head comparative assessment",
-      "cited_by": 12,
-      "year": "2023"
     },
     {
       "title": "Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD molecule filter",
@@ -86,6 +86,6 @@
       "year": "2022"
     }
   ],
-  "fetched_at": "2026-10-15T06:12:08Z",
+  "fetched_at": "2026-10-19T06:14:21Z",
   "source": "https://scholar.google.com/citations?user=1I8SvsQAAAAJ"
 }
