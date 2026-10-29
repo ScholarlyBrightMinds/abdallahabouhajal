@@ -1,7 +1,7 @@
 {
   "name": "Abdallah Abouhajal",
   "author_id": "1I8SvsQAAAAJ",
-  "citations": 133,
+  "citations": 135,
   "h_index": 8,
   "i10_index": 6,
   "articles": [
@@ -12,12 +12,12 @@
     },
     {
       "title": "Overcoming barriers to machine learning applications in toxicity prediction",
-      "cited_by": 18,
+      "cited_by": 19,
       "year": "2024"
     },
     {
       "title": "Exploring the pharmacy students’ perspectives on off-campus online learning experiences amid COVID-19 crises: A cross-sectional survey",
-      "cited_by": 18,
+      "cited_by": 19,
       "year": "2023"
     },
     {
@@ -86,6 +86,6 @@
       "year": "2022"
     }
   ],
-  "fetched_at": "2026-10-22T06:12:12Z",
+  "fetched_at": "2026-10-29T06:12:05Z",
   "source": "https://scholar.google.com/citations?user=1I8SvsQAAAAJ"
 }
