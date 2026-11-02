@@ -1,16 +1,16 @@
 {
   "orcid_id": "0009-0006-1807-2178",
-  "last_fetched": "2026-10-26T10:50:18.029202+00:00",
+  "last_fetched": "2026-11-02T13:13:29.188933+00:00",
   "summary": {
     "openalex_id": "https://openalex.org/A5102914480",
     "display_name": "Abdallah Abou Hajal",
     "works_count": 18,
-    "cited_by_count": 100,
+    "cited_by_count": 101,
     "h_index": 8,
     "i10_index": 5,
-    "mean_citedness": 4.545454545454546,
+    "mean_citedness": 4.636363636363637,
     "recent_year_works": 3,
-    "recent_year_cites": 13,
+    "recent_year_cites": 2,
     "oa_works": 10,
     "works_in_pull": 18,
     "works_with_doi": 18,
@@ -64,9 +64,9 @@
     ],
     "full_name": "Abdallah Abou Hajal",
     "works_count": 18,
-    "cited_by_count": 100,
+    "cited_by_count": 101,
     "summary_stats": {
-      "2yr_mean_citedness": 4.545454545454546,
+      "2yr_mean_citedness": 4.636363636363637,
       "h_index": 8,
       "i10_index": 5
     },
@@ -202,7 +202,7 @@
       {
         "id": "https://openalex.org/T10211",
         "display_name": "Computational Drug Discovery Methods",
-        "value": 2.48e-05,
+        "value": 2.38e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/1703",
           "display_name": "Computational Theory and Mathematics"
@@ -219,7 +219,7 @@
       {
         "id": "https://openalex.org/T11948",
         "display_name": "Machine Learning in Materials Science",
-        "value": 2.16e-05,
+        "value": 2.15e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/2505",
           "display_name": "Materials Chemistry"
@@ -236,7 +236,7 @@
       {
         "id": "https://openalex.org/T13702",
         "display_name": "Machine Learning in Healthcare",
-        "value": 1.94e-05,
+        "value": 1.93e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/1702",
           "display_name": "Artificial Intelligence"
@@ -253,7 +253,7 @@
       {
         "id": "https://openalex.org/T12281",
         "display_name": "Animal testing and alternatives",
-        "value": 1.82e-05,
+        "value": 1.83e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/3404",
           "display_name": "Small Animals"
@@ -322,31 +322,31 @@
         "year": 2022,
         "works_count": 3,
         "oa_works_count": 2,
-        "cited_by_count": 13
+        "cited_by_count": 2
       },
       {
         "year": 2023,
         "works_count": 4,
         "oa_works_count": 4,
-        "cited_by_count": 37
+        "cited_by_count": 6
       },
       {
         "year": 2024,
         "works_count": 2,
         "oa_works_count": 2,
-        "cited_by_count": 29
+        "cited_by_count": 16
       },
       {
         "year": 2025,
         "works_count": 3,
         "oa_works_count": 0,
-        "cited_by_count": 19
+        "cited_by_count": 41
       },
       {
         "year": 2026,
         "works_count": 6,
         "oa_works_count": 2,
-        "cited_by_count": 2
+        "cited_by_count": 36
       }
     ],
     "display_name_alternatives": [
@@ -358,8 +358,8 @@
     ],
     "block_key": "a abou hajal",
     "works_api_url": "https://api.openalex.org/works?filter=author.id:A5102914480",
-    "updated_date": "2026-10-24T12:28:35",
-    "created_date": "2025-10-10T00:00:00"
+    "updated_date": "2026-11-01T11:00:13",
+    "created_date": "2022-05-22T00:00:00"
   },
   "works": [
     {
@@ -544,11 +544,11 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 1.8242,
+      "fwci": 1.9962,
       "has_fulltext": true,
       "cited_by_count": 14,
       "citation_normalized_percentile": {
-        "value": 0.87160626,
+        "value": 0.87742612,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -718,34 +718,6 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D000069550",
-          "descriptor_name": "Machine Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D000069550",
-          "descriptor_name": "Machine Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D000818",
-          "descriptor_name": "Animals",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000818",
-          "descriptor_name": "Animals",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D000818",
           "descriptor_name": "Animals",
           "qualifier_ui": null,
@@ -758,34 +730,6 @@
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D064420",
-          "descriptor_name": "Drug-Related Side Effects and Adverse Reactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D064420",
-          "descriptor_name": "Drug-Related Side Effects and Adverse Reactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
         },
         {
           "descriptor_ui": "D064420",
@@ -929,16 +873,16 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.6240000128746033,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Zero hunger",
+          "id": "https://metadata.un.org/sdg/2",
           "score": 0.49000000953674316,
-          "id": "https://metadata.un.org/sdg/2"
+          "display_name": "Zero hunger"
         }
       ],
       "study_designs": [],
@@ -978,16 +922,16 @@
         "https://openalex.org/W4385732850"
       ],
       "related_works": [
-        "https://openalex.org/W4391375266",
-        "https://openalex.org/W2748952813",
-        "https://openalex.org/W3031052312",
-        "https://openalex.org/W4389568370",
-        "https://openalex.org/W3032375762",
-        "https://openalex.org/W1995515455",
-        "https://openalex.org/W2080531066",
-        "https://openalex.org/W3108674512",
-        "https://openalex.org/W1506200166",
-        "https://openalex.org/W1489783725"
+        "https://openalex.org/W4239999565",
+        "https://openalex.org/W2884382833",
+        "https://openalex.org/W4321514660",
+        "https://openalex.org/W2784041686",
+        "https://openalex.org/W2613563183",
+        "https://openalex.org/W2980583144",
+        "https://openalex.org/W2909581164",
+        "https://openalex.org/W2032200772",
+        "https://openalex.org/W2522086355",
+        "https://openalex.org/W2783439894"
       ],
       "abstract_inverted_index": {
         "1.": [
@@ -1083,8 +1027,8 @@
           "cited_by_count": 4
         }
       ],
-      "updated_date": "2026-10-22T18:32:59.640997",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-10-31T12:09:11.096373",
+      "created_date": "2023-12-14T00:00:00"
     },
     {
       "id": "https://openalex.org/W4379768553",
@@ -1096,7 +1040,8 @@
       "ids": {
         "openalex": "https://openalex.org/W4379768553",
         "doi": "https://doi.org/10.1016/j.jsps.2023.05.024",
-        "pmid": "https://pubmed.ncbi.nlm.nih.gov/37287508"
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/37287508",
+        "pmcid": "https://www.ncbi.nlm.nih.gov/pmc/articles/10232921"
       },
       "language": "en",
       "primary_location": {
@@ -1538,16 +1483,16 @@
         "currency": "USD",
         "value_usd": 1450
       },
-      "fwci": 8.8685,
+      "fwci": 8.8855,
       "has_fulltext": true,
       "cited_by_count": 12,
       "citation_normalized_percentile": {
-        "value": 0.97716838,
+        "value": 0.97700054,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
       "cited_by_percentile_year": {
-        "min": 88,
+        "min": 89,
         "max": 99
       },
       "biblio": {
@@ -1879,6 +1824,37 @@
           "raw_type": "journal-article"
         },
         {
+          "id": "pmh:oai:pubmedcentral.nih.gov:10232921",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10232921",
+          "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10232921/pdf/main.pdf",
+          "source": {
+            "id": "https://openalex.org/S2764455111",
+            "display_name": "PubMed Central",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Saudi Pharm J",
+          "raw_type": "Text"
+        },
+        {
           "id": "pmid:37287508",
           "doi": null,
           "is_oa": false,
@@ -1908,37 +1884,6 @@
           "is_published": true,
           "raw_source_name": "Saudi pharmaceutical journal : SPJ : the official publication of the Saudi Pharmaceutical Society",
           "raw_type": "Journal Article"
-        },
-        {
-          "id": "pmh:oai:pubmedcentral.nih.gov:10232921",
-          "doi": null,
-          "is_oa": true,
-          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10232921",
-          "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10232921/pdf/main.pdf",
-          "source": {
-            "id": "https://openalex.org/S2764455111",
-            "display_name": "PubMed Central",
-            "issn_l": null,
-            "issn": null,
-            "is_oa": true,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1299303238",
-            "host_organization_name": "National Institutes of Health",
-            "host_organization_lineage": [
-              "https://openalex.org/I1299303238"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": "cc-by-nc-nd",
-          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
-          "raw_source_name": "Saudi Pharm J",
-          "raw_type": "Text"
         },
         {
           "id": "pmh:oai:doaj.org/article:8aef50cd78e24ddc838f3b9914c03da7",
@@ -2013,27 +1958,27 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Quality education",
+          "id": "https://metadata.un.org/sdg/4",
           "score": 0.8278999924659729,
-          "id": "https://metadata.un.org/sdg/4"
+          "display_name": "Quality education"
         },
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8048999905586243,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8100000023841858,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
         {
-          "display_name": "Observational Study",
-          "id": "https://openalex.org/study-designs/observational-study"
+          "id": "https://openalex.org/study-designs/observational-study",
+          "display_name": "Observational Study"
         }
       ],
       "awards": [],
@@ -2093,16 +2038,16 @@
         "https://openalex.org/W6784229330"
       ],
       "related_works": [
-        "https://openalex.org/W3127156785",
-        "https://openalex.org/W4205754011",
-        "https://openalex.org/W3009669391",
-        "https://openalex.org/W4200329650",
-        "https://openalex.org/W4205215807",
-        "https://openalex.org/W3005417802",
-        "https://openalex.org/W4226296940",
-        "https://openalex.org/W3028835529",
-        "https://openalex.org/W3036314732",
-        "https://openalex.org/W3134376730"
+        "https://openalex.org/W3092103327",
+        "https://openalex.org/W4313437987",
+        "https://openalex.org/W4392379840",
+        "https://openalex.org/W7167231950",
+        "https://openalex.org/W3212621312",
+        "https://openalex.org/W4213127443",
+        "https://openalex.org/W3112451353",
+        "https://openalex.org/W3205576900",
+        "https://openalex.org/W3197699094",
+        "https://openalex.org/W4306250232"
       ],
       "abstract_inverted_index": {
         "The": [
@@ -2889,8 +2834,8 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-10-16T09:59:22.235173",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-10-29T09:56:32.521200",
+      "created_date": "2023-06-09T00:00:00"
     },
     {
       "id": "https://openalex.org/W4400042317",
@@ -3211,11 +3156,11 @@
         "value_usd": 4500
       },
       "apc_paid": null,
-      "fwci": 1.9294,
+      "fwci": 2.1154,
       "has_fulltext": false,
       "cited_by_count": 10,
       "citation_normalized_percentile": {
-        "value": 0.87075588,
+        "value": 0.87631641,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -3500,34 +3445,6 @@
           "is_major_topic": false
         },
         {
-          "descriptor_ui": "D003102",
-          "descriptor_name": "Colloids",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D003102",
-          "descriptor_name": "Colloids",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D054852",
-          "descriptor_name": "Small Molecule Libraries",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D054852",
-          "descriptor_name": "Small Molecule Libraries",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D054852",
           "descriptor_name": "Small Molecule Libraries",
           "qualifier_ui": "Q000737",
@@ -3540,34 +3457,6 @@
           "qualifier_ui": "Q000379",
           "qualifier_name": "methods",
           "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D057166",
-          "descriptor_name": "High-Throughput Screening Assays",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D057166",
-          "descriptor_name": "High-Throughput Screening Assays",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
         },
         {
           "descriptor_ui": "D057166",
@@ -3658,7 +3547,7 @@
           "raw_type": "Journal Article"
         },
         {
-          "id": "pmh:oai:pure.atira.dk:openaire_cris_publications/c096b1ff-06b2-4c77-abd7-bb20d47fb657",
+          "id": "pmh:oai:pure.atira.dk:openaire/c096b1ff-06b2-4c77-abd7-bb20d47fb657",
           "doi": null,
           "is_oa": true,
           "landing_page_url": "https://research.manchester.ac.uk/en/publications/c096b1ff-06b2-4c77-abd7-bb20d47fb657",
@@ -3682,15 +3571,15 @@
           },
           "license": "cc-by",
           "license_id": "https://openalex.org/licenses/cc-by",
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
           "raw_source_name": "Hajal, A A, Bryce, R A, Amor, B B, Atatreh, N & Ghattas, M A 2024, 'Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter', Journal of Chemical Information and Modeling, vol. 64, no. 13, pp. 4991\u20135005. https://doi.org/10.1021/acs.jcim.4c00363",
           "raw_type": "info:eu-repo/semantics/article"
         }
       ],
       "best_oa_location": {
-        "id": "pmh:oai:pure.atira.dk:openaire_cris_publications/c096b1ff-06b2-4c77-abd7-bb20d47fb657",
+        "id": "pmh:oai:pure.atira.dk:openaire/c096b1ff-06b2-4c77-abd7-bb20d47fb657",
         "doi": null,
         "is_oa": true,
         "landing_page_url": "https://research.manchester.ac.uk/en/publications/c096b1ff-06b2-4c77-abd7-bb20d47fb657",
@@ -3714,9 +3603,9 @@
         },
         "license": "cc-by",
         "license_id": "https://openalex.org/licenses/cc-by",
-        "version": "submittedVersion",
-        "is_accepted": false,
-        "is_published": false,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
         "raw_source_name": "Hajal, A A, Bryce, R A, Amor, B B, Atatreh, N & Ghattas, M A 2024, 'Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter', Journal of Chemical Information and Modeling, vol. 64, no. 13, pp. 4991\u20135005. https://doi.org/10.1021/acs.jcim.4c00363",
         "raw_type": "info:eu-repo/semantics/article"
       },
@@ -3796,16 +3685,16 @@
         "https://openalex.org/W4392694351"
       ],
       "related_works": [
-        "https://openalex.org/W2967733078",
-        "https://openalex.org/W3204430031",
-        "https://openalex.org/W3137904399",
-        "https://openalex.org/W4310492845",
-        "https://openalex.org/W2885778889",
-        "https://openalex.org/W4310224730",
-        "https://openalex.org/W2766514146",
-        "https://openalex.org/W4289703016",
-        "https://openalex.org/W2885516856",
-        "https://openalex.org/W3094138326"
+        "https://openalex.org/W3093403456",
+        "https://openalex.org/W3157291058",
+        "https://openalex.org/W2580693501",
+        "https://openalex.org/W2969640213",
+        "https://openalex.org/W3042607120",
+        "https://openalex.org/W2939293293",
+        "https://openalex.org/W6912916015",
+        "https://openalex.org/W2991236275",
+        "https://openalex.org/W4410138293",
+        "https://openalex.org/W4399812235"
       ],
       "abstract_inverted_index": {
         "The": [
@@ -4455,8 +4344,8 @@
           "cited_by_count": 6
         }
       ],
-      "updated_date": "2026-10-24T09:50:30.924529",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-10-31T12:09:11.096373",
+      "created_date": "2024-06-27T00:00:00"
     },
     {
       "id": "https://openalex.org/W4413440773",
@@ -4521,7 +4410,7 @@
         "raw_type": "journal-article"
       },
       "volume": null,
-      "type": "article",
+      "type": "review",
       "indexed_in": [
         "crossref",
         "pubmed"
@@ -4654,13 +4543,13 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 4.804,
+      "fwci": 0.614,
       "has_fulltext": false,
       "cited_by_count": 10,
       "citation_normalized_percentile": {
-        "value": 0.95830461,
+        "value": 0.6159292,
         "is_in_top_1_percent": false,
-        "is_in_top_10_percent": true
+        "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
         "min": 94,
@@ -4874,29 +4763,8 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
           "descriptor_ui": "D004347",
           "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": false
@@ -4916,20 +4784,6 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D007802",
-          "descriptor_name": "Language",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D016208",
-          "descriptor_name": "Databases, Factual",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D016208",
           "descriptor_name": "Databases, Factual",
           "qualifier_ui": null,
@@ -4939,20 +4793,6 @@
         {
           "descriptor_ui": "D020000",
           "descriptor_name": "Decision Support Systems, Clinical",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D020000",
-          "descriptor_name": "Decision Support Systems, Clinical",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D060735",
-          "descriptor_name": "Pharmacovigilance",
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": false
@@ -5051,9 +4891,9 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8048999905586243,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -5181,16 +5021,16 @@
         "https://openalex.org/W4411889305"
       ],
       "related_works": [
-        "https://openalex.org/W4391375266",
-        "https://openalex.org/W2899084033",
-        "https://openalex.org/W2748952813",
-        "https://openalex.org/W3031052312",
-        "https://openalex.org/W4389568370",
-        "https://openalex.org/W3032375762",
-        "https://openalex.org/W1995515455",
-        "https://openalex.org/W2080531066",
-        "https://openalex.org/W3108674512",
-        "https://openalex.org/W1506200166"
+        "https://openalex.org/W7126068806",
+        "https://openalex.org/W4410940275",
+        "https://openalex.org/W4407423373",
+        "https://openalex.org/W7127056077",
+        "https://openalex.org/W7221965164",
+        "https://openalex.org/W4414553638",
+        "https://openalex.org/W7166855567",
+        "https://openalex.org/W4410440973",
+        "https://openalex.org/W7213669782",
+        "https://openalex.org/W4416971715"
       ],
       "abstract_inverted_index": {
         "INTRODUCTION:": [
@@ -5703,7 +5543,7 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-10-16T09:59:22.235173",
+      "updated_date": "2026-10-31T12:09:11.096373",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -5767,7 +5607,7 @@
         "raw_type": "journal-article"
       },
       "volume": null,
-      "type": "article",
+      "type": "review",
       "indexed_in": [
         "crossref",
         "pubmed"
@@ -5876,13 +5716,13 @@
         "value_usd": 3080
       },
       "apc_paid": null,
-      "fwci": 3.2988,
+      "fwci": 0.7634,
       "has_fulltext": false,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.92492148,
+        "value": 0.67883996,
         "is_in_top_1_percent": false,
-        "is_in_top_10_percent": true
+        "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
         "min": 97,
@@ -6094,20 +5934,6 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D000069550",
-          "descriptor_name": "Machine Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D006801",
           "descriptor_name": "Humans",
           "qualifier_ui": null,
@@ -6124,30 +5950,9 @@
         {
           "descriptor_ui": "D009369",
           "descriptor_name": "Neoplasms",
-          "qualifier_ui": "Q000175",
-          "qualifier_name": "diagnosis",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D009369",
-          "descriptor_name": "Neoplasms",
           "qualifier_ui": "Q000473",
           "qualifier_name": "pathology",
           "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D009369",
-          "descriptor_name": "Neoplasms",
-          "qualifier_ui": "Q000473",
-          "qualifier_name": "pathology",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D018450",
-          "descriptor_name": "Disease Progression",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
         },
         {
           "descriptor_ui": "D018450",
@@ -6241,16 +6046,16 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.9391000270843506,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
       "study_designs": [
         {
-          "display_name": "Systematic Review",
-          "id": "https://openalex.org/study-designs/systematic-review"
+          "id": "https://openalex.org/study-designs/systematic-review",
+          "display_name": "Systematic Review"
         }
       ],
       "awards": [],
@@ -6363,16 +6168,16 @@
         "https://openalex.org/W6871487263"
       ],
       "related_works": [
-        "https://openalex.org/W2961085424",
-        "https://openalex.org/W4306674287",
-        "https://openalex.org/W4387369504",
-        "https://openalex.org/W4394896187",
-        "https://openalex.org/W3170094116",
-        "https://openalex.org/W4386462264",
-        "https://openalex.org/W3107602296",
-        "https://openalex.org/W4364306694",
-        "https://openalex.org/W4312192474",
-        "https://openalex.org/W4283697347"
+        "https://openalex.org/W7203470664",
+        "https://openalex.org/W4225689574",
+        "https://openalex.org/W7131662711",
+        "https://openalex.org/W4407230429",
+        "https://openalex.org/W2111547563",
+        "https://openalex.org/W7117962565",
+        "https://openalex.org/W4414729515",
+        "https://openalex.org/W7155355914",
+        "https://openalex.org/W4409403030",
+        "https://openalex.org/W4386161075"
       ],
       "abstract_inverted_index": null,
       "counts_by_year": [
@@ -6385,8 +6190,8 @@
           "cited_by_count": 5
         }
       ],
-      "updated_date": "2026-10-16T09:59:22.235173",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-10-31T12:09:11.096373",
+      "created_date": "2025-04-16T00:00:00"
     },
     {
       "id": "https://openalex.org/W4318015227",
@@ -6398,7 +6203,8 @@
       "ids": {
         "openalex": "https://openalex.org/W4318015227",
         "doi": "https://doi.org/10.1016/j.jsps.2023.01.004",
-        "pmid": "https://pubmed.ncbi.nlm.nih.gov/36718383"
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/36718383",
+        "pmcid": "https://www.ncbi.nlm.nih.gov/pmc/articles/9876029"
       },
       "language": "en",
       "primary_location": {
@@ -6796,11 +6602,11 @@
         "currency": "USD",
         "value_usd": 1450
       },
-      "fwci": 2.0674,
+      "fwci": 2.3039,
       "has_fulltext": true,
       "cited_by_count": 9,
       "citation_normalized_percentile": {
-        "value": 0.85621513,
+        "value": 0.86692275,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -7044,6 +6850,37 @@
           "raw_type": "journal-article"
         },
         {
+          "id": "pmh:oai:pubmedcentral.nih.gov:9876029",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9876029",
+          "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9876029/pdf/main.pdf",
+          "source": {
+            "id": "https://openalex.org/S2764455111",
+            "display_name": "PubMed Central",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Saudi Pharm J",
+          "raw_type": "Text"
+        },
+        {
           "id": "pmid:36718383",
           "doi": null,
           "is_oa": false,
@@ -7073,37 +6910,6 @@
           "is_published": true,
           "raw_source_name": "Saudi pharmaceutical journal : SPJ : the official publication of the Saudi Pharmaceutical Society",
           "raw_type": "Journal Article"
-        },
-        {
-          "id": "pmh:oai:pubmedcentral.nih.gov:9876029",
-          "doi": null,
-          "is_oa": true,
-          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9876029",
-          "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9876029/pdf/main.pdf",
-          "source": {
-            "id": "https://openalex.org/S2764455111",
-            "display_name": "PubMed Central",
-            "issn_l": null,
-            "issn": null,
-            "is_oa": true,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1299303238",
-            "host_organization_name": "National Institutes of Health",
-            "host_organization_lineage": [
-              "https://openalex.org/I1299303238"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": null,
-          "license_id": null,
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
-          "raw_source_name": "Saudi Pharm J",
-          "raw_type": "Text"
         },
         {
           "id": "pmh:oai:doaj.org/article:aaa23e3a1c2743eb9eef202979e1048f",
@@ -7178,27 +6984,27 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Quality education",
+          "id": "https://metadata.un.org/sdg/4",
           "score": 0.975600004196167,
-          "id": "https://metadata.un.org/sdg/4"
+          "display_name": "Quality education"
         },
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.5683000087738037,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.5099999904632568,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
         {
-          "display_name": "Clinical Trial",
-          "id": "https://openalex.org/study-designs/clinical-trial"
+          "id": "https://openalex.org/study-designs/clinical-trial",
+          "display_name": "Clinical Trial"
         }
       ],
       "awards": [],
@@ -7244,16 +7050,16 @@
         "https://openalex.org/W4220756444"
       ],
       "related_works": [
-        "https://openalex.org/W4391375266",
-        "https://openalex.org/W2748952813",
-        "https://openalex.org/W2001821990",
-        "https://openalex.org/W2319020389",
-        "https://openalex.org/W2272707781",
-        "https://openalex.org/W4313324883",
-        "https://openalex.org/W2224777402",
-        "https://openalex.org/W2069385463",
-        "https://openalex.org/W2364973063",
-        "https://openalex.org/W2392403798"
+        "https://openalex.org/W4289260705",
+        "https://openalex.org/W4211215605",
+        "https://openalex.org/W3159293898",
+        "https://openalex.org/W4281787165",
+        "https://openalex.org/W4289856868",
+        "https://openalex.org/W3156283237",
+        "https://openalex.org/W3112952909",
+        "https://openalex.org/W4206362013",
+        "https://openalex.org/W7030003599",
+        "https://openalex.org/W7214932877"
       ],
       "abstract_inverted_index": {
         "Background:": [
@@ -7914,8 +7720,8 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-10-16T09:59:22.235173",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-10-29T09:56:32.521200",
+      "created_date": "2023-01-26T00:00:00"
     },
     {
       "id": "https://openalex.org/W4297184549",
@@ -7927,7 +7733,8 @@
       "ids": {
         "openalex": "https://openalex.org/W4297184549",
         "doi": "https://doi.org/10.18549/pharmpract.2022.3.2713",
-        "pmid": "https://pubmed.ncbi.nlm.nih.gov/36733516"
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/36733516",
+        "pmcid": "https://www.ncbi.nlm.nih.gov/pmc/articles/9851817"
       },
       "language": "en",
       "primary_location": {
@@ -7954,6 +7761,7 @@
             "jufo-1",
             "ki-jl-1",
             "norway-1",
+            "oarl",
             "poland-70",
             "russia-white-list-3"
           ],
@@ -8829,16 +8637,16 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.454,
+      "fwci": 0.2589,
       "has_fulltext": true,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.476,
+        "value": 0.26637555,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
-        "min": 88,
+        "min": 89,
         "max": 97
       },
       "biblio": {
@@ -9153,6 +8961,7 @@
               "jufo-1",
               "ki-jl-1",
               "norway-1",
+              "oarl",
               "poland-70",
               "russia-white-list-3"
             ],
@@ -9173,6 +8982,37 @@
           "is_published": true,
           "raw_source_name": "Pharmacy Practice",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:oai:pubmedcentral.nih.gov:9851817",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9851817",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S2764455111",
+            "display_name": "PubMed Central",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Pharm Pract (Granada)",
+          "raw_type": "Text"
         },
         {
           "id": "pmid:36733516",
@@ -9206,37 +9046,6 @@
           "raw_type": "Journal Article"
         },
         {
-          "id": "pmh:oai:pubmedcentral.nih.gov:9851817",
-          "doi": null,
-          "is_oa": true,
-          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9851817",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S2764455111",
-            "display_name": "PubMed Central",
-            "issn_l": null,
-            "issn": null,
-            "is_oa": true,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1299303238",
-            "host_organization_name": "National Institutes of Health",
-            "host_organization_lineage": [
-              "https://openalex.org/I1299303238"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": "cc-by-nc-nd",
-          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
-          "raw_source_name": "Pharm Pract (Granada)",
-          "raw_type": "Text"
-        },
-        {
           "id": "pmh:oai:dialnet.unirioja.es:ART0001606397",
           "doi": null,
           "is_oa": false,
@@ -9251,10 +9060,10 @@
             "is_in_doaj": false,
             "is_core": false,
             "listed_in": [],
-            "host_organization": "https://openalex.org/I3032752892",
-            "host_organization_name": "Universidad Internacional de La Rioja",
+            "host_organization": "https://openalex.org/I168974976",
+            "host_organization_name": "Universidad de La Rioja",
             "host_organization_lineage": [
-              "https://openalex.org/I3032752892"
+              "https://openalex.org/I168974976"
             ],
             "host_organization_lineage_names": [],
             "type": "repository"
@@ -9292,6 +9101,7 @@
             "jufo-1",
             "ki-jl-1",
             "norway-1",
+            "oarl",
             "poland-70",
             "russia-white-list-3"
           ],
@@ -9315,16 +9125,16 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.9391000270843506,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
       "study_designs": [
         {
-          "display_name": "Study Protocol",
-          "id": "https://openalex.org/study-designs/study-protocol"
+          "id": "https://openalex.org/study-designs/study-protocol",
+          "display_name": "Study Protocol"
         }
       ],
       "awards": [],
@@ -9372,16 +9182,16 @@
         "https://openalex.org/W4320164613"
       ],
       "related_works": [
-        "https://openalex.org/W2982180430",
-        "https://openalex.org/W2883564924",
-        "https://openalex.org/W2029919448",
-        "https://openalex.org/W2355255235",
-        "https://openalex.org/W2149214354",
-        "https://openalex.org/W2385829565",
-        "https://openalex.org/W1975027272",
-        "https://openalex.org/W2393233608",
-        "https://openalex.org/W2386909445",
-        "https://openalex.org/W4212795053"
+        "https://openalex.org/W7037441904",
+        "https://openalex.org/W2990816461",
+        "https://openalex.org/W2022261263",
+        "https://openalex.org/W1986118945",
+        "https://openalex.org/W4311566299",
+        "https://openalex.org/W2024182312",
+        "https://openalex.org/W3153480911",
+        "https://openalex.org/W3110578389",
+        "https://openalex.org/W2129543081",
+        "https://openalex.org/W6944162026"
       ],
       "abstract_inverted_index": {
         "Background:": [
@@ -9937,8 +9747,8 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-09-26T08:19:03.415552",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-11-01T11:40:01.658920",
+      "created_date": "2022-09-27T00:00:00"
     },
     {
       "id": "https://openalex.org/W7133805831",
@@ -10184,11 +9994,11 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 15.3255,
+      "fwci": 14.3816,
       "has_fulltext": false,
       "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.98069643,
+        "value": 0.97886519,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -10462,34 +10272,6 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
           "descriptor_ui": "D003299",
           "descriptor_name": "Cooperative Behavior",
           "qualifier_ui": null,
@@ -10497,92 +10279,8 @@
           "is_major_topic": false
         },
         {
-          "descriptor_ui": "D003299",
-          "descriptor_name": "Cooperative Behavior",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D003299",
-          "descriptor_name": "Cooperative Behavior",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D003657",
-          "descriptor_name": "Decision Making",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D003657",
-          "descriptor_name": "Decision Making",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D006801",
           "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D015203",
-          "descriptor_name": "Reproducibility of Results",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D015203",
-          "descriptor_name": "Reproducibility of Results",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D015203",
-          "descriptor_name": "Reproducibility of Results",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D015203",
-          "descriptor_name": "Reproducibility of Results",
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": false
@@ -10600,62 +10298,6 @@
           "qualifier_ui": "Q000379",
           "qualifier_name": "methods",
           "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D057188",
-          "descriptor_name": "Workflow",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D057188",
-          "descriptor_name": "Workflow",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D057188",
-          "descriptor_name": "Workflow",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D057188",
-          "descriptor_name": "Workflow",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
         },
         {
           "descriptor_ui": "D057188",
@@ -10783,7 +10425,18 @@
         "https://openalex.org/W4411762291",
         "https://openalex.org/W4416177558"
       ],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W2919228007",
+        "https://openalex.org/W7204684115",
+        "https://openalex.org/W3120545963",
+        "https://openalex.org/W4392288874",
+        "https://openalex.org/W7028562361",
+        "https://openalex.org/W3046858908",
+        "https://openalex.org/W6930981727",
+        "https://openalex.org/W2803683532",
+        "https://openalex.org/W4387677244",
+        "https://openalex.org/W4416122430"
+      ],
       "abstract_inverted_index": {
         "INTRODUCTION:": [
           0
@@ -11243,7 +10896,7 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-10-01T08:54:57.152042",
+      "updated_date": "2026-10-31T12:09:11.096373",
       "created_date": "2026-03-06T00:00:00"
     },
     {
@@ -11474,16 +11127,16 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.583,
+      "fwci": 0.6654,
       "has_fulltext": false,
       "cited_by_count": 5,
       "citation_normalized_percentile": {
-        "value": 0.6434638,
+        "value": 0.65734655,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
-        "min": 88,
+        "min": 89,
         "max": 96
       },
       "biblio": {
@@ -11834,16 +11487,16 @@
         "https://openalex.org/W4294328079"
       ],
       "related_works": [
-        "https://openalex.org/W2390466732",
-        "https://openalex.org/W2032326710",
-        "https://openalex.org/W2351236344",
-        "https://openalex.org/W2358690992",
-        "https://openalex.org/W2370422584",
-        "https://openalex.org/W2380962461",
-        "https://openalex.org/W2166022810",
-        "https://openalex.org/W2963453160",
-        "https://openalex.org/W2026083704",
-        "https://openalex.org/W2359417841"
+        "https://openalex.org/W2268288619",
+        "https://openalex.org/W2184129684",
+        "https://openalex.org/W1997433247",
+        "https://openalex.org/W4282590805",
+        "https://openalex.org/W3114538320",
+        "https://openalex.org/W3010653150",
+        "https://openalex.org/W2374368702",
+        "https://openalex.org/W2009673402",
+        "https://openalex.org/W1993771731",
+        "https://openalex.org/W1981446701"
       ],
       "abstract_inverted_index": {
         "In": [
@@ -12179,7 +11832,7 @@
         }
       ],
       "updated_date": "2026-09-29T14:09:16.559479",
-      "created_date": "2025-10-10T00:00:00"
+      "created_date": "2022-05-22T00:00:00"
     },
     {
       "id": "https://openalex.org/W7117138339",
@@ -12242,7 +11895,7 @@
         "raw_type": "journal-article"
       },
       "volume": null,
-      "type": "article",
+      "type": "review",
       "indexed_in": [
         "crossref",
         "pubmed"
@@ -12351,11 +12004,11 @@
         "value_usd": 3620
       },
       "apc_paid": null,
-      "fwci": 0.4833,
+      "fwci": 0.0614,
       "has_fulltext": false,
       "cited_by_count": 1,
       "citation_normalized_percentile": {
-        "value": 0.71329108,
+        "value": 0.17345133,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -12617,29 +12270,8 @@
           "is_major_topic": false
         },
         {
-          "descriptor_ui": "D000069550",
-          "descriptor_name": "Machine Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D000098342",
           "descriptor_name": "Large Language Models",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000098342",
-          "descriptor_name": "Large Language Models",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": false
@@ -12659,31 +12291,10 @@
           "is_major_topic": false
         },
         {
-          "descriptor_ui": "D002626",
-          "descriptor_name": "Chemistry, Pharmaceutical",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D004364",
           "descriptor_name": "Pharmaceutical Preparations",
           "qualifier_ui": "Q000008",
           "qualifier_name": "administration & dosage",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000008",
-          "qualifier_name": "administration & dosage",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
           "is_major_topic": false
         },
         {
@@ -12701,31 +12312,10 @@
           "is_major_topic": false
         },
         {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D016503",
           "descriptor_name": "Drug Delivery Systems",
           "qualifier_ui": "Q000379",
           "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D016503",
-          "descriptor_name": "Drug Delivery Systems",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D016503",
-          "descriptor_name": "Drug Delivery Systems",
-          "qualifier_ui": "Q000639",
-          "qualifier_name": "trends",
           "is_major_topic": true
         },
         {
@@ -12820,9 +12410,9 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.4000000059604645,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -12874,7 +12464,18 @@
         "https://openalex.org/W4411203672",
         "https://openalex.org/W4413911708"
       ],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W7148762853",
+        "https://openalex.org/W7117406490",
+        "https://openalex.org/W4405764234",
+        "https://openalex.org/W4408564879",
+        "https://openalex.org/W4403593408",
+        "https://openalex.org/W7119941955",
+        "https://openalex.org/W4413911708",
+        "https://openalex.org/W7155571562",
+        "https://openalex.org/W7165137416",
+        "https://openalex.org/W4414609213"
+      ],
       "abstract_inverted_index": null,
       "counts_by_year": [
         {
@@ -12882,7 +12483,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-09-24T07:57:37.273135",
+      "updated_date": "2026-10-31T12:09:11.096373",
       "created_date": "2025-12-24T00:00:00"
     },
     {
@@ -12921,6 +12522,7 @@
             "jufo-1",
             "ki-jl-1",
             "norway-1",
+            "oarl",
             "poland-70",
             "russia-white-list-3"
           ],
@@ -13296,19 +12898,12 @@
           "is_corresponding": false,
           "raw_author_name": "Maisoun Alkaabi",
           "raw_affiliation_strings": [
-            "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
-            "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE"
+            "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE"
           ],
           "raw_orcid": null,
           "affiliations": [
             {
               "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
-              "institution_ids": [
-                "https://openalex.org/I4210099383"
-              ]
-            },
-            {
-              "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE",
               "institution_ids": [
                 "https://openalex.org/I4210099383"
               ]
@@ -13347,19 +12942,12 @@
           "is_corresponding": false,
           "raw_author_name": "Vineetha Menon",
           "raw_affiliation_strings": [
-            "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
-            "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE"
+            "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE"
           ],
           "raw_orcid": null,
           "affiliations": [
             {
               "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women\u2019s Hospital, Abu Dhabi, UAE",
-              "institution_ids": [
-                "https://openalex.org/I4210099383"
-              ]
-            },
-            {
-              "raw_affiliation_string": "General Manager, New Medical  Center (NMC) Royal Women's Hospital, Abu Dhabi, UAE",
               "institution_ids": [
                 "https://openalex.org/I4210099383"
               ]
@@ -13595,14 +13183,16 @@
               "id": "https://openalex.org/I4391767729",
               "display_name": "Almaarefa University",
               "ror": "https://ror.org/00s3s5518",
-              "country_code": null,
+              "country_code": "SA",
               "type": "education",
               "lineage": [
                 "https://openalex.org/I4391767729"
               ]
             }
           ],
-          "countries": [],
+          "countries": [
+            "SA"
+          ],
           "is_corresponding": false,
           "raw_author_name": "Sami Fatehi Abdalla",
           "raw_affiliation_strings": [
@@ -13626,16 +13216,16 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.3029,
+      "fwci": 0.4012,
       "has_fulltext": true,
       "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.57030144,
+        "value": 0.60830728,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
-        "min": 88,
+        "min": 89,
         "max": 94
       },
       "biblio": {
@@ -13932,6 +13522,7 @@
               "jufo-1",
               "ki-jl-1",
               "norway-1",
+              "oarl",
               "poland-70",
               "russia-white-list-3"
             ],
@@ -13968,10 +13559,10 @@
             "is_in_doaj": false,
             "is_core": false,
             "listed_in": [],
-            "host_organization": "https://openalex.org/I3032752892",
-            "host_organization_name": "Universidad Internacional de La Rioja",
+            "host_organization": "https://openalex.org/I168974976",
+            "host_organization_name": "Universidad de La Rioja",
             "host_organization_lineage": [
-              "https://openalex.org/I3032752892"
+              "https://openalex.org/I168974976"
             ],
             "host_organization_lineage_names": [],
             "type": "repository"
@@ -14009,6 +13600,7 @@
             "jufo-1",
             "ki-jl-1",
             "norway-1",
+            "oarl",
             "poland-70",
             "russia-white-list-3"
           ],
@@ -14032,22 +13624,22 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.9940000176429749,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8700000047683716,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
         {
-          "display_name": "Observational Study",
-          "id": "https://openalex.org/study-designs/observational-study"
+          "id": "https://openalex.org/study-designs/observational-study",
+          "display_name": "Observational Study"
         }
       ],
       "awards": [],
@@ -14102,16 +13694,16 @@
         "https://openalex.org/W4387366257"
       ],
       "related_works": [
-        "https://openalex.org/W4293793418",
-        "https://openalex.org/W3162248051",
-        "https://openalex.org/W2005199226",
-        "https://openalex.org/W4316086319",
-        "https://openalex.org/W2065502591",
-        "https://openalex.org/W2617619553",
-        "https://openalex.org/W3122187488",
-        "https://openalex.org/W4385403451",
-        "https://openalex.org/W139087018",
-        "https://openalex.org/W4376107631"
+        "https://openalex.org/W3201630753",
+        "https://openalex.org/W3082032613",
+        "https://openalex.org/W4396762885",
+        "https://openalex.org/W4366425255",
+        "https://openalex.org/W4297243404",
+        "https://openalex.org/W3197370328",
+        "https://openalex.org/W4385567396",
+        "https://openalex.org/W3192854492",
+        "https://openalex.org/W4387339115",
+        "https://openalex.org/W4401766557"
       ],
       "abstract_inverted_index": {
         "Background:": [
@@ -14857,8 +14449,8 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-10-16T09:59:22.235173",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-11-01T11:40:01.658920",
+      "created_date": "2023-10-06T00:00:00"
     },
     {
       "id": "https://openalex.org/W4392081340",
@@ -15072,7 +14664,7 @@
       "apc_paid": null,
       "fwci": null,
       "has_fulltext": true,
-      "cited_by_count": 19,
+      "cited_by_count": 20,
       "citation_normalized_percentile": null,
       "cited_by_percentile_year": null,
       "biblio": {
@@ -15236,53 +14828,11 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
           "descriptor_ui": "D006801",
           "descriptor_name": "Humans",
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
         },
         {
           "descriptor_ui": "D055808",
@@ -15426,9 +14976,9 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.5683000087738037,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -15471,16 +15021,16 @@
         "https://openalex.org/W4387900721"
       ],
       "related_works": [
-        "https://openalex.org/W2748952813",
-        "https://openalex.org/W3031052312",
-        "https://openalex.org/W4389568370",
-        "https://openalex.org/W3032375762",
-        "https://openalex.org/W1995515455",
-        "https://openalex.org/W2080531066",
-        "https://openalex.org/W3108674512",
-        "https://openalex.org/W1506200166",
-        "https://openalex.org/W1489783725",
-        "https://openalex.org/W2148612803"
+        "https://openalex.org/W4414280440",
+        "https://openalex.org/W6967990315",
+        "https://openalex.org/W3001355307",
+        "https://openalex.org/W4393950687",
+        "https://openalex.org/W4416786468",
+        "https://openalex.org/W4407896084",
+        "https://openalex.org/W2801769491",
+        "https://openalex.org/W4415435764",
+        "https://openalex.org/W4409178409",
+        "https://openalex.org/W7129055977"
       ],
       "abstract_inverted_index": {
         "Drug": [
@@ -15571,7 +15121,7 @@
       "counts_by_year": [
         {
           "year": 2026,
-          "cited_by_count": 4
+          "cited_by_count": 5
         },
         {
           "year": 2025,
@@ -15582,8 +15132,8 @@
           "cited_by_count": 3
         }
       ],
-      "updated_date": "2026-10-14T16:39:01.820549",
-      "created_date": "2025-10-10T00:00:00"
+      "updated_date": "2026-10-31T12:09:11.096373",
+      "created_date": "2024-02-23T00:00:00"
     },
     {
       "id": "https://openalex.org/W4289260705",
@@ -16152,27 +15702,27 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Quality education",
+          "id": "https://metadata.un.org/sdg/4",
           "score": 0.9235000014305115,
-          "id": "https://metadata.un.org/sdg/4"
+          "display_name": "Quality education"
         },
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.5683000087738037,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.4399999976158142,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [
         {
-          "display_name": "Clinical Trial",
-          "id": "https://openalex.org/study-designs/clinical-trial"
+          "id": "https://openalex.org/study-designs/clinical-trial",
+          "display_name": "Clinical Trial"
         }
       ],
       "awards": [],
@@ -16211,16 +15761,16 @@
         "https://openalex.org/W4220756444"
       ],
       "related_works": [
-        "https://openalex.org/W2899084033",
-        "https://openalex.org/W2748952813",
-        "https://openalex.org/W2184713230",
-        "https://openalex.org/W3186170442",
-        "https://openalex.org/W170529584",
-        "https://openalex.org/W2585837778",
-        "https://openalex.org/W2369402333",
+        "https://openalex.org/W4318015227",
+        "https://openalex.org/W3159293898",
+        "https://openalex.org/W4211215605",
+        "https://openalex.org/W4281787165",
         "https://openalex.org/W3156283237",
-        "https://openalex.org/W328583965",
-        "https://openalex.org/W2897241057"
+        "https://openalex.org/W7030003599",
+        "https://openalex.org/W4289856868",
+        "https://openalex.org/W3112952909",
+        "https://openalex.org/W4206362013",
+        "https://openalex.org/W3135455826"
       ],
       "abstract_inverted_index": {
         "Abstract": [
@@ -16861,7 +16411,7 @@
       },
       "counts_by_year": [],
       "updated_date": "2026-10-14T16:39:01.820549",
-      "created_date": "2025-10-10T00:00:00"
+      "created_date": "2022-08-01T00:00:00"
     },
     {
       "id": "https://openalex.org/W7128304545",
@@ -17047,7 +16597,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.11281388,
+        "value": 0.11156647,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -17295,109 +16845,11 @@
       ],
       "mesh": [
         {
-          "descriptor_ui": "D000077321",
-          "descriptor_name": "Deep Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000077321",
-          "descriptor_name": "Deep Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000077321",
-          "descriptor_name": "Deep Learning",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000098412",
-          "descriptor_name": "Predictive Learning Models",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D000098412",
           "descriptor_name": "Predictive Learning Models",
           "qualifier_ui": null,
           "qualifier_name": null,
           "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D000098412",
-          "descriptor_name": "Predictive Learning Models",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000098437",
-          "descriptor_name": "Prediction Algorithms",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D000098437",
-          "descriptor_name": "Prediction Algorithms",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
         },
         {
           "descriptor_ui": "D004347",
@@ -17407,87 +16859,10 @@
           "is_major_topic": true
         },
         {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
           "descriptor_ui": "D004364",
           "descriptor_name": "Pharmaceutical Preparations",
           "qualifier_ui": "Q000737",
           "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D004364",
-          "descriptor_name": "Pharmaceutical Preparations",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
           "is_major_topic": false
         }
       ],
@@ -17575,16 +16950,16 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8371999859809875,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.41566163301467896,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "study_designs": [],
@@ -17619,7 +16994,18 @@
         "https://openalex.org/W4414358150",
         "https://openalex.org/W6940816540"
       ],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W7090945540",
+        "https://openalex.org/W7170075295",
+        "https://openalex.org/W7135070070",
+        "https://openalex.org/W4414999128",
+        "https://openalex.org/W7126207362",
+        "https://openalex.org/W4403399242",
+        "https://openalex.org/W4416967017",
+        "https://openalex.org/W4409346728",
+        "https://openalex.org/W4407092493",
+        "https://openalex.org/W4390578025"
+      ],
       "abstract_inverted_index": {
         "Drug-drug": [
           0
@@ -18099,7 +17485,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-25T09:29:13.331239",
+      "updated_date": "2026-10-31T12:09:11.096373",
       "created_date": "2026-02-09T00:00:00"
     },
     {
@@ -18270,7 +17656,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.38691006,
+        "value": 0.36550758,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -18579,16 +17965,16 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8560000061988831,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Peace, justice, and strong institutions",
+          "id": "https://metadata.un.org/sdg/16",
           "score": 0.6003750562667847,
-          "id": "https://metadata.un.org/sdg/16"
+          "display_name": "Peace, justice, and strong institutions"
         }
       ],
       "study_designs": [],
@@ -18707,7 +18093,18 @@
         "https://openalex.org/W4417535508",
         "https://openalex.org/W7125676297"
       ],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W3168253786",
+        "https://openalex.org/W3088626057",
+        "https://openalex.org/W2945005548",
+        "https://openalex.org/W6940997346",
+        "https://openalex.org/W3207184553",
+        "https://openalex.org/W2563115000",
+        "https://openalex.org/W4406105708",
+        "https://openalex.org/W3011355820",
+        "https://openalex.org/W2274540769",
+        "https://openalex.org/W6939586432"
+      ],
       "abstract_inverted_index": null,
       "counts_by_year": [],
       "updated_date": "2026-10-01T08:54:57.152042",
@@ -18852,7 +18249,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.52922252,
+        "value": 0.50186647,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -19082,9 +18479,9 @@
       "sustainable_development_goals": [],
       "sustainable_development_goals_aurora": [
         {
-          "display_name": "Peace, justice, and strong institutions",
+          "id": "https://metadata.un.org/sdg/16",
           "score": 0.6279879212379456,
-          "id": "https://metadata.un.org/sdg/16"
+          "display_name": "Peace, justice, and strong institutions"
         }
       ],
       "study_designs": [],
@@ -19097,7 +18494,18 @@
       "content_urls": null,
       "referenced_works_count": 0,
       "referenced_works": [],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W7111447427",
+        "https://openalex.org/W7203733632",
+        "https://openalex.org/W7222962613",
+        "https://openalex.org/W7117107953",
+        "https://openalex.org/W7167331646",
+        "https://openalex.org/W4366772989",
+        "https://openalex.org/W7127769998",
+        "https://openalex.org/W6944227529",
+        "https://openalex.org/W7202023355",
+        "https://openalex.org/W4413609386"
+      ],
       "abstract_inverted_index": {
         "In": [
           0
@@ -19257,7 +18665,7 @@
         "raw_type": "journal-article"
       },
       "volume": null,
-      "type": "article",
+      "type": "review",
       "indexed_in": [
         "crossref",
         "pubmed"
@@ -19337,7 +18745,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.78669366,
+        "value": 0.38416988,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -19722,20 +19130,6 @@
           "is_major_topic": false
         },
         {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D008956",
-          "descriptor_name": "Models, Chemical",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
           "descriptor_ui": "D008956",
           "descriptor_name": "Models, Chemical",
           "qualifier_ui": null,
@@ -19748,20 +19142,6 @@
           "qualifier_ui": "Q000737",
           "qualifier_name": "chemistry",
           "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D054852",
-          "descriptor_name": "Small Molecule Libraries",
-          "qualifier_ui": "Q000737",
-          "qualifier_name": "chemistry",
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D055808",
-          "descriptor_name": "Drug Discovery",
-          "qualifier_ui": "Q000379",
-          "qualifier_name": "methods",
-          "is_major_topic": true
         },
         {
           "descriptor_ui": "D055808",
@@ -19855,9 +19235,9 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.4043000042438507,
-          "id": "https://metadata.un.org/sdg/3"
+          "display_name": "Good health and well-being"
         }
       ],
       "sustainable_development_goals_aurora": [],
@@ -20011,10 +19391,21 @@
         "https://openalex.org/W7160251967",
         "https://openalex.org/W7164406138"
       ],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W7170074189",
+        "https://openalex.org/W4389069272",
+        "https://openalex.org/W4416158712",
+        "https://openalex.org/W4391440418",
+        "https://openalex.org/W4414740174",
+        "https://openalex.org/W4318952054",
+        "https://openalex.org/W7128171916",
+        "https://openalex.org/W4414536420",
+        "https://openalex.org/W4409328853",
+        "https://openalex.org/W3203558910"
+      ],
       "abstract_inverted_index": null,
       "counts_by_year": [],
-      "updated_date": "2026-10-14T16:39:01.820549",
+      "updated_date": "2026-10-31T12:09:11.096373",
       "created_date": "2026-09-29T00:00:00"
     },
     {
@@ -20028,7 +19419,7 @@
         "openalex": "https://openalex.org/W7223335568",
         "doi": "https://doi.org/10.5281/zenodo.23600406"
       },
-      "language": null,
+      "language": "en",
       "primary_location": {
         "id": "doi:10.5281/zenodo.23600406",
         "doi": "https://doi.org/10.5281/zenodo.23600406",
@@ -20409,7 +19800,7 @@
           "license_id": null,
           "version": null,
           "is_accepted": false,
-          "is_published": null,
+          "is_published": false,
           "raw_source_name": null,
           "raw_type": "Software"
         },
@@ -20440,7 +19831,7 @@
           "license_id": null,
           "version": null,
           "is_accepted": false,
-          "is_published": null,
+          "is_published": false,
           "raw_source_name": null,
           "raw_type": "Software"
         }
@@ -20488,7 +19879,18 @@
       "content_urls": null,
       "referenced_works_count": 0,
       "referenced_works": [],
-      "related_works": [],
+      "related_works": [
+        "https://openalex.org/W4400042317",
+        "https://openalex.org/W7171831379",
+        "https://openalex.org/W7216061457",
+        "https://openalex.org/W7166195582",
+        "https://openalex.org/W4394534388",
+        "https://openalex.org/W7213439241",
+        "https://openalex.org/W3005146384",
+        "https://openalex.org/W2064895307",
+        "https://openalex.org/W2969640213",
+        "https://openalex.org/W2014072921"
+      ],
       "abstract_inverted_index": {
         "The": [
           0,
@@ -20888,7 +20290,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-25T09:29:13.331239",
+      "updated_date": "2026-10-28T10:33:24.094632",
       "created_date": "2026-10-24T00:00:00"
     }
   ]
