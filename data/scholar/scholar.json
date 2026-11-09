@@ -1,7 +1,7 @@
 {
   "name": "Abdallah Abouhajal",
   "author_id": "1I8SvsQAAAAJ",
-  "citations": 136,
+  "citations": 137,
   "h_index": 8,
   "i10_index": 6,
   "articles": [
@@ -22,7 +22,7 @@
     },
     {
       "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
-      "cited_by": 13,
+      "cited_by": 14,
       "year": "2025"
     },
     {
@@ -86,6 +86,6 @@
       "year": "2022"
     }
   ],
-  "fetched_at": "2026-11-05T06:12:06Z",
+  "fetched_at": "2026-11-09T06:12:07Z",
   "source": "https://scholar.google.com/citations?user=1I8SvsQAAAAJ"
 }
