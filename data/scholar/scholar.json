@@ -3,7 +3,7 @@
   "author_id": "1I8SvsQAAAAJ",
   "citations": 137,
   "h_index": 8,
-  "i10_index": 6,
+  "i10_index": 7,
   "articles": [
     {
       "title": "Insights into artificial intelligence utilisation in drug discovery",
@@ -37,12 +37,12 @@
     },
     {
       "title": "Boosting the accuracy and chemical space coverage of the detection of small colloidal aggregating molecules using the BAD molecule filter",
-      "cited_by": 9,
+      "cited_by": 10,
       "year": "2024"
     },
     {
       "title": "Protocol for systematic review and meta-analysis of randomized controlled trials, cost-benefit analysis and interrupted time-series interventions on pharmacist’s prescribing",
-      "cited_by": 9,
+      "cited_by": 8,
       "year": "2022"
     },
     {
@@ -86,6 +86,6 @@
       "year": "2022"
     }
   ],
-  "fetched_at": "2026-11-12T06:12:05Z",
+  "fetched_at": "2026-11-16T06:12:10Z",
   "source": "https://scholar.google.com/citations?user=1I8SvsQAAAAJ"
 }
