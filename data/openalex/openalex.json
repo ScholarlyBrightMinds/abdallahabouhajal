@@ -1,14 +1,14 @@
 {
   "orcid_id": "0009-0006-1807-2178",
-  "last_fetched": "2026-11-09T13:41:15.983239+00:00",
+  "last_fetched": "2026-11-16T13:25:39.782888+00:00",
   "summary": {
     "openalex_id": "https://openalex.org/A5102914480",
     "display_name": "Abdallah Abou Hajal",
     "works_count": 17,
-    "cited_by_count": 121,
+    "cited_by_count": 124,
     "h_index": 8,
     "i10_index": 6,
-    "mean_citedness": 5.363636363636363,
+    "mean_citedness": 5.454545454545454,
     "recent_year_works": 2,
     "recent_year_cites": 1,
     "oa_works": 9,
@@ -63,9 +63,9 @@
     ],
     "full_name": "Abdallah Abou Hajal",
     "works_count": 17,
-    "cited_by_count": 121,
+    "cited_by_count": 124,
     "summary_stats": {
-      "2yr_mean_citedness": 5.363636363636363,
+      "2yr_mean_citedness": 5.454545454545454,
       "h_index": 8,
       "i10_index": 6
     },
@@ -129,23 +129,6 @@
         }
       },
       {
-        "id": "https://openalex.org/T11948",
-        "display_name": "Machine Learning in Materials Science",
-        "count": 5,
-        "subfield": {
-          "id": "https://openalex.org/subfields/2505",
-          "display_name": "Materials Chemistry"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/25",
-          "display_name": "Materials Science"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
-        }
-      },
-      {
         "id": "https://openalex.org/T11636",
         "display_name": "Artificial Intelligence in Healthcare and Education",
         "count": 4,
@@ -160,6 +143,23 @@
         "domain": {
           "id": "https://openalex.org/domains/4",
           "display_name": "Health Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T11948",
+        "display_name": "Machine Learning in Materials Science",
+        "count": 4,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2505",
+          "display_name": "Materials Chemistry"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/25",
+          "display_name": "Materials Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
         }
       },
       {
@@ -201,7 +201,7 @@
       {
         "id": "https://openalex.org/T10211",
         "display_name": "Computational Drug Discovery Methods",
-        "value": 2.46e-05,
+        "value": 2.45e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/3002",
           "display_name": "Drug Discovery"
@@ -216,26 +216,9 @@
         }
       },
       {
-        "id": "https://openalex.org/T11948",
-        "display_name": "Machine Learning in Materials Science",
-        "value": 2.23e-05,
-        "subfield": {
-          "id": "https://openalex.org/subfields/2505",
-          "display_name": "Materials Chemistry"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/25",
-          "display_name": "Materials Science"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
-        }
-      },
-      {
         "id": "https://openalex.org/T13702",
         "display_name": "Machine Learning in Healthcare",
-        "value": 1.98e-05,
+        "value": 1.96e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/1702",
           "display_name": "Artificial Intelligence"
@@ -252,7 +235,7 @@
       {
         "id": "https://openalex.org/T12281",
         "display_name": "Animal testing and alternatives",
-        "value": 1.92e-05,
+        "value": 1.91e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/3404",
           "display_name": "Small Animals"
@@ -269,7 +252,7 @@
       {
         "id": "https://openalex.org/T14240",
         "display_name": "E-Learning and COVID-19",
-        "value": 1.78e-05,
+        "value": 1.77e-05,
         "subfield": {
           "id": "https://openalex.org/subfields/3304",
           "display_name": "Education"
@@ -281,6 +264,23 @@
         "domain": {
           "id": "https://openalex.org/domains/2",
           "display_name": "Social Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T11948",
+        "display_name": "Machine Learning in Materials Science",
+        "value": 1.76e-05,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2505",
+          "display_name": "Materials Chemistry"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/25",
+          "display_name": "Materials Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
         }
       }
     ],
@@ -333,19 +333,19 @@
         "year": 2024,
         "works_count": 2,
         "oa_works_count": 2,
-        "cited_by_count": 17
+        "cited_by_count": 18
       },
       {
         "year": 2025,
         "works_count": 3,
         "oa_works_count": 0,
-        "cited_by_count": 51
+        "cited_by_count": 52
       },
       {
         "year": 2026,
         "works_count": 6,
         "oa_works_count": 2,
-        "cited_by_count": 46
+        "cited_by_count": 47
       }
     ],
     "display_name_alternatives": [
@@ -356,7 +356,9 @@
     ],
     "block_key": "a abou hajal",
     "works_api_url": "https://api.openalex.org/works?filter=author.id:A5102914480",
-    "updated_date": "2026-11-07T12:08:38",
+    "awards_count": 0,
+    "awards_api_url": "https://api.openalex.org/awards?filter=investigators.author.id:A5102914480",
+    "updated_date": "2026-11-13T15:08:24",
     "created_date": "2022-05-22T00:00:00"
   },
   "works": [
@@ -415,7 +417,11 @@
         "raw_source_name": "Saudi Pharmaceutical Journal",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4379768553"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -814,11 +820,12 @@
         "currency": "USD",
         "value_usd": 1450
       },
-      "fwci": 4.9328,
+      "fwci": 4.8071,
+      "is_authors_truncated": false,
       "has_fulltext": true,
       "cited_by_count": 17,
       "citation_normalized_percentile": {
-        "value": 0.96076431,
+        "value": 0.95839448,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -1289,13 +1296,13 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/4",
           "score": 0.8278999924659729,
+          "id": "https://metadata.un.org/sdg/4",
           "display_name": "Quality education"
         },
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8048999905586243,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -1308,8 +1315,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4379768553.pdf",
@@ -2199,6 +2206,7 @@
             "cwts-core",
             "doaj",
             "dongbi-b",
+            "oarl",
             "poland-70"
           ],
           "host_organization": "https://openalex.org/P4310320990",
@@ -2219,7 +2227,11 @@
         "raw_source_name": "Saudi Pharmaceutical Journal",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4318015227"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -2574,11 +2586,12 @@
         "currency": "USD",
         "value_usd": 1450
       },
-      "fwci": 4.3525,
+      "fwci": 4.5243,
+      "is_authors_truncated": false,
       "has_fulltext": true,
-      "cited_by_count": 15,
+      "cited_by_count": 16,
       "citation_normalized_percentile": {
-        "value": 0.95240917,
+        "value": 0.95477781,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -2801,6 +2814,7 @@
               "cwts-core",
               "doaj",
               "dongbi-b",
+              "oarl",
               "poland-70"
             ],
             "host_organization": "https://openalex.org/P4310320990",
@@ -2844,8 +2858,8 @@
           },
           "license": "cc-by",
           "license_id": "https://openalex.org/licenses/cc-by",
-          "version": "acceptedVersion",
-          "is_accepted": true,
+          "version": "submittedVersion",
+          "is_accepted": false,
           "is_published": false,
           "raw_source_name": "Research Square",
           "raw_type": "posted-content"
@@ -2963,6 +2977,7 @@
             "cwts-core",
             "doaj",
             "dongbi-b",
+            "oarl",
             "poland-70"
           ],
           "host_organization": "https://openalex.org/P4310320990",
@@ -2985,13 +3000,13 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/4",
           "score": 0.975600004196167,
+          "id": "https://metadata.un.org/sdg/4",
           "display_name": "Quality education"
         },
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.5683000087738037,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -3010,8 +3025,8 @@
         }
       ],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4318015227.pdf",
@@ -3047,7 +3062,6 @@
         "https://openalex.org/W4220756444"
       ],
       "related_works": [
-        "https://openalex.org/W4289260705",
         "https://openalex.org/W4211215605",
         "https://openalex.org/W3159293898",
         "https://openalex.org/W4281787165",
@@ -3055,7 +3069,6 @@
         "https://openalex.org/W3156283237",
         "https://openalex.org/W3112952909",
         "https://openalex.org/W4206362013",
-        "https://openalex.org/W7030003599",
         "https://openalex.org/W7214932877"
       ],
       "abstract_inverted_index": {
@@ -3710,1214 +3723,15 @@
         },
         {
           "year": 2024,
-          "cited_by_count": 3
+          "cited_by_count": 4
         },
         {
           "year": 2023,
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-11-07T11:25:07.637180",
+      "updated_date": "2026-11-14T11:04:58.165337",
       "created_date": "2023-01-26T00:00:00"
-    },
-    {
-      "id": "https://openalex.org/W4413440773",
-      "doi": "https://doi.org/10.1080/17425255.2025.2551724",
-      "title": "Language models for drug\u2013drug interactions: current applications, pitfalls, and future directions",
-      "display_name": "Language models for drug\u2013drug interactions: current applications, pitfalls, and future directions",
-      "publication_year": 2025,
-      "publication_date": "2025-08-22",
-      "ids": {
-        "openalex": "https://openalex.org/W4413440773",
-        "doi": "https://doi.org/10.1080/17425255.2025.2551724",
-        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40842299"
-      },
-      "language": "en",
-      "primary_location": {
-        "id": "doi:10.1080/17425255.2025.2551724",
-        "doi": "https://doi.org/10.1080/17425255.2025.2551724",
-        "is_oa": false,
-        "landing_page_url": "https://doi.org/10.1080/17425255.2025.2551724",
-        "pdf_url": null,
-        "source": {
-          "id": "https://openalex.org/S102336391",
-          "display_name": "Expert Opinion on Drug Metabolism & Toxicology",
-          "issn_l": "1742-5255",
-          "issn": [
-            "1742-5255",
-            "1744-7607"
-          ],
-          "is_oa": false,
-          "is_in_doaj": false,
-          "is_core": true,
-          "listed_in": [
-            "cwts-core",
-            "dongbi-c",
-            "doyens",
-            "jufo-1",
-            "ki-jl-1",
-            "medline",
-            "norway-1",
-            "poland-100",
-            "russia-white-list-1",
-            "vabb-shw"
-          ],
-          "host_organization": "https://openalex.org/P4310320547",
-          "host_organization_name": "Taylor & Francis",
-          "host_organization_lineage": [
-            "https://openalex.org/P4310320547",
-            "https://openalex.org/P4310320449"
-          ],
-          "host_organization_lineage_names": [
-            "Taylor & Francis",
-            "Informa"
-          ],
-          "type": "journal"
-        },
-        "license": null,
-        "license_id": null,
-        "version": "publishedVersion",
-        "is_accepted": true,
-        "is_published": true,
-        "raw_source_name": "Expert Opinion on Drug Metabolism &amp; Toxicology",
-        "raw_type": "journal-article"
-      },
-      "volume": null,
-      "type": "review",
-      "is_traditional": true,
-      "indexed_in": [
-        "crossref",
-        "pubmed"
-      ],
-      "open_access": {
-        "is_oa": false,
-        "oa_status": "closed",
-        "oa_url": null,
-        "any_repository_has_fulltext": false
-      },
-      "authorships": [
-        {
-          "author_position": "first",
-          "author": {
-            "id": "https://openalex.org/A5056443210",
-            "display_name": "Ahmad Z. Al Meslamani",
-            "orcid": "https://orcid.org/0000-0002-8370-9562",
-            "observed_orcids": [
-              "https://orcid.org/0000-0002-8370-9562"
-            ]
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I161913731",
-              "display_name": "Al Ain University",
-              "ror": "https://ror.org/023abrt21",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ],
-          "countries": [
-            "AE"
-          ],
-          "is_corresponding": true,
-          "raw_author_name": "Ahmad Z. Al Meslamani",
-          "raw_affiliation_strings": [
-            "Al Ain University",
-            "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
-            "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates"
-          ],
-          "raw_orcid": null,
-          "affiliations": [
-            {
-              "raw_affiliation_string": "Al Ain University",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            },
-            {
-              "raw_affiliation_string": "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            },
-            {
-              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ]
-        },
-        {
-          "author_position": "last",
-          "author": {
-            "id": "https://openalex.org/A5102914480",
-            "display_name": "Abdallah Abou Hajal",
-            "orcid": "https://orcid.org/0009-0006-1807-2178",
-            "observed_orcids": [
-              "https://orcid.org/0009-0006-1807-2178",
-              "https://orcid.org/0000-0003-4655-1193"
-            ]
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I161913731",
-              "display_name": "Al Ain University",
-              "ror": "https://ror.org/023abrt21",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ],
-          "countries": [
-            "AE"
-          ],
-          "is_corresponding": false,
-          "raw_author_name": "Abdallah Abou Hajal",
-          "raw_affiliation_strings": [
-            "Al Ain University",
-            "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
-            "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates"
-          ],
-          "raw_orcid": null,
-          "affiliations": [
-            {
-              "raw_affiliation_string": "Al Ain University",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            },
-            {
-              "raw_affiliation_string": "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            },
-            {
-              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ]
-        }
-      ],
-      "institutions": [],
-      "countries_distinct_count": 1,
-      "institutions_distinct_count": 1,
-      "corresponding_author_ids": [
-        "https://openalex.org/A5056443210"
-      ],
-      "corresponding_institution_ids": [
-        "https://openalex.org/I161913731"
-      ],
-      "apc_list": null,
-      "apc_paid": null,
-      "fwci": 0.689,
-      "has_fulltext": false,
-      "cited_by_count": 13,
-      "citation_normalized_percentile": {
-        "value": 0.65056361,
-        "is_in_top_1_percent": false,
-        "is_in_top_10_percent": false
-      },
-      "cited_by_percentile_year": {
-        "min": 93,
-        "max": 99
-      },
-      "biblio": {
-        "volume": "21",
-        "issue": "9",
-        "first_page": "1083",
-        "last_page": "1102"
-      },
-      "is_retracted": false,
-      "is_paratext": false,
-      "is_xpac": false,
-      "primary_topic": {
-        "id": "https://openalex.org/T10211",
-        "display_name": "Computational Drug Discovery Methods",
-        "score": 0.5605000257492065,
-        "subfield": {
-          "id": "https://openalex.org/subfields/3002",
-          "display_name": "Drug Discovery"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/30",
-          "display_name": "Pharmacology, Toxicology and Pharmaceutics"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/1",
-          "display_name": "Life Sciences"
-        }
-      },
-      "topics": [
-        {
-          "id": "https://openalex.org/T10211",
-          "display_name": "Computational Drug Discovery Methods",
-          "score": 0.5605000257492065,
-          "subfield": {
-            "id": "https://openalex.org/subfields/3002",
-            "display_name": "Drug Discovery"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/30",
-            "display_name": "Pharmacology, Toxicology and Pharmaceutics"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/1",
-            "display_name": "Life Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T13702",
-          "display_name": "Machine Learning in Healthcare",
-          "score": 0.11169999837875366,
-          "subfield": {
-            "id": "https://openalex.org/subfields/1702",
-            "display_name": "Artificial Intelligence"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/17",
-            "display_name": "Computer Science"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T11636",
-          "display_name": "Artificial Intelligence in Healthcare and Education",
-          "score": 0.09229999780654907,
-          "subfield": {
-            "id": "https://openalex.org/subfields/2718",
-            "display_name": "Health Informatics"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/27",
-            "display_name": "Medicine"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/4",
-            "display_name": "Health Sciences"
-          }
-        }
-      ],
-      "keywords": [
-        {
-          "id": "https://openalex.org/keywords/drug-drug-interactions",
-          "display_name": "drug-drug interactions",
-          "score": 0.9919999837875366
-        },
-        {
-          "id": "https://openalex.org/keywords/large-language-models",
-          "display_name": "large language models",
-          "score": 0.9869999885559082
-        },
-        {
-          "id": "https://openalex.org/keywords/ddi-prediction",
-          "display_name": "DDI prediction",
-          "score": 0.9980000257492065
-        },
-        {
-          "id": "https://openalex.org/keywords/pharmacovigilance",
-          "display_name": "pharmacovigilance",
-          "score": 0.8690000176429749
-        },
-        {
-          "id": "https://openalex.org/keywords/clinical-decision-support",
-          "display_name": "clinical decision support",
-          "score": 0.9959999918937683
-        },
-        {
-          "id": "https://openalex.org/keywords/explainable-ai",
-          "display_name": "explainable AI",
-          "score": 0.7889999747276306
-        },
-        {
-          "id": "https://openalex.org/keywords/hallucination-mitigation",
-          "display_name": "hallucination mitigation",
-          "score": 0.7509999871253967
-        },
-        {
-          "id": "https://openalex.org/keywords/biomedical-text-mining",
-          "display_name": "biomedical text mining",
-          "score": 0.6650000214576721
-        },
-        {
-          "id": "https://openalex.org/keywords/biobert",
-          "display_name": "BioBERT",
-          "score": 0.5659999847412109
-        },
-        {
-          "id": "https://openalex.org/keywords/gpt",
-          "display_name": "GPT",
-          "score": 0.7979999780654907
-        },
-        {
-          "id": "https://openalex.org/keywords/multimodal-patient-data",
-          "display_name": "multimodal patient data",
-          "score": 0.8100000023841858
-        },
-        {
-          "id": "https://openalex.org/keywords/data-quality",
-          "display_name": "data quality",
-          "score": 0.5059999823570251
-        }
-      ],
-      "concepts": [
-        {
-          "id": "https://openalex.org/C2780035454",
-          "wikidata": "https://www.wikidata.org/wiki/Q8386",
-          "display_name": "Drug",
-          "level": 2,
-          "score": 0.6954339742660522
-        },
-        {
-          "id": "https://openalex.org/C71924100",
-          "wikidata": "https://www.wikidata.org/wiki/Q11190",
-          "display_name": "Medicine",
-          "level": 0,
-          "score": 0.4677966237068176
-        },
-        {
-          "id": "https://openalex.org/C148043351",
-          "wikidata": "https://www.wikidata.org/wiki/Q4456944",
-          "display_name": "Current (fluid)",
-          "level": 2,
-          "score": 0.4547237455844879
-        },
-        {
-          "id": "https://openalex.org/C41008148",
-          "wikidata": "https://www.wikidata.org/wiki/Q21198",
-          "display_name": "Computer science",
-          "level": 0,
-          "score": 0.3748514652252197
-        },
-        {
-          "id": "https://openalex.org/C177713679",
-          "wikidata": "https://www.wikidata.org/wiki/Q679690",
-          "display_name": "Intensive care medicine",
-          "level": 1,
-          "score": 0.3713071644306183
-        },
-        {
-          "id": "https://openalex.org/C98274493",
-          "wikidata": "https://www.wikidata.org/wiki/Q128406",
-          "display_name": "Pharmacology",
-          "level": 1,
-          "score": 0.29797083139419556
-        },
-        {
-          "id": "https://openalex.org/C127413603",
-          "wikidata": "https://www.wikidata.org/wiki/Q11023",
-          "display_name": "Engineering",
-          "level": 0,
-          "score": 0.11821186542510986
-        },
-        {
-          "id": "https://openalex.org/C119599485",
-          "wikidata": "https://www.wikidata.org/wiki/Q43035",
-          "display_name": "Electrical engineering",
-          "level": 1,
-          "score": 0.0
-        }
-      ],
-      "mesh": [
-        {
-          "descriptor_ui": "D001185",
-          "descriptor_name": "Artificial Intelligence",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D004347",
-          "descriptor_name": "Drug Interactions",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D006801",
-          "descriptor_name": "Humans",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D007802",
-          "descriptor_name": "Language",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": true
-        },
-        {
-          "descriptor_ui": "D016208",
-          "descriptor_name": "Databases, Factual",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D020000",
-          "descriptor_name": "Decision Support Systems, Clinical",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        },
-        {
-          "descriptor_ui": "D060735",
-          "descriptor_name": "Pharmacovigilance",
-          "qualifier_ui": null,
-          "qualifier_name": null,
-          "is_major_topic": false
-        }
-      ],
-      "locations_count": 2,
-      "locations": [
-        {
-          "id": "doi:10.1080/17425255.2025.2551724",
-          "doi": "https://doi.org/10.1080/17425255.2025.2551724",
-          "is_oa": false,
-          "landing_page_url": "https://doi.org/10.1080/17425255.2025.2551724",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S102336391",
-            "display_name": "Expert Opinion on Drug Metabolism & Toxicology",
-            "issn_l": "1742-5255",
-            "issn": [
-              "1742-5255",
-              "1744-7607"
-            ],
-            "is_oa": false,
-            "is_in_doaj": false,
-            "is_core": true,
-            "listed_in": [
-              "cwts-core",
-              "dongbi-c",
-              "doyens",
-              "jufo-1",
-              "ki-jl-1",
-              "medline",
-              "norway-1",
-              "poland-100",
-              "russia-white-list-1",
-              "vabb-shw"
-            ],
-            "host_organization": "https://openalex.org/P4310320547",
-            "host_organization_name": "Taylor & Francis",
-            "host_organization_lineage": [
-              "https://openalex.org/P4310320547",
-              "https://openalex.org/P4310320449"
-            ],
-            "host_organization_lineage_names": [
-              "Taylor & Francis",
-              "Informa"
-            ],
-            "type": "journal"
-          },
-          "license": null,
-          "license_id": null,
-          "version": "publishedVersion",
-          "is_accepted": true,
-          "is_published": true,
-          "raw_source_name": "Expert Opinion on Drug Metabolism &amp; Toxicology",
-          "raw_type": "journal-article"
-        },
-        {
-          "id": "pmid:40842299",
-          "doi": null,
-          "is_oa": false,
-          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/40842299",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S4306525036",
-            "display_name": "PubMed",
-            "issn_l": null,
-            "issn": null,
-            "is_oa": false,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1299303238",
-            "host_organization_name": "National Institutes of Health",
-            "host_organization_lineage": [
-              "https://openalex.org/I1299303238"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": null,
-          "license_id": null,
-          "version": "publishedVersion",
-          "is_accepted": true,
-          "is_published": true,
-          "raw_source_name": "Expert opinion on drug metabolism & toxicology",
-          "raw_type": "Journal Article"
-        }
-      ],
-      "best_oa_location": null,
-      "sustainable_development_goals": [
-        {
-          "id": "https://metadata.un.org/sdg/3",
-          "score": 0.8048999905586243,
-          "display_name": "Good health and well-being"
-        }
-      ],
-      "study_designs": [],
-      "awards": [],
-      "funders": [],
-      "has_content": {
-        "grobid_xml": false,
-        "pdf": false
-      },
-      "content_urls": null,
-      "referenced_works_count": 112,
-      "referenced_works": [
-        "https://openalex.org/W1586065247",
-        "https://openalex.org/W1986657538",
-        "https://openalex.org/W1992475241",
-        "https://openalex.org/W2117191287",
-        "https://openalex.org/W2117446654",
-        "https://openalex.org/W2137775956",
-        "https://openalex.org/W2310115806",
-        "https://openalex.org/W2485374661",
-        "https://openalex.org/W2525778437",
-        "https://openalex.org/W2775175656",
-        "https://openalex.org/W2897105542",
-        "https://openalex.org/W2911489562",
-        "https://openalex.org/W2912655931",
-        "https://openalex.org/W2950860419",
-        "https://openalex.org/W2952902362",
-        "https://openalex.org/W2962784628",
-        "https://openalex.org/W2991546386",
-        "https://openalex.org/W2997923706",
-        "https://openalex.org/W2999886378",
-        "https://openalex.org/W3027982260",
-        "https://openalex.org/W3043102475",
-        "https://openalex.org/W3157960714",
-        "https://openalex.org/W3176522155",
-        "https://openalex.org/W3180428925",
-        "https://openalex.org/W3182937403",
-        "https://openalex.org/W3193463107",
-        "https://openalex.org/W3194309076",
-        "https://openalex.org/W3206046197",
-        "https://openalex.org/W3211753177",
-        "https://openalex.org/W3213998394",
-        "https://openalex.org/W4212926508",
-        "https://openalex.org/W4213070269",
-        "https://openalex.org/W4213164841",
-        "https://openalex.org/W4224077681",
-        "https://openalex.org/W4229459576",
-        "https://openalex.org/W4280639694",
-        "https://openalex.org/W4297678698",
-        "https://openalex.org/W4297678755",
-        "https://openalex.org/W4298088039",
-        "https://openalex.org/W4321166789",
-        "https://openalex.org/W4323315783",
-        "https://openalex.org/W4323655724",
-        "https://openalex.org/W4327715333",
-        "https://openalex.org/W4362682979",
-        "https://openalex.org/W4364368785",
-        "https://openalex.org/W4366828082",
-        "https://openalex.org/W4380356533",
-        "https://openalex.org/W4382450509",
-        "https://openalex.org/W4382501959",
-        "https://openalex.org/W4383499296",
-        "https://openalex.org/W4386894187",
-        "https://openalex.org/W4386968362",
-        "https://openalex.org/W4388140134",
-        "https://openalex.org/W4389274313",
-        "https://openalex.org/W4389518703",
-        "https://openalex.org/W4389523847",
-        "https://openalex.org/W4390227107",
-        "https://openalex.org/W4391069701",
-        "https://openalex.org/W4391591663",
-        "https://openalex.org/W4391737993",
-        "https://openalex.org/W4391855109",
-        "https://openalex.org/W4391971084",
-        "https://openalex.org/W4392619616",
-        "https://openalex.org/W4392681182",
-        "https://openalex.org/W4392971656",
-        "https://openalex.org/W4393931635",
-        "https://openalex.org/W4394013923",
-        "https://openalex.org/W4394975263",
-        "https://openalex.org/W4399978597",
-        "https://openalex.org/W4400202790",
-        "https://openalex.org/W4400217388",
-        "https://openalex.org/W4400228202",
-        "https://openalex.org/W4400958062",
-        "https://openalex.org/W4401076218",
-        "https://openalex.org/W4401219918",
-        "https://openalex.org/W4401609675",
-        "https://openalex.org/W4401809246",
-        "https://openalex.org/W4401979326",
-        "https://openalex.org/W4402420948",
-        "https://openalex.org/W4402567763",
-        "https://openalex.org/W4402692877",
-        "https://openalex.org/W4403109979",
-        "https://openalex.org/W4403204907",
-        "https://openalex.org/W4403267030",
-        "https://openalex.org/W4403369693",
-        "https://openalex.org/W4403499178",
-        "https://openalex.org/W4403578206",
-        "https://openalex.org/W4403689800",
-        "https://openalex.org/W4404025622",
-        "https://openalex.org/W4404782660",
-        "https://openalex.org/W4404869895",
-        "https://openalex.org/W4404920103",
-        "https://openalex.org/W4405463625",
-        "https://openalex.org/W4405653162",
-        "https://openalex.org/W4405695223",
-        "https://openalex.org/W4406030356",
-        "https://openalex.org/W4406371336",
-        "https://openalex.org/W4406799570",
-        "https://openalex.org/W4407045449",
-        "https://openalex.org/W4407820636",
-        "https://openalex.org/W4407998253",
-        "https://openalex.org/W4408108874",
-        "https://openalex.org/W4408197148",
-        "https://openalex.org/W4408226143",
-        "https://openalex.org/W4408967642",
-        "https://openalex.org/W4409190866",
-        "https://openalex.org/W4409316168",
-        "https://openalex.org/W4409362715",
-        "https://openalex.org/W4410440973",
-        "https://openalex.org/W4411889305",
-        "https://openalex.org/W4412853478",
-        "https://openalex.org/W7123937002"
-      ],
-      "related_works": [
-        "https://openalex.org/W7126068806",
-        "https://openalex.org/W4410940275",
-        "https://openalex.org/W4407423373",
-        "https://openalex.org/W7127056077",
-        "https://openalex.org/W7221965164",
-        "https://openalex.org/W4414553638",
-        "https://openalex.org/W7166855567",
-        "https://openalex.org/W4410440973",
-        "https://openalex.org/W7213669782",
-        "https://openalex.org/W4416971715"
-      ],
-      "abstract_inverted_index": {
-        "INTRODUCTION:": [
-          0
-        ],
-        "Advanced": [
-          1
-        ],
-        "artificial": [
-          2
-        ],
-        "intelligence": [
-          3
-        ],
-        "(AI)": [
-          4
-        ],
-        "frameworks": [
-          5,
-          115
-        ],
-        "particularly,": [
-          6
-        ],
-        "large": [
-          7
-        ],
-        "language": [
-          8
-        ],
-        "models": [
-          9,
-          118
-        ],
-        "(LLMs)": [
-          10
-        ],
-        "have": [
-          11
-        ],
-        "recently": [
-          12
-        ],
-        "attracted": [
-          13
-        ],
-        "attention": [
-          14
-        ],
-        "for": [
-          15,
-          136
-        ],
-        "automating": [
-          16
-        ],
-        "Drug-drug": [
-          17
-        ],
-        "interactions": [
-          18
-        ],
-        "(DDIs)": [
-          19
-        ],
-        "extraction": [
-          20,
-          51,
-          89
-        ],
-        "and": [
-          21,
-          38,
-          52,
-          77,
-          84,
-          93,
-          105,
-          126,
-          139,
-          146,
-          163,
-          186
-        ],
-        "prediction": [
-          22,
-          114
-        ],
-        "tasks.": [
-          23
-        ],
-        "However,": [
-          24,
-          143
-        ],
-        "there": [
-          25
-        ],
-        "is": [
-          26
-        ],
-        "a": [
-          27,
-          56
-        ],
-        "scarcity": [
-          28
-        ],
-        "of": [
-          29,
-          48,
-          64
-        ],
-        "reviews": [
-          30
-        ],
-        "on": [
-          31,
-          55
-        ],
-        "how": [
-          32
-        ],
-        "LLMs": [
-          33,
-          133
-        ],
-        "can": [
-          34
-        ],
-        "rapidly": [
-          35
-        ],
-        "identify": [
-          36
-        ],
-        "known": [
-          37
-        ],
-        "novel": [
-          39
-        ],
-        "DDIs.": [
-          40
-        ],
-        "AREAS": [
-          41
-        ],
-        "COVERED:": [
-          42
-        ],
-        "This": [
-          43
-        ],
-        "review": [
-          44
-        ],
-        "summarizes": [
-          45
-        ],
-        "the": [
-          46,
-          69
-        ],
-        "state": [
-          47
-        ],
-        "LLM-based": [
-          49
-        ],
-        "DDI": [
-          50,
-          88,
-          110
-        ],
-        "prediction,": [
-          53,
-          111
-        ],
-        "based": [
-          54
-        ],
-        "broad": [
-          57
-        ],
-        "literature": [
-          58
-        ],
-        "search": [
-          59
-        ],
-        "from": [
-          60,
-          90
-        ],
-        "PubMed,": [
-          61
-        ],
-        "Embase,": [
-          62
-        ],
-        "Web": [
-          63
-        ],
-        "Science,": [
-          65
-        ],
-        "Scopus,": [
-          66
-        ],
-        "IEEE": [
-          67
-        ],
-        "Xplore,": [
-          68
-        ],
-        "Cochrane": [
-          70
-        ],
-        "Library,": [
-          71,
-          74
-        ],
-        "ACM": [
-          72
-        ],
-        "Digital": [
-          73
-        ],
-        "Google": [
-          75
-        ],
-        "Scholar,": [
-          76
-        ],
-        "Semantic": [
-          78
-        ],
-        "Scholar": [
-          79
-        ],
-        "published": [
-          80
-        ],
-        "between": [
-          81
-        ],
-        "January": [
-          82
-        ],
-        "2000": [
-          83
-        ],
-        "February": [
-          85
-        ],
-        "2025.": [
-          86
-        ],
-        "For": [
-          87,
-          109
-        ],
-        "biomedical": [
-          91
-        ],
-        "text": [
-          92
-        ],
-        "databases,": [
-          94
-        ],
-        "we": [
-          95,
-          112
-        ],
-        "detail": [
-          96
-        ],
-        "methods": [
-          97,
-          128
-        ],
-        "utilizing": [
-          98
-        ],
-        "transformer-based": [
-          99
-        ],
-        "models,": [
-          100
-        ],
-        "such": [
-          101
-        ],
-        "as": [
-          102
-        ],
-        "domain-specific": [
-          103
-        ],
-        "BioBERT": [
-          104
-        ],
-        "general": [
-          106
-        ],
-        "GPT-based": [
-          107
-        ],
-        "architectures.": [
-          108
-        ],
-        "discuss": [
-          113
-        ],
-        "including": [
-          116
-        ],
-        "hybrid": [
-          117
-        ],
-        "(e.g.": [
-          119,
-          124,
-          129
-        ],
-        "SmileGNN,": [
-          120
-        ],
-        "DrugDAGT),": [
-          121
-        ],
-        "conversational": [
-          122
-        ],
-        "agents": [
-          123
-        ],
-        "ChatGPT),": [
-          125
-        ],
-        "prompt-based": [
-          127
-        ],
-        "DDIPrompt).": [
-          130
-        ],
-        "EXPERT": [
-          131
-        ],
-        "OPINION:": [
-          132
-        ],
-        "offer": [
-          134
-        ],
-        "potential": [
-          135
-        ],
-        "advancing": [
-          137
-        ],
-        "pharmacovigilance": [
-          138
-        ],
-        "clinical": [
-          140,
-          148,
-          173
-        ],
-        "decision": [
-          141
-        ],
-        "support.": [
-          142
-        ],
-        "realizing": [
-          144
-        ],
-        "this": [
-          145
-        ],
-        "establishing": [
-          147
-        ],
-        "trust": [
-          149
-        ],
-        "requires": [
-          150
-        ],
-        "urgently": [
-          151
-        ],
-        "addressing": [
-          152
-        ],
-        "current": [
-          153
-        ],
-        "limitations,": [
-          154
-        ],
-        "particularly": [
-          155
-        ],
-        "enhancing": [
-          156
-        ],
-        "model": [
-          157
-        ],
-        "explainability,": [
-          158
-        ],
-        "improving": [
-          159
-        ],
-        "reliability": [
-          160
-        ],
-        "(mitigating": [
-          161
-        ],
-        "hallucinations),": [
-          162
-        ],
-        "resolving": [
-          164
-        ],
-        "data": [
-          165,
-          184
-        ],
-        "quality": [
-          166
-        ],
-        "issues.": [
-          167
-        ],
-        "Future": [
-          168
-        ],
-        "research": [
-          169
-        ],
-        "must": [
-          170
-        ],
-        "prioritize": [
-          171
-        ],
-        "rigorous": [
-          172
-        ],
-        "validation": [
-          174
-        ],
-        "(prospective": [
-          175
-        ],
-        "studies),": [
-          176
-        ],
-        "developing": [
-          177
-        ],
-        "robust": [
-          178
-        ],
-        "explainable": [
-          179
-        ],
-        "AI": [
-          180
-        ],
-        "(XAI)": [
-          181
-        ],
-        "techniques,": [
-          182
-        ],
-        "refining": [
-          183
-        ],
-        "curation,": [
-          185
-        ],
-        "integrating": [
-          187
-        ],
-        "multimodal": [
-          188
-        ],
-        "patient": [
-          189
-        ],
-        "data.": [
-          190
-        ]
-      },
-      "counts_by_year": [
-        {
-          "year": 2026,
-          "cited_by_count": 11
-        },
-        {
-          "year": 2025,
-          "cited_by_count": 2
-        }
-      ],
-      "updated_date": "2026-11-07T11:25:07.637180",
-      "created_date": "2025-10-10T00:00:00"
     },
     {
       "id": "https://openalex.org/W4400042317",
@@ -4979,7 +3793,11 @@
         "raw_source_name": "Journal of Chemical Information and Modeling",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4400042317"
+      ],
+      "child_works_count": 1,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -5239,11 +4057,12 @@
         "value_usd": 4500
       },
       "apc_paid": null,
-      "fwci": 1.601,
+      "fwci": 1.6755,
+      "is_authors_truncated": false,
       "has_fulltext": false,
-      "cited_by_count": 12,
+      "cited_by_count": 13,
       "citation_normalized_percentile": {
-        "value": 0.84223871,
+        "value": 0.84278015,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -5697,8 +4516,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 62,
@@ -5768,7 +4587,7 @@
       ],
       "related_works": [
         "https://openalex.org/W3093403456",
-        "https://openalex.org/W3157291058",
+        "https://openalex.org/W3200979355",
         "https://openalex.org/W2580693501",
         "https://openalex.org/W2969640213",
         "https://openalex.org/W3042607120",
@@ -6419,15 +5238,1223 @@
       "counts_by_year": [
         {
           "year": 2026,
-          "cited_by_count": 6
+          "cited_by_count": 7
         },
         {
           "year": 2025,
           "cited_by_count": 6
         }
       ],
-      "updated_date": "2026-11-07T11:25:07.637180",
+      "updated_date": "2026-11-15T12:55:33.944570",
       "created_date": "2024-06-27T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4413440773",
+      "doi": "https://doi.org/10.1080/17425255.2025.2551724",
+      "title": "Language models for drug\u2013drug interactions: current applications, pitfalls, and future directions",
+      "display_name": "Language models for drug\u2013drug interactions: current applications, pitfalls, and future directions",
+      "publication_year": 2025,
+      "publication_date": "2025-08-22",
+      "ids": {
+        "openalex": "https://openalex.org/W4413440773",
+        "doi": "https://doi.org/10.1080/17425255.2025.2551724",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/40842299"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1080/17425255.2025.2551724",
+        "doi": "https://doi.org/10.1080/17425255.2025.2551724",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1080/17425255.2025.2551724",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S102336391",
+          "display_name": "Expert Opinion on Drug Metabolism & Toxicology",
+          "issn_l": "1742-5255",
+          "issn": [
+            "1742-5255",
+            "1744-7607"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "dongbi-c",
+            "doyens",
+            "jufo-1",
+            "ki-jl-1",
+            "medline",
+            "norway-1",
+            "poland-100",
+            "russia-white-list-1",
+            "vabb-shw"
+          ],
+          "host_organization": "https://openalex.org/P4310320547",
+          "host_organization_name": "Taylor & Francis",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320547",
+            "https://openalex.org/P4310320449"
+          ],
+          "host_organization_lineage_names": [
+            "Taylor & Francis",
+            "Informa"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Expert Opinion on Drug Metabolism &amp; Toxicology",
+        "raw_type": "journal-article"
+      },
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4413440773"
+      ],
+      "child_works_count": 0,
+      "type": "review",
+      "is_traditional": true,
+      "indexed_in": [
+        "crossref",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5056443210",
+            "display_name": "Ahmad Z. Al Meslamani",
+            "orcid": "https://orcid.org/0000-0002-8370-9562",
+            "observed_orcids": [
+              "https://orcid.org/0000-0002-8370-9562"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Ahmad Z. Al Meslamani",
+          "raw_affiliation_strings": [
+            "Al Ain University",
+            "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
+            "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5102914480",
+            "display_name": "Abdallah Abou Hajal",
+            "orcid": "https://orcid.org/0009-0006-1807-2178",
+            "observed_orcids": [
+              "https://orcid.org/0009-0006-1807-2178",
+              "https://orcid.org/0000-0003-4655-1193"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdallah Abou Hajal",
+          "raw_affiliation_strings": [
+            "Al Ain University",
+            "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
+            "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Al Ain University",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "AAU Health and Biomedical Research Center, Al Ain University, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, Abu Dhabi, United Arab Emirates",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5056443210"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I161913731"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.6492,
+      "is_authors_truncated": false,
+      "has_fulltext": false,
+      "cited_by_count": 13,
+      "citation_normalized_percentile": {
+        "value": 0.62179487,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 93,
+        "max": 99
+      },
+      "biblio": {
+        "volume": "21",
+        "issue": "9",
+        "first_page": "1083",
+        "last_page": "1102"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10211",
+        "display_name": "Computational Drug Discovery Methods",
+        "score": 0.5605000257492065,
+        "subfield": {
+          "id": "https://openalex.org/subfields/3002",
+          "display_name": "Drug Discovery"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/30",
+          "display_name": "Pharmacology, Toxicology and Pharmaceutics"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/1",
+          "display_name": "Life Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10211",
+          "display_name": "Computational Drug Discovery Methods",
+          "score": 0.5605000257492065,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3002",
+            "display_name": "Drug Discovery"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/30",
+            "display_name": "Pharmacology, Toxicology and Pharmaceutics"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13702",
+          "display_name": "Machine Learning in Healthcare",
+          "score": 0.11169999837875366,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1702",
+            "display_name": "Artificial Intelligence"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/17",
+            "display_name": "Computer Science"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11636",
+          "display_name": "Artificial Intelligence in Healthcare and Education",
+          "score": 0.09229999780654907,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2718",
+            "display_name": "Health Informatics"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/drug-drug-interactions",
+          "display_name": "drug-drug interactions",
+          "score": 0.9919999837875366
+        },
+        {
+          "id": "https://openalex.org/keywords/large-language-models",
+          "display_name": "large language models",
+          "score": 0.9869999885559082
+        },
+        {
+          "id": "https://openalex.org/keywords/ddi-prediction",
+          "display_name": "DDI prediction",
+          "score": 0.9980000257492065
+        },
+        {
+          "id": "https://openalex.org/keywords/pharmacovigilance",
+          "display_name": "pharmacovigilance",
+          "score": 0.8690000176429749
+        },
+        {
+          "id": "https://openalex.org/keywords/clinical-decision-support",
+          "display_name": "clinical decision support",
+          "score": 0.9959999918937683
+        },
+        {
+          "id": "https://openalex.org/keywords/explainable-ai",
+          "display_name": "explainable AI",
+          "score": 0.7889999747276306
+        },
+        {
+          "id": "https://openalex.org/keywords/hallucination-mitigation",
+          "display_name": "hallucination mitigation",
+          "score": 0.7509999871253967
+        },
+        {
+          "id": "https://openalex.org/keywords/biomedical-text-mining",
+          "display_name": "biomedical text mining",
+          "score": 0.6650000214576721
+        },
+        {
+          "id": "https://openalex.org/keywords/biobert",
+          "display_name": "BioBERT",
+          "score": 0.5659999847412109
+        },
+        {
+          "id": "https://openalex.org/keywords/gpt",
+          "display_name": "GPT",
+          "score": 0.7979999780654907
+        },
+        {
+          "id": "https://openalex.org/keywords/multimodal-patient-data",
+          "display_name": "multimodal patient data",
+          "score": 0.8100000023841858
+        },
+        {
+          "id": "https://openalex.org/keywords/data-quality",
+          "display_name": "data quality",
+          "score": 0.5059999823570251
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2780035454",
+          "wikidata": "https://www.wikidata.org/wiki/Q8386",
+          "display_name": "Drug",
+          "level": 2,
+          "score": 0.6954339742660522
+        },
+        {
+          "id": "https://openalex.org/C71924100",
+          "wikidata": "https://www.wikidata.org/wiki/Q11190",
+          "display_name": "Medicine",
+          "level": 0,
+          "score": 0.4677966237068176
+        },
+        {
+          "id": "https://openalex.org/C148043351",
+          "wikidata": "https://www.wikidata.org/wiki/Q4456944",
+          "display_name": "Current (fluid)",
+          "level": 2,
+          "score": 0.4547237455844879
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.3748514652252197
+        },
+        {
+          "id": "https://openalex.org/C177713679",
+          "wikidata": "https://www.wikidata.org/wiki/Q679690",
+          "display_name": "Intensive care medicine",
+          "level": 1,
+          "score": 0.3713071644306183
+        },
+        {
+          "id": "https://openalex.org/C98274493",
+          "wikidata": "https://www.wikidata.org/wiki/Q128406",
+          "display_name": "Pharmacology",
+          "level": 1,
+          "score": 0.29797083139419556
+        },
+        {
+          "id": "https://openalex.org/C127413603",
+          "wikidata": "https://www.wikidata.org/wiki/Q11023",
+          "display_name": "Engineering",
+          "level": 0,
+          "score": 0.11821186542510986
+        },
+        {
+          "id": "https://openalex.org/C119599485",
+          "wikidata": "https://www.wikidata.org/wiki/Q43035",
+          "display_name": "Electrical engineering",
+          "level": 1,
+          "score": 0.0
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D001185",
+          "descriptor_name": "Artificial Intelligence",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D004347",
+          "descriptor_name": "Drug Interactions",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D007802",
+          "descriptor_name": "Language",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": true
+        },
+        {
+          "descriptor_ui": "D016208",
+          "descriptor_name": "Databases, Factual",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020000",
+          "descriptor_name": "Decision Support Systems, Clinical",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D060735",
+          "descriptor_name": "Pharmacovigilance",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        }
+      ],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "doi:10.1080/17425255.2025.2551724",
+          "doi": "https://doi.org/10.1080/17425255.2025.2551724",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1080/17425255.2025.2551724",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S102336391",
+            "display_name": "Expert Opinion on Drug Metabolism & Toxicology",
+            "issn_l": "1742-5255",
+            "issn": [
+              "1742-5255",
+              "1744-7607"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "listed_in": [
+              "cwts-core",
+              "dongbi-c",
+              "doyens",
+              "jufo-1",
+              "ki-jl-1",
+              "medline",
+              "norway-1",
+              "poland-100",
+              "russia-white-list-1",
+              "vabb-shw"
+            ],
+            "host_organization": "https://openalex.org/P4310320547",
+            "host_organization_name": "Taylor & Francis",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320547",
+              "https://openalex.org/P4310320449"
+            ],
+            "host_organization_lineage_names": [
+              "Taylor & Francis",
+              "Informa"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Expert Opinion on Drug Metabolism &amp; Toxicology",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:40842299",
+          "doi": null,
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/40842299",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Expert opinion on drug metabolism & toxicology",
+          "raw_type": "Journal Article"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "score": 0.8048999905586243,
+          "id": "https://metadata.un.org/sdg/3",
+          "display_name": "Good health and well-being"
+        }
+      ],
+      "study_designs": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "pdf": false,
+        "grobid_xml": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 116,
+      "referenced_works": [
+        "https://openalex.org/W1586065247",
+        "https://openalex.org/W1816313093",
+        "https://openalex.org/W1986657538",
+        "https://openalex.org/W1992475241",
+        "https://openalex.org/W2117191287",
+        "https://openalex.org/W2117446654",
+        "https://openalex.org/W2137775956",
+        "https://openalex.org/W2310115806",
+        "https://openalex.org/W2485374661",
+        "https://openalex.org/W2525778437",
+        "https://openalex.org/W2775175656",
+        "https://openalex.org/W2897105542",
+        "https://openalex.org/W2911489562",
+        "https://openalex.org/W2912655931",
+        "https://openalex.org/W2950860419",
+        "https://openalex.org/W2952902362",
+        "https://openalex.org/W2962784628",
+        "https://openalex.org/W2991546386",
+        "https://openalex.org/W2997923706",
+        "https://openalex.org/W2999886378",
+        "https://openalex.org/W3027982260",
+        "https://openalex.org/W3043102475",
+        "https://openalex.org/W3157960714",
+        "https://openalex.org/W3176522155",
+        "https://openalex.org/W3180428925",
+        "https://openalex.org/W3182937403",
+        "https://openalex.org/W3193463107",
+        "https://openalex.org/W3194309076",
+        "https://openalex.org/W3206046197",
+        "https://openalex.org/W3211753177",
+        "https://openalex.org/W3213998394",
+        "https://openalex.org/W4212926508",
+        "https://openalex.org/W4213070269",
+        "https://openalex.org/W4213164841",
+        "https://openalex.org/W4224077681",
+        "https://openalex.org/W4229459576",
+        "https://openalex.org/W4280639694",
+        "https://openalex.org/W4297678698",
+        "https://openalex.org/W4297678755",
+        "https://openalex.org/W4298088039",
+        "https://openalex.org/W4312220150",
+        "https://openalex.org/W4321166789",
+        "https://openalex.org/W4323315783",
+        "https://openalex.org/W4323655724",
+        "https://openalex.org/W4327715333",
+        "https://openalex.org/W4362682979",
+        "https://openalex.org/W4364368785",
+        "https://openalex.org/W4366828082",
+        "https://openalex.org/W4376505370",
+        "https://openalex.org/W4380356533",
+        "https://openalex.org/W4382450509",
+        "https://openalex.org/W4382501959",
+        "https://openalex.org/W4383499296",
+        "https://openalex.org/W4386894187",
+        "https://openalex.org/W4386968362",
+        "https://openalex.org/W4388140134",
+        "https://openalex.org/W4389274313",
+        "https://openalex.org/W4389518703",
+        "https://openalex.org/W4389523847",
+        "https://openalex.org/W4390227107",
+        "https://openalex.org/W4391069701",
+        "https://openalex.org/W4391591663",
+        "https://openalex.org/W4391737993",
+        "https://openalex.org/W4391855109",
+        "https://openalex.org/W4391971084",
+        "https://openalex.org/W4392619616",
+        "https://openalex.org/W4392681182",
+        "https://openalex.org/W4392971656",
+        "https://openalex.org/W4393931635",
+        "https://openalex.org/W4394013923",
+        "https://openalex.org/W4394975263",
+        "https://openalex.org/W4399978597",
+        "https://openalex.org/W4400202790",
+        "https://openalex.org/W4400217388",
+        "https://openalex.org/W4400228202",
+        "https://openalex.org/W4400958062",
+        "https://openalex.org/W4401076218",
+        "https://openalex.org/W4401219918",
+        "https://openalex.org/W4401609675",
+        "https://openalex.org/W4401809246",
+        "https://openalex.org/W4401979326",
+        "https://openalex.org/W4402420948",
+        "https://openalex.org/W4402567763",
+        "https://openalex.org/W4402692877",
+        "https://openalex.org/W4403109979",
+        "https://openalex.org/W4403204907",
+        "https://openalex.org/W4403267030",
+        "https://openalex.org/W4403369693",
+        "https://openalex.org/W4403499178",
+        "https://openalex.org/W4403551712",
+        "https://openalex.org/W4403578206",
+        "https://openalex.org/W4403689800",
+        "https://openalex.org/W4404025622",
+        "https://openalex.org/W4404782660",
+        "https://openalex.org/W4404869895",
+        "https://openalex.org/W4404920103",
+        "https://openalex.org/W4405463625",
+        "https://openalex.org/W4405653162",
+        "https://openalex.org/W4405695223",
+        "https://openalex.org/W4406030356",
+        "https://openalex.org/W4406371336",
+        "https://openalex.org/W4406799570",
+        "https://openalex.org/W4407045449",
+        "https://openalex.org/W4407820636",
+        "https://openalex.org/W4407998253",
+        "https://openalex.org/W4408108874",
+        "https://openalex.org/W4408197148",
+        "https://openalex.org/W4408226143",
+        "https://openalex.org/W4408967642",
+        "https://openalex.org/W4409190866",
+        "https://openalex.org/W4409316168",
+        "https://openalex.org/W4409362715",
+        "https://openalex.org/W4410440973",
+        "https://openalex.org/W4411889305",
+        "https://openalex.org/W4412853478",
+        "https://openalex.org/W7123937002"
+      ],
+      "related_works": [
+        "https://openalex.org/W7126068806",
+        "https://openalex.org/W4410940275",
+        "https://openalex.org/W4407423373",
+        "https://openalex.org/W7127056077",
+        "https://openalex.org/W7221965164",
+        "https://openalex.org/W4414553638",
+        "https://openalex.org/W7166855567",
+        "https://openalex.org/W4410440973",
+        "https://openalex.org/W7213669782",
+        "https://openalex.org/W4416971715"
+      ],
+      "abstract_inverted_index": {
+        "INTRODUCTION:": [
+          0
+        ],
+        "Advanced": [
+          1
+        ],
+        "artificial": [
+          2
+        ],
+        "intelligence": [
+          3
+        ],
+        "(AI)": [
+          4
+        ],
+        "frameworks": [
+          5,
+          115
+        ],
+        "particularly,": [
+          6
+        ],
+        "large": [
+          7
+        ],
+        "language": [
+          8
+        ],
+        "models": [
+          9,
+          118
+        ],
+        "(LLMs)": [
+          10
+        ],
+        "have": [
+          11
+        ],
+        "recently": [
+          12
+        ],
+        "attracted": [
+          13
+        ],
+        "attention": [
+          14
+        ],
+        "for": [
+          15,
+          136
+        ],
+        "automating": [
+          16
+        ],
+        "Drug-drug": [
+          17
+        ],
+        "interactions": [
+          18
+        ],
+        "(DDIs)": [
+          19
+        ],
+        "extraction": [
+          20,
+          51,
+          89
+        ],
+        "and": [
+          21,
+          38,
+          52,
+          77,
+          84,
+          93,
+          105,
+          126,
+          139,
+          146,
+          163,
+          186
+        ],
+        "prediction": [
+          22,
+          114
+        ],
+        "tasks.": [
+          23
+        ],
+        "However,": [
+          24,
+          143
+        ],
+        "there": [
+          25
+        ],
+        "is": [
+          26
+        ],
+        "a": [
+          27,
+          56
+        ],
+        "scarcity": [
+          28
+        ],
+        "of": [
+          29,
+          48,
+          64
+        ],
+        "reviews": [
+          30
+        ],
+        "on": [
+          31,
+          55
+        ],
+        "how": [
+          32
+        ],
+        "LLMs": [
+          33,
+          133
+        ],
+        "can": [
+          34
+        ],
+        "rapidly": [
+          35
+        ],
+        "identify": [
+          36
+        ],
+        "known": [
+          37
+        ],
+        "novel": [
+          39
+        ],
+        "DDIs.": [
+          40
+        ],
+        "AREAS": [
+          41
+        ],
+        "COVERED:": [
+          42
+        ],
+        "This": [
+          43
+        ],
+        "review": [
+          44
+        ],
+        "summarizes": [
+          45
+        ],
+        "the": [
+          46,
+          69
+        ],
+        "state": [
+          47
+        ],
+        "LLM-based": [
+          49
+        ],
+        "DDI": [
+          50,
+          88,
+          110
+        ],
+        "prediction,": [
+          53,
+          111
+        ],
+        "based": [
+          54
+        ],
+        "broad": [
+          57
+        ],
+        "literature": [
+          58
+        ],
+        "search": [
+          59
+        ],
+        "from": [
+          60,
+          90
+        ],
+        "PubMed,": [
+          61
+        ],
+        "Embase,": [
+          62
+        ],
+        "Web": [
+          63
+        ],
+        "Science,": [
+          65
+        ],
+        "Scopus,": [
+          66
+        ],
+        "IEEE": [
+          67
+        ],
+        "Xplore,": [
+          68
+        ],
+        "Cochrane": [
+          70
+        ],
+        "Library,": [
+          71,
+          74
+        ],
+        "ACM": [
+          72
+        ],
+        "Digital": [
+          73
+        ],
+        "Google": [
+          75
+        ],
+        "Scholar,": [
+          76
+        ],
+        "Semantic": [
+          78
+        ],
+        "Scholar": [
+          79
+        ],
+        "published": [
+          80
+        ],
+        "between": [
+          81
+        ],
+        "January": [
+          82
+        ],
+        "2000": [
+          83
+        ],
+        "February": [
+          85
+        ],
+        "2025.": [
+          86
+        ],
+        "For": [
+          87,
+          109
+        ],
+        "biomedical": [
+          91
+        ],
+        "text": [
+          92
+        ],
+        "databases,": [
+          94
+        ],
+        "we": [
+          95,
+          112
+        ],
+        "detail": [
+          96
+        ],
+        "methods": [
+          97,
+          128
+        ],
+        "utilizing": [
+          98
+        ],
+        "transformer-based": [
+          99
+        ],
+        "models,": [
+          100
+        ],
+        "such": [
+          101
+        ],
+        "as": [
+          102
+        ],
+        "domain-specific": [
+          103
+        ],
+        "BioBERT": [
+          104
+        ],
+        "general": [
+          106
+        ],
+        "GPT-based": [
+          107
+        ],
+        "architectures.": [
+          108
+        ],
+        "discuss": [
+          113
+        ],
+        "including": [
+          116
+        ],
+        "hybrid": [
+          117
+        ],
+        "(e.g.": [
+          119,
+          124,
+          129
+        ],
+        "SmileGNN,": [
+          120
+        ],
+        "DrugDAGT),": [
+          121
+        ],
+        "conversational": [
+          122
+        ],
+        "agents": [
+          123
+        ],
+        "ChatGPT),": [
+          125
+        ],
+        "prompt-based": [
+          127
+        ],
+        "DDIPrompt).": [
+          130
+        ],
+        "EXPERT": [
+          131
+        ],
+        "OPINION:": [
+          132
+        ],
+        "offer": [
+          134
+        ],
+        "potential": [
+          135
+        ],
+        "advancing": [
+          137
+        ],
+        "pharmacovigilance": [
+          138
+        ],
+        "clinical": [
+          140,
+          148,
+          173
+        ],
+        "decision": [
+          141
+        ],
+        "support.": [
+          142
+        ],
+        "realizing": [
+          144
+        ],
+        "this": [
+          145
+        ],
+        "establishing": [
+          147
+        ],
+        "trust": [
+          149
+        ],
+        "requires": [
+          150
+        ],
+        "urgently": [
+          151
+        ],
+        "addressing": [
+          152
+        ],
+        "current": [
+          153
+        ],
+        "limitations,": [
+          154
+        ],
+        "particularly": [
+          155
+        ],
+        "enhancing": [
+          156
+        ],
+        "model": [
+          157
+        ],
+        "explainability,": [
+          158
+        ],
+        "improving": [
+          159
+        ],
+        "reliability": [
+          160
+        ],
+        "(mitigating": [
+          161
+        ],
+        "hallucinations),": [
+          162
+        ],
+        "resolving": [
+          164
+        ],
+        "data": [
+          165,
+          184
+        ],
+        "quality": [
+          166
+        ],
+        "issues.": [
+          167
+        ],
+        "Future": [
+          168
+        ],
+        "research": [
+          169
+        ],
+        "must": [
+          170
+        ],
+        "prioritize": [
+          171
+        ],
+        "rigorous": [
+          172
+        ],
+        "validation": [
+          174
+        ],
+        "(prospective": [
+          175
+        ],
+        "studies),": [
+          176
+        ],
+        "developing": [
+          177
+        ],
+        "robust": [
+          178
+        ],
+        "explainable": [
+          179
+        ],
+        "AI": [
+          180
+        ],
+        "(XAI)": [
+          181
+        ],
+        "techniques,": [
+          182
+        ],
+        "refining": [
+          183
+        ],
+        "curation,": [
+          185
+        ],
+        "integrating": [
+          187
+        ],
+        "multimodal": [
+          188
+        ],
+        "patient": [
+          189
+        ],
+        "data.": [
+          190
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 11
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-11-10T11:39:43.021295",
+      "created_date": "2025-10-10T00:00:00"
     },
     {
       "id": "https://openalex.org/W4389680309",
@@ -6491,7 +6518,11 @@
         "raw_source_name": "Expert Opinion on Drug Metabolism &amp; Toxicology",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4389680309"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -6612,11 +6643,12 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 1.3308,
+      "fwci": 1.2805,
+      "is_authors_truncated": false,
       "has_fulltext": true,
       "cited_by_count": 15,
       "citation_normalized_percentile": {
-        "value": 0.81111717,
+        "value": 0.78975653,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -6941,8 +6973,8 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.6240000128746033,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -6950,8 +6982,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4389680309.pdf",
@@ -7152,7 +7184,11 @@
         "raw_source_name": "Computers in Biology and Medicine",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4409487862"
+      ],
+      "child_works_count": 0,
       "type": "review",
       "is_traditional": true,
       "indexed_in": [
@@ -7263,11 +7299,12 @@
         "value_usd": 3080
       },
       "apc_paid": null,
-      "fwci": 0.4598,
+      "fwci": 0.4376,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.58342246,
+        "value": 0.56059797,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -7593,8 +7630,8 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.9391000270843506,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -7607,8 +7644,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 99,
@@ -7799,7 +7836,11 @@
         "raw_source_name": "Pharmacy Practice",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4297184549"
+      ],
+      "child_works_count": 0,
       "type": "review",
       "is_traditional": true,
       "indexed_in": [
@@ -8654,11 +8695,12 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.4677,
+      "fwci": 0.4148,
+      "is_authors_truncated": false,
       "has_fulltext": true,
       "cited_by_count": 8,
       "citation_normalized_percentile": {
-        "value": 0.3375,
+        "value": 0.26388889,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -9001,37 +9043,6 @@
           "raw_type": "journal-article"
         },
         {
-          "id": "pmh:oai:pubmedcentral.nih.gov:9851817",
-          "doi": null,
-          "is_oa": true,
-          "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/9851817",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S2764455111",
-            "display_name": "PubMed Central",
-            "issn_l": null,
-            "issn": null,
-            "is_oa": true,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1299303238",
-            "host_organization_name": "National Institutes of Health",
-            "host_organization_lineage": [
-              "https://openalex.org/I1299303238"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": "cc-by-nc-nd",
-          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
-          "version": "publishedVersion",
-          "is_accepted": true,
-          "is_published": true,
-          "raw_source_name": "Pharm Pract (Granada)",
-          "raw_type": "Text"
-        },
-        {
           "id": "pmid:36733516",
           "doi": null,
           "is_oa": false,
@@ -9061,6 +9072,37 @@
           "is_published": true,
           "raw_source_name": "Pharmacy practice",
           "raw_type": "Journal Article"
+        },
+        {
+          "id": "pmh:oai:pubmedcentral.nih.gov:9851817",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9851817/",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S2764455111",
+            "display_name": "PubMed Central",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Pharm Pract (Granada)",
+          "raw_type": "Text"
         },
         {
           "id": "pmh:oai:dialnet.unirioja.es:ART0001606397",
@@ -9142,8 +9184,8 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.9391000270843506,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -9156,8 +9198,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4297184549.pdf",
@@ -9197,11 +9239,10 @@
         "https://openalex.org/W4320164613"
       ],
       "related_works": [
-        "https://openalex.org/W7037441904",
         "https://openalex.org/W2990816461",
         "https://openalex.org/W2022261263",
         "https://openalex.org/W1986118945",
-        "https://openalex.org/W4311566299",
+        "https://openalex.org/W4319319473",
         "https://openalex.org/W2024182312",
         "https://openalex.org/W3153480911",
         "https://openalex.org/W3110578389",
@@ -9758,8 +9799,948 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-11-04T10:54:05.112534",
+      "updated_date": "2026-11-14T11:04:58.165337",
       "created_date": "2022-09-27T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4280603817",
+      "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
+      "title": "Chemical Composition of the Volatile Oil from Aerial Parts ofRosmarinus officinalisL. Growing in UAE",
+      "display_name": "Chemical Composition of the Volatile Oil from Aerial Parts ofRosmarinus officinalisL. Growing in UAE",
+      "publication_year": 2022,
+      "publication_date": "2022-03-04",
+      "ids": {
+        "openalex": "https://openalex.org/W4280603817",
+        "doi": "https://doi.org/10.1080/0972060x.2022.2072177"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1080/0972060x.2022.2072177",
+        "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1080/0972060x.2022.2072177",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S999813893",
+          "display_name": "Journal of Essential Oil Bearing Plants",
+          "issn_l": "0972-060X",
+          "issn": [
+            "0972-060X",
+            "0976-5026"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "listed_in": [
+            "cwts-core",
+            "dongbi-c",
+            "jufo-1",
+            "norway-1",
+            "poland-70",
+            "russia-white-list-2"
+          ],
+          "host_organization": "https://openalex.org/P4310320547",
+          "host_organization_name": "Taylor & Francis",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320547",
+            "https://openalex.org/P4310320449"
+          ],
+          "host_organization_lineage_names": [
+            "Taylor & Francis",
+            "Informa"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Journal of Essential Oil Bearing Plants",
+        "raw_type": "journal-article"
+      },
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4280603817"
+      ],
+      "child_works_count": 0,
+      "type": "article",
+      "is_traditional": true,
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5016367473",
+            "display_name": "Mohammad Hudaib",
+            "orcid": "https://orcid.org/0000-0003-1400-462X",
+            "observed_orcids": [
+              "https://orcid.org/0000-0003-1400-462X"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I114972647",
+              "display_name": "University of Jordan",
+              "ror": "https://ror.org/05k89ew48",
+              "country_code": "JO",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I114972647"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE",
+            "JO"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Mohammad M. Hudaib",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+            "School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
+            "2 School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
+              "institution_ids": [
+                "https://openalex.org/I114972647"
+              ]
+            },
+            {
+              "raw_affiliation_string": "2 School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
+              "institution_ids": [
+                "https://openalex.org/I114972647"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5102914480",
+            "display_name": "Abdallah Abou Hajal",
+            "orcid": "https://orcid.org/0009-0006-1807-2178",
+            "observed_orcids": [
+              "https://orcid.org/0009-0006-1807-2178",
+              "https://orcid.org/0000-0003-4655-1193"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Abdallah F. Abu Hajal",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5072660555",
+            "display_name": "Molham Sakkal",
+            "orcid": "https://orcid.org/0000-0001-6081-1284",
+            "observed_orcids": [
+              "https://orcid.org/0000-0001-6081-1284"
+            ]
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161913731",
+              "display_name": "Al Ain University",
+              "ror": "https://ror.org/023abrt21",
+              "country_code": "AE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ],
+          "countries": [
+            "AE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mohammad M. Sakkal",
+          "raw_affiliation_strings": [
+            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
+              "institution_ids": [
+                "https://openalex.org/I161913731"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 2,
+      "institutions_distinct_count": 2,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5016367473"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I114972647",
+        "https://openalex.org/I161913731"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.6586,
+      "is_authors_truncated": false,
+      "has_fulltext": false,
+      "cited_by_count": 6,
+      "citation_normalized_percentile": {
+        "value": 0.61374114,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 88,
+        "max": 97
+      },
+      "biblio": {
+        "volume": "25",
+        "issue": "2",
+        "first_page": "282",
+        "last_page": "289"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10225",
+        "display_name": "Essential Oils and Antimicrobial Activity",
+        "score": 0.9990000128746033,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1106",
+          "display_name": "Food Science"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/11",
+          "display_name": "Agricultural and Biological Sciences"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/1",
+          "display_name": "Life Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10225",
+          "display_name": "Essential Oils and Antimicrobial Activity",
+          "score": 0.9990000128746033,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1106",
+            "display_name": "Food Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/11",
+            "display_name": "Agricultural and Biological Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11973",
+          "display_name": "Plant chemical constituents analysis",
+          "score": 0.0003000000142492354,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1110",
+            "display_name": "Plant Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/11",
+            "display_name": "Agricultural and Biological Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T14521",
+          "display_name": "Medicinal Plant Research",
+          "score": 9.999999747378752e-05,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1110",
+            "display_name": "Plant Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/11",
+            "display_name": "Agricultural and Biological Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/rosemary",
+          "display_name": "Rosmarinus officinalis",
+          "score": 0.9990000128746033
+        },
+        {
+          "id": "https://openalex.org/keywords/essential-oil-composition",
+          "display_name": "essential oil composition",
+          "score": 0.7929999828338623
+        },
+        {
+          "id": "https://openalex.org/keywords/monoterpenes",
+          "display_name": "monoterpenes",
+          "score": 0.8629999756813049
+        },
+        {
+          "id": "https://openalex.org/keywords/1-8-cineole",
+          "display_name": "1,8-cineole",
+          "score": 0.9829999804496765
+        },
+        {
+          "id": "https://openalex.org/keywords/chemotypes",
+          "display_name": "chemotypes",
+          "score": 0.9279999732971191
+        },
+        {
+          "id": "https://openalex.org/keywords/isobornyl-acetate",
+          "display_name": "isobornyl acetate",
+          "score": 0.9139999747276306
+        },
+        {
+          "id": "https://openalex.org/keywords/camphor",
+          "display_name": "camphor",
+          "score": 0.9819999933242798
+        },
+        {
+          "id": "https://openalex.org/keywords/alpha-pinene",
+          "display_name": "\u03b1-pinene",
+          "score": 0.9259999990463257
+        },
+        {
+          "id": "https://openalex.org/keywords/camphene",
+          "display_name": "camphene",
+          "score": 0.8939999938011169
+        },
+        {
+          "id": "https://openalex.org/keywords/beta-caryophyllene",
+          "display_name": "\u03b2-caryophyllene",
+          "score": 0.9879999756813049
+        },
+        {
+          "id": "https://openalex.org/keywords/aerial-parts",
+          "display_name": "aerial parts",
+          "score": 0.7400000095367432
+        },
+        {
+          "id": "https://openalex.org/keywords/hydrodistillation",
+          "display_name": "hydrodistillation",
+          "score": 0.7760000228881836
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2777152263",
+          "wikidata": "https://www.wikidata.org/wiki/Q1865680",
+          "display_name": "Rosmarinus",
+          "level": 3,
+          "score": 0.9328308701515198
+        },
+        {
+          "id": "https://openalex.org/C2780697445",
+          "wikidata": "https://www.wikidata.org/wiki/Q181559",
+          "display_name": "Camphor",
+          "level": 2,
+          "score": 0.8935710787773132
+        },
+        {
+          "id": "https://openalex.org/C2780977547",
+          "wikidata": "https://www.wikidata.org/wiki/Q416775",
+          "display_name": "Camphene",
+          "level": 3,
+          "score": 0.8723474740982056
+        },
+        {
+          "id": "https://openalex.org/C2780886089",
+          "wikidata": "https://www.wikidata.org/wiki/Q7079617",
+          "display_name": "Officinalis",
+          "level": 2,
+          "score": 0.8203428387641907
+        },
+        {
+          "id": "https://openalex.org/C2777278459",
+          "wikidata": "https://www.wikidata.org/wiki/Q170885",
+          "display_name": "Essential oil",
+          "level": 2,
+          "score": 0.7342269420623779
+        },
+        {
+          "id": "https://openalex.org/C153784791",
+          "wikidata": "https://www.wikidata.org/wiki/Q2212766",
+          "display_name": "Chemotype",
+          "level": 3,
+          "score": 0.6946747303009033
+        },
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.6156383752822876
+        },
+        {
+          "id": "https://openalex.org/C2776961690",
+          "wikidata": "https://www.wikidata.org/wiki/Q300852",
+          "display_name": "alpha-Pinene",
+          "level": 4,
+          "score": 0.578530490398407
+        },
+        {
+          "id": "https://openalex.org/C40231798",
+          "wikidata": "https://www.wikidata.org/wiki/Q1333743",
+          "display_name": "Composition (language)",
+          "level": 2,
+          "score": 0.4900447130203247
+        },
+        {
+          "id": "https://openalex.org/C149849071",
+          "wikidata": "https://www.wikidata.org/wiki/Q1263816",
+          "display_name": "Chemical composition",
+          "level": 2,
+          "score": 0.4691295325756073
+        },
+        {
+          "id": "https://openalex.org/C59822182",
+          "wikidata": "https://www.wikidata.org/wiki/Q441",
+          "display_name": "Botany",
+          "level": 1,
+          "score": 0.4629076421260834
+        },
+        {
+          "id": "https://openalex.org/C2776134268",
+          "wikidata": "https://www.wikidata.org/wiki/Q278809",
+          "display_name": "Limonene",
+          "level": 3,
+          "score": 0.4416666626930237
+        },
+        {
+          "id": "https://openalex.org/C43617362",
+          "wikidata": "https://www.wikidata.org/wiki/Q170050",
+          "display_name": "Chromatography",
+          "level": 1,
+          "score": 0.2459501028060913
+        },
+        {
+          "id": "https://openalex.org/C178790620",
+          "wikidata": "https://www.wikidata.org/wiki/Q11351",
+          "display_name": "Organic chemistry",
+          "level": 1,
+          "score": 0.18019315600395203
+        },
+        {
+          "id": "https://openalex.org/C86803240",
+          "wikidata": "https://www.wikidata.org/wiki/Q420",
+          "display_name": "Biology",
+          "level": 0,
+          "score": 0.1645430624485016
+        },
+        {
+          "id": "https://openalex.org/C138885662",
+          "wikidata": "https://www.wikidata.org/wiki/Q5891",
+          "display_name": "Philosophy",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C41895202",
+          "wikidata": "https://www.wikidata.org/wiki/Q8162",
+          "display_name": "Linguistics",
+          "level": 1,
+          "score": 0.0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.1080/0972060x.2022.2072177",
+          "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1080/0972060x.2022.2072177",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S999813893",
+            "display_name": "Journal of Essential Oil Bearing Plants",
+            "issn_l": "0972-060X",
+            "issn": [
+              "0972-060X",
+              "0976-5026"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "listed_in": [
+              "cwts-core",
+              "dongbi-c",
+              "jufo-1",
+              "norway-1",
+              "poland-70",
+              "russia-white-list-2"
+            ],
+            "host_organization": "https://openalex.org/P4310320547",
+            "host_organization_name": "Taylor & Francis",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320547",
+              "https://openalex.org/P4310320449"
+            ],
+            "host_organization_lineage_names": [
+              "Taylor & Francis",
+              "Informa"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Journal of Essential Oil Bearing Plants",
+          "raw_type": "journal-article"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [],
+      "study_designs": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "pdf": false,
+        "grobid_xml": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 22,
+      "referenced_works": [
+        "https://openalex.org/W1532088222",
+        "https://openalex.org/W1551117872",
+        "https://openalex.org/W1969281051",
+        "https://openalex.org/W1984601608",
+        "https://openalex.org/W1987370786",
+        "https://openalex.org/W1993851201",
+        "https://openalex.org/W2009672785",
+        "https://openalex.org/W2040435198",
+        "https://openalex.org/W2046766720",
+        "https://openalex.org/W2054151437",
+        "https://openalex.org/W2084826641",
+        "https://openalex.org/W2120166207",
+        "https://openalex.org/W2268288619",
+        "https://openalex.org/W2312825057",
+        "https://openalex.org/W2330078229",
+        "https://openalex.org/W2331225135",
+        "https://openalex.org/W2795985192",
+        "https://openalex.org/W2920944064",
+        "https://openalex.org/W3013599347",
+        "https://openalex.org/W3036572785",
+        "https://openalex.org/W3046112161",
+        "https://openalex.org/W4294328079"
+      ],
+      "related_works": [
+        "https://openalex.org/W2268288619",
+        "https://openalex.org/W2184129684",
+        "https://openalex.org/W1997433247",
+        "https://openalex.org/W4282590805",
+        "https://openalex.org/W3114538320",
+        "https://openalex.org/W3010653150",
+        "https://openalex.org/W2374368702",
+        "https://openalex.org/W2009673402",
+        "https://openalex.org/W1993771731",
+        "https://openalex.org/W1981446701"
+      ],
+      "abstract_inverted_index": {
+        "In": [
+          0
+        ],
+        "the": [
+          1,
+          4,
+          8,
+          42,
+          59,
+          78,
+          89,
+          98,
+          110,
+          122,
+          126
+        ],
+        "present": [
+          2
+        ],
+        "study,": [
+          3
+        ],
+        "chemical": [
+          5
+        ],
+        "composition": [
+          6
+        ],
+        "of": [
+          7,
+          15,
+          26,
+          38,
+          86,
+          121,
+          125
+        ],
+        "volatile": [
+          9,
+          123
+        ],
+        "oil": [
+          10,
+          32,
+          81,
+          91,
+          124
+        ],
+        "hydrodistilled": [
+          11
+        ],
+        "from": [
+          12
+        ],
+        "aerial": [
+          13
+        ],
+        "parts": [
+          14
+        ],
+        "Rosmarinus": [
+          16
+        ],
+        "officinalis": [
+          17
+        ],
+        "L.,": [
+          18
+        ],
+        "growing": [
+          19,
+          106
+        ],
+        "in": [
+          20,
+          88,
+          107
+        ],
+        "UAE,": [
+          21
+        ],
+        "was": [
+          22,
+          33
+        ],
+        "determined": [
+          23
+        ],
+        "by": [
+          24,
+          35
+        ],
+        "means": [
+          25
+        ],
+        "GC/FID": [
+          27
+        ],
+        "and": [
+          28,
+          55,
+          71
+        ],
+        "GC/MS": [
+          29
+        ],
+        "analyses.": [
+          30
+        ],
+        "The": [
+          31,
+          83
+        ],
+        "characterised": [
+          34
+        ],
+        "dominant": [
+          36
+        ],
+        "concentration": [
+          37
+        ],
+        "monoterpenes": [
+          39
+        ],
+        "(91.7%),": [
+          40
+        ],
+        "particularly": [
+          41
+        ],
+        "oxygenated": [
+          43
+        ],
+        "fraction": [
+          44
+        ],
+        "(64.4%),": [
+          45
+        ],
+        "with": [
+          46,
+          104
+        ],
+        "1,8-cineole": [
+          47,
+          87,
+          95
+        ],
+        "(25.5%),": [
+          48
+        ],
+        "a": [
+          49,
+          94,
+          114
+        ],
+        "well-known": [
+          50
+        ],
+        "compound": [
+          51
+        ],
+        "for": [
+          52
+        ],
+        "its": [
+          53
+        ],
+        "medicinal": [
+          54
+        ],
+        "pharmaceutical": [
+          56
+        ],
+        "values,": [
+          57
+        ],
+        "as": [
+          58
+        ],
+        "principal": [
+          60
+        ],
+        "component.": [
+          61
+        ],
+        "Isobornyl": [
+          62
+        ],
+        "acetate": [
+          63
+        ],
+        "(15.7%),": [
+          64
+        ],
+        "camphor": [
+          65
+        ],
+        "(12.2%),": [
+          66
+        ],
+        "\u03b1-pinene": [
+          67
+        ],
+        "(11.7%),": [
+          68
+        ],
+        "camphene": [
+          69
+        ],
+        "(9.0%),": [
+          70
+        ],
+        "\u03b2-caryophyllene": [
+          72
+        ],
+        "(4.9%)": [
+          73
+        ],
+        "were": [
+          74
+        ],
+        "also": [
+          75
+        ],
+        "identified": [
+          76
+        ],
+        "among": [
+          77
+        ],
+        "other": [
+          79,
+          108
+        ],
+        "major": [
+          80
+        ],
+        "constituents.": [
+          82
+        ],
+        "predominant": [
+          84
+        ],
+        "level": [
+          85
+        ],
+        "analysed": [
+          90
+        ],
+        "could": [
+          92
+        ],
+        "assign": [
+          93
+        ],
+        "chemotype": [
+          96
+        ],
+        "to": [
+          97
+        ],
+        "studied": [
+          99
+        ],
+        "Emirati": [
+          100
+        ],
+        "rosemary": [
+          101
+        ],
+        "species.": [
+          102,
+          128
+        ],
+        "Compared": [
+          103
+        ],
+        "plants": [
+          105
+        ],
+        "countries,": [
+          109
+        ],
+        "obtained": [
+          111
+        ],
+        "results": [
+          112
+        ],
+        "revealed": [
+          113
+        ],
+        "characteristic": [
+          115
+        ],
+        "-": [
+          116,
+          119
+        ],
+        "mainly": [
+          117
+        ],
+        "quantitative": [
+          118
+        ],
+        "profile": [
+          120
+        ],
+        "investigated": [
+          127
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2026-11-10T11:39:43.021295",
+      "created_date": "2022-05-22T00:00:00"
     },
     {
       "id": "https://openalex.org/W7117138339",
@@ -9821,7 +10802,11 @@
         "raw_source_name": "Journal of Pharmaceutical Sciences",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7117138339"
+      ],
+      "child_works_count": 0,
       "type": "review",
       "is_traditional": true,
       "indexed_in": [
@@ -9932,11 +10917,12 @@
         "value_usd": 3620
       },
       "apc_paid": null,
-      "fwci": 0.106,
+      "fwci": 0.0995,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.18035427,
+        "value": 0.10576923,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -10338,8 +11324,8 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.4000000059604645,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -10347,8 +11333,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 49,
@@ -10408,9 +11394,8 @@
         "https://openalex.org/W7117406490",
         "https://openalex.org/W4405764234",
         "https://openalex.org/W4408564879",
-        "https://openalex.org/W4403593408",
-        "https://openalex.org/W7119941955",
         "https://openalex.org/W4413911708",
+        "https://openalex.org/W7119941955",
         "https://openalex.org/W7155571562",
         "https://openalex.org/W7165137416",
         "https://openalex.org/W4414609213"
@@ -10422,7 +11407,7 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-11-04T10:54:05.112534",
+      "updated_date": "2026-11-14T11:04:58.165337",
       "created_date": "2025-12-24T00:00:00"
     },
     {
@@ -10485,7 +11470,11 @@
         "raw_source_name": "Expert Opinion on Drug Discovery",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7133805831"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -10670,11 +11659,12 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 5.1378,
+      "fwci": 4.843,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.93963741,
+        "value": 0.92743886,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -11070,8 +12060,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 23,
@@ -11103,8 +12093,8 @@
       "related_works": [
         "https://openalex.org/W2919228007",
         "https://openalex.org/W7204684115",
-        "https://openalex.org/W3120545963",
-        "https://openalex.org/W4392288874",
+        "https://openalex.org/W3092232764",
+        "https://openalex.org/W4405602436",
         "https://openalex.org/W7028562361",
         "https://openalex.org/W3046858908",
         "https://openalex.org/W6930981727",
@@ -11571,943 +12561,8 @@
           "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-10-31T12:09:11.096373",
+      "updated_date": "2026-11-14T11:04:58.165337",
       "created_date": "2026-03-06T00:00:00"
-    },
-    {
-      "id": "https://openalex.org/W4280603817",
-      "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
-      "title": "Chemical Composition of the Volatile Oil from Aerial Parts ofRosmarinus officinalisL. Growing in UAE",
-      "display_name": "Chemical Composition of the Volatile Oil from Aerial Parts ofRosmarinus officinalisL. Growing in UAE",
-      "publication_year": 2022,
-      "publication_date": "2022-03-04",
-      "ids": {
-        "openalex": "https://openalex.org/W4280603817",
-        "doi": "https://doi.org/10.1080/0972060x.2022.2072177"
-      },
-      "language": "en",
-      "primary_location": {
-        "id": "doi:10.1080/0972060x.2022.2072177",
-        "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
-        "is_oa": false,
-        "landing_page_url": "https://doi.org/10.1080/0972060x.2022.2072177",
-        "pdf_url": null,
-        "source": {
-          "id": "https://openalex.org/S999813893",
-          "display_name": "Journal of Essential Oil Bearing Plants",
-          "issn_l": "0972-060X",
-          "issn": [
-            "0972-060X",
-            "0976-5026"
-          ],
-          "is_oa": false,
-          "is_in_doaj": false,
-          "is_core": true,
-          "listed_in": [
-            "cwts-core",
-            "dongbi-c",
-            "jufo-1",
-            "norway-1",
-            "poland-70",
-            "russia-white-list-2"
-          ],
-          "host_organization": "https://openalex.org/P4310320547",
-          "host_organization_name": "Taylor & Francis",
-          "host_organization_lineage": [
-            "https://openalex.org/P4310320547",
-            "https://openalex.org/P4310320449"
-          ],
-          "host_organization_lineage_names": [
-            "Taylor & Francis",
-            "Informa"
-          ],
-          "type": "journal"
-        },
-        "license": null,
-        "license_id": null,
-        "version": "publishedVersion",
-        "is_accepted": true,
-        "is_published": true,
-        "raw_source_name": "Journal of Essential Oil Bearing Plants",
-        "raw_type": "journal-article"
-      },
-      "volume": null,
-      "type": "article",
-      "is_traditional": true,
-      "indexed_in": [
-        "crossref"
-      ],
-      "open_access": {
-        "is_oa": false,
-        "oa_status": "closed",
-        "oa_url": null,
-        "any_repository_has_fulltext": false
-      },
-      "authorships": [
-        {
-          "author_position": "first",
-          "author": {
-            "id": "https://openalex.org/A5016367473",
-            "display_name": "Mohammad Hudaib",
-            "orcid": "https://orcid.org/0000-0003-1400-462X",
-            "observed_orcids": [
-              "https://orcid.org/0000-0003-1400-462X"
-            ]
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I114972647",
-              "display_name": "University of Jordan",
-              "ror": "https://ror.org/05k89ew48",
-              "country_code": "JO",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I114972647"
-              ]
-            },
-            {
-              "id": "https://openalex.org/I161913731",
-              "display_name": "Al Ain University",
-              "ror": "https://ror.org/023abrt21",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ],
-          "countries": [
-            "AE",
-            "JO"
-          ],
-          "is_corresponding": true,
-          "raw_author_name": "Mohammad M. Hudaib",
-          "raw_affiliation_strings": [
-            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
-            "School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
-            "2 School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan"
-          ],
-          "raw_orcid": null,
-          "affiliations": [
-            {
-              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            },
-            {
-              "raw_affiliation_string": "School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
-              "institution_ids": [
-                "https://openalex.org/I114972647"
-              ]
-            },
-            {
-              "raw_affiliation_string": "2 School of Pharmacy, The University of Jordan, P.O. Box 11942, Amman, Jordan",
-              "institution_ids": [
-                "https://openalex.org/I114972647"
-              ]
-            }
-          ]
-        },
-        {
-          "author_position": "middle",
-          "author": {
-            "id": "https://openalex.org/A5102914480",
-            "display_name": "Abdallah Abou Hajal",
-            "orcid": "https://orcid.org/0009-0006-1807-2178",
-            "observed_orcids": [
-              "https://orcid.org/0009-0006-1807-2178",
-              "https://orcid.org/0000-0003-4655-1193"
-            ]
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I161913731",
-              "display_name": "Al Ain University",
-              "ror": "https://ror.org/023abrt21",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ],
-          "countries": [
-            "AE"
-          ],
-          "is_corresponding": false,
-          "raw_author_name": "Abdallah F. Abu Hajal",
-          "raw_affiliation_strings": [
-            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE"
-          ],
-          "raw_orcid": null,
-          "affiliations": [
-            {
-              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ]
-        },
-        {
-          "author_position": "last",
-          "author": {
-            "id": "https://openalex.org/A5072660555",
-            "display_name": "Molham Sakkal",
-            "orcid": "https://orcid.org/0000-0001-6081-1284",
-            "observed_orcids": [
-              "https://orcid.org/0000-0001-6081-1284"
-            ]
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I161913731",
-              "display_name": "Al Ain University",
-              "ror": "https://ror.org/023abrt21",
-              "country_code": "AE",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ],
-          "countries": [
-            "AE"
-          ],
-          "is_corresponding": false,
-          "raw_author_name": "Mohammad M. Sakkal",
-          "raw_affiliation_strings": [
-            "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE"
-          ],
-          "raw_orcid": null,
-          "affiliations": [
-            {
-              "raw_affiliation_string": "College of Pharmacy, Al Ain University, P.O Box: 112612, Abu Dhabi, UAE",
-              "institution_ids": [
-                "https://openalex.org/I161913731"
-              ]
-            }
-          ]
-        }
-      ],
-      "institutions": [],
-      "countries_distinct_count": 2,
-      "institutions_distinct_count": 2,
-      "corresponding_author_ids": [
-        "https://openalex.org/A5016367473"
-      ],
-      "corresponding_institution_ids": [
-        "https://openalex.org/I114972647",
-        "https://openalex.org/I161913731"
-      ],
-      "apc_list": null,
-      "apc_paid": null,
-      "fwci": 0.551,
-      "has_fulltext": false,
-      "cited_by_count": 5,
-      "citation_normalized_percentile": {
-        "value": 0.59094594,
-        "is_in_top_1_percent": false,
-        "is_in_top_10_percent": false
-      },
-      "cited_by_percentile_year": {
-        "min": 88,
-        "max": 95
-      },
-      "biblio": {
-        "volume": "25",
-        "issue": "2",
-        "first_page": "282",
-        "last_page": "289"
-      },
-      "is_retracted": false,
-      "is_paratext": false,
-      "is_xpac": false,
-      "primary_topic": {
-        "id": "https://openalex.org/T10225",
-        "display_name": "Essential Oils and Antimicrobial Activity",
-        "score": 0.9990000128746033,
-        "subfield": {
-          "id": "https://openalex.org/subfields/1106",
-          "display_name": "Food Science"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/11",
-          "display_name": "Agricultural and Biological Sciences"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/1",
-          "display_name": "Life Sciences"
-        }
-      },
-      "topics": [
-        {
-          "id": "https://openalex.org/T10225",
-          "display_name": "Essential Oils and Antimicrobial Activity",
-          "score": 0.9990000128746033,
-          "subfield": {
-            "id": "https://openalex.org/subfields/1106",
-            "display_name": "Food Science"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/11",
-            "display_name": "Agricultural and Biological Sciences"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/1",
-            "display_name": "Life Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T11973",
-          "display_name": "Plant chemical constituents analysis",
-          "score": 0.0003000000142492354,
-          "subfield": {
-            "id": "https://openalex.org/subfields/1110",
-            "display_name": "Plant Science"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/11",
-            "display_name": "Agricultural and Biological Sciences"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/1",
-            "display_name": "Life Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T14521",
-          "display_name": "Medicinal Plant Research",
-          "score": 9.999999747378752e-05,
-          "subfield": {
-            "id": "https://openalex.org/subfields/1110",
-            "display_name": "Plant Science"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/11",
-            "display_name": "Agricultural and Biological Sciences"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/1",
-            "display_name": "Life Sciences"
-          }
-        }
-      ],
-      "keywords": [
-        {
-          "id": "https://openalex.org/keywords/rosemary",
-          "display_name": "Rosmarinus officinalis",
-          "score": 0.9990000128746033
-        },
-        {
-          "id": "https://openalex.org/keywords/essential-oil-composition",
-          "display_name": "essential oil composition",
-          "score": 0.7929999828338623
-        },
-        {
-          "id": "https://openalex.org/keywords/monoterpenes",
-          "display_name": "monoterpenes",
-          "score": 0.8629999756813049
-        },
-        {
-          "id": "https://openalex.org/keywords/1-8-cineole",
-          "display_name": "1,8-cineole",
-          "score": 0.9829999804496765
-        },
-        {
-          "id": "https://openalex.org/keywords/chemotypes",
-          "display_name": "chemotypes",
-          "score": 0.9279999732971191
-        },
-        {
-          "id": "https://openalex.org/keywords/isobornyl-acetate",
-          "display_name": "isobornyl acetate",
-          "score": 0.9139999747276306
-        },
-        {
-          "id": "https://openalex.org/keywords/camphor",
-          "display_name": "camphor",
-          "score": 0.9819999933242798
-        },
-        {
-          "id": "https://openalex.org/keywords/alpha-pinene",
-          "display_name": "\u03b1-pinene",
-          "score": 0.9259999990463257
-        },
-        {
-          "id": "https://openalex.org/keywords/camphene",
-          "display_name": "camphene",
-          "score": 0.8939999938011169
-        },
-        {
-          "id": "https://openalex.org/keywords/beta-caryophyllene",
-          "display_name": "\u03b2-caryophyllene",
-          "score": 0.9879999756813049
-        },
-        {
-          "id": "https://openalex.org/keywords/aerial-parts",
-          "display_name": "aerial parts",
-          "score": 0.7400000095367432
-        },
-        {
-          "id": "https://openalex.org/keywords/hydrodistillation",
-          "display_name": "hydrodistillation",
-          "score": 0.7760000228881836
-        }
-      ],
-      "concepts": [
-        {
-          "id": "https://openalex.org/C2777152263",
-          "wikidata": "https://www.wikidata.org/wiki/Q1865680",
-          "display_name": "Rosmarinus",
-          "level": 3,
-          "score": 0.9328308701515198
-        },
-        {
-          "id": "https://openalex.org/C2780697445",
-          "wikidata": "https://www.wikidata.org/wiki/Q181559",
-          "display_name": "Camphor",
-          "level": 2,
-          "score": 0.8935710787773132
-        },
-        {
-          "id": "https://openalex.org/C2780977547",
-          "wikidata": "https://www.wikidata.org/wiki/Q416775",
-          "display_name": "Camphene",
-          "level": 3,
-          "score": 0.8723474740982056
-        },
-        {
-          "id": "https://openalex.org/C2780886089",
-          "wikidata": "https://www.wikidata.org/wiki/Q7079617",
-          "display_name": "Officinalis",
-          "level": 2,
-          "score": 0.8203428387641907
-        },
-        {
-          "id": "https://openalex.org/C2777278459",
-          "wikidata": "https://www.wikidata.org/wiki/Q170885",
-          "display_name": "Essential oil",
-          "level": 2,
-          "score": 0.7342269420623779
-        },
-        {
-          "id": "https://openalex.org/C153784791",
-          "wikidata": "https://www.wikidata.org/wiki/Q2212766",
-          "display_name": "Chemotype",
-          "level": 3,
-          "score": 0.6946747303009033
-        },
-        {
-          "id": "https://openalex.org/C185592680",
-          "wikidata": "https://www.wikidata.org/wiki/Q2329",
-          "display_name": "Chemistry",
-          "level": 0,
-          "score": 0.6156383752822876
-        },
-        {
-          "id": "https://openalex.org/C2776961690",
-          "wikidata": "https://www.wikidata.org/wiki/Q300852",
-          "display_name": "alpha-Pinene",
-          "level": 4,
-          "score": 0.578530490398407
-        },
-        {
-          "id": "https://openalex.org/C40231798",
-          "wikidata": "https://www.wikidata.org/wiki/Q1333743",
-          "display_name": "Composition (language)",
-          "level": 2,
-          "score": 0.4900447130203247
-        },
-        {
-          "id": "https://openalex.org/C149849071",
-          "wikidata": "https://www.wikidata.org/wiki/Q1263816",
-          "display_name": "Chemical composition",
-          "level": 2,
-          "score": 0.4691295325756073
-        },
-        {
-          "id": "https://openalex.org/C59822182",
-          "wikidata": "https://www.wikidata.org/wiki/Q441",
-          "display_name": "Botany",
-          "level": 1,
-          "score": 0.4629076421260834
-        },
-        {
-          "id": "https://openalex.org/C2776134268",
-          "wikidata": "https://www.wikidata.org/wiki/Q278809",
-          "display_name": "Limonene",
-          "level": 3,
-          "score": 0.4416666626930237
-        },
-        {
-          "id": "https://openalex.org/C43617362",
-          "wikidata": "https://www.wikidata.org/wiki/Q170050",
-          "display_name": "Chromatography",
-          "level": 1,
-          "score": 0.2459501028060913
-        },
-        {
-          "id": "https://openalex.org/C178790620",
-          "wikidata": "https://www.wikidata.org/wiki/Q11351",
-          "display_name": "Organic chemistry",
-          "level": 1,
-          "score": 0.18019315600395203
-        },
-        {
-          "id": "https://openalex.org/C86803240",
-          "wikidata": "https://www.wikidata.org/wiki/Q420",
-          "display_name": "Biology",
-          "level": 0,
-          "score": 0.1645430624485016
-        },
-        {
-          "id": "https://openalex.org/C138885662",
-          "wikidata": "https://www.wikidata.org/wiki/Q5891",
-          "display_name": "Philosophy",
-          "level": 0,
-          "score": 0.0
-        },
-        {
-          "id": "https://openalex.org/C41895202",
-          "wikidata": "https://www.wikidata.org/wiki/Q8162",
-          "display_name": "Linguistics",
-          "level": 1,
-          "score": 0.0
-        }
-      ],
-      "mesh": [],
-      "locations_count": 1,
-      "locations": [
-        {
-          "id": "doi:10.1080/0972060x.2022.2072177",
-          "doi": "https://doi.org/10.1080/0972060x.2022.2072177",
-          "is_oa": false,
-          "landing_page_url": "https://doi.org/10.1080/0972060x.2022.2072177",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S999813893",
-            "display_name": "Journal of Essential Oil Bearing Plants",
-            "issn_l": "0972-060X",
-            "issn": [
-              "0972-060X",
-              "0976-5026"
-            ],
-            "is_oa": false,
-            "is_in_doaj": false,
-            "is_core": true,
-            "listed_in": [
-              "cwts-core",
-              "dongbi-c",
-              "jufo-1",
-              "norway-1",
-              "poland-70",
-              "russia-white-list-2"
-            ],
-            "host_organization": "https://openalex.org/P4310320547",
-            "host_organization_name": "Taylor & Francis",
-            "host_organization_lineage": [
-              "https://openalex.org/P4310320547",
-              "https://openalex.org/P4310320449"
-            ],
-            "host_organization_lineage_names": [
-              "Taylor & Francis",
-              "Informa"
-            ],
-            "type": "journal"
-          },
-          "license": null,
-          "license_id": null,
-          "version": "publishedVersion",
-          "is_accepted": true,
-          "is_published": true,
-          "raw_source_name": "Journal of Essential Oil Bearing Plants",
-          "raw_type": "journal-article"
-        }
-      ],
-      "best_oa_location": null,
-      "sustainable_development_goals": [],
-      "study_designs": [],
-      "awards": [],
-      "funders": [],
-      "has_content": {
-        "grobid_xml": false,
-        "pdf": false
-      },
-      "content_urls": null,
-      "referenced_works_count": 22,
-      "referenced_works": [
-        "https://openalex.org/W1532088222",
-        "https://openalex.org/W1551117872",
-        "https://openalex.org/W1969281051",
-        "https://openalex.org/W1984601608",
-        "https://openalex.org/W1987370786",
-        "https://openalex.org/W1993851201",
-        "https://openalex.org/W2009672785",
-        "https://openalex.org/W2040435198",
-        "https://openalex.org/W2046766720",
-        "https://openalex.org/W2054151437",
-        "https://openalex.org/W2084826641",
-        "https://openalex.org/W2120166207",
-        "https://openalex.org/W2268288619",
-        "https://openalex.org/W2312825057",
-        "https://openalex.org/W2330078229",
-        "https://openalex.org/W2331225135",
-        "https://openalex.org/W2795985192",
-        "https://openalex.org/W2920944064",
-        "https://openalex.org/W3013599347",
-        "https://openalex.org/W3036572785",
-        "https://openalex.org/W3046112161",
-        "https://openalex.org/W4294328079"
-      ],
-      "related_works": [
-        "https://openalex.org/W2268288619",
-        "https://openalex.org/W2184129684",
-        "https://openalex.org/W1997433247",
-        "https://openalex.org/W4282590805",
-        "https://openalex.org/W3114538320",
-        "https://openalex.org/W3010653150",
-        "https://openalex.org/W2374368702",
-        "https://openalex.org/W2009673402",
-        "https://openalex.org/W1993771731",
-        "https://openalex.org/W1981446701"
-      ],
-      "abstract_inverted_index": {
-        "In": [
-          0
-        ],
-        "the": [
-          1,
-          4,
-          8,
-          42,
-          59,
-          78,
-          89,
-          98,
-          110,
-          122,
-          126
-        ],
-        "present": [
-          2
-        ],
-        "study,": [
-          3
-        ],
-        "chemical": [
-          5
-        ],
-        "composition": [
-          6
-        ],
-        "of": [
-          7,
-          15,
-          26,
-          38,
-          86,
-          121,
-          125
-        ],
-        "volatile": [
-          9,
-          123
-        ],
-        "oil": [
-          10,
-          32,
-          81,
-          91,
-          124
-        ],
-        "hydrodistilled": [
-          11
-        ],
-        "from": [
-          12
-        ],
-        "aerial": [
-          13
-        ],
-        "parts": [
-          14
-        ],
-        "Rosmarinus": [
-          16
-        ],
-        "officinalis": [
-          17
-        ],
-        "L.,": [
-          18
-        ],
-        "growing": [
-          19,
-          106
-        ],
-        "in": [
-          20,
-          88,
-          107
-        ],
-        "UAE,": [
-          21
-        ],
-        "was": [
-          22,
-          33
-        ],
-        "determined": [
-          23
-        ],
-        "by": [
-          24,
-          35
-        ],
-        "means": [
-          25
-        ],
-        "GC/FID": [
-          27
-        ],
-        "and": [
-          28,
-          55,
-          71
-        ],
-        "GC/MS": [
-          29
-        ],
-        "analyses.": [
-          30
-        ],
-        "The": [
-          31,
-          83
-        ],
-        "characterised": [
-          34
-        ],
-        "dominant": [
-          36
-        ],
-        "concentration": [
-          37
-        ],
-        "monoterpenes": [
-          39
-        ],
-        "(91.7%),": [
-          40
-        ],
-        "particularly": [
-          41
-        ],
-        "oxygenated": [
-          43
-        ],
-        "fraction": [
-          44
-        ],
-        "(64.4%),": [
-          45
-        ],
-        "with": [
-          46,
-          104
-        ],
-        "1,8-cineole": [
-          47,
-          87,
-          95
-        ],
-        "(25.5%),": [
-          48
-        ],
-        "a": [
-          49,
-          94,
-          114
-        ],
-        "well-known": [
-          50
-        ],
-        "compound": [
-          51
-        ],
-        "for": [
-          52
-        ],
-        "its": [
-          53
-        ],
-        "medicinal": [
-          54
-        ],
-        "pharmaceutical": [
-          56
-        ],
-        "values,": [
-          57
-        ],
-        "as": [
-          58
-        ],
-        "principal": [
-          60
-        ],
-        "component.": [
-          61
-        ],
-        "Isobornyl": [
-          62
-        ],
-        "acetate": [
-          63
-        ],
-        "(15.7%),": [
-          64
-        ],
-        "camphor": [
-          65
-        ],
-        "(12.2%),": [
-          66
-        ],
-        "\u03b1-pinene": [
-          67
-        ],
-        "(11.7%),": [
-          68
-        ],
-        "camphene": [
-          69
-        ],
-        "(9.0%),": [
-          70
-        ],
-        "\u03b2-caryophyllene": [
-          72
-        ],
-        "(4.9%)": [
-          73
-        ],
-        "were": [
-          74
-        ],
-        "also": [
-          75
-        ],
-        "identified": [
-          76
-        ],
-        "among": [
-          77
-        ],
-        "other": [
-          79,
-          108
-        ],
-        "major": [
-          80
-        ],
-        "constituents.": [
-          82
-        ],
-        "predominant": [
-          84
-        ],
-        "level": [
-          85
-        ],
-        "analysed": [
-          90
-        ],
-        "could": [
-          92
-        ],
-        "assign": [
-          93
-        ],
-        "chemotype": [
-          96
-        ],
-        "to": [
-          97
-        ],
-        "studied": [
-          99
-        ],
-        "Emirati": [
-          100
-        ],
-        "rosemary": [
-          101
-        ],
-        "species.": [
-          102,
-          128
-        ],
-        "Compared": [
-          103
-        ],
-        "plants": [
-          105
-        ],
-        "countries,": [
-          109
-        ],
-        "obtained": [
-          111
-        ],
-        "results": [
-          112
-        ],
-        "revealed": [
-          113
-        ],
-        "characteristic": [
-          115
-        ],
-        "-": [
-          116,
-          119
-        ],
-        "mainly": [
-          117
-        ],
-        "quantitative": [
-          118
-        ],
-        "profile": [
-          120
-        ],
-        "investigated": [
-          127
-        ]
-      },
-      "counts_by_year": [
-        {
-          "year": 2025,
-          "cited_by_count": 2
-        },
-        {
-          "year": 2024,
-          "cited_by_count": 1
-        },
-        {
-          "year": 2023,
-          "cited_by_count": 1
-        },
-        {
-          "year": 2022,
-          "cited_by_count": 1
-        }
-      ],
-      "updated_date": "2026-09-29T14:09:16.559479",
-      "created_date": "2022-05-22T00:00:00"
     },
     {
       "id": "https://openalex.org/W4387366257",
@@ -12567,7 +12622,11 @@
         "raw_source_name": "Pharmacy Practice",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4387366257"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -13240,11 +13299,12 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.3654,
+      "fwci": 0.3516,
+      "is_authors_truncated": false,
       "has_fulltext": true,
       "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.59133409,
+        "value": 0.5373917,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -13648,8 +13708,8 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.9940000176429749,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -13662,8 +13722,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4387366257.pdf",
@@ -14530,7 +14590,11 @@
         "raw_source_name": "Journal of Medical Economics",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W4392081340"
+      ],
+      "child_works_count": 0,
       "type": "editorial",
       "is_traditional": true,
       "indexed_in": [
@@ -14680,6 +14744,7 @@
       "apc_list": null,
       "apc_paid": null,
       "fwci": null,
+      "is_authors_truncated": false,
       "has_fulltext": true,
       "cited_by_count": 22,
       "citation_normalized_percentile": null,
@@ -14696,7 +14761,7 @@
       "primary_topic": {
         "id": "https://openalex.org/T10211",
         "display_name": "Computational Drug Discovery Methods",
-        "score": 0.9994999766349792,
+        "score": 0.9965999722480774,
         "subfield": {
           "id": "https://openalex.org/subfields/3002",
           "display_name": "Drug Discovery"
@@ -14714,7 +14779,7 @@
         {
           "id": "https://openalex.org/T10211",
           "display_name": "Computational Drug Discovery Methods",
-          "score": 0.9994999766349792,
+          "score": 0.9965999722480774,
           "subfield": {
             "id": "https://openalex.org/subfields/3002",
             "display_name": "Drug Discovery"
@@ -14731,7 +14796,7 @@
         {
           "id": "https://openalex.org/T11636",
           "display_name": "Artificial Intelligence in Healthcare and Education",
-          "score": 9.999999747378752e-05,
+          "score": 0.0015999999595806003,
           "subfield": {
             "id": "https://openalex.org/subfields/2718",
             "display_name": "Health Informatics"
@@ -14746,16 +14811,16 @@
           }
         },
         {
-          "id": "https://openalex.org/T11948",
-          "display_name": "Machine Learning in Materials Science",
-          "score": 9.999999747378752e-05,
+          "id": "https://openalex.org/T13904",
+          "display_name": "Artificial Intelligence Applications",
+          "score": 0.0006000000284984708,
           "subfield": {
-            "id": "https://openalex.org/subfields/2505",
-            "display_name": "Materials Chemistry"
+            "id": "https://openalex.org/subfields/1702",
+            "display_name": "Artificial Intelligence"
           },
           "field": {
-            "id": "https://openalex.org/fields/25",
-            "display_name": "Materials Science"
+            "id": "https://openalex.org/fields/17",
+            "display_name": "Computer Science"
           },
           "domain": {
             "id": "https://openalex.org/domains/3",
@@ -14767,22 +14832,22 @@
         {
           "id": "https://openalex.org/keywords/artificial-intelligence",
           "display_name": "artificial intelligence",
-          "score": 0.996999979019165
+          "score": 0.9990000128746033
         },
         {
           "id": "https://openalex.org/keywords/drug-discovery",
           "display_name": "drug discovery",
-          "score": 0.9950000047683716
+          "score": 0.9890000224113464
         },
         {
           "id": "https://openalex.org/keywords/machine-learning",
           "display_name": "machine learning",
-          "score": 0.6349999904632568
+          "score": 0.7630000114440918
         },
         {
-          "id": "https://openalex.org/keywords/drug-development",
-          "display_name": "drug development",
-          "score": 0.5260000228881836
+          "id": "https://openalex.org/keywords/pharmaceutical-research",
+          "display_name": "pharmaceutical research",
+          "score": 0.4830000102519989
         }
       ],
       "concepts": [
@@ -14991,19 +15056,13 @@
         "raw_source_name": "Journal of Medical Economics",
         "raw_type": "journal-article"
       },
-      "sustainable_development_goals": [
-        {
-          "id": "https://metadata.un.org/sdg/3",
-          "score": 0.5683000087738037,
-          "display_name": "Good health and well-being"
-        }
-      ],
+      "sustainable_development_goals": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4392081340.pdf",
@@ -15048,92 +15107,7 @@
         "https://openalex.org/W4409178409",
         "https://openalex.org/W7129055977"
       ],
-      "abstract_inverted_index": {
-        "Drug": [
-          0
-        ],
-        "discovery": [
-          1
-        ],
-        "is": [
-          2
-        ],
-        "the": [
-          3
-        ],
-        "process": [
-          4
-        ],
-        "of": [
-          5,
-          28
-        ],
-        "identifying": [
-          6
-        ],
-        "and": [
-          7,
-          26
-        ],
-        "evaluating": [
-          8
-        ],
-        "molecules": [
-          9
-        ],
-        "for": [
-          10
-        ],
-        "their": [
-          11
-        ],
-        "ability": [
-          12
-        ],
-        "to": [
-          13,
-          19
-        ],
-        "safely": [
-          14
-        ],
-        "modulate": [
-          15
-        ],
-        "disease,": [
-          16
-        ],
-        "ultimately": [
-          17
-        ],
-        "aiming": [
-          18
-        ],
-        "make": [
-          20
-        ],
-        "medicines": [
-          21
-        ],
-        "that": [
-          22
-        ],
-        "enhance": [
-          23
-        ],
-        "patient": [
-          24
-        ],
-        "health": [
-          25
-        ],
-        "quality": [
-          27
-        ],
-        "li...": [
-          29
-        ]
-      },
+      "abstract_inverted_index": null,
       "counts_by_year": [
         {
           "year": 2026,
@@ -15148,7 +15122,7 @@
           "cited_by_count": 3
         }
       ],
-      "updated_date": "2026-11-04T10:54:05.112534",
+      "updated_date": "2026-11-14T11:04:58.165337",
       "created_date": "2024-02-23T00:00:00"
     },
     {
@@ -15211,7 +15185,11 @@
         "raw_source_name": "Toxicology Mechanisms and Methods",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7128304545"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -15333,10 +15311,11 @@
       "apc_list": null,
       "apc_paid": null,
       "fwci": 0.0,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.05711068,
+        "value": 0.0,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -15689,8 +15668,8 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8371999859809875,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -15698,17 +15677,19 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
-      "referenced_works_count": 22,
+      "referenced_works_count": 24,
       "referenced_works": [
         "https://openalex.org/W1975147762",
         "https://openalex.org/W1991833417",
         "https://openalex.org/W2034549041",
         "https://openalex.org/W2066273100",
+        "https://openalex.org/W2090467197",
         "https://openalex.org/W2091439417",
+        "https://openalex.org/W2135732933",
         "https://openalex.org/W2802200505",
         "https://openalex.org/W2922901737",
         "https://openalex.org/W3011307848",
@@ -16218,7 +16199,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-11-04T10:54:05.112534",
+      "updated_date": "2026-11-10T11:39:43.021295",
       "created_date": "2026-02-09T00:00:00"
     },
     {
@@ -16276,7 +16257,11 @@
         "raw_source_name": "Computational Toxicology",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7163323193"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -16387,10 +16372,11 @@
       },
       "apc_paid": null,
       "fwci": 0.0,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.3585616,
+        "value": 0.0,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -16699,8 +16685,8 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.8560000061988831,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -16708,8 +16694,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 105,
@@ -16864,7 +16850,11 @@
         "raw_source_name": "TCC Africa",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7168428426"
+      ],
+      "child_works_count": 0,
       "type": "article",
       "is_traditional": true,
       "indexed_in": [
@@ -16974,10 +16964,11 @@
       "apc_list": null,
       "apc_paid": null,
       "fwci": 0.0,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.42941701,
+        "value": 0.0,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -17209,8 +17200,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -17322,7 +17313,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-16T09:59:22.235173",
+      "updated_date": "2026-11-10T11:39:43.021295",
       "created_date": "2026-07-16T00:00:00"
     },
     {
@@ -17385,7 +17376,11 @@
         "raw_source_name": "Journal of Computer-Aided Molecular Design",
         "raw_type": "journal-article"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7214653503"
+      ],
+      "child_works_count": 0,
       "type": "review",
       "is_traditional": true,
       "indexed_in": [
@@ -17464,10 +17459,11 @@
       },
       "apc_paid": null,
       "fwci": 0.0,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.32635253,
+        "value": 0.0,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -17957,8 +17953,8 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/3",
           "score": 0.4043000042438507,
+          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being"
         }
       ],
@@ -17966,8 +17962,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 139,
@@ -18172,7 +18168,11 @@
         "raw_source_name": null,
         "raw_type": "Software"
       },
-      "volume": null,
+      "parent_works": [],
+      "lineage": [
+        "https://openalex.org/W7223335568"
+      ],
+      "child_works_count": 0,
       "type": "software",
       "is_traditional": false,
       "indexed_in": [
@@ -18239,6 +18239,7 @@
       "apc_list": null,
       "apc_paid": null,
       "fwci": null,
+      "is_authors_truncated": false,
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": null,
@@ -18594,8 +18595,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,

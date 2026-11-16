@@ -22,7 +22,7 @@
     "authors": "Z Jaber Kharaba, M M. AlAhmad, A Ahmed Elnour, et al",
     "venue": "Saudi Pharmaceutical Journal, 2023",
     "year": "2023",
-    "cited_by": 15,
+    "cited_by": 16,
     "link": "https://doi.org/10.1016/j.jsps.2023.01.004",
     "author_id": "1I8SvsQAAAAJ"
   },
@@ -36,21 +36,21 @@
     "author_id": "1I8SvsQAAAAJ"
   },
   {
+    "title": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter",
+    "authors": "A Abou Hajal, R A. Bryce, B Ben Amor, et al",
+    "venue": "Journal of Chemical Information and Modeling, 2024",
+    "year": "2024",
+    "cited_by": 13,
+    "link": "https://doi.org/10.1021/acs.jcim.4c00363",
+    "author_id": "1I8SvsQAAAAJ"
+  },
+  {
     "title": "Language models for drug–drug interactions: current applications, pitfalls, and future directions",
     "authors": "A Z. Al Meslamani, A Abou Hajal",
     "venue": "Expert Opinion on Drug Metabolism & Toxicology, 2025",
     "year": "2025",
     "cited_by": 14,
     "link": "https://doi.org/10.1080/17425255.2025.2551724",
-    "author_id": "1I8SvsQAAAAJ"
-  },
-  {
-    "title": "Boosting the Accuracy and Chemical Space Coverage of the Detection of Small Colloidal Aggregating Molecules Using the BAD Molecule Filter",
-    "authors": "A Abou Hajal, R A. Bryce, B Ben Amor, et al",
-    "venue": "Journal of Chemical Information and Modeling, 2024",
-    "year": "2024",
-    "cited_by": 12,
-    "link": "https://doi.org/10.1021/acs.jcim.4c00363",
     "author_id": "1I8SvsQAAAAJ"
   },
   {
@@ -67,7 +67,7 @@
     "authors": "A Ahmed Elnour, N Sarfaraz Raja, F Abdi, et al",
     "venue": "Pharmacy Practice, 2022",
     "year": "2022",
-    "cited_by": 9,
+    "cited_by": 8,
     "link": "https://doi.org/10.18549/pharmpract.2022.3.2713",
     "author_id": "1I8SvsQAAAAJ"
   },
