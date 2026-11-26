@@ -1,6 +1,6 @@
 {
   "total_documents": 17,
-  "total_citations": 138,
+  "total_citations": 139,
   "h_index": 8,
   "author_id": "1I8SvsQAAAAJ",
   "source": "google_scholar totals, open indexes per paper",
@@ -22,11 +22,11 @@
     "excluded_non_papers": 0,
     "excluded_by_list": 1,
     "google_scholar": {
-      "citations": 138,
+      "citations": 139,
       "h_index": 8,
       "i10_index": 7,
       "articles": 16,
-      "fetched_at": "2026-11-23T06:12:10Z"
+      "fetched_at": "2026-11-26T06:12:06Z"
     }
   }
 }
